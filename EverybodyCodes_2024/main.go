@@ -6,6 +6,8 @@ import (
 )
 
 func main() {
-	// Day 01
-	fmt.Printf("Final result Day 01 part 1: %d\n", quest01.Executepart1())
+	// Quest 01
+	fmt.Printf("Final result Quest 01 part 1: %d\n", quest01.Executepart1())
+	fmt.Printf("Final result Quest 01 part 2: %d\n", quest01.Executepart2())
+	fmt.Printf("Final result Quest 01 part 3: %d\n", quest01.Executepart3())
 }

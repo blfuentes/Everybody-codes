@@ -8,6 +8,7 @@
 
 # Event input
 day*.txt
+quest*.txt
 
 # User-specific files
 *.rsuser
