@@ -29,7 +29,7 @@ func ReadFileAsLines(path string) ([]string, error) {
 	}
 	fileContent := string(file)
 
-	return strings.Split(fileContent, "\n"), err
+	return strings.Split(fileContent, "\r\n"), err
 }
 
 type Int64Array []int64
