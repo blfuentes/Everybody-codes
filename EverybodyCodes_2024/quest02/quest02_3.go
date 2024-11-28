@@ -6,9 +6,9 @@ import (
 	"strings"
 )
 
-func Executepart2() int {
-	// var fileName string = "./quest02/test_input_02.txt"
-	var fileName string = "./quest02/quest02_2.txt"
+func Executepart3() int {
+	// var fileName string = "./quest02/test_input_03.txt"
+	var fileName string = "./quest02/quest02_3.txt"
 	var result int = 0
 	if fileContent, err := utilities.ReadFileAsLines(fileName); err == nil {
 		fmt.Printf("%s\n", fileContent[0])

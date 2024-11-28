@@ -32,6 +32,25 @@ func ReadFileAsLines(path string) ([]string, error) {
 	return strings.Split(fileContent, "\r\n"), err
 }
 
+func ReverseString(s string) string {
+	runes := []rune(s)
+	size := len(runes)
+	for i, j := 0, size-1; i < size>>1; i, j = i+1, j-1 {
+		runes[i], runes[j] = runes[j], runes[i]
+	}
+	return string(runes)
+}
+
+// Function to check if an array contains an element
+func Contains[T comparable](arr []T, target T) bool {
+	for _, value := range arr {
+		if value == target {
+			return true
+		}
+	}
+	return false
+}
+
 type Int64Array []int64
 
 func (a Int64Array) Len() int           { return len(a) }
