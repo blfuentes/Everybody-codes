@@ -76,8 +76,8 @@ func calculateDigs2(miningmap *[][]int) int {
 }
 
 func Executepart2() int {
-	var fileName string = "./quest03/test_input_01.txt"
-	// var fileName string = "./quest03/quest03_2.txt"
+	// var fileName string = "./quest03/test_input_01.txt"
+	var fileName string = "./quest03/quest03_2.txt"
 	var result int = 0
 	var miningmap [][]int
 	if fileContent, err := utilities.ReadFileAsLines(fileName); err == nil {
@@ -94,14 +94,14 @@ func Executepart2() int {
 			miningmap = append(miningmap, row)
 		}
 
-		fmt.Println("End state")
-		printMap2(&miningmap)
+		// fmt.Println("End state")
+		// printMap2(&miningmap)
 
 		calculateHeight2(true, 1, &miningmap)
 
 	}
 
-	printMap2(&miningmap)
+	// printMap2(&miningmap)
 	result = calculateDigs2(&miningmap)
 	return result
 }

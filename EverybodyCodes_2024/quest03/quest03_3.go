@@ -149,7 +149,7 @@ func Executepart3() int {
 
 	}
 
-	printMap3(&miningmap)
+	// printMap3(&miningmap)
 	// printMatrixWithColors(miningmap)
 	result = calculateDigs3(&miningmap)
 	return result

@@ -2,7 +2,6 @@ package quest02
 
 import (
 	"everybodycodes_2024/utilities"
-	"fmt"
 	"strings"
 )
 
@@ -11,7 +10,7 @@ func Executepart2() int {
 	var fileName string = "./quest02/quest02_2.txt"
 	var result int = 0
 	if fileContent, err := utilities.ReadFileAsLines(fileName); err == nil {
-		fmt.Printf("%s\n", fileContent[0])
+		// fmt.Printf("%s\n", fileContent[0])
 		parts := strings.Split(strings.Split(fileContent[0], ":")[1], ",")
 		mappings := make(map[int][]int)
 		for lineIdx := 2; lineIdx < len(fileContent); lineIdx++ {

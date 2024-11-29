@@ -94,14 +94,14 @@ func Executepart1() int {
 			miningmap = append(miningmap, row)
 		}
 
-		fmt.Println("End state")
-		printMap(&miningmap)
+		// fmt.Println("End state")
+		// printMap(&miningmap)
 
 		calculateHeight(true, 1, &miningmap)
 
 	}
 
-	printMap(&miningmap)
+	// printMap(&miningmap)
 	result = calculateDigs(&miningmap)
 	return result
 }
