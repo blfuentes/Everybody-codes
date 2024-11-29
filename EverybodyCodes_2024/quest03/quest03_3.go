@@ -51,51 +51,53 @@ func calculateHeight3(repeat bool, level int, miningmap *[][]int) {
 		doRepeat := false
 		for rowIdx := 0; rowIdx < maxRows; rowIdx++ {
 			for colIdx := 0; colIdx < maxCols; colIdx++ {
-				// up
-				addUp := false
-				if canCheck3(rowIdx-1, colIdx, maxRows, maxCols) {
-					addUp = (*miningmap)[rowIdx-1][colIdx] >= level
-				}
-				// right
-				addRight := false
-				if canCheck3(rowIdx, colIdx+1, maxRows, maxCols) {
-					addRight = (*miningmap)[rowIdx][colIdx+1] >= level
-				}
-				// left
-				addLeft := false
-				if canCheck3(rowIdx, colIdx-1, maxRows, maxCols) {
-					addLeft = (*miningmap)[rowIdx][colIdx-1] >= level
-				}
-				// down
-				addDown := false
-				if canCheck3(rowIdx+1, colIdx, maxRows, maxCols) {
-					addDown = (*miningmap)[rowIdx+1][colIdx] >= level
-				}
-				// top-left
-				addTopLeft := false
-				if canCheck3(rowIdx-1, colIdx-1, maxRows, maxCols) {
-					addTopLeft = (*miningmap)[rowIdx-1][colIdx-1] >= level
-				}
-				// top-right
-				addTopRight := false
-				if canCheck3(rowIdx-1, colIdx+1, maxRows, maxCols) {
-					addTopRight = (*miningmap)[rowIdx-1][colIdx+1] >= level
-				}
-				// down-left
-				addDownLeft := false
-				if canCheck3(rowIdx+1, colIdx-1, maxRows, maxCols) {
-					addDownLeft = (*miningmap)[rowIdx+1][colIdx-1] >= level
-				}
-				// down-right
-				addDownRight := false
-				if canCheck3(rowIdx+1, colIdx+1, maxRows, maxCols) {
-					addDownRight = (*miningmap)[rowIdx+1][colIdx+1] >= level
-				}
+				if (*miningmap)[rowIdx][colIdx] > 0 {
+					// up
+					addUp := false
+					if canCheck3(rowIdx-1, colIdx, maxRows, maxCols) {
+						addUp = (*miningmap)[rowIdx-1][colIdx] >= level
+					}
+					// right
+					addRight := false
+					if canCheck3(rowIdx, colIdx+1, maxRows, maxCols) {
+						addRight = (*miningmap)[rowIdx][colIdx+1] >= level
+					}
+					// left
+					addLeft := false
+					if canCheck3(rowIdx, colIdx-1, maxRows, maxCols) {
+						addLeft = (*miningmap)[rowIdx][colIdx-1] >= level
+					}
+					// down
+					addDown := false
+					if canCheck3(rowIdx+1, colIdx, maxRows, maxCols) {
+						addDown = (*miningmap)[rowIdx+1][colIdx] >= level
+					}
+					// top-left
+					addTopLeft := false
+					if canCheck3(rowIdx-1, colIdx-1, maxRows, maxCols) {
+						addTopLeft = (*miningmap)[rowIdx-1][colIdx-1] >= level
+					}
+					// top-right
+					addTopRight := false
+					if canCheck3(rowIdx-1, colIdx+1, maxRows, maxCols) {
+						addTopRight = (*miningmap)[rowIdx-1][colIdx+1] >= level
+					}
+					// down-left
+					addDownLeft := false
+					if canCheck3(rowIdx+1, colIdx-1, maxRows, maxCols) {
+						addDownLeft = (*miningmap)[rowIdx+1][colIdx-1] >= level
+					}
+					// down-right
+					addDownRight := false
+					if canCheck3(rowIdx+1, colIdx+1, maxRows, maxCols) {
+						addDownRight = (*miningmap)[rowIdx+1][colIdx+1] >= level
+					}
 
-				if addUp && addRight && addLeft && addDown &&
-					addTopLeft && addTopRight && addDownLeft && addDownRight {
-					doRepeat = true
-					(*miningmap)[rowIdx][colIdx] += 1
+					if addUp && addRight && addLeft && addDown &&
+						addTopLeft && addTopRight && addDownLeft && addDownRight {
+						doRepeat = true
+						(*miningmap)[rowIdx][colIdx] += 1
+					}
 				}
 			}
 		}
@@ -148,7 +150,7 @@ func Executepart3() int {
 	}
 
 	printMap3(&miningmap)
-	printMatrixWithColors(miningmap)
+	// printMatrixWithColors(miningmap)
 	result = calculateDigs3(&miningmap)
 	return result
 }
