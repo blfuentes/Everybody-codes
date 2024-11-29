@@ -3,6 +3,7 @@ package main
 import (
 	"everybodycodes_2024/quest01"
 	"everybodycodes_2024/quest02"
+	"everybodycodes_2024/quest03"
 	"fmt"
 )
 
@@ -15,4 +16,8 @@ func main() {
 	fmt.Printf("Final result Quest 02 part 1: %d\n", quest02.Executepart1())
 	fmt.Printf("Final result Quest 02 part 2: %d\n", quest02.Executepart2())
 	fmt.Printf("Final result Quest 02 part 3: %d\n", quest02.Executepart3())
+	// Quest 03
+	fmt.Printf("Final result Quest 03 part 1: %d\n", quest03.Executepart1())
+	fmt.Printf("Final result Quest 03 part 2: %d\n", quest03.Executepart2())
+	fmt.Printf("Final result Quest 03 part 3: %d\n", quest03.Executepart3())
 }
