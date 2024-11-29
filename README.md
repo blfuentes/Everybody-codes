@@ -5,19 +5,19 @@ https://everybody.codes/
 🐔 = 3 parts
 🐥 = 2 parts
 🐣 = 1 part
-- 2024: 🐔🐔🐥 (8/60)
+- 2024: 🐔🐔🐔 (9/60)
 
 ### 2024
 
 [https://everybody.codes/event/2024](https://everybody.codes/event/2024/quests)
 
-(2,6/20)
+(3/20)
 
 |Day      | Part 1 | Part 2 | Part 3 |
 |---------|----|----|----|
 | Quest 1   | 🐤 [Go](./EverybodyCodes_2024/quest01/quest01_1.go)| 🐤 [Go](./EverybodyCodes_2024/quest01/quest01_2.go)| 🐤 [Go](./EverybodyCodes_2024/quest01/quest01_3.go)|
 | Quest 2   | 🐤 [Go](./EverybodyCodes_2024/quest02/quest02_1.go)| 🐤 [Go](./EverybodyCodes_2024/quest02/quest02_2.go) | 🐤 [Go](./EverybodyCodes_2024/quest02/quest02_3.go) |
-| Quest 3   | 🐤 [Go](./EverybodyCodes_2024/quest03/quest03_1.go)| 🐤 [Go](./EverybodyCodes_2024/quest03/quest03_2.go) | ❌ |
+| Quest 3   | 🐤 [Go](./EverybodyCodes_2024/quest03/quest03_1.go)| 🐤 [Go](./EverybodyCodes_2024/quest03/quest03_2.go) | 🐤 [Go](./EverybodyCodes_2024/quest03/quest03_3.go) |
 | Quest 4   | ❌  | ❌ | ❌ |
 | Quest 5   | ❌  | ❌ | ❌ |
 | Quest 6   | ❌  | ❌ | ❌ |
