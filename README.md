@@ -5,20 +5,20 @@ https://everybody.codes/
 🐔 = 3 parts
 🐥 = 2 parts
 🐣 = 1 part
-- 2024: 🐔🐔🐔 (9/60)
+- 2024: 🐔🐔🐔🐔 (12/60)
 
 ### 2024
 
 [https://everybody.codes/event/2024](https://everybody.codes/event/2024/quests)
 
-(3/20)
+(4/20)
 
 |Day      | Part 1 | Part 2 | Part 3 |
 |---------|----|----|----|
-| Quest 1   | 🐤 [Go](./EverybodyCodes_2024/quest01/quest01_1.go)| 🐤 [Go](./EverybodyCodes_2024/quest01/quest01_2.go)| 🐤 [Go](./EverybodyCodes_2024/quest01/quest01_3.go)|
-| Quest 2   | 🐤 [Go](./EverybodyCodes_2024/quest02/quest02_1.go)| 🐤 [Go](./EverybodyCodes_2024/quest02/quest02_2.go) | 🐤 [Go](./EverybodyCodes_2024/quest02/quest02_3.go) |
-| Quest 3   | 🐤 [Go](./EverybodyCodes_2024/quest03/quest03_1.go)| 🐤 [Go](./EverybodyCodes_2024/quest03/quest03_2.go) | 🐤 [Go](./EverybodyCodes_2024/quest03/quest03_3.go) |
-| Quest 4   | ❌  | ❌ | ❌ |
+| Quest 1   | 🐤 [Go](./EverybodyCodes_2024/quest01/quest01_1.go) | 🐤 [Go](./EverybodyCodes_2024/quest01/quest01_2.go) | 🐤 [Go](./EverybodyCodes_2024/quest01/quest01_3.go) |
+| Quest 2   | 🐤 [Go](./EverybodyCodes_2024/quest02/quest02_1.go) | 🐤 [Go](./EverybodyCodes_2024/quest02/quest02_2.go) | 🐤 [Go](./EverybodyCodes_2024/quest02/quest02_3.go) |
+| Quest 3   | 🐤 [Go](./EverybodyCodes_2024/quest03/quest03_1.go) | 🐤 [Go](./EverybodyCodes_2024/quest03/quest03_2.go) | 🐤 [Go](./EverybodyCodes_2024/quest03/quest03_3.go) |
+| Quest 4   | 🐤 [Go](./EverybodyCodes_2024/quest04/quest04_1.go) | 🐤 [Go](./EverybodyCodes_2024/quest04/quest04_2.go) | 🐤 [Go](./EverybodyCodes_2024/quest04/quest04_3.go) |
 | Quest 5   | ❌  | ❌ | ❌ |
 | Quest 6   | ❌  | ❌ | ❌ |
 | Quest 7   | ❌  | ❌ | ❌ |
