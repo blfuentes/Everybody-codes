@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"os"
 	"strings"
+
+	"github.com/fatih/color"
 )
 
 func ReadFileAsText(path string) (string, error) {
@@ -49,6 +51,43 @@ func Contains[T comparable](arr []T, target T) bool {
 		}
 	}
 	return false
+}
+
+func PrintMatrix(matrix *[][]int) {
+	for rowIdx := 0; rowIdx < len(*matrix); rowIdx++ {
+		for colIdx := 0; colIdx < len((*matrix)[rowIdx]); colIdx++ {
+			fmt.Printf("%d", (*matrix)[rowIdx][colIdx])
+		}
+		fmt.Println()
+	}
+}
+
+func PrintMatrixWithColors(matrix [][]int) {
+	colors := []func(a ...interface{}) string{
+		color.New(color.BgBlack).SprintFunc(),
+		color.New(color.BgBlue).SprintFunc(),
+		color.New(color.BgGreen).SprintFunc(),
+		color.New(color.BgHiMagenta).SprintFunc(),
+		color.New(color.BgHiRed).SprintFunc(),
+		color.New(color.BgHiWhite).SprintFunc(),
+		color.New(color.FgBlue).SprintFunc(),
+		color.New(color.BgHiYellow).SprintFunc(),
+		color.New(color.FgGreen).SprintFunc(),
+		color.New(color.BgBlack).SprintFunc(),
+	}
+
+	for rowIdx, row := range matrix {
+		for colIdx, value := range row {
+			colorIdx := matrix[rowIdx][colIdx]
+			coloredValue := colors[colorIdx](value)
+			fmt.Print(coloredValue, " ")
+		}
+		fmt.Println()
+	}
+}
+
+func IsInBoundaries(row, col, maxrows, maxcols int) bool {
+	return row >= 0 && row < maxrows && col >= 0 && col < maxcols
 }
 
 type Int64Array []int64
