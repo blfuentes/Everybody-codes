@@ -4,46 +4,6 @@ import (
 	"everybodycodes_2024/utilities"
 )
 
-func calculateHeight(repeat bool, level int, miningmap *[][]int) {
-	if repeat {
-		maxRows := len(*miningmap)
-		maxCols := len((*miningmap)[0])
-		doRepeat := false
-		for rowIdx := 0; rowIdx < maxRows; rowIdx++ {
-			for colIdx := 0; colIdx < maxCols; colIdx++ {
-				// up
-				addUp := false
-				if utilities.IsInBoundaries(rowIdx-1, colIdx, maxRows, maxCols) {
-					addUp = (*miningmap)[rowIdx-1][colIdx] >= level
-				}
-				// right
-				addRight := false
-				if utilities.IsInBoundaries(rowIdx, colIdx+1, maxRows, maxCols) {
-					addRight = (*miningmap)[rowIdx][colIdx+1] >= level
-				}
-				// left
-				addLeft := false
-				if utilities.IsInBoundaries(rowIdx, colIdx-1, maxRows, maxCols) {
-					addLeft = (*miningmap)[rowIdx][colIdx-1] >= level
-				}
-				// down
-				addDown := false
-				if utilities.IsInBoundaries(rowIdx+1, colIdx, maxRows, maxCols) {
-					addDown = (*miningmap)[rowIdx+1][colIdx] >= level
-				}
-
-				if addUp && addRight && addLeft && addDown {
-					doRepeat = true
-					(*miningmap)[rowIdx][colIdx] += 1
-				}
-			}
-		}
-		if doRepeat {
-			calculateHeight(doRepeat, level+1, miningmap)
-		}
-	}
-}
-
 func Executepart1() int {
 	// var fileName string = "./quest03/test_input_01.txt"
 	var fileName string = "./quest03/quest03_1.txt"
@@ -63,8 +23,8 @@ func Executepart1() int {
 			miningmap = append(miningmap, row)
 		}
 
-		calculateHeight(true, 1, &miningmap)
-
+		checkers := [][]int{{-1, 0}, {1, 0}, {0, 1}, {0, -1}}
+		calculateHeight(true, 1, checkers, &miningmap)
 	}
 
 	result = calculateDigs(&miningmap)
