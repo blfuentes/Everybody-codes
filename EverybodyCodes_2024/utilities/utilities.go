@@ -95,3 +95,17 @@ type Int64Array []int64
 func (a Int64Array) Len() int           { return len(a) }
 func (a Int64Array) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
 func (a Int64Array) Less(i, j int) bool { return a[i] < a[j] }
+
+func InsertAt[T comparable](s []T, i int, v T) []T {
+	if i < 0 {
+		i = 0
+	}
+	if i > len(s) {
+		i = len(s)
+	}
+	var zero T
+	s = append(s, zero)  // grow by one
+	copy(s[i+1:], s[i:]) // shift right
+	s[i] = v             // set new value
+	return s
+}
