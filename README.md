@@ -5,7 +5,7 @@ https://everybody.codes/
 🐔 = 3 parts
 🐥 = 2 parts
 🐣 = 1 part
-- 2024 - The Kingdom of Algorithmia: 🐔🐔🐔🐔 (12/60)
+- 2024 - The Kingdom of Algorithmia: 🐔🐔🐔🐔🐣 (13/60)
 - 2025 - The Song of Ducks and Dragons: (0/60)
 
 ### 2024
@@ -20,7 +20,7 @@ https://everybody.codes/
 | Quest 2   | 🐤 [Go](./EverybodyCodes_2024/quest02/quest02_1.go) | 🐤 [Go](./EverybodyCodes_2024/quest02/quest02_2.go) | 🐤 [Go](./EverybodyCodes_2024/quest02/quest02_3.go) |
 | Quest 3   | 🐤 [Go](./EverybodyCodes_2024/quest03/quest03_1.go) | 🐤 [Go](./EverybodyCodes_2024/quest03/quest03_2.go) | 🐤 [Go](./EverybodyCodes_2024/quest03/quest03_3.go) |
 | Quest 4   | 🐤 [Go](./EverybodyCodes_2024/quest04/quest04_1.go) | 🐤 [Go](./EverybodyCodes_2024/quest04/quest04_2.go) | 🐤 [Go](./EverybodyCodes_2024/quest04/quest04_3.go) |
-| Quest 5   | ❌  | ❌ | ❌ |
+| Quest 5   | 🐤 [Go](./EverybodyCodes_2024/quest05/quest05_1.go)  | ❌ | ❌ |
 | Quest 6   | ❌  | ❌ | ❌ |
 | Quest 7   | ❌  | ❌ | ❌ |
 | Quest 8   | ❌  | ❌ | ❌ |

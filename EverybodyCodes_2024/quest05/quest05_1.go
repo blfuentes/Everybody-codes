@@ -2,48 +2,49 @@ package quest05
 
 import (
 	"everybodycodes_2024/utilities"
+	"fmt"
+	"math"
 	"strconv"
 	"strings"
 )
 
 func FindSpot(numOfClaps int, clapperQueue []int) (side int, pos int) {
 	n := len(clapperQueue)
-	if n == 0 {
-		return 0, 0
-	}
-	if n == 1 {
-		return 0, 0
-	}
+	leftSideInit, leftSideEnd := 0, n-1
+	rightSideInit, rightSideEnd := n, (2*n)-1
 
-	period := 2 * (n - 1)
-	t := numOfClaps % period
+	walkingSize := n * 2
 
-	if t < n {
-		// moving forward (0 -> n-1)
-		return 0, t
-	} else {
-		// moving backward(n-1 -> 0)
-		return 1, period - t
+	fallingPoint := (numOfClaps % walkingSize) - 1
+
+	if fallingPoint >= leftSideInit && fallingPoint <= leftSideEnd {
+		return 0, fallingPoint
+	} else if fallingPoint >= rightSideInit && fallingPoint <= rightSideEnd {
+		fallingPoint = (walkingSize - 1) - fallingPoint
+		return 1, fallingPoint
 	}
+	return -1, -1
 }
 
 func ClapRound(round int, clappers *[][]int) {
-	clapperOriginIdx := round % len(*clappers)
-	clapperQueueIdx := clapperOriginIdx + 1
+	clapperOriginIdx := (round - 1) % len(*clappers)
+	clapperQueueIdx := round % len(*clappers)
 	claps := (*clappers)[clapperOriginIdx][0]
-	side, pos := FindSpot(claps, (*clappers)[clapperQueueIdx])
+
 	(*clappers)[clapperOriginIdx] = (*clappers)[clapperOriginIdx][1:]
+
+	side, pos := FindSpot(claps, (*clappers)[clapperQueueIdx])
 	if side == 0 {
-		// insert upfront of posistion
-		(*clappers)[clapperQueueIdx] = utilities.InsertAt((*clappers)[clapperQueueIdx], pos-1, claps)
-	} else {
+		// insert upfront of position
 		(*clappers)[clapperQueueIdx] = utilities.InsertAt((*clappers)[clapperQueueIdx], pos, claps)
+	} else {
+		(*clappers)[clapperQueueIdx] = utilities.InsertAt((*clappers)[clapperQueueIdx], pos+1, claps)
 	}
 }
 
 func Executepart1() int {
-	var fileName string = "./quest05/test_input_01.txt"
-	// var fileName string = "./quest05/quest05_1.txt"
+	// var fileName string = "./quest05/test_input_01.txt"
+	var fileName string = "./quest05/quest05_1.txt"
 	var result int = 0
 	var clappers [][]int
 	var numOfRound int = 10
@@ -64,9 +65,18 @@ func Executepart1() int {
 			}
 		}
 	}
-	for currentRound := 0; currentRound < numOfRound; currentRound++ {
+
+	for currentRound := 1; currentRound <= numOfRound; currentRound++ {
 		ClapRound(currentRound, &clappers)
+
 	}
+
+	exp := 0
+	for idx := len(clappers) - 1; idx >= 0; idx-- {
+		result += clappers[idx][0] * int(math.Pow10(exp))
+		exp++
+	}
+	fmt.Printf("%v\n", result)
 
 	return result
 }
