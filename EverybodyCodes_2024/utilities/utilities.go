@@ -109,3 +109,30 @@ func InsertAt[T comparable](s []T, i int, v T) []T {
 	s[i] = v             // set new value
 	return s
 }
+
+type Matrix[T comparable] = [][]T
+type MatrixList[T comparable] = []Matrix[T]
+
+func CopyMatrix[T comparable](src Matrix[T]) Matrix[T] {
+	dst := make(Matrix[T], len(src))
+	for i := range src {
+		row := make([]T, len(src[i]))
+		copy(row, src[i])
+		dst[i] = row
+	}
+	return dst
+}
+
+func AreEqual[T comparable](elemA, elemB Matrix[T]) bool {
+	equal := true
+	for idx := 0; idx < len(elemA) && equal; idx++ {
+		equal = len(elemA[idx]) == len(elemB[idx])
+		if equal {
+			for cIdx := 0; cIdx < len(elemA[idx]) && equal; cIdx++ {
+				equal = elemA[idx][cIdx] == elemB[idx][cIdx]
+			}
+		}
+	}
+
+	return equal
+}

@@ -6,40 +6,13 @@ import (
 	"strings"
 )
 
-type Matrix = [][]int
-type MatrixList = []Matrix
-
-func copyMatrix(src Matrix) Matrix {
-	dst := make(Matrix, len(src))
-	for i := range src {
-		row := make([]int, len(src[i]))
-		copy(row, src[i])
-		dst[i] = row
-	}
-	return dst
-}
-
-func AreEqual(elemA, elemB Matrix) bool {
-	equal := true
-	for idx := 0; idx < len(elemA) && equal; idx++ {
-		equal = len(elemA[idx]) == len(elemB[idx])
-		if equal {
-			for cIdx := 0; cIdx < len(elemA[idx]) && equal; cIdx++ {
-				equal = elemA[idx][cIdx] == elemB[idx][cIdx]
-			}
-		}
-	}
-
-	return equal
-}
-
-func ClapperRepeated(clappersMemo map[int]MatrixList, round int, toCheck Matrix) bool {
+func ClapperRepeated(clappersMemo map[int]utilities.MatrixList[int], round int, toCheck utilities.Matrix[int]) bool {
 	found := false
 
 	existingClappers := clappersMemo[round]
 
 	for _, tmpClapper := range existingClappers {
-		found = AreEqual(tmpClapper, toCheck)
+		found = utilities.AreEqual(tmpClapper, toCheck)
 		if found {
 			break
 		}
@@ -74,7 +47,7 @@ func Executepart3() int64 {
 
 	var found bool = false
 
-	memo := make(map[int]MatrixList)
+	memo := make(map[int]utilities.MatrixList[int])
 
 	for currentRound := 1; !found; currentRound++ {
 		var tmpValue = ""
@@ -88,13 +61,13 @@ func Executepart3() int64 {
 		if calculatedValue > result {
 			result = calculatedValue
 		}
-		toCheck := copyMatrix(clappers)
+		toCheck := utilities.CopyMatrix(clappers)
 		roundIdx := currentRound % len(clappers)
 		found = ClapperRepeated(memo, roundIdx, toCheck)
 		if !found {
 			_, exists := memo[roundIdx]
 			if !exists {
-				memo[roundIdx] = MatrixList{toCheck}
+				memo[roundIdx] = utilities.MatrixList[int]{toCheck}
 			} else {
 				memo[roundIdx] = append(memo[roundIdx], toCheck)
 			}
