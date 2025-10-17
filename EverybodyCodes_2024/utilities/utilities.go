@@ -8,6 +8,22 @@ import (
 	"github.com/fatih/color"
 )
 
+func RuneAt(s string, index int) (rune, bool) {
+	for idx, r := range s {
+		if idx == index {
+			return r, true
+		}
+	}
+	return 0, false
+}
+
+func StringAt(s string, index int) string {
+	if r, ok := RuneAt(s, index); ok {
+		return string(r)
+	}
+	return ""
+}
+
 func ReadFileAsText(path string) (string, error) {
 	var fileName string = path
 	file, err := os.ReadFile(fileName)

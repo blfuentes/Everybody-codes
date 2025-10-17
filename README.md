@@ -8,14 +8,14 @@ https://everybody.codes/
 🥚 = 0 parts
 | Year | Title | Progress | Score |
 | - | - | - | - |
-| 2024 | The Kingdom of Algorithmia |    🐔🐔🐔🐔🐔🐣🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚 | (16/60) | 
+| 2024 | The Kingdom of Algorithmia |    🐔🐔🐔🐔🐔🐥🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚 | (17/60) | 
 | 2025 | The Song of Ducks and Dragons | 🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚 | (0/60) | 
 
 ### 2024
 
 [https://everybody.codes/event/2024](https://everybody.codes/event/2024/quests)
 
-(5.33/20)
+(5.66/20)
 
 |Day      | Part 1 | Part 2 | Part 3 |
 |---------|----|----|----|
@@ -24,7 +24,7 @@ https://everybody.codes/
 | Quest 3   | 🐤 [Go](./EverybodyCodes_2024/quest03/quest03_1.go) | 🐤 [Go](./EverybodyCodes_2024/quest03/quest03_2.go) | 🐤 [Go](./EverybodyCodes_2024/quest03/quest03_3.go) |
 | Quest 4   | 🐤 [Go](./EverybodyCodes_2024/quest04/quest04_1.go) | 🐤 [Go](./EverybodyCodes_2024/quest04/quest04_2.go) | 🐤 [Go](./EverybodyCodes_2024/quest04/quest04_3.go) |
 | Quest 5   | 🐤 [Go](./EverybodyCodes_2024/quest05/quest05_1.go) | 🐤 [Go](./EverybodyCodes_2024/quest05/quest05_2.go) | 🐤 [Go](./EverybodyCodes_2024/quest05/quest05_3.go) |
-| Quest 6   | 🐤 [Go](./EverybodyCodes_2024/quest06/quest06_1.go)  | ❌ | ❌ |
+| Quest 6   | 🐤 [Go](./EverybodyCodes_2024/quest06/quest06_1.go) | 🐤 [Go](./EverybodyCodes_2024/quest06/quest06_2.go) | ❌ |
 | Quest 7   | ❌  | ❌ | ❌ |
 | Quest 8   | ❌  | ❌ | ❌ |
 | Quest 9   | ❌  | ❌ | ❌ |
