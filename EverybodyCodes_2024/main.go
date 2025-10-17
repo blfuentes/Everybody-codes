@@ -39,7 +39,7 @@ func main() {
 	// Quest 07
 	fmt.Printf("Final result Quest 07 part 1: %v\n", quest07.Executepart1())
 	fmt.Printf("Final result Quest 07 part 2: %v\n", quest07.Executepart2())
-	// fmt.Printf("Final result Quest 07 part 3: %v\n", quest07.Executepart3())
+	fmt.Printf("Final result Quest 07 part 3: %v\n", quest07.Executepart3())
 	// // Quest 08
 	// fmt.Printf("Final result Quest 08 part 1: %v\n", quest08.Executepart1())
 	// fmt.Printf("Final result Quest 08 part 2: %v\n", quest08.Executepart2())
