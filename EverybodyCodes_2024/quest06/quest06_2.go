@@ -5,17 +5,6 @@ import (
 	"strings"
 )
 
-func ShortcutFruitPath(fruit Node) string {
-	result := fruit.Name
-
-	for fruit.Parent != nil {
-		result = utilities.StringAt(fruit.Parent.Name, 0) + result
-		fruit = *fruit.Parent
-	}
-
-	return result
-}
-
 func Executepart2() string {
 	// var fileName string = "./quest06/test_input_02.txt"
 	var fileName string = "./quest06/quest06_2.txt"

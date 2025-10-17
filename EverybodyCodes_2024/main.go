@@ -34,5 +34,5 @@ func main() {
 	// Quest 06
 	fmt.Printf("Final result Quest 06 part 1: %v\n", quest06.Executepart1())
 	fmt.Printf("Final result Quest 06 part 2: %v\n", quest06.Executepart2())
-	// fmt.Printf("Final result Quest 06 part 3: %d\n", quest06.Executepart3())
+	fmt.Printf("Final result Quest 06 part 3: %v\n", quest06.Executepart3())
 }
