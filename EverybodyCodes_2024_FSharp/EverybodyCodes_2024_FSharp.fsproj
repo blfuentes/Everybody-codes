@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="quest00\quest00_1.fs" />
+    <Compile Include="quest00\quest00_2.fs" />
+    <Compile Include="quest00\quest00_3.fs" />
+    <Compile Include="quest00\utils00.fs" />
+    <Content Include="quest00\test_input_01.txt" />
+    <Content Include="quest00\test_input_02.txt" />
+    <Content Include="quest00\test_input_03.txt" />
+    <Compile Include="LocalHelper.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="add-new-entry.ps1" />
+  </ItemGroup>
+
+</Project>
+
+
+
+
+
+
+
+
+
+
