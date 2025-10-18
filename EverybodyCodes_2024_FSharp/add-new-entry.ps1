@@ -57,7 +57,7 @@ try {
     $fsprojPath = Join-Path $scriptDir "EverybodyCodes_2024_FSharp.fsproj"
     if (-not (Test-Path $fsprojPath)) { throw "Project file 'EverybodyCodes_2024_FSharp.fsproj' not found in $scriptDir" }
     $fsprojContent = Get-Content -Raw -LiteralPath $fsprojPath
-    $insertionPoint = $fsprojContent.IndexOf("<Compile Include=""LocalHelper")
+    $insertionPoint = $fsprojContent.IndexOf("<Compile Include=""Program.fs")
     if ($insertionPoint -eq -1) { throw "Could not find insertion point in project file" }
     $newEntries = @()
     $newEntries += "  <Compile Include=""$dstName\quest${xx}_1.fs"" />"
@@ -67,6 +67,9 @@ try {
     $newEntries += "  <Content Include=""$dstName\test_input_01.txt"" />"
     $newEntries += "  <Content Include=""$dstName\test_input_02.txt"" />"
     $newEntries += "  <Content Include=""$dstName\test_input_03.txt"" />"
+    $newEntries += "  <Content Include=""$dstName\quest${xx}_input_01.txt"" />"
+    $newEntries += "  <Content Include=""$dstName\quest${xx}_input_02.txt"" />"
+    $newEntries += "  <Content Include=""$dstName\quest${xx}_input_03.txt"" />"
     $newFsprojContent = $fsprojContent.Insert($insertionPoint, ($newEntries -join "`n") + "`n")
     Set-Content -LiteralPath $fsprojPath -Value $newFsprojContent -Encoding UTF8
 
