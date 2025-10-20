@@ -8,8 +8,6 @@ let ms ticks =
 
 [<EntryPoint>]
 let main argv =
-    let timer = new System.Diagnostics.Stopwatch()
-    timer.Start()
 
     // DAY 00
     let (resultquest00Part1, time00_1) = duration quest00_part01.execute
@@ -50,5 +48,13 @@ let main argv =
     printfn "Final result Quest 11 part 2: %A in %s" resultquest11Part2 (ms time11_2)
     let (resultquest11Part3, time11_3) = duration quest11_part03.execute
     printfn "Final result Quest 11 part 3: %A in %s" resultquest11Part3 (ms time11_3)
+
+    // DAY 12
+    let (resultquest12Part1, time12_1) = duration quest12_part01.execute
+    printfn "Final result Quest 12 part 1: %A in %s" resultquest12Part1 (ms time12_1)
+    let (resultquest12Part2, time12_2) = duration quest12_part02.execute
+    printfn "Final result Quest 12 part 2: %A in %s" resultquest12Part2 (ms time12_2)
+    let (resultquest12Part3, time12_3) = duration quest12_part03.execute
+    printfn "Final result Quest 12 part 3: %A in %s" resultquest12Part3 (ms time12_3)
 
     0 // return an integer exit code
