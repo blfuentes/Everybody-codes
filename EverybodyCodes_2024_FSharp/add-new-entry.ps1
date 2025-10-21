@@ -88,6 +88,16 @@ try {
     }
     if ($lastDayIndex -eq -1) { throw "Could not find any Day comment in Program.fs" }
 
+    $lastDayLine = $programFsContent[$lastDayIndex]
+    $dayToReplace = ""
+    if ($lastDayLine -match '(\d{2})') {
+        $dayToReplace = $matches[1]
+    }
+    else {
+        # Fallback to 00 if no number is found in the comment line, to maintain old behavior
+        $dayToReplace = "00"
+    }
+
     # Determine how many lines we can safely copy after the last day comment (up to 6)
     # We'll copy the Day comment line itself (to preserve indentation/formatting) plus up to $maxCopy lines after it.
     $startCopy = $lastDayIndex + 1
@@ -122,7 +132,7 @@ try {
     }
 
     if ($linesToCopy.Count -gt 0) {
-        $modifiedLines = $linesToCopy | ForEach-Object { $_ -replace "00", $xx }
+        $modifiedLines = $linesToCopy | ForEach-Object { $_ -replace $dayToReplace, $xx }
     }
     else {
         # Fallback stub if nothing to copy (no following lines present)
