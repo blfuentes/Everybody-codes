@@ -3,8 +3,8 @@
 open System.Collections.Generic
 open EverybodyCodes_2024_FSharp.Modules
 
-let path = "quest12/test_input_01.txt"
-//let path = "quest12/quest12_input_01.txt"
+//let path = "quest12/test_input_01.txt"
+let path = "quest12/quest12_input_01.txt"
 
 type Position = {
     Row: int
@@ -54,17 +54,22 @@ let possibleHits (tower: Tower) (power: int) (floorline: int) =
         let middle = 
             [1..power]
             |> List.map (fun p -> { Row = segment.Pos.Row - power; Col = segment.Pos.Col + p + power})
-        let mutable height = 0
+        let mutable height = segment.Pos.Row - power
+        let mutable column = 1
         let goingDown =
-            [1..power]
-            |> List.map (fun p -> { Row = segment.Pos.Row + power + p; Col = segment.Pos.Col + p + (power * 2)})
+            seq {
+                while height < floorline do
+                    yield { Row = height + 1; Col = segment.Pos.Col + (2 * power) + column}
+                    height <- height + 1
+                    column <- column + 1
+            } |> Seq.toList
         (segment, goingUp @ middle @ goingDown)
     tower.Segments
     |> List.map hitForSegment
 
 let destroyTargets (targets: Position list) =
     let tower = towers.Values |> Seq.head
-    let floorline = (tower.Segments |> List.last).Pos.Row
+    let floorline = (tower.Segments |> List.head).Pos.Row + 1
     let rec destroy (toDestroy: Position list) (value: int) =
         match toDestroy with
         | [] ->
@@ -89,4 +94,4 @@ let destroyTargets (targets: Position list) =
 let execute() =
     let lines = LocalHelper.GetLinesFromFile(path)
     let targets = parseContent lines |> List.sortBy (fun pos -> pos.Row, pos.Col)
-    destroyTargets targets |> printfn "Total value of destroyed targets: %d"
+    destroyTargets targets

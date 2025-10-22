@@ -8,14 +8,14 @@ https://everybody.codes/
 🥚 = 0 parts
 | Year | Title | Progress | Score |
 | - | - | - | - |
-| 2024 | The Kingdom of Algorithmia |    🐔🐔🐔🐔🐔🐔🐔🐔🐔🐥🐔🥚🥚🥚🥚🥚🥚🥚🥚🥚 | (32/60) | 
+| 2024 | The Kingdom of Algorithmia |    🐔🐔🐔🐔🐔🐔🐔🐔🐔🐥🐔🐣🥚🥚🥚🥚🥚🥚🥚🥚 | (33/60) | 
 | 2025 | The Song of Ducks and Dragons | 🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚 | (0/60) | 
 
 ### 2024
 
 [https://everybody.codes/event/2024](https://everybody.codes/event/2024/quests)
 
-(10.66/20)
+(11/20)
 
 |Day      | Part 1 | Part 2 | Part 3 |
 |---------|----|----|----|
@@ -30,7 +30,7 @@ https://everybody.codes/
 | Quest 9   | 🐤 [F#](./EverybodyCodes_2024_FSharp/quest09/quest09_1.fs) | 🐤 [F#](./EverybodyCodes_2024_FSharp/quest09/quest09_2.fs) | 🐤 [F#](./EverybodyCodes_2024_FSharp/quest09/quest09_3.fs) |
 | Quest 10  | 🐤 [F#](./EverybodyCodes_2024_FSharp/quest10/quest10_1.fs) | 🐤 [F#](./EverybodyCodes_2024_FSharp/quest10/quest10_2.fs) | ❌ |
 | Quest 11  | 🐤 [F#](./EverybodyCodes_2024_FSharp/quest11/quest11_1.fs) | 🐤 [F#](./EverybodyCodes_2024_FSharp/quest11/quest11_2.fs) | 🐤 [F#](./EverybodyCodes_2024_FSharp/quest11/quest11_3.fs) |
-| Quest 12  | ❌  | ❌ | ❌ |
+| Quest 12  | 🐤 [F#](./EverybodyCodes_2024_FSharp/quest12/quest12_1.fs)  | ❌ | ❌ |
 | Quest 13  | ❌  | ❌ | ❌ |
 | Quest 14  | ❌  | ❌ | ❌ |
 | Quest 15  | ❌  | ❌ | ❌ |
