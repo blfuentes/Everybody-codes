@@ -3,8 +3,8 @@
 open System.Collections.Generic
 open EverybodyCodes_2024_FSharp.Modules
 
-let path = "quest12/test_input_03.txt"
-//let path = "quest12/quest12_input_03.txt"
+//let path = "quest12/test_input_03.txt"
+let path = "quest12/quest12_input_03.txt"
 
 type Position = {
     Row: int
@@ -65,22 +65,32 @@ let possibleHits (tower: Tower) (power: int) (time: int) (floorline: int) =
         let segmentPositions = 
             seq {
                 for segment in tower.Segments do
-                    let mutable counter = 0
-                    let mutable currentRow = segment.Pos.Row
-                    let mutable currentCol = segment.Pos.Col
-                    while counter < time do
-                        if counter < power then
-                            currentRow <- currentRow + 1
-                            currentCol <- currentCol + 1
-                        elif counter < (power * 2) then
-                            currentRow <- currentRow - 0
-                            currentCol <- currentCol + 1
-                        else
-                            currentRow <- currentRow - 1
-                            currentCol <- currentCol + 1
-                        counter <- counter + 1
-                    if currentRow > floorline then
-                        yield { segment with Pos = { Row = currentRow; Col = currentCol } }
+                    let t = time
+                    let p = power
+
+                    // Phase 1: Up-Right movement
+                    let upRightSteps = min t p
+                    let deltaRowUp = upRightSteps
+                    let deltaColUp = upRightSteps
+
+                    // Phase 2: Horizontal movement
+                    let rightSteps = max 0 (min (t - p) p)
+                    let deltaRowRight = 0
+                    let deltaColRight = rightSteps
+
+                    // Phase 3: Down-Right movement
+                    let downRightSteps = max 0 (t - 2 * p)
+                    let deltaRowDown = -downRightSteps
+                    let deltaColDown = downRightSteps
+
+                    let finalRow = segment.Pos.Row + deltaRowUp + deltaRowRight + deltaRowDown
+                    let finalCol = segment.Pos.Col + deltaColUp + deltaColRight + deltaColDown
+                    
+                    if finalRow >= floorline then
+                        yield { segment with Pos = { Row = finalRow; Col = finalCol } }
+                    else
+                        // If below floorline, yield a position that won't match any target
+                        yield { segment with Pos = { Row = -1; Col = -1 } }
                         
             } |> Seq.toList
         positionsMemory.Add((power, time), segmentPositions)
@@ -93,8 +103,9 @@ let destroyTargets (tower: Tower) (targets: Target list) =
         | [] ->
             value
         | head :: tail ->
+            printfn "Destroying target at Row %i Col %i" head.Pos.Row head.Pos.Col
             let mutable counterTime = 0
-            let mutable power = 1
+            let mutable power = head.Pos.Col
             let mutable doContinue = true
             let mutable oldHits = []
             let mutable toBeHit = head
@@ -102,7 +113,9 @@ let destroyTargets (tower: Tower) (targets: Target list) =
             let mutable currentRanking = 4
             let mutable currentValue = 0
             while doContinue do
+                printfn "Power %i Time %i Target at Row %i Col %i" power counterTime toBeHit.Pos.Row toBeHit.Pos.Col
                 let pHits = possibleHits tower power counterTime floorline  
+                //printfn "Possible hits: %A" (pHits |> List.map (fun s -> sprintf "%s at Row %i Col %i" s.Name s.Pos.Row s.Pos.Col))
                 if destroyed then                    
                     if oldHits = pHits then
                         doContinue <- false
@@ -111,30 +124,30 @@ let destroyTargets (tower: Tower) (targets: Target list) =
                         let found = pHits |> List.tryFind (fun segment -> segment.Pos = toBeHit.Pos)
                         match found with
                         | None -> 
-                            power <- power + 1
+                            power <- power - 1
                         | Some segment ->
                             if currentRanking > segment.Ranking then
                                 currentRanking <- segment.Ranking
                                 currentValue <- currentRanking * power
-                            power <- power + 1
+                            power <- power - 1
                 else
-                    if oldHits = pHits then
+                    if power < 0 || pHits = oldHits then // (pHits |> List.forall(fun p -> p.Pos.Row = -1)) then
                         counterTime <- counterTime + 1
-                        power <- 1
                         toBeHit <- { toBeHit with Pos = { Row = toBeHit.Pos.Row - 1; Col = toBeHit.Pos.Col - 1 } }
-                        doContinue <- toBeHit.Pos.Col > 0 && toBeHit.Pos.Row > 0
+                        power <- toBeHit.Pos.Col
+                        doContinue <- toBeHit.Pos.Col > 0 && toBeHit.Pos.Row >= 0
                     else
                         oldHits <- pHits
                         let found = pHits |> List.tryFind (fun segment -> segment.Pos = toBeHit.Pos)
                         match found with
                         | None -> 
-                            power <- power + 1
+                            power <- power - 1
                         | Some segment ->
                             if currentRanking > segment.Ranking then
                                 currentRanking <- segment.Ranking
                                 currentValue <- currentRanking * power
                             destroyed <- true
-                            power <- power + 1 
+                            power <- power - 1 
                             
             destroy tail (value + currentValue)            
 
