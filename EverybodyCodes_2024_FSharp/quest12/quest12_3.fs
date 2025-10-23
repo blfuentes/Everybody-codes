@@ -93,40 +93,103 @@ let destroyTargets (tower: Tower) (targets: Target list) =
         | [] ->
             value
         | head :: tail ->
+            let mutable counterTime = 0
             let mutable power = 1
-            let mutable destroyed = false
-            let mutable newValue = value
-            let mutable timer = 0
-            let mutable toBeHit = head
+            let mutable doContinue = true
             let mutable oldHits = []
-            while not destroyed do
-                let pHits = possibleHits tower power timer floorline
-                if oldHits = pHits then
-                    timer <- timer + 1
-                    power <- 1
-                    toBeHit <- { toBeHit with Pos = { Row = toBeHit.Pos.Row - 1; Col = toBeHit.Pos.Col - 1 } }
-                else
-                    oldHits <- pHits
-
-                    if pHits.Length = 0 then
-                        power <- power + 1
+            let mutable toBeHit = head
+            let mutable destroyed = false
+            let mutable currentRanking = 4
+            let mutable currentValue = 0
+            while doContinue do
+                let pHits = possibleHits tower power counterTime floorline  
+                if destroyed then                    
+                    if oldHits = pHits then
+                        doContinue <- false
                     else
-                        if pHits |> List.forall (fun segment -> segment.Pos.Col > toBeHit.Pos.Col) then
-                            timer <- timer + 1
-                            power <- 1
-                            toBeHit <- { toBeHit with Pos = { Row = toBeHit.Pos.Row - 1; Col = toBeHit.Pos.Col - 1 } }
-                        else
-                            let found = pHits |> List.tryFind (fun segment -> segment.Pos = head.Pos)
-                            match found with
-                            | None ->
-                                power <- power + 1                
-                            | Some segment -> 
-                                newValue <- newValue + (segment.Ranking * power); 
-                                destroyed <- true
-
-            destroy tail newValue
+                        oldHits <- pHits    
+                        let found = pHits |> List.tryFind (fun segment -> segment.Pos = toBeHit.Pos)
+                        match found with
+                        | None -> 
+                            power <- power + 1
+                        | Some segment ->
+                            if currentRanking > segment.Ranking then
+                                currentRanking <- segment.Ranking
+                                currentValue <- currentRanking * power
+                            power <- power + 1
+                else
+                    if oldHits = pHits then
+                        counterTime <- counterTime + 1
+                        power <- 1
+                        toBeHit <- { toBeHit with Pos = { Row = toBeHit.Pos.Row - 1; Col = toBeHit.Pos.Col - 1 } }
+                        doContinue <- toBeHit.Pos.Col > 0 && toBeHit.Pos.Row > 0
+                    else
+                        oldHits <- pHits
+                        let found = pHits |> List.tryFind (fun segment -> segment.Pos = toBeHit.Pos)
+                        match found with
+                        | None -> 
+                            power <- power + 1
+                        | Some segment ->
+                            if currentRanking > segment.Ranking then
+                                currentRanking <- segment.Ranking
+                                currentValue <- currentRanking * power
+                            destroyed <- true
+                            power <- power + 1 
+                            
+            destroy tail (value + currentValue)            
 
     destroy targets 0
+
+//let destroyTargets (tower: Tower) (targets: Target list) =
+//    let floorline = -1
+//    let rec destroy (toDestroy: Target list) (value: int) =
+//        match toDestroy with
+//        | [] ->
+//            value
+//        | head :: tail ->
+//            let mutable power = 1
+//            let mutable destroyed = false
+//            let mutable newValue = value
+//            let mutable timer = 0
+//            let mutable toBeHit = head
+//            let mutable oldHits = []
+//            let mutable currentRanking = 4
+//            let mutable currentValue = 0
+//            while not destroyed do
+//                let pHits = possibleHits tower power timer floorline
+//                if oldHits = pHits then
+//                    timer <- timer + 1
+//                    power <- 1
+//                    toBeHit <- { toBeHit with Pos = { Row = toBeHit.Pos.Row - 1; Col = toBeHit.Pos.Col - 1 } }
+//                else
+//                    oldHits <- pHits
+
+//                    if pHits.Length = 0 then
+//                        power <- power + 1
+//                    else
+//                        if pHits |> List.forall (fun segment -> segment.Pos.Col > toBeHit.Pos.Col) then
+//                            timer <- timer + 1
+//                            power <- 1
+//                            toBeHit <- { toBeHit with Pos = { Row = toBeHit.Pos.Row - 1; Col = toBeHit.Pos.Col - 1 } }
+//                        else
+//                            let found = pHits |> List.tryFind (fun segment -> segment.Pos = toBeHit.Pos)
+//                            match found with
+//                            | None ->
+//                                power <- power + 1                
+//                            | Some segment ->
+//                                if currentRanking > segment.Ranking then
+//                                    currentRanking <- segment.Ranking
+//                                    currentValue <- currentRanking * power
+//                                power <- power + 1                                                                
+//                                if destroyed then
+//                                    newValue <- newValue + currentValue
+//                                    currentRanking <- 4
+//                                    currentValue <- 0
+//                destroyed <- toBeHit.Pos.Col <= 0 || toBeHit.Pos.Row <= 0
+
+//            destroy tail newValue
+
+//    destroy targets 0
 
 //let destroyTargets (tower: Tower) (targets: Target list) =
 //    let floorline = (tower.Segments |> List.head).Pos.Row + 1
