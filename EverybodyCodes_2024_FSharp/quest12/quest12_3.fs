@@ -105,49 +105,36 @@ let destroyTargets (tower: Tower) (targets: Target list) =
         | head :: tail ->
             printfn "Destroying target at Row %i Col %i" head.Pos.Row head.Pos.Col
             let mutable counterTime = 0
-            let mutable power = head.Pos.Col
             let mutable doContinue = true
-            let mutable oldHits = []
             let mutable toBeHit = head
-            let mutable destroyed = false
-            let mutable currentRanking = 4
             let mutable currentValue = 0
+            let mutable bestRanking = 4
+            let mutable power = 1
+            let maxPower = 250
             while doContinue do
-                printfn "Power %i Time %i Target at Row %i Col %i" power counterTime toBeHit.Pos.Row toBeHit.Pos.Col
-                let pHits = possibleHits tower power counterTime floorline  
-                //printfn "Possible hits: %A" (pHits |> List.map (fun s -> sprintf "%s at Row %i Col %i" s.Name s.Pos.Row s.Pos.Col))
-                if destroyed then                    
-                    if oldHits = pHits then
-                        doContinue <- false
-                    else
-                        oldHits <- pHits    
-                        let found = pHits |> List.tryFind (fun segment -> segment.Pos = toBeHit.Pos)
-                        match found with
-                        | None -> 
-                            power <- power - 1
-                        | Some segment ->
-                            if currentRanking > segment.Ranking then
-                                currentRanking <- segment.Ranking
-                                currentValue <- currentRanking * power
-                            power <- power - 1
-                else
-                    if power < 0 || pHits = oldHits then // (pHits |> List.forall(fun p -> p.Pos.Row = -1)) then
-                        counterTime <- counterTime + 1
-                        toBeHit <- { toBeHit with Pos = { Row = toBeHit.Pos.Row - 1; Col = toBeHit.Pos.Col - 1 } }
-                        power <- toBeHit.Pos.Col
-                        doContinue <- toBeHit.Pos.Col > 0 && toBeHit.Pos.Row >= 0
-                    else
-                        oldHits <- pHits
-                        let found = pHits |> List.tryFind (fun segment -> segment.Pos = toBeHit.Pos)
-                        match found with
-                        | None -> 
-                            power <- power - 1
-                        | Some segment ->
-                            if currentRanking > segment.Ranking then
-                                currentRanking <- segment.Ranking
-                                currentValue <- currentRanking * power
-                            destroyed <- true
-                            power <- power - 1 
+                power <- 1
+                if counterTime % 500 = 0 then
+                    printfn "\nPower %i Time %i Target at Row %i Col %i" power counterTime toBeHit.Pos.Row toBeHit.Pos.Col
+                while power <= maxPower do
+                    //if power % 1000 = 0 then 
+                    let pHits = possibleHits tower power counterTime floorline
+                    //printfn "Possible hits: %A" (pHits |> List.map (fun s -> sprintf "%s at Row %i Col %i" s.Name s.Pos.Row s.Pos.Col))
+                    let found = pHits |> List.filter (fun segment -> segment.Pos = toBeHit.Pos)
+                    match found with
+                    | [] -> 
+                        power <- power + 1
+                    | _ ->
+                        let best = found |> List.minBy (fun segment -> segment.Ranking)
+                        if best.Ranking < bestRanking then
+                            bestRanking <- best.Ranking
+                            currentValue <- bestRanking * power
+                        power <- power + 1
+                if power > maxPower then
+                    counterTime <- counterTime + 1
+                    toBeHit <- { toBeHit with Pos = { Row = toBeHit.Pos.Row - 1; Col = toBeHit.Pos.Col - 1 } }   
+                    doContinue <- toBeHit.Pos.Col > 0 && toBeHit.Pos.Row >= 0
+
+              
                             
             destroy tail (value + currentValue)            
 
