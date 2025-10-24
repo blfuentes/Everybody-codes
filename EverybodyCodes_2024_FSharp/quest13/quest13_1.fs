@@ -40,6 +40,10 @@ let parseContent(lines: string array) =
     (chamber, startPos, endPos)
 
 let pathFind (chamber: RoomCell[,]) (startPos: int * int) (endPos: int * int) =
+    let circularDistance a b =
+        let diff = abs (a - b)
+        min diff (10 - diff)
+
     let neighbors (cell: RoomCell) =
         let deltas = [(-1, 0); (1, 0); (0, -1); (0, 1)]
         deltas
@@ -72,7 +76,7 @@ let pathFind (chamber: RoomCell[,]) (startPos: int * int) (endPos: int * int) =
             let movementCost = 1
             let levelDifference = 
                 match (current.CellType, nextCell.CellType) with
-                | (ROOM fromdata, ROOM todata) -> abs(fromdata - todata)
+                | (ROOM fromdata, ROOM todata) -> circularDistance fromdata todata
                 | _ -> 0
 
             let newCost = costSoFar[current] + movementCost + levelDifference
