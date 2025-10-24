@@ -115,9 +115,22 @@ let findDistance (available: Set<int*int*int>) (initPos: int*int*int) (endPos: i
 
 let findAllShortPaths (available: Set<int*int*int>) (mainTrunk: seq<int*int*int>) (endPositions: seq<int*int*int>) =
     let total = mainTrunk |> Seq.length
+
+    //let mutable minValue = System.Int32.MaxValue
+    //for idx, initPos in Array.indexed (mainTrunk |> Seq.toArray) do
+    //    printfn "Finding paths from main trunk position %d of %d: %A" idx total initPos
+    //    let mutable currentMin = 0
+    //    for endPos in endPositions do
+    //        if currentMin < minValue then
+    //            let dist = findDistance available initPos endPos
+    //            currentMin <- currentMin + dist
+    //    if currentMin < minValue then
+    //        minValue <- currentMin
+    //minValue
+
     mainTrunk
     |> Seq.mapi (fun idx initPos ->
-        printfn "Finding paths from main trunk position %d of %d: %A" idx total initPos
+        //printfn "Finding paths from main trunk position %d of %d: %A" idx total initPos
         let minDistance =
             endPositions
             |> Seq.sumBy (fun endPos ->
