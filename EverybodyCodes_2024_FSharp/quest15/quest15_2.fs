@@ -121,45 +121,97 @@ let findDistance (themap: Cell[,]) (initPos: Cell) (endPos: Cell) =
     
 //    cartesianProduct (allLists |> List.ofArray)
 
-let allPermutations (herbsByName: IDictionary<string, Cell list>) =
-    let rec cartesianProduct lists =
-        match lists with
-        | [] -> [[]]
-        | currentList::remainingLists ->
-            [ for element in currentList do
-                for combination in cartesianProduct remainingLists do
-                    yield element::combination ]
+let rec combinations list =
+    match list with
+    | [] -> [ [] ]
+    | x::xs ->
+        let rest = combinations xs
+        rest @ (rest |> List.map (fun subset -> x :: subset))
 
-    let rec permutations = function
-        | [] -> [[]]
-        | list -> 
-            list 
-            |> List.collect (fun x -> 
-                permutations (List.filter ((<>) x) list) 
-                |> List.map (fun xs -> x::xs))
+//let allPermutations (herbsByName: IDictionary<string, Cell list>) =
+//    let rec cartesianProduct lists =
+//        match lists with
+//        | [] -> [[]]
+//        | currentList::remainingLists ->
+//            [ for element in currentList do
+//                for combination in cartesianProduct remainingLists do
+//                    yield element::combination ]
+
+//    let rec permutations = function
+//        | [] -> [[]]
+//        | list -> 
+//            list 
+//            |> List.collect (fun x -> 
+//                permutations (List.filter ((<>) x) list) 
+//                |> List.map (fun xs -> x::xs))
     
-    herbsByName.Values 
-    |> Array.ofSeq
-    |> List.ofArray
-    |> cartesianProduct
-    |> List.collect permutations
+//    herbsByName.Values 
+//    |> Array.ofSeq
+//    |> List.ofArray
+//    |> cartesianProduct
+//    |> List.collect permutations
 
-let findAllPaths(themap: Cell[,]) (herbsByName: IDictionary<string, Cell list>) (startPos: Cell) =
-    let allPossibleWalks = allPermutations herbsByName
-    let fullPath = allPossibleWalks |> List.map(fun l -> [startPos] @ l @ [startPos])
-    fullPath
-    |> List.mapi(fun idx p -> 
-        printfn "Finding paths: %d of %d" idx fullPath.Length
-        p
-        |> List.pairwise
-        |> List.map(fun (a, b) -> findDistance themap a b)
-        |> List.sum
-    )
-    |> List.min
+//let findAllPaths(themap: Cell[,]) (herbsByName: IDictionary<string, Cell list>) (startPos: Cell) =
+//    let allPossibleWalks = allPermutations herbsByName
+//    let fullPath = allPossibleWalks |> List.map(fun l -> [startPos] @ l @ [startPos])
+//    fullPath
+//    |> List.mapi(fun idx p -> 
+//        printfn "Finding paths: %d of %d" idx fullPath.Length
+//        p
+//        |> List.pairwise
+//        |> List.map(fun (a, b) -> findDistance themap a b)
+//        |> List.sum
+//    )
+//    |> List.min
 
-let findAllPaths2(themap: Cell[,]) (herbsByName: IDictionary<string, Cell list>) (startPos: Cell) =
-    let allPossibleWalks = allPermutations herbsByName
-    let fullPaths = allPossibleWalks |> List.map(fun l -> [startPos] @ l @ [startPos])
+//let findAllPaths2(themap: Cell[,]) (herbsByName: IDictionary<string, Cell list>) (startPos: Cell) =
+//    let allPossibleWalks = allPermutations herbsByName
+//    let fullPaths = allPossibleWalks |> List.map(fun l -> [startPos] @ l @ [startPos])
+//    let mutable minDistance = System.Int32.MaxValue
+//    for idx, path in Array.indexed (fullPaths |> Array.ofList) do
+//        if idx % 500 = 0 then
+//            printfn "Finding paths: %d of %d" idx fullPaths.Length
+//        let mutable pathDistance = 0
+//        let segments = path |> List.pairwise
+//        let mutable doContinue = true
+//        let mutable sIdx = 0
+//        while doContinue do
+//            if segments.Length = sIdx then
+//                doContinue <- false
+//            else
+//                let (a, b) = segments.Item(sIdx)
+//                let segmentDistance = findDistance themap a b
+//                pathDistance <- pathDistance + segmentDistance
+//                if minDistance < pathDistance then
+//                    doContinue <- false
+//            sIdx <- sIdx + 1
+//        if pathDistance < minDistance then
+//            minDistance <- pathDistance
+//    minDistance
+
+let findAllPaths3(themap: Cell[,]) (herbsByName: IDictionary<string, Cell list>) (startPos: Cell) =
+    let maxRows, maxCols = themap.GetLength(0), themap.GetLength(1)
+    let distances = new Dictionary<string*string, int list>()
+    for rIdx in [0..maxRows-1] do
+        for cIdx in [0..maxCols-1] do
+            let origin = themap[rIdx, cIdx]
+            if origin.CellType = Herb || origin.CellType = Start then
+                for trIdx in [0..maxRows-1] do
+                    for tcIdx in [0..maxCols-1] do
+                        if rIdx <> trIdx || cIdx <> tcIdx then
+                            let target = themap[trIdx, tcIdx]
+                            if (target.CellType = Herb || target.CellType = Start) && origin.Name <> target.Name then
+                                let distance = findDistance themap origin target
+                                if not (distances.ContainsKey((origin.Name, target.Name))) then
+                                    distances.Add((origin.Name, target.Name), [distance])
+                                elif not (distances.ContainsKey((target.Name, origin.Name))) then
+                                    distances.Add((target.Name, origin.Name), [distance])
+                                else
+                                    distances[(origin.Name, target.Name)] <- distances[(origin.Name, target.Name)] @ [distance]
+                                    distances[(target.Name, origin.Name)] <- distances[(target.Name, origin.Name)] @ [distance]
+        
+    let allPossibleWalks = combinations (herbsByName.Keys |> List.ofSeq)
+    let fullPaths = allPossibleWalks |> List.map(fun l -> ["S"] @ l @ ["S"])
     let mutable minDistance = System.Int32.MaxValue
     for idx, path in Array.indexed (fullPaths |> Array.ofList) do
         if idx % 500 = 0 then
@@ -173,7 +225,7 @@ let findAllPaths2(themap: Cell[,]) (herbsByName: IDictionary<string, Cell list>)
                 doContinue <- false
             else
                 let (a, b) = segments.Item(sIdx)
-                let segmentDistance = findDistance themap a b
+                let segmentDistance = 0 //findDistance themap a b
                 pathDistance <- pathDistance + segmentDistance
                 if minDistance < pathDistance then
                     doContinue <- false
@@ -193,6 +245,6 @@ let execute() =
         |> List.groupBy(fun h -> h.Name)
         |> dict
 
-    findAllPaths2 themap herbsByName startPos
+    findAllPaths3 themap herbsByName startPos
     //findAllPaths themap herbsByName startPos
 
