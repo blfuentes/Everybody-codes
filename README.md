@@ -8,10 +8,12 @@ https://everybody.codes/
 🥚 = 0 parts
 | Year | Title | Progress | Score |
 | - | - | - | - |
-| 2024 | The Kingdom of Algorithmia |    🐔🐔🐔🐔🐔🐔🐔🐔🐔🐥🐔🐥🐔🐔🥚🥚🥚🥚🥚🥚 | (40/60) | 
+| 2024 | The Kingdom of Algorithmia | 🐔🐔🐔🐔🐔🐔🐔🐔🐔🐥🐔🐥🐔🐔🥚🥚🥚🥚🥚🥚 | (40/60) |
+| 2024 S1 | Echoes of Enigmatus No. 1 | 🥚🥚🥚 | (0/12) |
+| 2024 S2 | The Entertainment Hub No. 2 | 🥚🥚🥚 | (0/12) |
 | 2025 | The Song of Ducks and Dragons | 🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚 | (0/60) | 
 
-### 2024
+### 2024 The Kingdom of Algorithmia
 
 [https://everybody.codes/event/2024](https://everybody.codes/event/2024/quests)
 
@@ -40,7 +42,31 @@ https://everybody.codes/
 | Quest 19  | ❌  | ❌ | ❌ |
 | Quest 20  | ❌  | ❌ | ❌ |
 
-### 2025
+### 2024 Echoes of Enigmatus [ No. 1 ]
+
+[https://everybody.codes/story/1](https://everybody.codes/story/1/quests)
+
+(0/3)
+
+|Day      | Part 1 | Part 2 | Part 3 |
+|---------|----|----|----|
+| Quest 1   | ❌  | ❌ | ❌ |
+| Quest 2   | ❌  | ❌ | ❌ |
+| Quest 3   | ❌  | ❌ | ❌ |
+
+### 2024 The Entertainment Hub [ No. 2 ]
+
+[https://everybody.codes/story/2](https://everybody.codes/story/2/quests)
+
+(0/3)
+
+|Day      | Part 1 | Part 2 | Part 3 |
+|---------|----|----|----|
+| Quest 1   | ❌  | ❌ | ❌ |
+| Quest 2   | ❌  | ❌ | ❌ |
+| Quest 3   | ❌  | ❌ | ❌ |
+
+### 2025 The Song of Ducks and Dragons
 
 [https://everybody.codes/event/2025](https://everybody.codes/event/2025/quests)
 
