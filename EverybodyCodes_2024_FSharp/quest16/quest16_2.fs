@@ -25,10 +25,20 @@ let parseContent (lines: string array) =
 
     (levers, filtered)              
 
+let rec gcd a b =
+    if b = 0 then a 
+    else gcd b a % b
+
+let lcm a b =
+    a / (gcd a  b * b)
+let lcmAll arr =
+    arr |> Array.reduce lcm, 1
+
 let findCharacters (levers: int array) (catfaces: Dictionary<int, char list>) (round: int64) =
     let positions = levers |> Seq.map(fun l -> int64(l) * round) |> List.ofSeq
     let chars = 
         seq {
+            
             for kvp in catfaces do
                 let pos = kvp.Key / 3
                 let position = int(positions[pos]%int64(kvp.Value.Length))
