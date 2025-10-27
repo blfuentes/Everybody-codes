@@ -1,4 +1,4 @@
-﻿open System
+open System
 
 open EverybodyCodes_2024_FSharp.Modules
 
@@ -88,5 +88,13 @@ let main argv =
     printfn "Final result Quest 16 part 2: %A in %s" resultquest16Part2 (ms time16_2)
     let (resultquest16Part3, time16_3) = duration quest16_part03.execute
     printfn "Final result Quest 16 part 3: %A in %s" resultquest16Part3 (ms time16_3)
+
+    // DAY 17
+    let (resultquest17Part1, time17_1) = duration quest17_part01.execute
+    printfn "Final result Quest 17 part 1: %A in %s" resultquest17Part1 (ms time17_1)
+    let (resultquest17Part2, time17_2) = duration quest17_part02.execute
+    printfn "Final result Quest 17 part 2: %A in %s" resultquest17Part2 (ms time17_2)
+    let (resultquest17Part3, time17_3) = duration quest17_part03.execute
+    printfn "Final result Quest 17 part 3: %A in %s" resultquest17Part3 (ms time17_3)
 
     0 // return an integer exit code
