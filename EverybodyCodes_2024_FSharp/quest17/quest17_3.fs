@@ -1,84 +1,113 @@
 module quest17_part03
 
 open EverybodyCodes_2024_FSharp.Modules
-open System.Collections.Generic
 
-//let path = "quest17/test_input_03.txt"
 let path = "quest17/quest17_input_03.txt"
 
-type Star = {
-    Id: int
-    X: int
-    Y: int
-}
+type Star = { Id: int; X: int; Y: int }
 
-let parseContent(lines: string array) =
-    let maxRows, maxCols = lines.Length, lines.[0].Length
-    let mutable currentStar = 1
-    let stars =
-        seq {
-            for y in 0..maxRows - 1 do
-                for x in 0 .. maxCols - 1 do
-                    let char = lines[y].[x]
-                    if char = '*' then
-                        let star = { Id = currentStar; X = x + 1; Y = maxCols - y }
-                        currentStar <- currentStar + 1
-                        yield star
-        } |> Seq.toList
-    stars
+let manhattanDistance (star1: Star) (star2: Star) =
+    abs(star1.X - star2.X) + abs(star1.Y - star2.Y)
 
-let manhattanDistance(star1: Star, star2: Star) =
-    abs(star2.X - star1.X) + abs(star2.Y - star1.Y)
+let parseContent (lines: string array) =
+    lines
+    |> Array.mapi (fun y line ->
+        line.ToCharArray()
+        |> Array.mapi (fun x char -> if char = '*' then Some(x, y) else None)
+    )
+    |> Array.concat
+    |> Array.choose id
+    |> Array.mapi (fun i (x, y) -> { Id = i; X = x; Y = y })
+    |> Array.toList
 
-let distances(stars: Star list) =
-    let distances = new Dictionary<Star*Star, int>()
-    for star1 in stars do
-        for star2 in stars do
-            if star1.Id <> star2.Id then
-                let distance = manhattanDistance (star1, star2)
-                if not (distances.ContainsKey(star1, star2)) then
-                    distances.Add((star1, star2), distance)
-                if not (distances.ContainsKey((star2, star1))) then
-                    distances.Add((star2, star1), distance)
-    distances
+let crashConstellations (constellations: list<list<int>>) (dists: int[,]) (getLinks: bool) (threshold: int) =
+    let mutable cons = constellations
+    let mutable links = []
+    let mutable i = 0
+    while cons.Length > 1 && i < cons.Length do
+        let curr = cons.Head
+        let rest = cons.Tail
 
-let printStars(stars: Star list) =
-    for star in stars do
-        printfn "Star %d at (%d,%d)" star.Id star.X star.Y  
- 
-let findMinimumSpanningTree(stars: Star list) =
-    if List.isEmpty stars then
-        0
-    else
-        let mutable totalDistance = 0
-        let visited = HashSet<Star>()
-        let pq = new PriorityQueue<(int * Star * Star), int>()
+        let mutable globalMin = System.Int32.MaxValue
+        let mutable mergeWithId = -1
+        let mutable globalLinkTo = -1
+        let mutable globalLinkFrom = -1
 
-        let startStar = stars.Head
-        visited.Add(startStar) |> ignore
+        for conId in 0 .. rest.Length - 1 do
+            let otherCon = rest[conId]
+            let mutable minBetweenCons = System.Int32.MaxValue
+            let mutable linkTo = -1
+            let mutable linkFrom = -1
 
-        for otherStar in stars do
-            if otherStar.Id <> startStar.Id then
-                let dist = manhattanDistance(startStar, otherStar)
-                pq.Enqueue((dist, startStar, otherStar), dist)
-
-        while visited.Count < stars.Length && pq.Count > 0 do
-            let (dist, fromStar, toStar) = pq.Dequeue()
-
-            if not (visited.Contains(toStar)) then
-                visited.Add(toStar) |> ignore
-                totalDistance <- totalDistance + dist
-                //printfn "Connecting Star %d to Star %d with distance %d" fromStar.Id toStar.Id dist
-
-                for otherStar in stars do
-                    if not (visited.Contains(otherStar)) then
-                        let newDist = manhattanDistance(toStar, otherStar)
-                        pq.Enqueue((newDist, toStar, otherStar), newDist)
+            for s1 in curr do
+                for s2 in otherCon do
+                    let d = dists[s1, s2]
+                    if d < minBetweenCons then
+                        minBetweenCons <- d
+                        linkTo <- s2
+                        linkFrom <- s1
+            
+            if minBetweenCons < globalMin then
+                globalMin <- minBetweenCons
+                globalLinkTo <- linkTo
+                globalLinkFrom <- linkFrom
+                mergeWithId <- conId
         
-        totalDistance + stars.Length
+        if mergeWithId <> -1 && globalMin < threshold then
+            let mergedList = rest[mergeWithId] @ curr
+            let updatedRest = rest |> List.removeAt mergeWithId
+            cons <- mergedList :: updatedRest
+            i <- 0 // Restart the scan
+        else
+            cons <- rest @ [curr]
+            i <- i + 1
+        
+        if globalLinkFrom <> -1 then
+            links <- (globalLinkFrom, globalLinkTo) :: links
+    
+    if getLinks then Choice1Of2 links else Choice2Of2 cons
+
+let rec findConstellations (stars: Star list) (p3: bool) (allStarsDists: int[,]) =
+    let starIds = stars |> List.map(fun s -> s.Id) |> Set.ofList
+
+    if not p3 then
+        let initialConstellations = stars |> List.map (fun s -> [s.Id])
+        match crashConstellations initialConstellations allStarsDists true System.Int32.MaxValue with
+        | Choice1Of2 links ->
+            let mstWeight =
+                links
+                |> List.filter (fun (a, b) -> starIds.Contains(a) && starIds.Contains(b))
+                |> List.distinct
+                |> List.sumBy (fun (a, b) -> allStarsDists[a, b])
+            int64(stars.Length + mstWeight)
+        | _ -> failwith "Expected links"
+    else
+        let initialConstellations = stars |> List.map (fun s -> [s.Id])
+        match crashConstellations initialConstellations allStarsDists false 6 with
+        | Choice2Of2 finalConstellations ->
+            let sizes =
+                finalConstellations
+                |> List.map (fun conIds ->
+                    let conStars = conIds |> List.map (fun id -> stars |> List.find (fun s -> s.Id = id))
+                    findConstellations conStars false allStarsDists
+                )
+            
+            let topThree =
+                sizes
+                |> List.sortDescending
+                |> List.take 3
+            
+            if topThree.Length < 3 then 0L
+            else topThree |> List.map int64 |> List.reduce (*)
+        | _ -> failwith "Expected constellations"
 
 let execute() =
     let lines = LocalHelper.GetLinesFromFile(path)
-    let stars = parseContent(lines)
-    //printStars stars
-    findMinimumSpanningTree stars
+    let allStars = parseContent lines
+
+    let allDists = Array2D.create allStars.Length allStars.Length 0
+    for s1 in allStars do
+        for s2 in allStars do
+            allDists[s1.Id, s2.Id] <- manhattanDistance s1 s2
+
+    findConstellations allStars true allDists

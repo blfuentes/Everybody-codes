@@ -8,7 +8,7 @@ https://everybody.codes/
 🥚 = 0 parts
 | Year | Title | Progress | Score |
 | - | - | - | - |
-| 2024 | The Kingdom of Algorithmia | 🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐥🐔🐔🥚 | (56/60) |
+| 2024 | The Kingdom of Algorithmia | 🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🥚 | (57/60) |
 | 2024 S1 | Echoes of Enigmatus No. 1 | 🥚🥚🥚 | (0/12) |
 | 2024 S2 | The Entertainment Hub No. 2 | 🥚🥚🥚 | (0/12) |
 | 2025 | The Song of Ducks and Dragons | 🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚 | (0/60) | 
@@ -17,7 +17,7 @@ https://everybody.codes/
 
 [https://everybody.codes/event/2024](https://everybody.codes/event/2024/quests)
 
-(18.66/20)
+(19/20)
 
 |Day      | Part 1 | Part 2 | Part 3 |
 |---------|----|----|----|
@@ -37,7 +37,7 @@ https://everybody.codes/
 | Quest 14  | 🐤 [F#](./EverybodyCodes_2024_FSharp/quest14/quest14_1.fs) | 🐤 [F#](./EverybodyCodes_2024_FSharp/quest14/quest14_2.fs) | 🐤 [F#](./EverybodyCodes_2024_FSharp/quest14/quest14_3.fs) |
 | Quest 15  | 🐤 [F#](./EverybodyCodes_2024_FSharp/quest15/quest15_1.fs) | 🐤 [F#](./EverybodyCodes_2024_FSharp/quest15/quest15_2.fs) | 🐤 [F#](./EverybodyCodes_2024_FSharp/quest15/quest15_3.fs) |
 | Quest 16  | 🐤 [F#](./EverybodyCodes_2024_FSharp/quest16/quest16_1.fs) | 🐤 [F#](./EverybodyCodes_2024_FSharp/quest16/quest16_2.fs) | 🐤 [F#](./EverybodyCodes_2024_FSharp/quest16/quest16_3.fs) |
-| Quest 17  | 🐤 [F#](./EverybodyCodes_2024_FSharp/quest17/quest17_1.fs) | 🐤 [F#](./EverybodyCodes_2024_FSharp/quest17/quest17_2.fs) | ❌ |
+| Quest 17  | 🐤 [F#](./EverybodyCodes_2024_FSharp/quest17/quest17_1.fs) | 🐤 [F#](./EverybodyCodes_2024_FSharp/quest17/quest17_2.fs) | 🐤 [F#](./EverybodyCodes_2024_FSharp/quest17/quest17_3.fs) |
 | Quest 18  | 🐤 [F#](./EverybodyCodes_2024_FSharp/quest18/quest18_1.fs) | 🐤 [F#](./EverybodyCodes_2024_FSharp/quest18/quest18_2.fs) | 🐤 [F#](./EverybodyCodes_2024_FSharp/quest18/quest18_3.fs) |
 | Quest 19  | 🐤 [F#](./EverybodyCodes_2024_FSharp/quest19/quest19_1.fs) | 🐤 [F#](./EverybodyCodes_2024_FSharp/quest19/quest19_2.fs) | 🐤 [F#](./EverybodyCodes_2024_FSharp/quest19/quest19_3.fs) |
 | Quest 20  | ❌  | ❌ | ❌ |
