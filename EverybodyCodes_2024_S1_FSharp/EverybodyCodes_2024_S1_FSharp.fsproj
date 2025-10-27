@@ -24,6 +24,16 @@
 		<Content Include="quest01\quest01_input_01.txt" />
 		<Content Include="quest01\quest01_input_02.txt" />
 		<Content Include="quest01\quest01_input_03.txt" />
+		<Compile Include="quest02\quest02_1.fs" />
+		<Compile Include="quest02\quest02_2.fs" />
+		<Compile Include="quest02\quest02_3.fs" />
+		<Compile Include="quest02\utils02.fs" />
+		<Content Include="quest02\test_input_01.txt" />
+		<Content Include="quest02\test_input_02.txt" />
+		<Content Include="quest02\test_input_03.txt" />
+		<Content Include="quest02\quest02_input_01.txt" />
+		<Content Include="quest02\quest02_input_02.txt" />
+		<Content Include="quest02\quest02_input_03.txt" />
 		<Compile Include="Program.fs" />
 	</ItemGroup>
 
@@ -32,4 +42,5 @@
 	</ItemGroup>
 
 </Project>
+
 
