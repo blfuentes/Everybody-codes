@@ -3,8 +3,8 @@
 open System.Collections.Generic
 open EverybodyCodes_2024_FSharp.Modules
 
-let path = "quest16/test_input_02.txt"
-//let path = "quest16/quest16_input_01.txt"
+//let path = "quest16/test_input_02.txt"
+let path = "quest16/quest16_input_02.txt"
 
 let parseContent (lines: string array) =
     let levers = lines[0].Split(",") |> Array.map int
@@ -25,14 +25,18 @@ let parseContent (lines: string array) =
 
     (levers, filtered)              
 
-let rec gcd a b =
-    if b = 0 then a 
-    else gcd b a % b
+let rec gcdBig (a: int64) (b: int64) =
+    if b = 0L then a
+    else gcdBig b (a % b)
 
-let lcm a b =
-    a / (gcd a  b * b)
-let lcmAll arr =
-    arr |> Array.reduce lcm, 1
+let rec lcmBig (a: int64) (b: int64) =
+    if a = 0L || b = 0L then 0L
+    else (a * b) / (gcdBig a b)
+
+let rec listLcmBig numbers =
+    match numbers with
+    | [] -> 1L
+    | hd :: tl -> lcmBig hd (listLcmBig tl)
 
 let findCharacters (levers: int array) (catfaces: Dictionary<int, char list>) (round: int64) =
     let positions = levers |> Seq.map(fun l -> int64(l) * round) |> List.ofSeq
@@ -47,37 +51,49 @@ let findCharacters (levers: int array) (catfaces: Dictionary<int, char list>) (r
         }
     chars |> Seq.map string
 
-let calculateRound (max: int64) (levers: int array) (catfaces: Dictionary<int, char list>) =
-    let mutable numOfCoints = 0L
-    for r in [1L..max] do
-        let values = (findCharacters levers catfaces r)
-        let value = String.concat "" (findCharacters levers catfaces r)
-        let coins =
-            value
-            |> Seq.countBy id
-            |> Seq.filter(fun (_, c) -> c >= 3)
-            |> Seq.sumBy(fun (_, c) -> 1L + (int64(c)-3L))
-        numOfCoints <- numOfCoints + coins
-        printfn "pull %A: %A" r numOfCoints
-    //    printfn "pull %d %s" r value
-        //printfn "pull %d %s: %d coins" r value coins
+let getScore (value: string seq) =
+    let groups =
+        value
+        |> Seq.chunkBySize 3
+        |> Seq.map(fun parts -> 
+            parts
+            |> Array.mapi(fun i c ->
+                if i <> 1 then 
+                    c 
+                else 
+                    ""
+            ) |> Array.filter(fun c -> c <> "")
+        )
+        |> Seq.filter(fun v -> v.Length <> 0)
+    let value = groups |> Seq.collect id |> List.ofSeq
+    let coins =
+        value
+        |> Seq.countBy id
+        |> Seq.filter(fun (_, c) -> c >= 3)
+        |> Seq.sumBy(fun (_, c) -> 1L + (int64(c)-3L))
+    coins
 
-    //printfn "%s: %d coins" value coins
-    //let value = 
-    //    (findCharacters levers catfaces max)
-    //    |> Seq.chunkBySize 3
-    //    |> Seq.map(fun c -> String.concat "" (c))
-    //String.concat " " (value)
-    //let text = String.concat "" (value)
-    //printfn "%s" text
-    //value
-    //|> Seq.countBy id
-    //|> Seq.filter(fun (_, c) -> c >= 3)
-    //|> Seq.sumBy(fun (_, c) -> 1 + (c-3))
+let calculateRound (max: int64) (levers: int array) (catfaces: Dictionary<int, char list>) =
+    let wheels = catfaces |> Seq.chunkBySize 3
+    let lengths =
+        wheels
+        |> Seq.map(fun a -> int64(a[0].Value.Length))
+        |> List.ofSeq
+    
+    let uniqueValues = int(listLcmBig lengths)
+    let repeats = int64((float(max)/float((uniqueValues))))
+    let mutable numOfCoins = 0L
+    
+    for idx in [1..uniqueValues] do
+        numOfCoins <- numOfCoins + getScore (findCharacters levers catfaces idx)
+
+    numOfCoins <- numOfCoins * repeats
+
+    for idx in [(uniqueValues*(int(repeats))+1)..(int(max))] do
+        numOfCoins <- numOfCoins + getScore (findCharacters levers catfaces idx)
+    numOfCoins    
 
 let execute() =
     let lines = LocalHelper.GetLinesFromFile(path)
     let levers, catfaces = parseContent lines
-    calculateRound 10L levers catfaces
-
-    //calculateRound 202420242024L levers catfaces
+    calculateRound 202420242024L levers catfaces
