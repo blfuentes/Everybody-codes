@@ -1,108 +1,93 @@
 module quest10_part03
 
 open EverybodyCodes_2024_FSharp.Modules
-open System.Collections.Generic
 
-let path = "quest10/test_input_03.txt"
-//let path = "quest10/quest10_input_03.txt"
+//let path = "quest10/test_input_03.txt"
+let path = "quest10/quest10_input_03.txt"
 
-type Defintion = {
-    ShrineMap: char[,]
-    ShrineSolved: char[,]
-    RunesByRow: Dictionary<int, Set<char>>
-    RunesByCol: Dictionary<int, Set<char>>
-    ToFill: (int * int) list
-}
+let parseContent (lines: string array) =
+    lines |> Array.map (fun line -> line.ToCharArray())
 
-let parseFull (lines: string[]) =
-    let step = 6
-    let blockHeight = ((lines.Length - 8) / step) + 1
-    let blockWidth = ((lines[0].Length - 8) / step) + 1
-
-    let allRunes =
-        seq {
-            for row in 0..blockHeight - 1 do
-                for col in 0..blockWidth - 1 do
-                    let shrineMap = Array2D.create 8 8 '.'
-                    let shrineSolved = Array2D.create 8 8 '.'
-                    let runesByRow = new Dictionary<int, Set<char>>()
-                    let runesByCol = new Dictionary<int, Set<char>>()
-                    let toFill =
-                        seq {
-                            for rIdx in 0..7 do
-                                for cIdx in 0..7 do
-                                    let char = lines[rIdx + row * step][cIdx + col * step]
-                                    shrineMap[rIdx, cIdx] <- char
-                                    shrineSolved[rIdx, cIdx] <- char  
-                                    if char = '.' then
-                                        yield (rIdx, cIdx)
-                        } |> Seq.toList
-                    for row in 0 .. shrineMap.GetLength(0) - 1 do
-                        let rowRunes = 
-                            shrineMap[row, *] 
-                            |> Seq.filter (fun c -> c <> '.') 
-                            |> Set.ofSeq
-                        runesByRow.Add(row, rowRunes)
-                    for col in 0 .. shrineMap.GetLength(1) - 1 do
-                        let colRunes = 
-                            shrineMap[*, col] 
-                            |> Seq.filter (fun c -> c <> '.') 
-                            |> Set.ofSeq
-                        runesByCol.Add(col, colRunes)
-                    yield { 
-                        ShrineMap = shrineMap;
-                        ShrineSolved = shrineSolved;
-                        RunesByRow = runesByRow;
-                        RunesByCol = runesByCol;
-                        ToFill = toFill 
-                    }
-        } |> Seq.toList
-    allRunes
-
-let printMap(themap: char[,]) =
-    let rows = themap.GetLength(0)
-    let cols = themap.GetLength(1)
-    for r in 0 .. rows - 1 do
-        for c in 0 .. cols - 1 do
-            printf "%c" themap[r, c]
-        printfn ""
-
-let findRune (pos: int*int) (themap: char[,]) (runesByRow: Dictionary<int, Set<char>>) (runesByCol: Dictionary<int, Set<char>>)=
-    let rowRunes = runesByRow[fst pos]
-    let colRunes = runesByCol[snd pos]
-    if rowRunes.Contains '?' || colRunes.Contains '?' then
-        '?'
-    else
-        let rune = Set.intersect rowRunes colRunes |> Set.minElement
-        themap[fst pos, snd pos] <- rune
-        rune
-
-let calculatePower (runes: char array) =
-    let weights = [|'A'..'Z'|] |> Array.mapi (fun i c -> (c, i + 1)) |> dict
-    runes 
-    |> Array.mapi(fun i c -> 
-        if c = '?' then 0 else weights[c] * (i + 1)) 
+let calculateValue (s: string) =
+    s.ToCharArray()
+    |> Array.mapi (fun i c -> (int c - int 'A' + 1) * (i + 1))
     |> Array.sum
 
+let extractMiddle (arr: char[][]) =
+    arr
+    |> Array.skip 2
+    |> Array.take 4
+    |> Array.collect (fun row -> row |> Array.skip 2 |> Array.take 4)
+
+let isSolved (flatGrid: char seq) =
+    not (flatGrid |> Seq.contains '.')
+
+let extractCard (mainGrid: char[][]) (col: int) (row: int) (spanX: int) (spanY: int) =
+    Array.init 8 (fun y ->
+        Array.init 8 (fun x ->
+            mainGrid[row * spanY + y][col * spanX + x]
+        )
+    )
+
+let updateCard (mainGrid: char[][]) (col: int) (row: int) (card: char[][]) (spanX: int) (spanY: int) =
+    for y in 0..7 do
+        for x in 0..7 do
+            if card[y][x] <> '?' then
+                mainGrid[row * spanY + y][col * spanX + x] <- card[y][x]
+
+let solve (card: char[][]) =
+    for y in 0..7 do
+        for x in 0..7 do
+            if card[y][x] = '.' then
+                let rowChars = card[y] |> Seq.filter (fun c -> c <> '.') |> Set.ofSeq
+                let colChars = card |> Seq.map (fun r -> r[x]) |> Seq.filter (fun c -> c <> '.') |> Set.ofSeq
+                let intersection = Set.intersect rowChars colChars
+                if intersection.Count = 1 then
+                    card[y][x] <- Set.minElement intersection
+    for y in 0..7 do
+        for x in 0..7 do
+            if card[y][x] = '.' then
+                let row = card[y]
+                let col = card |> Array.map (fun r -> r[x])
+                if row |> Array.contains '?' || col |> Array.contains '?' then
+                    let letters =
+                        Seq.concat [row; col]
+                        |> Seq.filter (fun c -> not (['?'; '.'] |> List.contains c))
+                        |> Seq.countBy id
+                        |> Seq.filter (fun (_, count) -> count = 1)
+                        |> Seq.map fst
+                        |> Seq.toList
+
+                    if letters.Length = 1 then
+                        let missingLetter = letters.Head
+                        card[y][x] <- missingLetter
+                        // Fill in question marks in the same row/column
+                        for i in 0..7 do
+                            if card[y][i] = '?' then card[y][i] <- missingLetter
+                            if card[i][x] = '?' then card[i][x] <- missingLetter
+    card
+
+let run (mainGrid: char[][]) (cols: int) (rows: int) =
+    let mutable res = 0
+    let mutable prevRes = -1 // Ensure the loop runs at least once
+    let spanX, spanY = 6, 6
+
+    while prevRes <> res do
+        prevRes <- res
+        res <- 0
+
+        for y in 0..rows - 1 do
+            for x in 0..cols - 1 do
+                let card = extractCard mainGrid x y spanX spanY
+                let solvedCard = solve card
+                
+                if solvedCard |> Array.concat |> isSolved then
+                    updateCard mainGrid x y solvedCard spanX spanY
+                    let middleString = extractMiddle solvedCard |> System.String
+                    res <- res + calculateValue middleString
+    res
 
 let execute() =
     let lines = LocalHelper.GetLinesFromFile(path)
-    let allRunes = parseFull lines
-    allRunes
-    |> List.map(fun runeDef ->
-        let toFill = runeDef.ToFill
-        let shrineSolved = runeDef.ShrineSolved
-        let runesByRow = runeDef.RunesByRow
-        let runesByCol = runeDef.RunesByCol
-        let findRuneLocal = findRune >> (fun f -> f shrineSolved runesByRow runesByCol)
-        let runes = 
-            toFill
-            |> Seq.map (fun pos -> 
-                let rune = findRuneLocal pos
-                printMap (shrineSolved)
-                rune
-                )
-            |> Seq.toArray
-        calculatePower runes
-    )
-    |> Seq.sum
+    let mainGrid = parseContent lines
+    run mainGrid 20 10
