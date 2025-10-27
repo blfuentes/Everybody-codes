@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
@@ -114,6 +114,16 @@
 		<Content Include="quest17\quest17_input_01.txt" />
 		<Content Include="quest17\quest17_input_02.txt" />
 		<Content Include="quest17\quest17_input_03.txt" />
+		<Compile Include="quest18\quest18_1.fs" />
+		<Compile Include="quest18\quest18_2.fs" />
+		<Compile Include="quest18\quest18_3.fs" />
+		<Compile Include="quest18\utils18.fs" />
+		<Content Include="quest18\test_input_01.txt" />
+		<Content Include="quest18\test_input_02.txt" />
+		<Content Include="quest18\test_input_03.txt" />
+		<Content Include="quest18\quest18_input_01.txt" />
+		<Content Include="quest18\quest18_input_02.txt" />
+		<Content Include="quest18\quest18_input_03.txt" />
 		<Compile Include="Program.fs" />
 	</ItemGroup>
 
@@ -122,6 +132,7 @@
 	</ItemGroup>
 
 </Project>
+
 
 
 
