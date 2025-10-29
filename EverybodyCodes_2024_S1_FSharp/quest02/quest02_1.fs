@@ -40,57 +40,62 @@ let parseContent(lines: string array) =
 let buildTree(operations: Operation list) =
     let leftTree = new Dictionary<string, Node>()
     let rightTree = new Dictionary<string, Node>()
-    let mutable leftRoot = ""
-    let mutable rightRoot = ""
 
-    let rec findNode(rank: int) (searchTree: Dictionary<string, Node>) =
-        let toRun = searchTree.Values |> Seq.toList
-        let mutable foundNode: Node option = None
-        let smaller = toRun |> Seq.tryFind(fun n -> n.Rank < rank)
-        let larger = toRun |> Seq.tryFind(fun n -> n.Rank > rank)
+    let findNode(rank: int) (searchTree: Dictionary<string, Node>) =
+        let toRun = searchTree.Values |> Seq.toArray
+        let mutable doContinue = true
+        let mutable currentNode = toRun[0]
+        let mutable side = 0
+        while doContinue do
+            if currentNode.Rank > rank then
+                match currentNode.Left with
+                | Some node -> 
+                    currentNode <- searchTree[node.Name]
+                | None ->
+                    side <- -1
+                    doContinue <- false
+            else
+                match currentNode.Right with
+                | Some node ->
+                    currentNode <- searchTree[node.Name]
+                | None ->
+                    side <- 1
+                    doContinue <- false
+
+        (side, currentNode)
         
 
     operations
     |> List.iter(fun op -> 
         let leftNode, rightNode = op.Left, op.Right
 
-        if leftTree.Count = 0 then
-            leftTree.Add(op.Left.Name, op.Left)
-            leftRoot <- op.Left.Name
-        else
-            ()
-        
-        if rightTree.Count = 0 then
-            rightTree.Add(op.Right.Name, op.Right)
-            rightRoot <- op.Right.Name
-        else
-            ()
+        if leftTree.Count > 0 then
+            let (side, node) = findNode op.Left.Rank leftTree
+            if side = 1 then // right
+                leftTree[node.Name] <- { leftTree[node.Name] with Right = Some leftNode }
+            else // left
+                leftTree[node.Name] <- { leftTree[node.Name] with Left = Some leftNode }
 
-        if nodeDict.Count = 0 then
-            nodeDict.Add(op.Left.Name, op.Left)
-            lastLeftId <- op.Left.Name
-            nodeDict.Add(op.Right.Name, op.Right)
-            rightRoot <- op.Right.Name
-        else
-            let leftChecker = nodeDict[lastLeftId]
-            nodeDict.Add(op.Left.Name, op.Left)
-            if op.Left.Rank < leftChecker.Rank then
-                nodeDict[lastLeftId] <- { nodeDict[lastLeftId] with Left = Some op.Left }
-                lastLeftId <- op.Left.Name
-            else
-                nodeDict[lastLeftId] <- { nodeDict[lastLeftId] with Right = Some op.Left }
-            let rightChecker = nodeDict[lastRightId]
-            nodeDict.Add(op.Right.Name, op.Right)
-            if op.Right.Rank < rightChecker.Rank then
-                nodeDict[lastRightId] <- { nodeDict[lastRightId] with Left = Some op.Right }
-                rightRoot <- op.Right.Name
-            else
-                nodeDict[lastRightId] <- { nodeDict[lastRightId] with Right = Some op.Right }
+        leftTree.Add(op.Left.Name, op.Left)
+        
+        if rightTree.Count > 0 then
+            let (side, node) = findNode op.Right.Rank rightTree
+            if side = 1 then // right
+                rightTree[node.Name] <- { rightTree[node.Name] with Right = Some rightNode }
+            else // left
+                rightTree[node.Name] <- { rightTree[node.Name] with Left = Some rightNode }
+
+        rightTree.Add(op.Right.Name, op.Right)
     )
-    nodeDict
+    (leftTree, rightTree)
+   
+
+let buildWord((leftTree, rightTree): Dictionary<string, Node>*Dictionary<string, Node>) =
+    0
+
 
 let execute() =
     let lines = LocalHelper.GetLinesFromFile(path)
     let nodes = parseContent(lines)
-    buildTree(nodes) |> ignore
+    let (leftTree, rightTree) = buildTree(nodes)
     0
