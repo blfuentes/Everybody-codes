@@ -91,11 +91,68 @@ let buildTree(operations: Operation list) =
    
 
 let buildWord((leftTree, rightTree): Dictionary<string, Node>*Dictionary<string, Node>) =
-    0
+    let leftNodesByLevel = new Dictionary<int, Node list>()
+    let rightNodesByLevel = new Dictionary<int, Node list>()
+
+    let leftRoot = (leftTree.Values |> Array.ofSeq)[0]
+    leftNodesByLevel.Add(1, [leftRoot])
+    let rightRoot = (rightTree.Values |> Array.ofSeq)[0]
+    rightNodesByLevel.Add(1, [rightRoot])
+
+    let mutable currentLevel = 2
+    // left tree
+    let mutable currentNodeLevel = leftNodesByLevel[currentLevel - 1]
+    while currentNodeLevel.Length > 0 do
+        currentNodeLevel <- 
+            currentNodeLevel 
+            |> List.collect(fun n -> 
+                match n.Left, n.Right with
+                | Some nl, Some nr ->
+                    [leftTree[nl.Name]; leftTree[nr.Name]]
+                | Some nl, _ -> [leftTree[nl.Name]]
+                | _, Some nr -> [leftTree[nr.Name]]
+                | _ -> [])
+        leftNodesByLevel.Add(currentLevel, currentNodeLevel)
+        currentLevel <- currentLevel + 1
+     
+    let mutable currentLevel = 2
+    // right tree
+    let mutable currentNodeLevel = rightNodesByLevel[currentLevel - 1]
+    while currentNodeLevel.Length > 0 do
+        currentNodeLevel <- 
+            currentNodeLevel 
+            |> List.collect(fun n -> 
+                match n.Left, n.Right with
+                | Some nl, Some nr ->
+                    [rightTree[nl.Name]; rightTree[nr.Name]]
+                | Some nl, _ -> [rightTree[nl.Name]]
+                | _, Some nr -> [rightTree[nr.Name]]
+                | _ -> [])
+        rightNodesByLevel.Add(currentLevel, currentNodeLevel)
+        currentLevel <- currentLevel + 1 
+
+    // 
+    let maxLevel =
+        leftNodesByLevel
+        |> Seq.maxBy(fun level -> level.Value.Length)
+    let names =
+        maxLevel.Value
+        |> Seq.sortBy _.Rank
+        |> Seq.map _.Name
+    let leftName = String.concat "" names
+    let maxLevel =
+        rightNodesByLevel
+        |> Seq.maxBy(fun level -> level.Value.Length)
+    let names =
+        maxLevel.Value
+        |> Seq.sortBy _.Rank
+        |> Seq.map _.Name
+    let rightName = String.concat "" names
+    leftName + rightName
 
 
 let execute() =
     let lines = LocalHelper.GetLinesFromFile(path)
     let nodes = parseContent(lines)
     let (leftTree, rightTree) = buildTree(nodes)
-    0
+    buildWord (leftTree, rightTree)
