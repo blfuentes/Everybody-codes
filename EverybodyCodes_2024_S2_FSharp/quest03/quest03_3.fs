@@ -114,4 +114,17 @@ let execute() =
                         yield (x,y,0,true) ]
         totalVisited <- totalVisited + (explore grid dice stack)
 
+    // Build the grid lines as strings
+    //let linesOut =
+    //    [ for y in 0 .. grid.Length - 1 ->
+    //        let chars =
+    //            [ for x in 0 .. grid.[0].Length - 1 ->
+    //                if totalVisited.Contains(x,y) then
+    //                    "*"   // mark visited
+    //                else
+    //                    string grid.[y].[x] ]
+    //        System.String.Concat(chars) ]
+
+    //System.IO.File.WriteAllLines("output.txt", linesOut)
+
     totalVisited.Count
