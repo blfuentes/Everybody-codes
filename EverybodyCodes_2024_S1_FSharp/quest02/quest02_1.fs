@@ -7,7 +7,7 @@ open System.Collections.Generic
 let path = "quest02/quest02_input_01.txt"
 
 type Node = {
-    Id: string;
+    Id: int;
     Name: string;
     Rank: int;
     Left: Node option;
@@ -30,17 +30,17 @@ let parseContent(lines: string array) =
                 let leftName = (parts[2].Split("=")[1]).Replace("[", "").Replace("]", "").Split(",")[1]
                 let rightValue = int((parts[3].Split("=")[1]).Replace("[", "").Replace("]", "").Split(",")[0])
                 let rightName = (parts[3].Split("=")[1]).Replace("[", "").Replace("]", "").Split(",")[1]
-                let left = { Id = $"{id}_{leftName}"; Name = leftName; Rank = leftValue; Left = None; Right = None }
-                let right = { Id = $"{id}_{rightName}"; Name = rightName; Rank = rightValue; Left = None; Right = None }
+                let left = { Id = id; Name = leftName; Rank = leftValue; Left = None; Right = None }
+                let right = { Id = id; Name = rightName; Rank = rightValue; Left = None; Right = None }
                 yield { Id = id; Left = left; Right = right }
         } |> Seq.toList
     nodes
 
 let buildTree(operations: Operation list) =
-    let leftTree = new Dictionary<string, Node>()
-    let rightTree = new Dictionary<string, Node>()
+    let leftTree = new Dictionary<int, Node>()
+    let rightTree = new Dictionary<int, Node>()
 
-    let findNode(rank: int) (searchTree: Dictionary<string, Node>) =
+    let findNode(rank: int) (searchTree: Dictionary<int, Node>) =
         let toRun = searchTree.Values |> Seq.toArray
         let mutable doContinue = true
         let mutable currentNode = toRun[0]
@@ -89,7 +89,7 @@ let buildTree(operations: Operation list) =
     (leftTree, rightTree)
    
 
-let buildWord((leftTree, rightTree): Dictionary<string, Node>*Dictionary<string, Node>) =
+let buildWord((leftTree, rightTree): Dictionary<int, Node>*Dictionary<int, Node>) =
     let leftNodesByLevel = new Dictionary<int, Node list>()
     let rightNodesByLevel = new Dictionary<int, Node list>()
 
