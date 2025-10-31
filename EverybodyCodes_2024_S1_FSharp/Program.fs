@@ -33,4 +33,12 @@ let main argv =
     let (resultquest02Part3, time02_3) = duration quest02_part03.execute
     printfn "Final result Quest 02 part 3: %A in %s" resultquest02Part3 (ms time02_3)
 
+    // DAY 03
+    let (resultquest03Part1, time03_1) = duration quest03_part01.execute
+    printfn "Final result Quest 03 part 1: %A in %s" resultquest03Part1 (ms time03_1)
+    let (resultquest03Part2, time03_2) = duration quest03_part02.execute
+    printfn "Final result Quest 03 part 2: %A in %s" resultquest03Part2 (ms time03_2)
+    let (resultquest03Part3, time03_3) = duration quest03_part03.execute
+    printfn "Final result Quest 03 part 3: %A in %s" resultquest03Part3 (ms time03_3)
+
     0 // return an integer exit code
