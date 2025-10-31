@@ -3,10 +3,11 @@
 open EverybodyCodes_2024_S1_FSharp.Modules
 open System.Collections.Generic
 
-let path = "quest02/test_input_01.txt"
-//let path = "quest02/quest02_input_01.txt"
+//let path = "quest02/test_input_01.txt"
+let path = "quest02/quest02_input_01.txt"
 
 type Node = {
+    Id: string;
     Name: string;
     Rank: int;
     Left: Node option;
@@ -20,7 +21,6 @@ type Operation = {
 }
 
 let parseContent(lines: string array) =
-    //let root = { Name = "root"; Rank = 0; Left = None; Right = None }
     let nodes = 
         seq {
             for line in lines do
@@ -30,11 +30,10 @@ let parseContent(lines: string array) =
                 let leftName = (parts[2].Split("=")[1]).Replace("[", "").Replace("]", "").Split(",")[1]
                 let rightValue = int((parts[3].Split("=")[1]).Replace("[", "").Replace("]", "").Split(",")[0])
                 let rightName = (parts[3].Split("=")[1]).Replace("[", "").Replace("]", "").Split(",")[1]
-                let left = { Name = leftName; Rank = leftValue; Left = None; Right = None }
-                let right = { Name = rightName; Rank = rightValue; Left = None; Right = None }
+                let left = { Id = $"{id}_{leftName}"; Name = leftName; Rank = leftValue; Left = None; Right = None }
+                let right = { Id = $"{id}_{rightName}"; Name = rightName; Rank = rightValue; Left = None; Right = None }
                 yield { Id = id; Left = left; Right = right }
         } |> Seq.toList
-    //[(0,root)] @ nodes
     nodes
 
 let buildTree(operations: Operation list) =
@@ -50,14 +49,14 @@ let buildTree(operations: Operation list) =
             if currentNode.Rank > rank then
                 match currentNode.Left with
                 | Some node -> 
-                    currentNode <- searchTree[node.Name]
+                    currentNode <- searchTree[node.Id]
                 | None ->
                     side <- -1
                     doContinue <- false
             else
                 match currentNode.Right with
                 | Some node ->
-                    currentNode <- searchTree[node.Name]
+                    currentNode <- searchTree[node.Id]
                 | None ->
                     side <- 1
                     doContinue <- false
@@ -72,20 +71,20 @@ let buildTree(operations: Operation list) =
         if leftTree.Count > 0 then
             let (side, node) = findNode op.Left.Rank leftTree
             if side = 1 then // right
-                leftTree[node.Name] <- { leftTree[node.Name] with Right = Some leftNode }
+                leftTree[node.Id] <- { leftTree[node.Id] with Right = Some leftNode }
             else // left
-                leftTree[node.Name] <- { leftTree[node.Name] with Left = Some leftNode }
+                leftTree[node.Id] <- { leftTree[node.Id] with Left = Some leftNode }
 
-        leftTree.Add(op.Left.Name, op.Left)
+        leftTree.Add(op.Left.Id, op.Left)
         
         if rightTree.Count > 0 then
             let (side, node) = findNode op.Right.Rank rightTree
             if side = 1 then // right
-                rightTree[node.Name] <- { rightTree[node.Name] with Right = Some rightNode }
+                rightTree[node.Id] <- { rightTree[node.Id] with Right = Some rightNode }
             else // left
-                rightTree[node.Name] <- { rightTree[node.Name] with Left = Some rightNode }
+                rightTree[node.Id] <- { rightTree[node.Id] with Left = Some rightNode }
 
-        rightTree.Add(op.Right.Name, op.Right)
+        rightTree.Add(op.Right.Id, op.Right)
     )
     (leftTree, rightTree)
    
@@ -108,9 +107,9 @@ let buildWord((leftTree, rightTree): Dictionary<string, Node>*Dictionary<string,
             |> List.collect(fun n -> 
                 match n.Left, n.Right with
                 | Some nl, Some nr ->
-                    [leftTree[nl.Name]; leftTree[nr.Name]]
-                | Some nl, _ -> [leftTree[nl.Name]]
-                | _, Some nr -> [leftTree[nr.Name]]
+                    [leftTree[nl.Id]; leftTree[nr.Id]]
+                | Some nl, _ -> [leftTree[nl.Id]]
+                | _, Some nr -> [leftTree[nr.Id]]
                 | _ -> [])
         leftNodesByLevel.Add(currentLevel, currentNodeLevel)
         currentLevel <- currentLevel + 1
@@ -124,9 +123,9 @@ let buildWord((leftTree, rightTree): Dictionary<string, Node>*Dictionary<string,
             |> List.collect(fun n -> 
                 match n.Left, n.Right with
                 | Some nl, Some nr ->
-                    [rightTree[nl.Name]; rightTree[nr.Name]]
-                | Some nl, _ -> [rightTree[nl.Name]]
-                | _, Some nr -> [rightTree[nr.Name]]
+                    [rightTree[nl.Id]; rightTree[nr.Id]]
+                | Some nl, _ -> [rightTree[nl.Id]]
+                | _, Some nr -> [rightTree[nr.Id]]
                 | _ -> [])
         rightNodesByLevel.Add(currentLevel, currentNodeLevel)
         currentLevel <- currentLevel + 1 
