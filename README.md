@@ -10,7 +10,7 @@ https://everybody.codes/
 | - | - | - | - |
 | 2024 | The Kingdom of Algorithmia | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆 | (60/60) |
 | 2024 S1 | Echoes of Enigmatus No. 1 | 🦆🦆🦆 | (9/9) |
-| 2024 S2 | The Entertainment Hub No. 2 | 🦆🦆🥚 | (6/9) |
+| 2024 S2 | The Entertainment Hub No. 2 | 🦆🦆🦆 | (9/9) |
 | 2025 | The Song of Ducks and Dragons | 🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚 | (0/60) | 
 
 ### 2024 The Kingdom of Algorithmia
@@ -58,13 +58,13 @@ https://everybody.codes/
 
 [https://everybody.codes/story/2](https://everybody.codes/story/2/quests)
 
-(2/3)
+(3/3)
 
 |Day      | Part 1 | Part 2 | Part 3 |
 |---------|----|----|----|
 | Quest 1: Nail Down Your Luck								| 🍗 [F#](./EverybodyCodes_2024_S2_FSharp/quest01/quest01_1.fs) | 🍗 [F#](./EverybodyCodes_2024_S2_FSharp/quest01/quest01_2.fs) | 🍗 [F#](./EverybodyCodes_2024_S2_FSharp/quest01/quest01_3.fs) |
 | Quest 2: The Pocket-Money Popper							| 🍗 [F#](./EverybodyCodes_2024_S2_FSharp/quest02/quest02_1.fs) | 🍗 [F#](./EverybodyCodes_2024_S2_FSharp/quest02/quest02_2.fs) | 🍗 [F#](./EverybodyCodes_2024_S2_FSharp/quest02/quest02_3.fs) |
-| Quest 3: The Dice that Never Lie (Unless I Tell Them To)  | ❌  | ❌ | ❌ |
+| Quest 3: The Dice that Never Lie (Unless I Tell Them To)  | 🍗 [F#](./EverybodyCodes_2024_S2_FSharp/quest03/quest03_1.fs) | 🍗 [F#](./EverybodyCodes_2024_S2_FSharp/quest03/quest03_2.fs) | 🍗 [F#](./EverybodyCodes_2024_S2_FSharp/quest03/quest03_3.fs) |
 
 ### 2025 The Song of Ducks and Dragons
 
