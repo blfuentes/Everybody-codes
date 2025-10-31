@@ -9,7 +9,7 @@ https://everybody.codes/
 | Year | Title | Progress | Score |
 | - | - | - | - |
 | 2024 | The Kingdom of Algorithmia | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆 | (60/60) |
-| 2024 S1 | Echoes of Enigmatus No. 1 | 🦆🦢🥚 | (5/9) |
+| 2024 S1 | Echoes of Enigmatus No. 1 | 🦆🦆🥚 | (6/9) |
 | 2024 S2 | The Entertainment Hub No. 2 | 🥚🥚🥚 | (0/9) |
 | 2025 | The Song of Ducks and Dragons | 🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚 | (0/60) | 
 
@@ -46,12 +46,12 @@ https://everybody.codes/
 
 [https://everybody.codes/story/1](https://everybody.codes/story/1/quests)
 
-(1.66/3)
+(2/3)
 
 |Day      | Part 1 | Part 2 | Part 3 |
 |---------|----|----|----|
 | Quest 1: EniCode					| 🍗 [F#](./EverybodyCodes_2024_S1_FSharp/quest01/quest01_1.fs) | 🍗 [F#](./EverybodyCodes_2024_S1_FSharp/quest01/quest01_2.fs) | 🍗 [F#](./EverybodyCodes_2024_S1_FSharp/quest01/quest01_3.fs) |
-| Quest 2: Tangled Trees			| 🍗 [F#](./EverybodyCodes_2024_S1_FSharp/quest02/quest02_1.fs) | 🍗 [F#](./EverybodyCodes_2024_S1_FSharp/quest02/quest02_2.fs) | ❌ |
+| Quest 2: Tangled Trees			| 🍗 [F#](./EverybodyCodes_2024_S1_FSharp/quest02/quest02_1.fs) | 🍗 [F#](./EverybodyCodes_2024_S1_FSharp/quest02/quest02_2.fs) | 🍗 [F#](./EverybodyCodes_2024_S1_FSharp/quest02/quest02_3.fs) |
 | Quest 3: The Conical Snail Clock  | ❌  | ❌ | ❌ |
 
 ### 2024 The Entertainment Hub [ No. 2 ]
