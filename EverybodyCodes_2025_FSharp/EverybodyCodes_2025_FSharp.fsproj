@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
@@ -6,6 +6,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<Compile Include="Modules\Utils.fs" />
 		<Compile Include="Modules\LocalHelper.fs" />
 		<Compile Include="quest00\quest00_1.fs" />
 		<Compile Include="quest00\quest00_2.fs" />
@@ -14,6 +15,16 @@
 		<Content Include="quest00\test_input_01.txt" />
 		<Content Include="quest00\test_input_02.txt" />
 		<Content Include="quest00\test_input_03.txt" />
+		<Compile Include="quest01\quest01_1.fs" />
+		<Compile Include="quest01\quest01_2.fs" />
+		<Compile Include="quest01\quest01_3.fs" />
+		<Compile Include="quest01\utils01.fs" />
+		<Content Include="quest01\test_input_01.txt" />
+		<Content Include="quest01\test_input_02.txt" />
+		<Content Include="quest01\test_input_03.txt" />
+		<Content Include="quest01\quest01_input_01.txt" />
+		<Content Include="quest01\quest01_input_02.txt" />
+		<Content Include="quest01\quest01_input_03.txt" />
 		<Compile Include="Program.fs" />
 	</ItemGroup>
 
@@ -22,3 +33,4 @@
 	</ItemGroup>
 
 </Project>
+

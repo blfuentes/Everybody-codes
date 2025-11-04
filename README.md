@@ -11,7 +11,7 @@ https://everybody.codes/
 | 2024 | The Kingdom of Algorithmia | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆 | (60/60) |
 | 2024 S1 | Echoes of Enigmatus No. 1 | 🦆🦆🦆 | (9/9) |
 | 2024 S2 | The Entertainment Hub No. 2 | 🦆🦆🦆 | (9/9) |
-| 2025 | The Song of Ducks and Dragons | 🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚 | (0/60) | 
+| 2025 | The Song of Ducks and Dragons | 🦆🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚 | (3/60) | 
 
 ### 2024 The Kingdom of Algorithmia
 
@@ -70,27 +70,27 @@ https://everybody.codes/
 
 [https://everybody.codes/event/2025](https://everybody.codes/event/2025/quests)
 
-(0/20)
+(1/20)
 
 |Day      | Part 1 | Part 2 | Part 3 |
 |---------|----|----|----|
-| Quest 1   | ❌  | ❌ | ❌ |
-| Quest 2   | ❌  | ❌ | ❌ |
-| Quest 3   | ❌  | ❌ | ❌ |
-| Quest 4   | ❌  | ❌ | ❌ |
-| Quest 5   | ❌  | ❌ | ❌ |
-| Quest 6   | ❌  | ❌ | ❌ |
-| Quest 7   | ❌  | ❌ | ❌ |
-| Quest 8   | ❌  | ❌ | ❌ |
-| Quest 9   | ❌  | ❌ | ❌ |
-| Quest 10  | ❌  | ❌ | ❌ |
-| Quest 11  | ❌  | ❌ | ❌ |
-| Quest 12  | ❌  | ❌ | ❌ |
-| Quest 13  | ❌  | ❌ | ❌ |
-| Quest 14  | ❌  | ❌ | ❌ |
-| Quest 15  | ❌  | ❌ | ❌ |
-| Quest 16  | ❌  | ❌ | ❌ |
-| Quest 17  | ❌  | ❌ | ❌ |
-| Quest 18  | ❌  | ❌ | ❌ |
-| Quest 19  | ❌  | ❌ | ❌ |
-| Quest 20  | ❌  | ❌ | ❌ |
+| Quest 1: Whispers in the Shell	| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest01/quest01_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest01/quest01_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest01/quest01_3.fs) |
+| Quest 2							| ❌  | ❌ | ❌ |
+| Quest 3							| ❌  | ❌ | ❌ |
+| Quest 4							| ❌  | ❌ | ❌ |
+| Quest 5							| ❌  | ❌ | ❌ |
+| Quest 6							| ❌  | ❌ | ❌ |
+| Quest 7							| ❌  | ❌ | ❌ |
+| Quest 8							| ❌  | ❌ | ❌ |
+| Quest 9							| ❌  | ❌ | ❌ |
+| Quest 10							| ❌  | ❌ | ❌ |
+| Quest 11							| ❌  | ❌ | ❌ |
+| Quest 12							| ❌  | ❌ | ❌ |
+| Quest 13							| ❌  | ❌ | ❌ |
+| Quest 14							| ❌  | ❌ | ❌ |
+| Quest 15							| ❌  | ❌ | ❌ |
+| Quest 16							| ❌  | ❌ | ❌ |
+| Quest 17							| ❌  | ❌ | ❌ |
+| Quest 18							| ❌  | ❌ | ❌ |
+| Quest 19							| ❌  | ❌ | ❌ |
+| Quest 20							| ❌  | ❌ | ❌ |
