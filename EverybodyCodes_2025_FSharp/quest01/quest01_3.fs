@@ -19,8 +19,8 @@ let findName (names: string array) (movements: (string*int) seq) =
     Seq.iter(fun (direction, steps) ->
         let swapIdx =
             match direction with
-            | "R" -> steps % namesLength
-            | "L" -> modn (0 - steps) namesLength
+            | "R" -> modn steps namesLength
+            | "L" -> modn -steps namesLength
             | _ -> failwith "unexpected direction"
         let (n1, n2) = (names[0], names[swapIdx])
         names[swapIdx] <- n1

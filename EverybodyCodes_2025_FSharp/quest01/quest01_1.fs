@@ -17,8 +17,8 @@ let findName (names: string array) (movements: (string*int) seq) =
     let finalIndex =
         Seq.fold (fun acc (direction, steps) ->
             match direction with
-            | "R" -> if (acc + steps) >= namesLength then namesLength - 1 else acc + steps
-            | "L" -> if (acc - steps) < 0 then 0 else acc - steps
+            | "R" -> min (acc + steps) (namesLength - 1)
+            | "L" -> max (acc - steps) 0
             | _ -> acc 
         ) 0 movements
     names[finalIndex]
