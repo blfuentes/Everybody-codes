@@ -27,16 +27,17 @@ let InRange (X, Y) =
     X >= -1000000I && X <= 1000000I && Y >= -1000000I && Y <= 1000000I
 
 let Examinate (X, Y) =
-    let mutable doContinue = true
-    let mutable currentR = (0I, 0I)
-    let mutable currentCycle = 1
-    while doContinue && currentCycle <= 100 do
-        currentR <- Cycle currentR (X, Y)
-        if not (InRange currentR) then
-            doContinue <- false
-        currentCycle <- currentCycle + 1
+    let rec checkCycles cycleCount currentR =
+        if cycleCount > 100 then
+            true
+        else
+            let nextR = Cycle currentR (X, Y)
+            if not (InRange nextR) then
+                false
+            else
+                checkCycles (cycleCount + 1) nextR
 
-    if doContinue then
+    if checkCycles 1 (0I, 0I) then
         Some (X, Y)
     else
         None
@@ -59,4 +60,4 @@ let Run (X, Y) =
 let execute() =
     let lines = LocalHelper.GetLinesFromFile(path)
     let (X, Y) = parseContent lines
-    Run (X, Y)  
+    Run (X, Y)
