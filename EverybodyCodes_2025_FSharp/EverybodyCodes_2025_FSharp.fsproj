@@ -46,6 +46,16 @@
 		<Content Include="quest03\quest03_input_01.txt" />
 		<Content Include="quest03\quest03_input_02.txt" />
 		<Content Include="quest03\quest03_input_03.txt" />
+		<Compile Include="quest04\quest04_1.fs" />
+		<Compile Include="quest04\quest04_2.fs" />
+		<Compile Include="quest04\quest04_3.fs" />
+		<Compile Include="quest04\utils04.fs" />
+		<Content Include="quest04\test_input_01.txt" />
+		<Content Include="quest04\test_input_02.txt" />
+		<Content Include="quest04\test_input_03.txt" />
+		<Content Include="quest04\quest04_input_01.txt" />
+		<Content Include="quest04\quest04_input_02.txt" />
+		<Content Include="quest04\quest04_input_03.txt" />
 		<Compile Include="Program.fs" />
 	</ItemGroup>
 
@@ -54,10 +64,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="System.Drawing.Common" Version="9.0.10" />
+		<PackageReference Include="System.Drawing.Common" Version="9.0.10" />
 	</ItemGroup>
 
 </Project>
+
 
 
 
