@@ -11,7 +11,7 @@ https://everybody.codes/
 | 2024 | The Kingdom of Algorithmia | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆 | (60/60) |
 | 2024 S1 | Echoes of Enigmatus No. 1 | 🦆🦆🦆 | (9/9) |
 | 2024 S2 | The Entertainment Hub No. 2 | 🦆🦆🦆 | (9/9) |
-| 2025 | The Song of Ducks and Dragons | 🦆🦆🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚 | (6/60) | 
+| 2025 | The Song of Ducks and Dragons | 🦆🦆🦆🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚 | (9/60) | 
 
 ### 2024 The Kingdom of Algorithmia
 
@@ -70,13 +70,13 @@ https://everybody.codes/
 
 [https://everybody.codes/event/2025](https://everybody.codes/event/2025/quests)
 
-(2/20)
+(3/20)
 
 |Day      | Part 1 | Part 2 | Part 3 |
 |---------|----|----|----|
 | Quest 1: Whispers in the Shell	| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest01/quest01_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest01/quest01_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest01/quest01_3.fs) |
 | Quest 2: From Complex to Clarity	| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest02/quest02_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest02/quest02_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest02/quest02_3.fs) |
-| Quest 3							| ❌  | ❌ | ❌ |
+| Quest 3: The Deepest Fit			| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest02/quest03_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest02/quest03_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest03/quest03_3.fs) |
 | Quest 4							| ❌  | ❌ | ❌ |
 | Quest 5							| ❌  | ❌ | ❌ |
 | Quest 6							| ❌  | ❌ | ❌ |
