@@ -6,4 +6,5 @@
   <Project Path="EverybodyCodes_2024_S1_FSharp/EverybodyCodes_2024_S1_FSharp.fsproj" Id="4ff1ec98-6c5d-435a-aa7f-d89f2994271b" />
   <Project Path="EverybodyCodes_2024_S2_FSharp/EverybodyCodes_2024_S2_FSharp.fsproj" Id="638599de-2623-443a-86f9-b657eb61484f" />
   <Project Path="EverybodyCodes_2025_FSharp/EverybodyCodes_2025_FSharp.fsproj" Id="2e9c45da-1e45-449f-9683-fb7b4d5e5bf0" />
+  <Project Path="EverybodyCodes_Debugger/EverybodyCodes_Debugger.fsproj" Id="d7b9e215-b29b-4eaf-8da5-9c2bd8e74fde" />
 </Solution>
