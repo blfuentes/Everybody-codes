@@ -30,34 +30,20 @@ let parseContent (lines: string array) =
 
 let buildFishbone((id, segments): (int*int array)) =
     let fishbone = ResizeArray<Segment>()
-    let findPlace(value: int) =
-        let mutable idx = 0
-        let mutable doContinue = true
-        let mutable side = ROOT
-        if fishbone.Count = 0 then
+    let findPlace (value: int) =
+        let decision segment =
+            match segment with
+            | { Root = r; Left = None; Right = _ } when value < r -> Some LEFT
+            | { Root = r; Left = _; Right = None } when value > r -> Some RIGHT
+            | _ -> None
+    
+        match fishbone |> Seq.tryFindIndex (fun seg -> decision seg |> Option.isSome) with
+        | Some idx ->
+            let side = decision fishbone[idx] |> Option.defaultValue ROOT
             (idx, side)
-        else
-            while doContinue do
-                let toCheck = fishbone[idx]
-                match toCheck with
-                | { Root = _; Left = Some l; Right = Some r; } ->
-                    idx <- idx + 1
-                | { Root = _; Left = _; Right = _ } when value = toCheck.Root ->
-                    idx <- idx + 1
-                | { Root = _; Left = None; Right = _; } when value < toCheck.Root ->
-                    doContinue <- false
-                    side <- LEFT
-                | { Root = _; Left = Some l; Right = _; } when value <= toCheck.Root ->
-                    idx <- idx + 1
-                | { Root = _; Left = _; Right = None; } when value > toCheck.Root ->
-                    doContinue <- false
-                    side <- RIGHT
-                | { Root = _; Left = _; Right = Some r; } when value >= toCheck.Root ->
-                    idx <- idx + 1
-                if idx = fishbone.Count then
-                    doContinue <- false
-                    side <- ROOT
-            (idx, side)
+        | None ->
+            (fishbone.Count, ROOT)
+    
     segments |> Array.iter(fun s ->
         let (idx, side) = findPlace s
         match side with
