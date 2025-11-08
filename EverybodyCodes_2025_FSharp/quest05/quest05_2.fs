@@ -9,7 +9,6 @@ type Segment = {
     Root: int;
     Left: int option;
     Right: int option;
-    Next: Segment option;
 }
 
 type Side = 
@@ -94,9 +93,7 @@ let buildFishbone((id, segments): (int*int array)) =
         | LEFT -> fishbone[idx] <- { fishbone[idx] with Left = Some s }
         | RIGHT -> fishbone[idx] <- { fishbone[idx] with Right = Some s }
         | ROOT -> 
-            fishbone.Add( { Root = s; Left = None; Right = None; Next = None })
-            if fishbone.Count > 1 then
-                fishbone[idx-1] <- { fishbone[idx-1] with Next = Some fishbone[idx] }
+            fishbone.Add( { Root = s; Left = None; Right = None; })
     )
     fishbone
 
