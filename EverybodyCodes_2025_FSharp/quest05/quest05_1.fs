@@ -25,6 +25,49 @@ let parseContent (lines: string array) =
     (id, segments)
 
 
+// Without resize array
+//let buildFishbone (id, segments: int array) =
+//    let findPlace value fishbone =
+//        let rec loop acc remaining =
+//            match remaining with
+//            | [] -> (List.rev acc, None, ROOT)
+//            | seg :: rest ->
+//                match seg with
+//                | { Root = r; Left = None; Right = _ } when value < r -> (List.rev acc, Some seg, LEFT)
+//                | { Root = r; Left = _; Right = None } when value > r -> (List.rev acc, Some seg, RIGHT)
+//                | _ -> loop (seg :: acc) rest
+//        loop [] fishbone
+
+//    let updateSegment seg side value =
+//        match side with
+//        | LEFT -> { seg with Left = Some value }
+//        | RIGHT -> { seg with Right = Some value }
+//        | ROOT -> seg
+
+//    let (_, fishbone) =
+//        segments
+//        |> Array.fold (fun (prev, acc) s ->
+//            let (before, targetOpt, side) = findPlace s acc
+//            match side, targetOpt with
+//            | ROOT, _ ->
+//                let newSeg = { Root = s; Left = None; Right = None; Next = None }
+//                let updatedPrev =
+//                    match prev with
+//                    | Some p -> { p with Next = Some newSeg }
+//                    | None -> newSeg
+//                (Some newSeg, acc @ [newSeg])
+//            | LEFT, Some target ->
+//                let updated = updateSegment target LEFT s
+//                let updatedList = before @ [updated] @ (List.tail acc |> List.skip (List.length before))
+//                (prev, updatedList)
+//            | RIGHT, Some target ->
+//                let updated = updateSegment target RIGHT s
+//                let updatedList = before @ [updated] @ (List.tail acc |> List.skip (List.length before))
+//                (prev, updatedList)
+//            | _, None -> (prev, acc)
+//        ) (None, [])
+
+//    fishbone
 
 let buildFishbone((id, segments): (int*int array)) =
     let fishbone = ResizeArray<Segment>()
