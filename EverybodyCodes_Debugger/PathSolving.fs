@@ -1,4 +1,6 @@
-﻿open System.Collections.Generic
+﻿module PathSolving
+
+open System.Collections.Generic
 
 type Kind = Free | Wall | Start | Goal
 type Coord = int * int
