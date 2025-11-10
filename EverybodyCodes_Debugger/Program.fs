@@ -1,4 +1,5 @@
-﻿open System.Collections.Generic
+﻿
+open System.Collections.Generic
 
 type Kind = Free | Wall | Start | Goal
 type Coord = int * int
@@ -60,31 +61,21 @@ let findKind (maze: Cell[,]) kind =
 
 
 // Flood fill
-let floodFill (maze: Cell[,]) =
+let floodFill (maze: Cell[,]) : Set<Coord> =
     let start = findKind maze Start
-    let goal = findKind maze Goal
     let visited = HashSet<Coord>()
-    let parent = Dictionary<Coord, Coord>()
     let queue = Queue<Coord>()
     queue.Enqueue(start)
     visited.Add(start) |> ignore
 
     while queue.Count > 0 do
         let current = queue.Dequeue()
-        if current = goal then queue.Clear()
         for n in getNeighbors maze current do
             if not (visited.Contains(n)) then
                 visited.Add(n) |> ignore
-                parent[n] <- current
                 queue.Enqueue(n)
 
-    let rec buildPath acc pos =
-        if pos = start then start :: acc
-        elif parent.ContainsKey(pos) then buildPath (pos :: acc) parent[pos]
-        else []
-
-    let path = buildPath [] goal
-    path.Length, path
+    visited |> Set.ofSeq
 
 let resultFloodFill = floodFill themaze
 printfn "Floodfill: %A" resultFloodFill
@@ -113,6 +104,63 @@ printfn "Flood fill all paths"
 allPathsFloodFill |> List.iteri(fun i p -> 
         printfn "Flood fill path %A. Length: %A :: %A" (i+1) p.Length p
 )
+
+// Floodfill steps
+let floodFillSteps (maze: Cell[,]) : Dictionary<Coord, int> =
+    let start = findKind maze Start
+
+    let rows = maze.GetLength(0)
+    let cols = maze.GetLength(1)
+
+    let steps = Dictionary<Coord, int>()
+    let queue = Queue<Coord>()
+    queue.Enqueue(start)
+    steps[start] <- 0
+
+    while queue.Count > 0 do
+        let current = queue.Dequeue()
+        let currentSteps = steps.[current]
+        for neighbor in getNeighbors maze current do
+            if not (steps.ContainsKey(neighbor)) then
+                steps[neighbor] <- currentSteps + 1
+                queue.Enqueue(neighbor)
+
+    steps
+
+// Floodfill steps with parents
+let floodFillStepsWithParents (maze: Cell[,]) : Dictionary<Coord, int> * Dictionary<Coord, Coord> =
+    let start = findKind maze Start
+
+    let rows = maze.GetLength(0)
+    let cols = maze.GetLength(1)
+
+    let steps = Dictionary<Coord, int>()
+    let parent = Dictionary<Coord, Coord>()
+    let queue = Queue<Coord>()
+    queue.Enqueue(start)
+    steps.[start] <- 0
+
+    while queue.Count > 0 do
+        let current = queue.Dequeue()
+        let currentSteps = steps.[current]
+        for neighbor in getNeighbors maze current do
+            if not (steps.ContainsKey(neighbor)) then
+                steps[neighbor] <- currentSteps + 1
+                parent[neighbor] <- current
+                queue.Enqueue(neighbor)
+
+    steps, parent
+
+let steps, parent = floodFillStepsWithParents themaze
+let goal = themaze |> Seq.cast<Cell> |> Seq.find (fun c -> c.Kind = Goal) |> fun c -> c.Pos
+
+let rec buildPath acc pos =
+    if parent.ContainsKey(pos) then buildPath (pos :: acc) parent[pos]
+    else pos :: acc
+
+let pathToGoal = buildPath [] goal
+printfn "Steps to goal: %d" steps[goal]
+printfn "Path: %A" pathToGoal
 
 // DFS
 let dfs (maze: Cell[,]) =
