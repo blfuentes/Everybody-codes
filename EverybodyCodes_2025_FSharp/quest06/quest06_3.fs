@@ -5,52 +5,57 @@ open EverybodyCodes_2025_FSharp.Modules
 //let path = "quest06/test_input_03.txt"
 let path = "quest06/quest06_input_03.txt"
 
-let findAllMentors (notes: string) repeats distance =
-    let people = 
+let findAllMentors (notes: string) repeats (distance: int) =
+    let people =
         notes.ToCharArray()
-        |> Array.mapi(fun i v -> (i, v))
-        |> Array.groupBy snd
+        |> Array.mapi (fun i c -> (c, i))
+        |> Array.groupBy fst
+        |> Map.ofArray
+        |> Map.map (fun _ positions -> positions |> Array.map snd)
 
-    let baseLength = notes.Length
+    let baseLength = int64 notes.Length
+    let distance = int64 distance
+    let repeats = int64 repeats
 
-    let mutiplyPositions (pos: int) (cap: int) =
-        let newPos = 
-            seq {
-                for i in 1..cap do
-                    yield pos + i * baseLength
-                
-            } |> Array.ofSeq
-        newPos            
+    let getPositions char =
+        match people.TryFind(char) with
+        | Some pos -> pos
+        | None -> [||]
 
-    let findMentors(m: char) =
-        let swordMentors =
-            people 
-            |> Array.filter(fun (p, _) -> p = m)
-            |> Array.map snd
-            |> Array.collect (fun v -> v |> Array.map fst)
-            |> Array.collect (fun p -> mutiplyPositions p repeats)
-        let swordNovices =
-            people 
-            |> Array.filter(fun (p, _) -> p = (char(m.ToString().ToLower())))
-            |> Array.map snd
-            |> Array.collect (fun v -> v |> Array.map fst)
-            |> Array.collect (fun p -> mutiplyPositions p repeats)
-        swordMentors
-        |> Array.sumBy(fun m ->
-            swordNovices |> Array.sumBy(fun n -> 
-                if abs(m - n) <= distance then 1 else 0)
-        )
-    
-    let possibleMentors = 
-        ['A'..'Z'] 
-        |> List.filter(fun m -> 
-            people
-            |> Array.map fst
-            |> Array.contains m
-        )
+    let findMentors (mentorChar: char) =
+        let mentorPositions = getPositions mentorChar
+        let novicePositions = getPositions (System.Char.ToLower(mentorChar))
+
+        if Array.isEmpty mentorPositions || Array.isEmpty novicePositions then
+            0L
+        else
+            Array.sumBy (fun m_pos ->
+                Array.sumBy (fun n_pos ->
+                    let delta_pos = int64 (m_pos - n_pos)
+
+                    let i_min_num = -distance - delta_pos
+                    let i_min = if i_min_num >= 0L then (i_min_num + baseLength - 1L) / baseLength else i_min_num / baseLength
+
+                    let i_max_num = distance - delta_pos
+                    let i_max = if i_max_num >= 0L then i_max_num / baseLength else (i_max_num - baseLength + 1L) / baseLength
+                    
+                    let i_start = max i_min (-(repeats - 1L))
+                    let i_end = min i_max (repeats - 1L)
+
+                    if i_start <= i_end then
+                        Seq.sumBy (fun i -> repeats - abs i) [i_start..i_end]
+                    else
+                        0L
+                ) novicePositions
+            ) mentorPositions
+
+    let possibleMentors =
+        notes.ToCharArray()
+        |> Array.filter System.Char.IsUpper
+        |> Array.distinct
 
     possibleMentors
-    |> List.sumBy findMentors
+    |> Array.sumBy findMentors
 
 let execute() =
     let notes = LocalHelper.GetContentFromFile(path)

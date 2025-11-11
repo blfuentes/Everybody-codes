@@ -14,7 +14,7 @@ let parseContent(lines: string array) =
             (float parts[0], float parts[1])
     )
 
-let calculateRatio (((g1i, g1o), (g2i, g2o)): ((float*float)*(float*float))) =
+let calculateRatio (((_, g1o), (g2i, _)): ((float*float)*(float*float))) =
     g1o / g2i
 
 let calculateCycle (gears: (float*float) array) =

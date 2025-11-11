@@ -11,19 +11,19 @@ let findAllMentors (notes: string) =
         |> Array.mapi(fun i v -> (i, v))
         |> Array.groupBy snd
     let findMentors(m: char) =
-        let swordMentors =
+        let mentors =
             people 
             |> Array.filter(fun (p, _) -> p = m)
             |> Array.map snd
             |> Array.collect (fun v -> v |> Array.map fst)
-        let swordNovices =
+        let novices =
             people 
             |> Array.filter(fun (p, _) -> p = (char(m.ToString().ToLower())))
             |> Array.map snd
             |> Array.collect (fun v -> v |> Array.map fst)
-        swordMentors
+        mentors
         |> Array.sumBy(fun m ->
-            swordNovices |> Array.sumBy(fun n -> if m < n then 1 else 0)
+            novices |> Array.sumBy(fun n -> if m < n then 1 else 0)
         )
     
     let possibleMentors = 

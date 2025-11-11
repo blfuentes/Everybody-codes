@@ -11,7 +11,7 @@ https://everybody.codes/
 | 2024 | The Kingdom of Algorithmia | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆 | (60/60) |
 | 2024 S1 | Echoes of Enigmatus No. 1 | 🦆🦆🦆 | (9/9) |
 | 2024 S2 | The Entertainment Hub No. 2 | 🦆🦆🦆 | (9/9) |
-| 2025 | The Song of Ducks and Dragons | 🦆🦆🦆🦆🦆🦢🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚 | (17/60) | 
+| 2025 | The Song of Ducks and Dragons | 🦆🦆🦆🦆🦆🦆🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚 | (18/60) | 
 
 ### 2024 The Kingdom of Algorithmia
 
@@ -70,7 +70,7 @@ https://everybody.codes/
 
 [https://everybody.codes/event/2025](https://everybody.codes/event/2025/quests)
 
-(5.66/20)
+(6/20)
 
 |Day      | Part 1 | Part 2 | Part 3 |
 |---------|----|----|----|
@@ -79,7 +79,7 @@ https://everybody.codes/
 | Quest 3: The Deepest Fit			| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest03/quest03_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest03/quest03_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest03/quest03_3.fs) |
 | Quest 4: Teeth of the Wind		| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest04/quest04_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest04/quest04_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest04/quest04_3.fs) |
 | Quest 5: Fishbone Order			| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest05/quest05_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest05/quest05_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest05/quest05_3.fs) |
-| Quest 6: Mentorship Matrix		| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest06/quest06_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest06/quest06_2.fs) | ❌ |
+| Quest 6: Mentorship Matrix		| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest06/quest06_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest06/quest06_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest06/quest06_3.fs) |
 | Quest 7							| ❌  | ❌ | ❌ |
 | Quest 8							| ❌  | ❌ | ❌ |
 | Quest 9							| ❌  | ❌ | ❌ |
