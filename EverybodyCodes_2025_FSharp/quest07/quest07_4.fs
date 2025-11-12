@@ -1,10 +1,8 @@
-module quest07_part03
+module quest07_part04
 
 open EverybodyCodes_2025_FSharp.Modules
-open System.Collections.Generic
 
-//let path = "quest07/test_input_03.txt"
-let path = "quest07/quest07_input_03.txt"
+let path = "quest07/quest07_input_04.txt"
 
 let parseContent(lines: string array) =
     let names = lines[0].Split(",")
@@ -32,7 +30,7 @@ let buildTails (from: string) (mapping: Map<string, string array>) (maxSize: int
 
 let calculateValidNames(names: string array, mapping: Map<string, string array>) =
     let minLen = 7
-    let maxLen = 11
+    let maxLen = 98
     let isValid(name: string) =
         name.ToCharArray()
         |> Array.map string
@@ -42,13 +40,14 @@ let calculateValidNames(names: string array, mapping: Map<string, string array>)
             | Some arr -> Array.contains d arr
             | None -> false)
 
-    let allNames = new HashSet<string>()
-
-    let rec buildNames (current: string)=
+    let allNames = ResizeArray<string>()
+    let rec buildNames (current: string) =
+        if allNames.Count % 1000000 = 0 then
+            printfn "Current count: %d" allNames.Count
         if current.Length > maxLen then ()
         else
             if current.Length >= minLen && current.Length <= maxLen then
-                allNames.Add(current) |> ignore
+                allNames.Add(current)
             if current.Length < maxLen then
                 let lastChar = current[current.Length - 1].ToString()
                 match mapping.TryFind(lastChar) with
@@ -56,11 +55,9 @@ let calculateValidNames(names: string array, mapping: Map<string, string array>)
                     for next in nexts do
                         buildNames (current + next)
                 | None -> ()
-
     for name in names do
         if isValid(name) then buildNames name
-
-    allNames.Count
+    allNames |> Seq.distinct |> Seq.length
 
 let execute() =
     let lines = LocalHelper.GetLinesFromFile(path)

@@ -79,6 +79,7 @@
 		<Compile Include="quest07\quest07_1.fs" />
 		<Compile Include="quest07\quest07_2.fs" />
 		<Compile Include="quest07\quest07_3.fs" />
+		<Compile Include="quest07\quest07_4.fs" />
 		<Compile Include="quest07\utils07.fs" />
 		<Content Include="quest07\test_input_01.txt" />
 		<Content Include="quest07\test_input_02.txt" />
@@ -86,6 +87,7 @@
 		<Content Include="quest07\quest07_input_01.txt" />
 		<Content Include="quest07\quest07_input_02.txt" />
 		<Content Include="quest07\quest07_input_03.txt" />
+		<Content Include="quest07\quest07_input_04.txt" />
 		<Compile Include="quest08\quest08_1.fs" />
 		<Compile Include="quest08\quest08_2.fs" />
 		<Compile Include="quest08\quest08_3.fs" />
