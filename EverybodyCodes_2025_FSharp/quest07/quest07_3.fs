@@ -41,25 +41,22 @@ let calculateValidNames(names: string array, mapping: Map<string, string array>)
             | Some arr -> Array.contains d arr
             | None -> false)
 
-    let rec buildNames (current: string) : string list =
-        if current.Length >= maxLen then 
-            [current]
+    let rec buildNames (current: string) (results: ResizeArray<string>) =
+        if current.Length > maxLen then ()
         else
-            let lastChar = current.[current.Length - 1].ToString()
-            match mapping.TryFind(lastChar) with
-            | Some nexts ->
-                nexts
-                |> Array.toList
-                |> List.collect (fun next -> [current] @ buildNames (current + next))
-            | None -> [current]
-
-    names
-    |> Array.filter isValid
-    |> Array.toList
-    |> List.collect buildNames
-    |> List.filter (fun n -> n.Length >= minLen && n.Length <= maxLen)
-    |> List.distinct
-    |> List.length
+            if current.Length >= minLen && current.Length <= maxLen then
+                results.Add(current)
+            if current.Length < maxLen then
+                let lastChar = current.[current.Length - 1].ToString()
+                match mapping.TryFind(lastChar) with
+                | Some nexts ->
+                    for next in nexts do
+                        buildNames (current + next) results
+                | None -> ()
+    let allNames = ResizeArray<string>()
+    for name in names do
+        if isValid(name) then buildNames name allNames
+    allNames |> Seq.distinct |> Seq.length
 
 let execute() =
     let lines = LocalHelper.GetLinesFromFile(path)
