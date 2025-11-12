@@ -86,6 +86,16 @@
 		<Content Include="quest07\quest07_input_01.txt" />
 		<Content Include="quest07\quest07_input_02.txt" />
 		<Content Include="quest07\quest07_input_03.txt" />
+		<Compile Include="quest08\quest08_1.fs" />
+		<Compile Include="quest08\quest08_2.fs" />
+		<Compile Include="quest08\quest08_3.fs" />
+		<Compile Include="quest08\utils08.fs" />
+		<Content Include="quest08\test_input_01.txt" />
+		<Content Include="quest08\test_input_02.txt" />
+		<Content Include="quest08\test_input_03.txt" />
+		<Content Include="quest08\quest08_input_01.txt" />
+		<Content Include="quest08\quest08_input_02.txt" />
+		<Content Include="quest08\quest08_input_03.txt" />
 		<Compile Include="Program.fs" />
 	</ItemGroup>
 
@@ -98,6 +108,7 @@
 	</ItemGroup>
 
 </Project>
+
 
 
 
