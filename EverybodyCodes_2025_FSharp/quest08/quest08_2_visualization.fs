@@ -1,13 +1,13 @@
-module quest08_part03_visualization
+module quest08_part02_visualization
 
 open System
-open System.Drawing
-open System.Drawing.Imaging
 open EverybodyCodes_2025_FSharp.Modules
+open System.Drawing
 open System.Drawing.Drawing2D
+open System.Drawing.Imaging
 
-//let path = "quest08/test_input_03.txt"
-let path = "quest08/quest08_input_03.txt"
+//let path = "quest08/test_input_02.txt"
+let path = "quest08/quest08_input_02.txt"
 
 let parseContent (lines: string) =
     lines.Split(",") |> Array.map int
@@ -29,6 +29,24 @@ let generateCirclePoints (n: int) (r: float) : (int * (float * float)) list =
         let y = Math.Round(r * sin angle, 2)
         (i+1, (x, y)) ]
 
+let intersection (x1, y1, x2, y2) (x3, y3, x4, y4) =
+    let a1 = y2 - y1
+    let b1 = x1 - x2
+    let c1 = a1 * x1 + b1 * y1
+
+    let a2 = y4 - y3
+    let b2 = x3 - x4
+    let c2 = a2 * x3 + b2 * y3
+
+    let determinant = a1 * b2 - a2 * b1
+
+    if determinant = 0.0 then
+        None
+    else
+        let x = Math.Round((b2 * c1 - b1 * c2) / determinant, 2)
+        let y = Math.Round((a1 * c2 - a2 * c1) / determinant, 2)
+        Some (x, y)
+
 [<Struct>]
 type Thread = {
     X1: float; Y1: float
@@ -49,6 +67,38 @@ let inline createThread x1 y1 x2 y2 =
         MinY = min y1 y2; MaxY = max y1 y2
         A = a; B = b; C = c
     }
+
+let findCollisions (nails: int array) (points: (int * (float * float)) list) =
+    let mapping = points |> dict
+
+    let threads = ResizeArray<(float * float * float * float)>()
+    let mutable knots = 0
+    nails
+    |> Array.pairwise
+    |> Array.iter(fun (a, b) ->
+        let (x1, y1) = mapping[a]
+        let (x2, y2) = mapping[b]
+        let thread = (x1, y1, x2, y2)
+        for otherThread in threads do
+            let (x3, y3, x4, y4) = otherThread
+            match intersection thread otherThread with
+            | Some (ix, iy) ->
+                // Exclude intersections at the endpoints
+                // exclude if they intersect farther than the endpoints
+                let exclude =
+                    (ix = x1 && iy = y1) || (ix = x2 && iy = y2) ||
+                    (ix = x3 && iy = y3) || (ix = x4 && iy = y4) ||
+                    ( (ix < Math.Min(x1, x2)) || (ix > Math.Max(x1, x2)) ||
+                      (iy < Math.Min(y1, y2)) || (iy > Math.Max(y1, y2)) ||
+                      (ix < Math.Min(x3, x4)) || (ix > Math.Max(x3, x4)) ||
+                      (iy < Math.Min(y3, y4)) || (iy > Math.Max(y3, y4)) )
+
+                if not exclude then
+                    knots <- knots + 1
+            | None -> ()
+        threads.Add(thread)
+    )
+    knots
 
 let drawThreadsToBitmap (threads: Thread array) (outputPath: string) =
     // Find bounds for all threads
@@ -114,84 +164,15 @@ let visualizeThreads (nails: int array) (points: (int * (float * float)) list) (
     
     drawThreadsToBitmap threads outputPath
 
-let findCollisions (nails: int array) (points: (int * (float * float)) list) =
-    let mapping = points |> dict
-    
-    // Build existing threads as structs for better performance
-    let existingThreads =
-        nails
-        |> Array.pairwise
-        |> Array.map(fun (a, b) ->
-            let (x1, y1) = mapping[a]
-            let (x2, y2) = mapping[b]
-            createThread x1 y1 x2 y2)
-    
-    let maxIntersections =
-        let numPoints = mapping.Count
-        let mutable maxCount = 0
-        
-        for i in 1 .. numPoints - 1 do
-            for j in i + 1 .. numPoints do
-                let (x1, y1) = mapping[i]
-                let (x2, y2) = mapping[j]
-                let minX1 = min x1 x2
-                let maxX1 = max x1 x2
-                let minY1 = min y1 y2
-                let maxY1 = max y1 y2
-                
-                let mutable knots = 0
-                
-                for t in existingThreads do
-                    // Quick bounding box check - skip if boxes don't overlap
-                    if not (maxX1 < t.MinX || t.MaxX < minX1 || maxY1 < t.MinY || t.MaxY < minY1) then
-                        // Exact overlap check from original
-                        if ((x1 = t.X1 && y1 = t.Y1) || (x2 = t.X1 && y2 = t.Y1)) && 
-                           ((x1 = t.X2 && y1 = t.Y2) || (x2 = t.X2 && y2 = t.Y2)) then
-                            knots <- knots + 1
-                        
-                        // Intersection check using pre-computed coefficients
-                        let a1 = y2 - y1
-                        let b1 = x1 - x2
-                        let c1 = a1 * x1 + b1 * y1
-
-                        let determinant = a1 * t.B - t.A * b1
-
-                        if determinant <> 0.0 then
-                            let ix = Math.Round((t.B * c1 - b1 * t.C) / determinant, 2)
-                            let iy = Math.Round((a1 * t.C - t.A * c1) / determinant, 2)
-                            
-                            let exclude =
-                                (ix = x1 && iy = y1) || (ix = x2 && iy = y2) ||
-                                (ix = t.X1 && iy = t.Y1) || (ix = t.X2 && iy = t.Y2) ||
-                                (ix < minX1) || (ix > maxX1) ||
-                                (iy < minY1) || (iy > maxY1) ||
-                                (ix < t.MinX) || (ix > t.MaxX) ||
-                                (iy < t.MinY) || (iy > t.MaxY)
-
-                            if not exclude then
-                                knots <- knots + 1
-                
-                if knots > maxCount then
-                    maxCount <- knots
-        
-        maxCount
-    
-    maxIntersections
-
-let printCircle(points: (float * float) list) =
-    points
-    |> List.iteri (fun i (x, y) ->
-    printfn "Point %2d: (%.4f, %.4f)" (i + 1) x y)
-
 let execute() =
     let lines = LocalHelper.GetContentFromFile(path)
     let nails = parseContent lines
+    //let numOfNails = 8
     let numOfNails = 256
     let circle = generateCirclePoints numOfNails (float(numOfNails) / 4.)
-    
+
     // Generate visualization
-    let outputPath = "quest08_03_threads_visualization.png"
+    let outputPath = "quest08_02_threads_visualization.png"
     visualizeThreads nails circle outputPath
-    
-    // Run collision detection
+
     findCollisions nails circle
