@@ -93,7 +93,7 @@
 		<Compile Include="quest08\quest08_2_visualization.fs" />
 		<Compile Include="quest08\quest08_3.fs" />
 		<Compile Include="quest08\quest08_3_optimized.fs" />
-		<Compile Include="quest08\quest08_part03_visualization.fs" />
+		<Compile Include="quest08\quest08_3_visualization.fs" />
 		<Compile Include="quest08\utils08.fs" />
 		<Content Include="quest08\test_input_01.txt" />
 		<Content Include="quest08\test_input_02.txt" />
