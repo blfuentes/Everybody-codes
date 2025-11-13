@@ -2,6 +2,7 @@ module quest08_part03
 
 open System
 open EverybodyCodes_2025_FSharp.Modules
+open System.Threading.Tasks
 
 //let path = "quest08/test_input_03.txt"
 let path = "quest08/quest08_input_03.txt"
@@ -45,67 +46,50 @@ let intersection (x1, y1, x2, y2) (x3, y3, x4, y4) =
         Some (x, y)
 
 
-let countCollissions(thread: (float * float * float * float)) (threads) =
-    let mutable knots = 0
-    let (x1, y1, x2, y2) = thread
-    for otherThread in threads do
-        let (x3, y3, x4, y4) = otherThread
-        if ((x1 = x3 && y1 = y3) || (x2 = x3 && y2 = y3)) && 
-            ((x1 = x4 && y1 = y4) || (x2 = x4 && y2 = y4)) then   
-            // if they are the same thread, add one knot cut
-            knots <- knots + 1
-        match intersection thread otherThread with
-        | Some (ix, iy) ->
-            // Exclude intersections at the endpoints
-            // exclude if they intersect farther than the endpoints
-            let exclude =
-                (ix = x1 && iy = y1) || (ix = x2 && iy = y2) ||
-                (ix = x3 && iy = y3) || (ix = x4 && iy = y4) ||
-                ( (ix < Math.Min(x1, x2)) || (ix > Math.Max(x1, x2)) ||
-                  (iy < Math.Min(y1, y2)) || (iy > Math.Max(y1, y2)) ||
-                  (ix < Math.Min(x3, x4)) || (ix > Math.Max(x3, x4)) ||
-                  (iy < Math.Min(y3, y4)) || (iy > Math.Max(y3, y4)) )
-
-            if not exclude then
-                knots <- knots + 1
-        | None ->
-            ()
-    knots
 
 let findCollisions (nails: int array) (points: (int * (float * float)) list) =
     let mapping = points |> dict
 
-    let threads = ResizeArray<(float * float * float * float)>()
-    nails
-    |> Array.pairwise
-    |> Array.iter(fun (a, b) ->
-        let (x1, y1) = mapping[a]
-        let (x2, y2) = mapping[b]
-        let thread = (x1, y1, x2, y2)
-        threads.Add(thread)
-    )
+    let threads =
+        nails
+        |> Array.pairwise
+        |> Array.map(fun (a, b) ->
+            let (x1, y1) = mapping[a]
+            let (x2, y2) = mapping[b]
+            (x1, y1, x2, y2))
 
-    // all possible threds build with any pair of nails
-    let possibleThreads = ResizeArray<(float * float * float * float)>()
-    for i in 1 .. mapping.Count - 1 do
-        for j in i + 1 .. mapping.Count do
-            let (x1, y1) = mapping[i]
-            let (x2, y2) = mapping[j]
-            possibleThreads.Add((x1, y1, x2, y2))
-       
-    // find the most intersections
-    possibleThreads
-    |> Seq.mapi(fun i thread ->
-        //if i % 1000 = 0 then
-        //    printfn "Checking thread %d / %d and %d threads" (i + 1) possibleThreads.Count threads.Count
-        countCollissions thread threads
-    )
-    |> Seq.max    
+    let possibleThreads =
+        [| for i in 1 .. mapping.Count - 1 do
+               for j in i + 1 .. mapping.Count do
+                   let (x1, y1) = mapping[i]
+                   let (x2, y2) = mapping[j]
+                   yield (x1, y1, x2, y2) |]
 
-let printCircle(points: (float * float) list) =
-    points
-    |> List.iteri (fun i (x, y) ->
-    printfn "Point %2d: (%.4f, %.4f)" (i + 1) x y)
+    let results = Array.zeroCreate possibleThreads.Length
+    Parallel.For(0, possibleThreads.Length, fun idx ->
+        let thread = possibleThreads[idx]
+        let mutable knots = 0
+        let (x1, y1, x2, y2) = thread
+        for otherThread in threads do
+            let (x3, y3, x4, y4) = otherThread
+            if ((x1 = x3 && y1 = y3) || (x2 = x3 && y2 = y3)) && 
+                ((x1 = x4 && y1 = y4) || (x2 = x4 && y2 = y4)) then   
+                knots <- knots + 1
+            match intersection thread otherThread with
+            | Some (ix, iy) ->
+                let exclude =
+                    (ix = x1 && iy = y1) || (ix = x2 && iy = y2) ||
+                    (ix = x3 && iy = y3) || (ix = x4 && iy = y4) ||
+                    ( (ix < Math.Min(x1, x2)) || (ix > Math.Max(x1, x2)) ||
+                      (iy < Math.Min(y1, y2)) || (iy > Math.Max(y1, y2)) ||
+                      (ix < Math.Min(x3, x4)) || (ix > Math.Max(x3, x4)) ||
+                      (iy < Math.Min(y3, y4)) || (iy > Math.Max(y3, y4)) )
+                if not exclude then
+                    knots <- knots + 1
+            | None -> ()
+        results[idx] <- knots
+    ) |> ignore
+    Array.max results
 
 let execute() =
     let lines = LocalHelper.GetContentFromFile(path)
