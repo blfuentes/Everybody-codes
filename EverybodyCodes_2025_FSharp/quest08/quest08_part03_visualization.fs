@@ -1,7 +1,10 @@
-module quest08_part03_optimized
+module quest08_part03_visualization
 
 open System
+open System.Drawing
+open System.Drawing.Imaging
 open EverybodyCodes_2025_FSharp.Modules
+open System.Drawing.Drawing2D
 
 //let path = "quest08/test_input_03.txt"
 let path = "quest08/quest08_input_03.txt"
@@ -46,6 +49,70 @@ let inline createThread x1 y1 x2 y2 =
         MinY = min y1 y2; MaxY = max y1 y2
         A = a; B = b; C = c
     }
+
+let drawThreadsToBitmap (threads: Thread array) (outputPath: string) =
+    // Find bounds for all threads
+    let allX = threads |> Array.collect (fun t -> [|t.X1; t.X2|])
+    let allY = threads |> Array.collect (fun t -> [|t.Y1; t.Y2|])
+    let minX = Array.min allX
+    let maxX = Array.max allX
+    let minY = Array.min allY
+    let maxY = Array.max allY
+    
+    // Add padding and calculate scale
+    let padding = 50.0
+    let width = 2000
+    let height = 2000
+    let scaleX = float(width - int(2.0 * padding)) / (maxX - minX)
+    let scaleY = float(height - int(2.0 * padding)) / (maxY - minY)
+    let scale = min scaleX scaleY
+    
+    // Transform function to convert world coordinates to screen coordinates
+    let transform x y =
+        let screenX = int(padding + (x - minX) * scale)
+        let screenY = int(padding + (y - minY) * scale)
+        (screenX, screenY)
+    
+    use bitmap = new Bitmap(width, height)
+    use graphics = Graphics.FromImage(bitmap)
+    
+    // Set high quality rendering
+    graphics.SmoothingMode <- SmoothingMode.AntiAlias
+    graphics.Clear(Color.White)
+    
+    // Draw threads
+    //use threadPen = new Pen(Color.FromArgb(100, 0, 100, 200), 1.0f)
+    use threadPen = new Pen(Color.FromArgb(100, 0, 100, 200), 1.0f)
+    for t in threads do
+        let (x1, y1) = transform t.X1 t.Y1
+        let (x2, y2) = transform t.X2 t.Y2
+        graphics.DrawLine(threadPen, x1, y1, x2, y2)
+    
+    // Draw circle points
+    use pointBrush = new SolidBrush(Color.Red)
+    let pointRadius = 3
+    for t in threads do
+        let (x1, y1) = transform t.X1 t.Y1
+        let (x2, y2) = transform t.X2 t.Y2
+        graphics.FillEllipse(pointBrush, x1 - pointRadius, y1 - pointRadius, pointRadius * 2, pointRadius * 2)
+        graphics.FillEllipse(pointBrush, x2 - pointRadius, y2 - pointRadius, pointRadius * 2, pointRadius * 2)
+    
+    // Save bitmap
+    bitmap.Save(outputPath, ImageFormat.Png)
+
+let visualizeThreads (nails: int array) (points: (int * (float * float)) list) (outputPath: string) =
+    let mapping = points |> dict
+    
+    // Build threads
+    let threads =
+        nails
+        |> Array.pairwise
+        |> Array.map(fun (a, b) ->
+            let (x1, y1) = mapping[a]
+            let (x2, y2) = mapping[b]
+            createThread x1 y1 x2 y2)
+    
+    drawThreadsToBitmap threads outputPath
 
 let findCollisions (nails: int array) (points: (int * (float * float)) list) =
     let mapping = points |> dict
@@ -119,7 +186,12 @@ let printCircle(points: (float * float) list) =
 let execute() =
     let lines = LocalHelper.GetContentFromFile(path)
     let nails = parseContent lines
-    //let numOfNails = 8
     let numOfNails = 256
     let circle = generateCirclePoints numOfNails (float(numOfNails) / 4.)
+    
+    // Generate visualization
+    let outputPath = "quest08_threads_visualization.png"
+    visualizeThreads nails circle outputPath
+    
+    // Run collision detection
     findCollisions nails circle
