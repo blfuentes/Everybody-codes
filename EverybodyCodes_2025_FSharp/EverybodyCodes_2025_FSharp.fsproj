@@ -104,6 +104,7 @@
 		<Compile Include="quest09\quest09_1.fs" />
 		<Compile Include="quest09\quest09_2.fs" />
 		<Compile Include="quest09\quest09_3.fs" />
+		<Compile Include="quest09\quest09_3_visualization.fs" />
 		<Compile Include="quest09\utils09.fs" />
 		<Content Include="quest09\test_input_01.txt" />
 		<Content Include="quest09\test_input_02.txt" />

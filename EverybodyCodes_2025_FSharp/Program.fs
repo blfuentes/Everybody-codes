@@ -98,6 +98,8 @@ let main argv =
     printfn "Final result Quest 09 part 2: %A in %s" resultquest09Part2 (ms time09_2)
     let (resultquest09Part3, time09_3) = duration quest09_part03.execute
     printfn "Final result Quest 09 part 3: %A in %s" resultquest09Part3 (ms time09_3)
+    //let (resultquest09Part3_visualization, time09_3_visualization) = duration quest09_part03_visualization.execute
+    //printfn "Final result Quest 09 part 3 visualization: %A in %s" resultquest09Part3_visualization (ms time09_3_visualization)
 
     // DAY 10
     let (resultquest10Part1, time10_1) = duration quest10_part01.execute
