@@ -2,6 +2,8 @@ module quest09_part03
 
 open EverybodyCodes_2025_FSharp.Modules
 open System.Collections.Generic
+open System.Collections.Concurrent
+open System.Threading.Tasks
 
 //let path = "quest09/test_input_03.txt"
 let path = "quest09/quest09_input_03.txt"
@@ -20,21 +22,21 @@ let buildFamilies(scales: Map<int, char array>) =
     let groupIntersectingSets (sets: Set<int> list) =
         if sets.IsEmpty then []
         else
-            let adjacency = Dictionary<int, ResizeArray<int>>()
+            let adjacency = Dictionary<int, HashSet<int>>()
             for i in 0 .. sets.Length - 1 do
-                adjacency[i] <- ResizeArray<int>()
+                adjacency[i] <- HashSet<int>()
             for i in 0 .. sets.Length - 1 do
                 for j in i+1 .. sets.Length - 1 do
                     if not (Set.isEmpty (Set.intersect sets[i] sets[j])) then
-                        adjacency[i].Add(j)
-                        adjacency[j].Add(i)
+                        adjacency[i].Add(j) |> ignore
+                        adjacency[j].Add(i) |> ignore
 
             // DFS to find connected components
             let visited = HashSet<int>()
             let rec dfs node (component: ResizeArray<int>) =
                 visited.Add(node) |> ignore
                 component.Add(node)
-                for neighbor in adjacency.[node] do
+                for neighbor in adjacency[node] do
                     if not (visited.Contains(neighbor)) then
                         dfs neighbor component
 
@@ -43,18 +45,21 @@ let buildFamilies(scales: Map<int, char array>) =
                 if not (visited.Contains(i)) then
                     let component = ResizeArray<int>()
                     dfs i component
-                    // Merge sets in this component
                     let merged = component |> Seq.map (fun idx -> sets[idx]) |> Set.unionMany
                     groups.Add(merged)
             groups |> Seq.toList
 
-    let dnaCache = scales |> Map.map (fun _ dna -> dna)
+    let keys = scales |> Map.keys |> Seq.toArray
+    let keyCount = keys.Length
     
-    // Helper to check if childId is a valid child of the two parent IDs
+    let maxKey = keys |> Array.max
+    let dnaArray = Array.create (maxKey + 1) [||]
+    scales |> Map.iter (fun id dna -> dnaArray[id] <- dna)
+    
     let isValidFamily (childId: int) (parent1Id: int) (parent2Id: int) =
-        let childDna = dnaCache[childId]
-        let parent1Dna = dnaCache[parent1Id]
-        let parent2Dna = dnaCache[parent2Id]
+        let childDna = dnaArray[childId]
+        let parent1Dna = dnaArray[parent1Id]
+        let parent2Dna = dnaArray[parent2Id]
         
         let mutable isValid = true
         let mutable i = 0
@@ -65,34 +70,20 @@ let buildFamilies(scales: Map<int, char array>) =
             i <- i + 1
         isValid
 
-    let keys = scales |> Map.keys |> Seq.toArray
-    let keyCount = keys.Length
+    let familyBag = ConcurrentBag<Set<int>>()
     
-    let familySet = HashSet<Set<int>>()
-    
-    // faster than combinations...
-    for i in 0 .. keyCount - 1 do
+    Parallel.For(0, keyCount, fun i ->
         for j in i + 1 .. keyCount - 1 do
             for k in j + 1 .. keyCount - 1 do
                 let a = keys[i]
                 let b = keys[j]
                 let c = keys[k]
                 
-                let family = 
-                    if isValidFamily a b c then
-                        Some (Set.ofList [a; b; c])
-                    elif isValidFamily b a c then
-                        Some (Set.ofList [a; b; c])
-                    elif isValidFamily c a b then
-                        Some (Set.ofList [a; b; c])
-                    else
-                        None
-                
-                match family with
-                | Some f -> familySet.Add(f) |> ignore
-                | None -> ()
+                if isValidFamily a b c || isValidFamily b a c || isValidFamily c a b then
+                    familyBag.Add(Set.ofList [a; b; c])
+    ) |> ignore
 
-    let families = familySet |> Seq.toList
+    let families = familyBag |> Seq.distinct |> Seq.toList
     let groupedFamilies = groupIntersectingSets families
     groupedFamilies
     |> List.maxBy _.Count
