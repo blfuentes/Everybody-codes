@@ -11,7 +11,7 @@ https://everybody.codes/
 | 2024 | The Kingdom of Algorithmia | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆 | (60/60) |
 | 2024 S1 | Echoes of Enigmatus No. 1 | 🦆🦆🦆 | (9/9) |
 | 2024 S2 | The Entertainment Hub No. 2 | 🦆🦆🦆 | (9/9) |
-| 2025 | The Song of Ducks and Dragons | 🦆🦆🦆🦆🦆🦆🦆🦆🦢🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚 | (26/60) | 
+| 2025 | The Song of Ducks and Dragons | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚 | (27/60) | 
 
 ### 2024 The Kingdom of Algorithmia
 
@@ -70,7 +70,7 @@ https://everybody.codes/
 
 [https://everybody.codes/event/2025](https://everybody.codes/event/2025/quests)
 
-(8.66/20)
+(9/20)
 
 |Day      | Part 1 | Part 2 | Part 3 |
 |---------|----|----|----|
@@ -82,7 +82,7 @@ https://everybody.codes/
 | Quest 6: Mentorship Matrix		| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest06/quest06_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest06/quest06_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest06/quest06_3.fs) |
 | Quest 7: Namegraph				| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest07/quest07_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest07/quest07_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest07/quest07_3.fs) |
 | Quest 8: The Art of Connection	| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest08/quest08_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest08/quest08_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest08/quest08_3.fs) |
-| Quest 9							| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest09/quest09_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest09/quest09_2.fs) | ❌ |
+| Quest 9: Encoded in the Scales	| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest09/quest09_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest09/quest09_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest09/quest09_3.fs) |
 | Quest 10							| ❌  | ❌ | ❌ |
 | Quest 11							| ❌  | ❌ | ❌ |
 | Quest 12							| ❌  | ❌ | ❌ |

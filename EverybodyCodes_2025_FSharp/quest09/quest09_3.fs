@@ -1,9 +1,10 @@
 module quest09_part03
 
 open EverybodyCodes_2025_FSharp.Modules
+open System.Collections.Generic
 
-let path = "quest09/test_input_03.txt"
-//let path = "quest09/quest09_input_03.txt"
+//let path = "quest09/test_input_03.txt"
+let path = "quest09/quest09_input_03.txt"
 
 let parseContent (lines: string array) =
     let scales =
@@ -66,25 +67,64 @@ let rec comb n l =
         (useX @ noX)
 
 let buildFamilies(scales: Map<int, char array>) =
+    let groupIntersectingSets (sets: Set<int> list) =
+        let adjacency = Dictionary<int, ResizeArray<int>>()
+        for i in 0 .. sets.Length - 1 do
+            adjacency[i] <- ResizeArray<int>()
+        for i in 0 .. sets.Length - 1 do
+            for j in i+1 .. sets.Length - 1 do
+                if not (Set.isEmpty (Set.intersect sets[i] sets[j])) then
+                    adjacency[i].Add(j)
+                    adjacency[j].Add(i)
+
+        // DFS to find connected components
+        let visited = HashSet<int>()
+        let rec dfs node (component: ResizeArray<int>) =
+            visited.Add(node) |> ignore
+            component.Add(node)
+            for neighbor in adjacency.[node] do
+                if not (visited.Contains(neighbor)) then
+                    dfs neighbor component
+
+        let groups = ResizeArray<Set<int>>()
+        for i in 0 .. sets.Length - 1 do
+            if not (visited.Contains(i)) then
+                let component = ResizeArray<int>()
+                dfs i component
+                // Merge sets in this component
+                let merged = component |> Seq.map (fun idx -> sets[idx]) |> Set.unionMany
+                groups.Add(merged)
+        groups |> Seq.toList
+
+
     let keys = scales |> Map.keys |> Seq.toArray
     let combinations = comb 3 (Array.toList keys)
     let families =
         combinations
-        |> List.map(fun comb ->
+        |> List.mapi(fun i comb ->
+            //if i % 10000 = 0 then
+            //    printfn "Family %i from %i." i (combinations.Length)
             let possibleFamily = scales |> Map.filter(fun k _ -> List.contains k comb)
             let family = buildFamily possibleFamily
             match family with
             | (Some c, Some p) -> 
+                //printfn "Found Family at %i" i
                 (true, c, p)
             | _ -> 
                 (false, (0,[||]), Map.empty)
         )
-    families
-    |> List.filter(fun (isFamily, _, _) -> isFamily)
-    |> List.sumBy(fun f ->
-        let (_, (_, child), parents) = f
-        calculateSimilarity child parents
-    )
+        |> List.filter(fun (isFamily, _, _) -> isFamily)
+
+    let familyIds =
+        families
+        |> List.map(fun f ->
+            let (_, (cId, _), parents) = f
+            [cId] @ (parents |> Map.keys |> Seq.toList) |> Set.ofList
+        )
+    let groupedFamilies = groupIntersectingSets familyIds
+    groupedFamilies
+    |> List.maxBy _.Count
+    |> Seq.sum
 
 let execute() =
     let lines = LocalHelper.GetLinesFromFile(path)
