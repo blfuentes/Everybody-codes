@@ -1,4 +1,4 @@
-module quest18_part02
+module quest18_2
 
 open EverybodyCodes_2024_FSharp.Modules
 open System.Collections.Generic

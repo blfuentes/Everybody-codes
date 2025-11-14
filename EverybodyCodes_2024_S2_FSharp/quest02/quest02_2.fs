@@ -1,4 +1,4 @@
-﻿module quest02_part02
+﻿module quest02_2
 
 open System.Numerics
 open EverybodyCodes_2024_S2_FSharp.Modules

@@ -1,4 +1,4 @@
-module quest09_part03_visualization
+module quest09_3_visualization
 
 open EverybodyCodes_2025_FSharp.Modules
 open System.Collections.Generic
@@ -184,7 +184,7 @@ let buildFamilies(scales: Map<int, char array>) =
 
     let families = familyBag |> Seq.distinct |> Seq.toList
     let groupedFamilies = groupIntersectingSets families
-    exportFamiliesToBitmap groupedFamilies families "quest09_part03_visualization.png"
+    exportFamiliesToBitmap groupedFamilies families "quest09_3_visualization.png"
     groupedFamilies
     |> List.maxBy _.Count
     |> Seq.sum

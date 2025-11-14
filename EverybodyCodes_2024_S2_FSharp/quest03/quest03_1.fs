@@ -1,4 +1,4 @@
-﻿module quest03_part01
+﻿module quest03_1
 
 open EverybodyCodes_2024_S2_FSharp.Modules
 open System.Text.RegularExpressions

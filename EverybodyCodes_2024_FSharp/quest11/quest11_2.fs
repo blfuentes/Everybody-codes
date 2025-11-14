@@ -1,4 +1,4 @@
-﻿module quest11_part02
+﻿module quest11_2
 
 open System.Collections.Generic
 open EverybodyCodes_2024_FSharp.Modules

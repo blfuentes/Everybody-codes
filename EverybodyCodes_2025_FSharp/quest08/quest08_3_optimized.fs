@@ -1,4 +1,4 @@
-module quest08_part03_optimized
+module quest08_3_optimized
 
 open System
 open EverybodyCodes_2025_FSharp.Modules

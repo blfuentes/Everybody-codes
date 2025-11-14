@@ -1,4 +1,4 @@
-module quest08_part02_visualization
+module quest08_2_visualization
 
 open System
 open EverybodyCodes_2025_FSharp.Modules

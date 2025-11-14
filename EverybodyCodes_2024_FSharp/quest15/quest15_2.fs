@@ -1,4 +1,4 @@
-module quest15_part02
+module quest15_2
 
 open EverybodyCodes_2024_FSharp.Modules
 open System

@@ -1,4 +1,4 @@
-module quest08_part03_visualization
+module quest08_3_visualization
 
 open System
 open System.Drawing

@@ -1,4 +1,4 @@
-module quest19_part01
+module quest19_1
 
 open EverybodyCodes_2024_FSharp.Modules
 
