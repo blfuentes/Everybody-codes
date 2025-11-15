@@ -122,6 +122,16 @@
 		<Content Include="quest10\quest10_input_01.txt" />
 		<Content Include="quest10\quest10_input_02.txt" />
 		<Content Include="quest10\quest10_input_03.txt" />
+		<Compile Include="quest11\quest11_1.fs" />
+		<Compile Include="quest11\quest11_2.fs" />
+		<Compile Include="quest11\quest11_3.fs" />
+		<Compile Include="quest11\utils11.fs" />
+		<Content Include="quest11\test_input_01.txt" />
+		<Content Include="quest11\test_input_02.txt" />
+		<Content Include="quest11\test_input_03.txt" />
+		<Content Include="quest11\quest11_input_01.txt" />
+		<Content Include="quest11\quest11_input_02.txt" />
+		<Content Include="quest11\quest11_input_03.txt" />
 		<Compile Include="Program.fs" />
 	</ItemGroup>
 
@@ -134,6 +144,7 @@
 	</ItemGroup>
 
 </Project>
+
 
 
 
