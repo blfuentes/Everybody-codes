@@ -230,6 +230,37 @@ allPathdsDfs |> List.iteri(fun i p ->
         printfn "DFS path %A. Length: %A :: %A" (i+1) p.Length p
 )
 
+// Simplified DFS using an explicit stack
+let dfsStack (maze: Cell[,]) =
+    let start = findKind maze Start
+    let goal = findKind maze Goal
+    let visited = HashSet<Coord>()
+    let parent = Dictionary<Coord, Coord>()
+    let stack = System.Collections.Generic.Stack<Coord>()
+    stack.Push(start)
+    visited.Add(start) |> ignore
+
+    let mutable found = false
+    while stack.Count > 0 && not found do
+        let pos = stack.Pop()
+        if pos = goal then found <- true
+        else
+            for n in getNeighbors maze pos do
+                if not (visited.Contains(n)) then
+                    visited.Add(n) |> ignore
+                    parent.Add(n, pos)
+                    stack.Push(n)
+
+    let rec buildPath acc pos =
+        if pos = start then start :: acc
+        elif parent.ContainsKey(pos) then buildPath (pos :: acc) parent.[pos]
+        else []
+    let path = if found then buildPath [] goal else []
+    path.Length, path
+
+let resultDFSStack = dfsStack themaze
+printfn "DFS stack: %A" resultDFSStack
+
 
 // DFS using an explicit stack. Returns Some path from start to goal (inclusive) or None.
 let dfsWithStack (maze: Cell[,]) : Coord list option =
