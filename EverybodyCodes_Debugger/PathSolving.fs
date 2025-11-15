@@ -230,6 +230,97 @@ allPathdsDfs |> List.iteri(fun i p ->
         printfn "DFS path %A. Length: %A :: %A" (i+1) p.Length p
 )
 
+
+// DFS using an explicit stack. Returns Some path from start to goal (inclusive) or None.
+let dfsWithStack (maze: Cell[,]) : Coord list option =
+    // Find coordinates of a cell value (first occurrence)
+    let findValue (maze: Cell[,]) (value: Kind) : Coord option =
+        let rows = maze.GetLength(0)
+        let cols = maze.GetLength(1)
+        let mutable found = None
+        for r in 0 .. rows - 1 do
+            for c in 0 .. cols - 1 do
+                if maze[r, c].Kind = value && found.IsNone then
+                    found <- Some (r, c)
+        found
+    let rows = maze.GetLength(0)
+    let cols = maze.GetLength(1)
+
+    match findValue maze Start, findValue maze Goal with
+    | Some start, Some goal ->
+        let stack = Stack<Coord>()
+        let visited = HashSet<Coord>()
+        let parent = Dictionary<Coord, Coord>()
+
+        stack.Push(start)
+        visited.Add(start) |> ignore
+        parent.[start] <- start
+
+        let mutable found = false
+        let mutable goalCoord = start
+
+        // neighbor deltas: up, right, down, left (adjust ordering if you prefer)
+        let deltas = [(-1,0); (0,1); (1,0); (0,-1)]
+
+        while stack.Count > 0 && not found do
+            let cur = stack.Pop()
+            if cur = goal then
+                found <- true
+                goalCoord <- cur
+            else
+                let (r, c) = cur
+                for (dr, dc) in deltas do
+                    let nr = r + dr
+                    let nc = c + dc
+                    if nr >= 0 && nr < rows && nc >= 0 && nc < cols then
+                        let cell = maze[nr, nc]
+                        if not cell.Kind.IsWall then // not a wall
+                            let ncoord = (nr, nc)
+                            if not (visited.Contains ncoord) then
+                                visited.Add(ncoord) |> ignore
+                                parent.[ncoord] <- cur
+                                stack.Push(ncoord)
+
+        if not found then None
+        else
+            // Reconstruct path from goal to start
+            let rec build acc node =
+                if node = start then
+                    List.rev (start :: acc)
+                else
+                    let p = parent.[node]
+                    build (node :: acc) p
+            Some (build [] goalCoord)
+
+    | _ -> None
+
+// Utility to print maze with path overlay
+let printMazeWithPath (maze: Cell[,]) (pathOpt: Coord list option) =
+    let rows = maze.GetLength(0)
+    let cols = maze.GetLength(1)
+    let pathSet = 
+        match pathOpt with
+        | None -> Set.empty
+        | Some lst -> lst |> Set.ofList
+    for r in 0 .. rows - 1 do
+        for c in 0 .. cols - 1 do
+            let ch =
+                if pathSet.Contains (r, c) then
+                    if maze[r,c].Kind = Start then 'S' elif maze[r,c].Kind = Goal then 'G' else '*'
+                else
+                    match maze[r,c].Kind with
+                    | Wall -> '#'
+                    | Start -> 'S'
+                    | Goal -> 'G'
+                    | _ -> '.'
+            printf "%c" ch
+        printfn ""
+    ()
+
+let resultDfsStack = dfsWithStack themaze
+printfn "DFS with stack: %A" resultDfsStack
+printMazeWithPath themaze resultDfsStack
+
 // BFS
 let bfs (maze: Cell[,]) =
     let start = findKind maze Start
