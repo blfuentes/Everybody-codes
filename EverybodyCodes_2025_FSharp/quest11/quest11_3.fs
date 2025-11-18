@@ -1,13 +1,12 @@
 module quest11_3
 
 open EverybodyCodes_2025_FSharp.Modules
-open System.Collections.Generic
 
 //let path = "quest11/test_input_03.txt"
 let path = "quest11/quest11_input_03.txt"
 
 let parseContent (lines: string array) =
-    lines |> Array.mapi (fun i v -> (i, bigint.Parse(v)))
+    lines |> Array.map (fun v -> bigint.Parse(v))
 
 // BRUTE FORCE RUNNING AROUND ~5 hours
 //let doFormation (ducks: (int*bigint) array) =
@@ -55,15 +54,13 @@ let parseContent (lines: string array) =
 //    let balancedRound = phaseTwo phase1End
 //    balancedRound
 
-let findBalancedRound(ducks: (int*bigint) array) =
-    let totalDucks =
-        ducks
-        |> Array.sumBy (fun (_, v) -> v)
+let findBalancedRound(ducks: bigint array) =
+    let totalDucks = Array.sum ducks
     let numberOfDucks = bigint ducks.Length
     let balancedValue = totalDucks / numberOfDucks
     let roundsNeededPerDuck =
         ducks
-        |> Array.sumBy(fun (_, v) ->
+        |> Array.sumBy(fun v ->
             if v > balancedValue then
                 v - balancedValue
             else
