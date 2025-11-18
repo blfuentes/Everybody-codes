@@ -44,11 +44,6 @@ let doFormation (ducks: int array) =
     let balancedRound = phaseTwo phase1End
     balancedRound
 
-let flockCheckSum(ducks: int array) =
-    ducks
-    |> Array.mapi (fun idx value -> (idx, value))
-    |> Array.sumBy(fun (idx, value) -> (idx + 1) * value)
-
 let execute() =
     let lines = LocalHelper.GetLinesFromFile(path)
     let ducksFormed = parseContent lines

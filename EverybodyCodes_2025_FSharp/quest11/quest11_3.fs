@@ -8,49 +8,42 @@ let path = "quest11/quest11_input_03.txt"
 let parseContent (lines: string array) =
     lines |> Array.map (fun v -> bigint.Parse(v))
 
-// BRUTE FORCE RUNNING AROUND ~5 hours
-//let doFormation (ducks: (int*bigint) array) =
-//    let inline ducksToString (ducks: (int*bigint) array) =
-//        ducks
-//        |> Array.map (fun (_, v) -> v.ToString())
-//        |> String.concat ","
-//    let inline ducksBalanced (ducks: (int*bigint) array) =
+// BRUTE FORCE RUNNING AROUND ~2 days
+//let doFormation (ducks: bigint array) =
+//    let inline ducksBalanced (ducks: bigint array) =
 //        ducks 
 //        |> Array.pairwise
-//        |> Array.forall (fun ((_, left), (_, right)) -> left = right)
+//        |> Array.forall (fun (left, right) -> left = right)
+
+//    let inline areEqual(ducks1: bigint array) (ducks2: bigint array) =
+//        Array.forall2 (=) ducks1 ducks2
 
 //    // Phase 1: Left to Right until no more moves possible
-//    let rec phaseOne(seen: HashSet<string>) (currentRound: bigint)=
-//        if seen.Contains(ducksToString ducks) then
-//            currentRound - 1I
+//    let rec phaseOne(currentRound: int) (lastForm: bigint array) =
+//        if areEqual lastForm ducks then
+//            currentRound - 1
 //        else
-//            seen.Add(ducksToString ducks) |> ignore
-//            for dIdx in 0.. ducks.Length - 2 do
-//                let (_, left), (_, right) = ducks[dIdx], ducks[dIdx + 1]
-//                if left > right then
-//                    ducks[dIdx] <- (fst ducks[dIdx], (snd ducks[dIdx]) - 1I)
-//                    ducks[dIdx + 1] <- (fst ducks[dIdx + 1], (snd ducks[dIdx + 1]) + 1I)
-//            phaseOne seen (currentRound + 1I)
+//            let lastFormCopy = Array.copy ducks
+//            for dIdx in 0..ducks.Length - 2 do
+//                if ducks[dIdx] > ducks[dIdx+1] then
+//                    ducks[dIdx] <- ducks[dIdx] - 1I
+//                    ducks[dIdx + 1] <- ducks[dIdx + 1] + 1I
+//            phaseOne (currentRound + 1) lastFormCopy
 
 //    // Phase 2: Move from more to less until no more moves possible
-//    let rec phaseTwo(currentRound: bigint) =
-//        if currentRound % 10000I = 0I then
-//            printfn "Phase 2 - Current Round: %A" currentRound
-
+//    let rec phaseTwo (currentRound: int) =
+//        if currentRound % 100000 = 0 then
+//            printfn "Phase2: Round %d" currentRound
 //        if ducksBalanced ducks then
-//            currentRound
+//            currentRound - 1
 //        else
-//            let seen = HashSet<string>()
-//            while not (seen.Contains(ducksToString ducks)) do
-//                for dIdx in 0.. ducks.Length - 2 do
-//                    let (_, left), (_, right) = ducks[dIdx], ducks[dIdx + 1]
-//                    if right > left then
-//                        ducks[dIdx] <- (fst ducks[dIdx], (snd ducks[dIdx]) + 1I)
-//                        ducks[dIdx + 1] <- (fst ducks[dIdx + 1], (snd ducks[dIdx + 1]) - 1I)
-//                seen.Add(ducksToString ducks) |> ignore
-//            phaseTwo (currentRound + 1I)
+//            for dIdx in 0..ducks.Length-2 do
+//                if ducks[dIdx + 1] > ducks[dIdx] then
+//                    ducks[dIdx] <- ducks[dIdx] + 1I
+//                    ducks[dIdx + 1] <- ducks[dIdx + 1] - 1I
+//            phaseTwo (currentRound + 1)
 
-//    let phase1End = phaseOne (new HashSet<string>()) 0I
+//    let phase1End = phaseOne 1 (Array.zeroCreate ducks.Length)
 //    let balancedRound = phaseTwo phase1End
 //    balancedRound
 
