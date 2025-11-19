@@ -11,7 +11,7 @@ https://everybody.codes/
 | 2024 | The Kingdom of Algorithmia | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆 | (60/60) |
 | 2024 S1 | Echoes of Enigmatus No. 1 | 🦆🦆🦆 | (9/9) |
 | 2024 S2 | The Entertainment Hub No. 2 | 🦆🦆🦆 | (9/9) |
-| 2025 | The Song of Ducks and Dragons | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🥚🥚🥚🥚🥚🥚🥚🥚🥚 | (33/60) | 
+| 2025 | The Song of Ducks and Dragons | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦢🥚🥚🥚🥚🥚🥚🥚🥚 | (35/60) | 
 
 ### 2024 The Kingdom of Algorithmia
 
@@ -70,27 +70,27 @@ https://everybody.codes/
 
 [https://everybody.codes/event/2025](https://everybody.codes/event/2025/quests)
 
-(11/20)
+(11.66/20)
 
 |Day      | Part 1 | Part 2 | Part 3 |
 |---------|----|----|----|
-| Quest 1: Whispers in the Shell	| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest01/quest01_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest01/quest01_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest01/quest01_3.fs) |
-| Quest 2: From Complex to Clarity	| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest02/quest02_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest02/quest02_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest02/quest02_3.fs) |
-| Quest 3: The Deepest Fit			| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest03/quest03_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest03/quest03_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest03/quest03_3.fs) |
-| Quest 4: Teeth of the Wind		| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest04/quest04_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest04/quest04_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest04/quest04_3.fs) |
-| Quest 5: Fishbone Order			| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest05/quest05_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest05/quest05_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest05/quest05_3.fs) |
-| Quest 6: Mentorship Matrix		| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest06/quest06_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest06/quest06_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest06/quest06_3.fs) |
-| Quest 7: Namegraph				| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest07/quest07_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest07/quest07_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest07/quest07_3.fs) |
-| Quest 8: The Art of Connection	| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest08/quest08_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest08/quest08_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest08/quest08_3.fs) |
-| Quest 9: Encoded in the Scales	| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest09/quest09_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest09/quest09_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest09/quest09_3.fs) |
-| Quest 10: Feast on the Board		| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest10/quest10_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest10/quest10_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest10/quest10_3.fs) |
-| Quest 11: The Scout Duck Protocol	| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest11/quest11_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest11/quest11_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest11/quest11_3.fs) |
-| Quest 12							| ❌  | ❌ | ❌ |
-| Quest 13							| ❌  | ❌ | ❌ |
-| Quest 14							| ❌  | ❌ | ❌ |
-| Quest 15							| ❌  | ❌ | ❌ |
-| Quest 16							| ❌  | ❌ | ❌ |
-| Quest 17							| ❌  | ❌ | ❌ |
-| Quest 18							| ❌  | ❌ | ❌ |
-| Quest 19							| ❌  | ❌ | ❌ |
-| Quest 20							| ❌  | ❌ | ❌ |
+| Quest 1: Whispers in the Shell		| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest01/quest01_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest01/quest01_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest01/quest01_3.fs) |
+| Quest 2: From Complex to Clarity		| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest02/quest02_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest02/quest02_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest02/quest02_3.fs) |
+| Quest 3: The Deepest Fit				| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest03/quest03_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest03/quest03_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest03/quest03_3.fs) |
+| Quest 4: Teeth of the Wind			| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest04/quest04_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest04/quest04_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest04/quest04_3.fs) |
+| Quest 5: Fishbone Order				| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest05/quest05_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest05/quest05_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest05/quest05_3.fs) |
+| Quest 6: Mentorship Matrix			| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest06/quest06_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest06/quest06_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest06/quest06_3.fs) |
+| Quest 7: Namegraph					| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest07/quest07_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest07/quest07_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest07/quest07_3.fs) |
+| Quest 8: The Art of Connection		| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest08/quest08_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest08/quest08_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest08/quest08_3.fs) |
+| Quest 9: Encoded in the Scales		| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest09/quest09_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest09/quest09_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest09/quest09_3.fs) |
+| Quest 10: Feast on the Board			| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest10/quest10_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest10/quest10_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest10/quest10_3.fs) |
+| Quest 11: The Scout Duck Protocol		| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest11/quest11_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest11/quest11_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest11/quest11_3.fs) |
+| Quest 12: One Spark to Burn Them All	| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest12/quest12_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest12/quest12_2.fs) | ❌ |
+| Quest 13								| ❌  | ❌ | ❌ |
+| Quest 14								| ❌  | ❌ | ❌ |
+| Quest 15								| ❌  | ❌ | ❌ |
+| Quest 16								| ❌  | ❌ | ❌ |
+| Quest 17								| ❌  | ❌ | ❌ |
+| Quest 18								| ❌  | ❌ | ❌ |
+| Quest 19								| ❌  | ❌ | ❌ |
+| Quest 20								| ❌  | ❌ | ❌ |
