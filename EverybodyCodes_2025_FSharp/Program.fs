@@ -120,10 +120,16 @@ let main argv =
     // DAY 12
     let (resultquest12_1, time12_1) = duration quest12_1.execute
     printfn "Final result Quest 12 part 1: %A in %s" resultquest12_1 (ms time12_1)
+    //let (resultquest12_1_visualization, time12_1_visualization) = duration quest12_1_visualization.execute
+    //printfn "Final result Quest 12 part 1 visualization: %A in %s" resultquest12_1_visualization (ms time12_1_visualization)
     let (resultquest12_2, time12_2) = duration quest12_2.execute
     printfn "Final result Quest 12 part 2: %A in %s" resultquest12_2 (ms time12_2)
+    //let (resultquest12_2_visualization, time12_2_visualization) = duration quest12_2_visualization.execute
+    //printfn "Final result Quest 12 part 2 visualization: %A in %s" resultquest12_2_visualization (ms time12_2_visualization)
     let (resultquest12_3, time12_3) = duration quest12_3.execute
     printfn "Final result Quest 12 part 3: %A in %s" resultquest12_3 (ms time12_3)
+    //let (resultquest12_3_visualization, time12_3_visualization) = duration quest12_3_visualization.execute
+    //printfn "Final result Quest 12 part 3 visualization: %A in %s" resultquest12_3_visualization (ms time12_3_visualization)
 
     // DAY 13
     let (resultquest13_1, time13_1) = duration quest13_1.execute
