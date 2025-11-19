@@ -65,5 +65,5 @@ let igniteBarrels(barrelsMap: Barrel[,]) =
 let execute() =
     let lines = LocalHelper.GetLinesFromFile(path)
     let barrelsMap = parseContent lines
-    printBarrelsMap barrelsMap
+    //printBarrelsMap barrelsMap
     igniteBarrels barrelsMap

@@ -2,9 +2,11 @@ module quest12_3
 
 open EverybodyCodes_2025_FSharp.Modules
 open System.Collections.Generic
+open System.Threading.Tasks
+open System.Collections.Concurrent
 
-let path = "quest12/test_input_03.txt"
-//let path = "quest12/quest12_input_03.txt"
+//let path = "quest12/test_input_03.txt"
+let path = "quest12/quest12_input_03.txt"
 
 type Position = { Row: int; Col: int }
 
@@ -64,8 +66,38 @@ let igniteBarrels(barrelsMap: Barrel[,]) =
     let affectedPositionsFromSecond = floodFill barrelsMap secondBarrel
     (Set.union affectedPositions affectedPositionsFromSecond).Count
 
+let findBestThreeBarrels(barrelsMap: Barrel[,]) =
+    let rows = barrelsMap.GetLength(0)
+    let cols = barrelsMap.GetLength(1)
+    let allBarrels =
+        [ for r in 0 .. rows - 1 do
+            for c in 0 .. cols - 1 do
+                yield barrelsMap[r, c] ]
+    let allPositions = allBarrels |> List.map (fun b -> b.Position) |> Set.ofList
+
+    let mutable remaining = allPositions
+    let mutable totalDestroyed = Set.empty<Position>
+
+    for _ in 1 .. 3 do
+        let candidates = new ConcurrentBag<Barrel * Set<Position>>()
+        Parallel.For(0, allBarrels.Length, fun i ->
+            let barrel = allBarrels[i]
+            if remaining.Contains(barrel.Position) then
+                let affected = floodFill barrelsMap barrel |> Set.intersect remaining
+                candidates.Add(barrel, affected)
+        ) |> ignore
+        let best =
+            candidates
+            |> Seq.maxBy (fun (_, affected) -> affected.Count)
+        let bestAffected = snd best
+        remaining <- remaining - bestAffected
+        totalDestroyed <- totalDestroyed + bestAffected
+
+    totalDestroyed.Count
+    
+
 let execute() =
     let lines = LocalHelper.GetLinesFromFile(path)
     let barrelsMap = parseContent lines
     //printBarrelsMap barrelsMap
-    igniteBarrels barrelsMap
+    findBestThreeBarrels barrelsMap

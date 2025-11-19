@@ -11,7 +11,7 @@ https://everybody.codes/
 | 2024 | The Kingdom of Algorithmia | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆 | (60/60) |
 | 2024 S1 | Echoes of Enigmatus No. 1 | 🦆🦆🦆 | (9/9) |
 | 2024 S2 | The Entertainment Hub No. 2 | 🦆🦆🦆 | (9/9) |
-| 2025 | The Song of Ducks and Dragons | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦢🥚🥚🥚🥚🥚🥚🥚🥚 | (35/60) | 
+| 2025 | The Song of Ducks and Dragons | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🥚🥚🥚🥚🥚🥚🥚🥚 | (36/60) | 
 
 ### 2024 The Kingdom of Algorithmia
 
@@ -70,7 +70,7 @@ https://everybody.codes/
 
 [https://everybody.codes/event/2025](https://everybody.codes/event/2025/quests)
 
-(11.66/20)
+(12/20)
 
 |Day      | Part 1 | Part 2 | Part 3 |
 |---------|----|----|----|
@@ -85,7 +85,7 @@ https://everybody.codes/
 | Quest 9: Encoded in the Scales		| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest09/quest09_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest09/quest09_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest09/quest09_3.fs) |
 | Quest 10: Feast on the Board			| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest10/quest10_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest10/quest10_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest10/quest10_3.fs) |
 | Quest 11: The Scout Duck Protocol		| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest11/quest11_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest11/quest11_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest11/quest11_3.fs) |
-| Quest 12: One Spark to Burn Them All	| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest12/quest12_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest12/quest12_2.fs) | ❌ |
+| Quest 12: One Spark to Burn Them All	| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest12/quest12_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest12/quest12_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest12/quest12_3.fs) |
 | Quest 13								| ❌  | ❌ | ❌ |
 | Quest 14								| ❌  | ❌ | ❌ |
 | Quest 15								| ❌  | ❌ | ❌ |
