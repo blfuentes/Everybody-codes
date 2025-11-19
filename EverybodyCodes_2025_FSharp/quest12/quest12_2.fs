@@ -39,7 +39,6 @@ let floodFill (maze: Barrel[,]) (initBarrel: Barrel) : Set<Position> =
         |> List.filter (fun (r, c) ->
             r >= 0 && r < rows && c >= 0 && c < cols &&
             maze[r,c].Size <= maze[pos.Row, pos.Col].Size
-            //match maze[r, c].Kind with Wall -> false | _ -> true
         ) |> List.map (fun (r, c) -> { Row = r; Col = c })
     let start = initBarrel.Position
     let visited = HashSet<Position>()
@@ -57,7 +56,6 @@ let floodFill (maze: Barrel[,]) (initBarrel: Barrel) : Set<Position> =
     visited |> Set.ofSeq
 
 let igniteBarrels(barrelsMap: Barrel[,]) =
-    // Placeholder for ignition logic
     let initialBarrel = barrelsMap[0, 0]
     let secondBarrel = barrelsMap[barrelsMap.GetLength(0)-1, barrelsMap.GetLength(1)-1]
     let affectedPositions = floodFill barrelsMap initialBarrel
@@ -67,5 +65,4 @@ let igniteBarrels(barrelsMap: Barrel[,]) =
 let execute() =
     let lines = LocalHelper.GetLinesFromFile(path)
     let barrelsMap = parseContent lines
-    //printBarrelsMap barrelsMap
     igniteBarrels barrelsMap
