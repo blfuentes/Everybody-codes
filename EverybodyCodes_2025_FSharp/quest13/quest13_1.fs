@@ -2,8 +2,8 @@ module quest13_1
 
 open EverybodyCodes_2025_FSharp.Modules
 
-let path = "quest13/test_input_01.txt"
-//let path = "quest13/quest13_input_01.txt"
+//let path = "quest13/test_input_01.txt"
+let path = "quest13/quest13_input_01.txt"
 
 let parseContent (lines: string array) =
     lines |> Array.map int
@@ -22,8 +22,11 @@ let constructWheel (numbers: int array) =
             counterwise <- counterwise - 1
     wheel
 
+let turnWheel(wheel: int array) (turns: int) =
+    wheel[turns % wheel.Length]
+
 let execute() =
     let lines = LocalHelper.GetLinesFromFile(path)
     let dialNumbers = parseContent lines
     let wheel = constructWheel dialNumbers
-    wheel.Length
+    turnWheel wheel 2025
