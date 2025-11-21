@@ -3,7 +3,7 @@
 
 // QUEST 01
 char* execute_quest01_1(void);
-int execute_quest01_2(void);
-int execute_quest01_3(void);
+char* execute_quest01_2(void);
+char* execute_quest01_3(void);
 
 #endif // QUESTS_H

@@ -1,0 +1,15 @@
+﻿    // Quest 00
+    clock_gettime(CLOCK_MONOTONIC, &start);
+    int result00_1 = execute_quest00_1();
+    clock_gettime(CLOCK_MONOTONIC, &end);
+    printf("Result of Quest 00 part 1: %d in %s time (mm:ss:ms.μs)\n", result00_1, format_elapsed_time(start, end));
+
+    clock_gettime(CLOCK_MONOTONIC, &start);
+    int result00_2 = execute_quest00_2();
+    clock_gettime(CLOCK_MONOTONIC, &end);
+    printf("Result of Quest 00 part 2: %d in %s time (mm:ss:ms.μs)\n", result00_2, format_elapsed_time(start, end));
+
+    clock_gettime(CLOCK_MONOTONIC, &start);
+    int result00_3 = execute_quest00_3();
+    clock_gettime(CLOCK_MONOTONIC, &end);
+    printf("Result of Quest 00 part 3: %d in %s time (mm:ss:ms.μs)\n", result00_3, format_elapsed_time(start, end));

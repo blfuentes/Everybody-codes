@@ -36,15 +36,17 @@ int main(void) {
     printf("Result of Quest 01 part 1: %s in %s time (mm:ss:ms.μs)\n", result01_1, format_elapsed_time(start, end));
 
     clock_gettime(CLOCK_MONOTONIC, &start);
-    int result01_2 = execute_quest01_2();
+    char* result01_2 = execute_quest01_2();
     clock_gettime(CLOCK_MONOTONIC, &end);
-    printf("Result of Quest 01 part 2: %d in %s time (mm:ss:ms.μs)\n", result01_2, format_elapsed_time(start, end));
+    printf("Result of Quest 01 part 2: %s in %s time (mm:ss:ms.μs)\n", result01_2, format_elapsed_time(start, end));
 
     clock_gettime(CLOCK_MONOTONIC, &start);
-    int result01_3 = execute_quest01_3();
+    char* result01_3 = execute_quest01_3();
     clock_gettime(CLOCK_MONOTONIC, &end);
-    printf("Result of Quest 01 part 3: %d in %s time (mm:ss:ms.μs)\n", result01_3, format_elapsed_time(start, end));
+    printf("Result of Quest 01 part 3: %s in %s time (mm:ss:ms.μs)\n", result01_3, format_elapsed_time(start, end));
 
+	free(result01_3);
+	free(result01_2);
     free(result01_1);
 
     return 0;
