@@ -12,7 +12,7 @@ add_executable(EverybodyCodes_2025_C
   quest01/quest01_1.c
   quest01/quest01_2.c
   quest01/quest01_3.c
- "templates/quest00/quest01_1.c" "templates/quest00/quest01_2.c" "templates/quest00/quest01_3.c")
+)
 
 # Add C23 compiler flags for GCC/Clang
 if(CMAKE_C_COMPILER_ID STREQUAL "GNU" OR CMAKE_C_COMPILER_ID STREQUAL "Clang")

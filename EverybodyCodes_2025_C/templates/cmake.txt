@@ -1,0 +1,9 @@
+file(GLOB QUEST00_TXT_FILES "${CMAKE_SOURCE_DIR}/quest00/*.txt")
+foreach(TXT_FILE ${QUEST00_TXT_FILES})
+    add_custom_command(TARGET EverybodyCodes_2025_C POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        ${TXT_FILE}
+        ${CMAKE_BINARY_DIR}/quest00/
+        COMMENT "Copying ${TXT_FILE} to build directory"
+    )
+endforeach()
