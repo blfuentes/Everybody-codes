@@ -74,7 +74,7 @@ https://everybody.codes/
 
 |Day      | Part 1 | Part 2 | Part 3 |
 |---------|----|----|----|
-| Quest 1: Whispers in the Shell		| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest01/quest01_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest01/quest01_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest01/quest01_3.fs) |
+| Quest 1: Whispers in the Shell		| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest01/quest01_1.fs) [C](./EverybodyCodes_2025_C/quest01/quest01_1.c) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest01/quest01_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest01/quest01_3.fs) |
 | Quest 2: From Complex to Clarity		| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest02/quest02_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest02/quest02_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest02/quest02_3.fs) |
 | Quest 3: The Deepest Fit				| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest03/quest03_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest03/quest03_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest03/quest03_3.fs) |
 | Quest 4: Teeth of the Wind			| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest04/quest04_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest04/quest04_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest04/quest04_3.fs) |
