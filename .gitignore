@@ -6,6 +6,9 @@
 # Go files
 *.exe
 
+# C files
+out/
+
 # Event input
 day*.txt
 quest*.txt

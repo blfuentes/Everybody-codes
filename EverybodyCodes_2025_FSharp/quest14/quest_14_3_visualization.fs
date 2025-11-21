@@ -114,25 +114,25 @@ let saveToBitmap (grid: Cell[,]) (filename: string) (ismatch: bool) =
     
     for row in 0 .. maxRows - 1 do
         for col in 0 .. maxCols - 1 do
-            let brush = 
+            let brush =
                 match grid[row, col].State with
-                | Active -> 
+                | Active ->
                     if ismatch then
                         if row >= fromRowMatch && row <= toRowMatch &&
                            col >= fromColMath && col <= toColMatch then
-                            new SolidBrush(Color.Red) 
-                        else                            
+                            new SolidBrush(Color.Red)
+                        else
                             new SolidBrush(Color.Black)
-                    else 
+                    else
                         new SolidBrush(Color.Black)
-                | Inactive -> 
-                    if ismatch then 
+                | Inactive ->
+                    if ismatch then
                         if row >= fromRowMatch && row <= toRowMatch &&
                            col >= fromColMath && col <= toColMatch then
-                            new SolidBrush(Color.Blue) 
-                        else                                                       
+                            new SolidBrush(Color.Blue)
+                        else
                             new SolidBrush(Color.White)
-                    else 
+                    else
                         new SolidBrush(Color.White)
             g.FillRectangle(brush, col * cellSize, row * cellSize, cellSize, cellSize)
             brush.Dispose()
