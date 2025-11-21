@@ -101,7 +101,7 @@ $updatedQuestsTemplate = $templateQuestsContent -replace '00', $QuestNumber
 # Insert before #endif
 $questsContent = $questsContent -replace '(#endif\s*//\s*QUESTS_H)', "`n$updatedQuestsTemplate`n`n`$1"
 
-Set-Content $questsHeaderFile $questsContent -Encoding UTF8
+Set-ContentSafe -Path $questsHeaderFile -Value $questsContent
 Write-Host "Updated $questsHeaderFile" -ForegroundColor Green
 
 # 3. Copy and rename quest00 folder to questXX
@@ -153,30 +153,32 @@ Write-Host "Created quest$QuestNumber folder with all files updated" -Foreground
 
 # 4. Update CMakeLists.txt
 Write-Host "Updating CMakeLists.txt..." -ForegroundColor Cyan
-$cmakeFile = Join-Path $scriptDir "CMakeLists.txt"
 $cmakeContent = Get-Content $cmakeFile -Raw
 $cmakeTemplateContent = Get-Content $cmakeTemplateFile -Raw
 
 # Replace "00" with the quest number in the cmake template
 $updatedCmakeTemplate = $cmakeTemplateContent -replace '00', $QuestNumber
 
-# Find the add_executable section and add the new quest files
-$questFilesPattern = '(add_executable\(EverybodyCodes_2025_C\s+EverybodyCodes_2025_C\.c\s+utils/utils\.c.*?)(quest01/quest01_1\.c.*?\))'
-$newQuestFiles = "`$1`$2`n  quest$QuestNumber/quest$QuestNumber`_1.c`n  quest$QuestNumber/quest$QuestNumber`_2.c`n  quest$QuestNumber/quest$QuestNumber`_3.c"
+# Find and update add_executable section
+# Match the closing parenthesis of add_executable and add new quest files before it
+$addExecutablePattern = '(add_executable\(EverybodyCodes_2025_C[\s\S]*?quest\d+/quest\d+_3\.c)(\s*\))'
+$newQuestFiles = "`$1`n  quest$QuestNumber/quest$QuestNumber`_1.c`n  quest$QuestNumber/quest$QuestNumber`_2.c`n  quest$QuestNumber/quest$QuestNumber`_3.c`$2"
 
-$cmakeContent = $cmakeContent -replace $questFilesPattern, $newQuestFiles
+$cmakeContent = $cmakeContent -replace $addExecutablePattern, $newQuestFiles
 
-# Insert the cmake template before the last endforeach() or at the end of file
-# Find the position after the last quest file copy section
-$endforeachPattern = '(endforeach\(\))\s*$'
-if ($cmakeContent -match $endforeachPattern) {
-    $cmakeContent = $cmakeContent -replace $endforeachPattern, "`$1`n`n$updatedCmakeTemplate"
+# Add directory creation and file copy commands
+# Find where to insert the new quest cmake configuration - before the existing quest copy comments
+$questCommentPattern = '(# Copy only txt files from quest\d+ to build directory at build time)'
+$directoryCreationBlock = "# Create quest$QuestNumber directory in build folder if it doesn't exist`nadd_custom_command(TARGET EverybodyCodes_2025_C PRE_BUILD`n    COMMAND `${CMAKE_COMMAND} -E make_directory`n    `${CMAKE_BINARY_DIR}/quest$QuestNumber`n)`n`n$updatedCmakeTemplate`n`n"
+
+if ($cmakeContent -match $questCommentPattern) {
+    $cmakeContent = $cmakeContent -replace $questCommentPattern, "$directoryCreationBlock`$1"
 } else {
-    # If no endforeach found, append at the end
-    $cmakeContent = $cmakeContent + "`n`n$updatedCmakeTemplate"
+    # If pattern not found, append at the end
+    $cmakeContent = $cmakeContent + "`n`n$directoryCreationBlock"
 }
 
-Set-Content $cmakeFile $cmakeContent -Encoding UTF8
+Set-ContentSafe -Path $cmakeFile -Value $cmakeContent
 Write-Host "Updated CMakeLists.txt" -ForegroundColor Green
 
 Write-Host "`nQuest $QuestNumber has been successfully added!" -ForegroundColor Green

@@ -10,7 +10,7 @@ int execute_quest00_1() {
 	char* data = read_file(filename);
 	if (data == NULL) {
 		printf("Failed to read file: %s\n", filename);
-		return NULL;
+		return -1;
 	}
 
 	return 0;
