@@ -11,7 +11,7 @@ https://everybody.codes/
 | 2024 | The Kingdom of Algorithmia | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆 | (60/60) |
 | 2024 S1 | Echoes of Enigmatus No. 1 | 🦆🦆🦆 | (9/9) |
 | 2024 S2 | The Entertainment Hub No. 2 | 🦆🦆🦆 | (9/9) |
-| 2025 | The Song of Ducks and Dragons | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🥚🥚🥚🥚🥚🥚 | (42/60) | 
+| 2025 | The Song of Ducks and Dragons | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🥚🥚🥚🥚🥚 | (45/60) | 
 
 ### 2024 The Kingdom of Algorithmia
 
@@ -70,7 +70,7 @@ https://everybody.codes/
 
 [https://everybody.codes/event/2025](https://everybody.codes/event/2025/quests)
 
-(14/20)
+(15/20)
 
 |Day      | Part 1 | Part 2 | Part 3 |
 |---------|----|----|----|
@@ -88,7 +88,7 @@ https://everybody.codes/
 | Quest 12: One Spark to Burn Them All	| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest12/quest12_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest12/quest12_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest12/quest12_3.fs) |
 | Quest 13: Unlocking the Mountain		| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest13/quest13_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest13/quest13_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest13/quest13_3.fs) |
 | Quest 14: The Game of Light			| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest14/quest14_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest14/quest14_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest14/quest14_3.fs) |
-| Quest 15								| ❌  | ❌ | ❌ |
+| Quest 15: Definitely Not a Maze		| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest15/quest15_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest15/quest15_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest15/quest15_3.fs) |
 | Quest 16								| ❌  | ❌ | ❌ |
 | Quest 17								| ❌  | ❌ | ❌ |
 | Quest 18								| ❌  | ❌ | ❌ |
