@@ -40,40 +40,63 @@ let buildMap (operations: Op array) : int * int * int * int * Set<(int * int)> =
     let (xEnd, yEnd, _, _, wall) = Array.fold folder init operations
     (xStart, yStart, xEnd, yEnd, wall)
 
-// using "manhattan BFS" avoiding walls
-let distanceToStart (xStart:int) (yStart:int) (xEnd:int) (yEnd:int) (wall: Set<(int*int)>) : int =
-    let dist = Dictionary<(int*int), int>()
-    let queue = Queue<(int*int)>()
-    dist.Add((xStart, yStart), 0)
-    queue.Enqueue((xStart, yStart))
+let printMap(walls: Set<(int*int)>) (points: HashSet<int*int>)=
+    let minX = walls |> Seq.map fst |> Seq.min
+    let maxX = walls |> Seq.map fst |> Seq.max
+    let minY = walls |> Seq.map snd |> Seq.min
+    let maxY = walls |> Seq.map snd |> Seq.max
+    for y in minY .. maxY do
+        for x in minX .. maxX do
+            if points.Contains(x,y) then
+                printf "O"
+            else
+                if walls.Contains (x, y) then
+                    printf "#"
+                else
+                    printf "."
+        printfn ""
 
-    let rec loop () =
-        if queue.Count = 0 then failwith "No path found"
+let bfs (start: int*int) (goal: int*int) (walls: Set<int*int>) =
+    let minX = walls |> Seq.map fst |> Seq.min |> fun x -> x - 1
+    let maxX = walls |> Seq.map fst |> Seq.max |> fun x -> x + 1
+    let minY = walls |> Seq.map snd |> Seq.min |> fun y -> y - 1
+    let maxY = walls |> Seq.map snd |> Seq.max |> fun y -> y + 1
+
+    let getNeighbors (x, y) =
+        [ (x-1, y); (x+1, y); (x, y-1); (x, y+1) ]
+        |> List.filter (fun (x, y) ->
+            not(walls.Contains (x, y)) &&
+            x >= minX && x < maxX && y >= minY && y < maxY
+        )
+
+    let visited = HashSet<int*int>()
+    let parent = Dictionary<int*int, int*int>()
+    let queue = Queue<int*int>()
+    queue.Enqueue(start)
+    visited.Add(start) |> ignore
+
+    while queue.Count > 0 do
+        let current = queue.Dequeue()
+        if current = goal then 
+            queue.Clear()
         else
-            let (x, y) = queue.Dequeue()
-            let d = dist[(x, y)]
-            let neighbors = [| (x - 1, y); (x + 1, y); (x, y - 1); (x, y + 1) |]
-            let mutable found: int option = None
-            for (xn, yn) in neighbors do
-                if found.IsNone then
-                    if xn = xEnd && yn = yEnd then
-                        found <- Some (d + 1)
-                    elif not (wall.Contains (xn, yn)) then
-                        let mutable existing = 0
-                        if dist.TryGetValue((xn, yn), &existing) then
-                            if d + 1 < existing then
-                                dist[(xn, yn)] <- d + 1
-                                queue.Enqueue((xn, yn))
-                        else
-                            dist[(xn, yn)] <- d + 1
-                            queue.Enqueue((xn, yn))
-            match found with
-            | Some value -> value
-            | None -> loop ()
-    loop ()
+            for n in getNeighbors current do
+                if not (visited.Contains(n)) then
+                    visited.Add(n) |> ignore
+                    parent[n] <- current
+                    queue.Enqueue(n)
+
+    let rec buildPath acc pos =
+        if pos = start then start :: acc
+        elif parent.ContainsKey(pos) then buildPath (pos :: acc) parent[pos]
+        else []
+
+    let path = buildPath [] goal
+    path.Length - 1, path
 
 let execute() =
     let lines = LocalHelper.GetContentFromFile(path)
     let operations = parseContent lines
     let (xStart, yStart, xEnd, yEnd, wall) = buildMap operations
-    distanceToStart xStart yStart xEnd yEnd wall
+    let (length, _ ) = bfs (xEnd, yEnd) (xStart, yStart) (Set.remove (xStart, yStart) wall)
+    length
