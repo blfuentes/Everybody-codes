@@ -88,8 +88,8 @@ https://everybody.codes/
 | Quest 12: One Spark to Burn Them All	| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest12/quest12_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest12/quest12_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest12/quest12_3.fs) |[Part1](./EverybodyCodes_2025_FSharp/visualizations/quest12_1_visualization.png) [Part2](./EverybodyCodes_2025_FSharp/visualizations/quest12_2_visualization.png) [Part3](./EverybodyCodes_2025_FSharp/visualizations/quest12_3_visualization.png)|
 | Quest 13: Unlocking the Mountain		| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest13/quest13_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest13/quest13_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest13/quest13_3.fs) ||
 | Quest 14: The Game of Light			| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest14/quest14_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest14/quest14_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest14/quest14_3.fs) |[Part3](./EverybodyCodes_2025_FSharp/visualizations/quest14_visualization/quest14_3_visualization.mp4)|
-| Quest 15: Definitely Not a Maze		| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest15/quest15_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest15/quest15_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest15/quest15_3.fs) ||
-| Quest 16								| ❌  | ❌ | ❌ |[Part1](./EverybodyCodes_2025_FSharp/visualizations/quest15_1_visualization/quest15_1_visualization.mp4) [Part2](./EverybodyCodes_2025_FSharp/visualizations/quest15_2_visualization/quest15_2_visualization.mp4)|
+| Quest 15: Definitely Not a Maze		| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest15/quest15_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest15/quest15_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest15/quest15_3.fs) |[Part1](./EverybodyCodes_2025_FSharp/visualizations/quest15_1_visualization/quest15_1_visualization.mp4) [Part2](./EverybodyCodes_2025_FSharp/visualizations/quest15_2_visualization/quest15_2_visualization.mp4)|
+| Quest 16								| ❌  | ❌ | ❌ ||
 | Quest 17								| ❌  | ❌ | ❌ ||
 | Quest 18								| ❌  | ❌ | ❌ ||
 | Quest 19								| ❌  | ❌ | ❌ ||
