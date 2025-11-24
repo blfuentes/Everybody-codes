@@ -193,7 +193,7 @@ let drawCellsOptimized (bitmap: Bitmap) (minX, minY, maxX, maxY) (pixelSize: int
     bitmap.UnlockBits(bitmapData)
 
 let visualizeMapBase (minX, minY, maxX, maxY) (visitedPoints: (int*int) list) (walls: Set<int*int>) =
-    ensureFolder "quest15_2_visualization"
+    ensureFolder (Path.Combine(VisualizationFolder, "quest15_2_visualization"))
     
     let pixelSize = 3
     let width = (maxX - minX + 1) * pixelSize
@@ -227,7 +227,7 @@ let visualizeMapBase (minX, minY, maxX, maxY) (visitedPoints: (int*int) list) (w
     g.Dispose()
 
     // Save as JPEG with quality 85 (good balance between size and quality)
-    let fileName = Path.Combine("quest15_2_visualization", "frame_base.jpg")
+    let fileName = Path.Combine(VisualizationFolder, "quest15_2_visualization", "frame_base.jpg")
     saveAsJpeg bitmap fileName 85L
     bitmap.Dispose()
 
@@ -236,7 +236,7 @@ let visualizeMapBase (minX, minY, maxX, maxY) (visitedPoints: (int*int) list) (w
 
 let visualizeMap (minX, minY, maxX, maxY) (visitedPoints: (int*int) list) (walls: Set<int*int>) (currentPoint: int*int) (frameNumber: int) =
     let pixelSize = 3
-    let fileName = Path.Combine("quest15_2_visualization", $"frame_{frameNumber:D4}.jpg")
+    let fileName = Path.Combine(VisualizationFolder, "quest15_2_visualization", $"frame_{frameNumber:D4}.jpg")
     
     try
         // Load the existing base frame
@@ -301,24 +301,25 @@ let execute() =
     
     let width = (maxX - minX + 1) * 3
     let height = (maxY - minY + 1) * 3
-    printfn "Bitmap dimensions: %dx%d pixels" width height
+    //printfn "Bitmap dimensions: %dx%d pixels" width height
 
     // Create base frame
     visualizeMapBase (minX, minY, maxX, maxY) [] wall |> ignore
 
     // Copy base frame for each frame in the sequence
-    let baseFramePath = Path.Combine("quest15_2_visualization", "frame_base.jpg")
+    let baseFramePath = Path.Combine(VisualizationFolder, "quest15_2_visualization", "frame_base.jpg")
     for i in 0 .. path.Length - 1 do
-        let targetFramePath = Path.Combine("quest15_2_visualization", $"frame_{i:D4}.jpg")
+        let targetFramePath = Path.Combine(VisualizationFolder, "quest15_2_visualization", $"frame_{i:D4}.jpg")
         File.Copy(baseFramePath, targetFramePath, true)
 
     // Draw current point on each frame
     allFrameData
     |> List.iter (fun (i, point, visitedUpToNow) ->
         let fileName = visualizeMap (minX, minY, maxX, maxY) visitedUpToNow wall point i
-        if (i + 1) % 100 = 0 then
-            printfn "Saved frame %d of %d" (i + 1) path.Length
+        ignore()
+        //if (i + 1) % 100 = 0 then
+        //    printfn "Saved frame %d of %d" (i + 1) path.Length
     )
     
-    printfn "Visualization complete: %d frames" path.Length
+    //printfn "Visualization complete: %d frames" path.Length
     length

@@ -3,6 +3,7 @@ module quest12_2_visualization
 open EverybodyCodes_2025_FSharp.Modules
 open System.Collections.Generic
 open System.Drawing
+open System.IO
 
 //let path = "quest12/test_input_02.txt"
 let path = "quest12/quest12_input_02.txt"
@@ -118,7 +119,7 @@ let saveBarrelsImage (filePath: string) (bitmap: Bitmap) =
 let visualizeBurntBarrels (barrelsMap: Barrel[,]) (burntBarrels: Set<Position>) =
     let pixelSize = 5  // Each barrel cell is 20x20 pixels
     let bitmap = createBarrelsImage barrelsMap burntBarrels pixelSize
-    saveBarrelsImage "quest12_2_visualization.png" bitmap
+    saveBarrelsImage (Path.Combine(VisualizationFolder, "quest12_2_visualization.png")) bitmap
 
 let execute() =
     let lines = LocalHelper.GetLinesFromFile(path)

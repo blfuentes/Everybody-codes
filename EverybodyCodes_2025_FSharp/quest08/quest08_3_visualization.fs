@@ -5,6 +5,7 @@ open System.Drawing
 open System.Drawing.Imaging
 open EverybodyCodes_2025_FSharp.Modules
 open System.Drawing.Drawing2D
+open System.IO
 
 //let path = "quest08/test_input_03.txt"
 let path = "quest08/quest08_input_03.txt"
@@ -190,7 +191,7 @@ let execute() =
     let circle = generateCirclePoints numOfNails (float(numOfNails) / 4.)
     
     // Generate visualization
-    let outputPath = "quest08_03_threads_visualization.png"
+    let outputPath = Path.Combine(VisualizationFolder, "quest08_3_visualization.png")
     visualizeThreads nails circle outputPath
     
     // Run collision detection

@@ -101,7 +101,7 @@ let ensureFolder (folderPath: string) =
         Directory.CreateDirectory(folderPath) |> ignore
 
 let visualizeMap (visitedPoints: (int*int) list) (walls: Set<int*int>) (currentPoint: int*int) (frameNumber: int) =
-    ensureFolder "quest15_1_visualization"
+    ensureFolder (Path.Combine(VisualizationFolder, "quest15_1_visualization"))
     
     let minX = walls |> Seq.map fst |> Seq.min |> fun x -> x - 1
     let maxX = walls |> Seq.map fst |> Seq.max |> fun x -> x + 1
@@ -156,7 +156,7 @@ let visualizeMap (visitedPoints: (int*int) list) (walls: Set<int*int>) (currentP
                 g.DrawRectangle(pen, screenX, screenY, pixelSize, pixelSize)
     
     // Save bitmap
-    let fileName = Path.Combine("quest15_1_visualization", $"frame_{frameNumber:D4}.png")
+    let fileName = Path.Combine(VisualizationFolder, "quest15_1_visualization", $"frame_{frameNumber:D4}.png")
     bitmap.Save(fileName)
     bitmap.Dispose()
     
@@ -172,8 +172,8 @@ let execute() =
     path
     |> List.iteri (fun i point ->
         let visitedUpToNow = path |> List.take (i + 1)
-        let fileName = visualizeMap visitedUpToNow wall point i
-        printfn "Saved frame %d to %s" i fileName
+        visualizeMap visitedUpToNow wall point i |> ignore
+        //printfn "Saved frame %d to %s" i fileName
     )
     
     length

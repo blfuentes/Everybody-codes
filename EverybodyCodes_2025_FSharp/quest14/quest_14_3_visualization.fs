@@ -2,6 +2,7 @@ module quest14_3_visualization
 
 open EverybodyCodes_2025_FSharp.Modules
 open System
+open System.IO
 open System.Collections.Generic
 open System.Drawing
 open System.Drawing.Imaging
@@ -144,8 +145,8 @@ let saveToBitmap (grid: Cell[,]) (filename: string) (ismatch: bool) =
     //for col in 0 .. maxCols do
     //    g.DrawLine(pen, col * cellSize, 0, col * cellSize, height)
     
-    if System.IO.Directory.Exists("quest14_visualization") |> not then
-        System.IO.Directory.CreateDirectory("quest14_visualization") |> ignore
+    if System.IO.Directory.Exists(Path.Combine(VisualizationFolder, "quest14_visualization")) |> not then
+        System.IO.Directory.CreateDirectory(Path.Combine(VisualizationFolder, "quest14_visualization")) |> ignore
 
     bmp.Save(filename, ImageFormat.Png)
 
@@ -184,10 +185,10 @@ let run pattern baseGrid numOfSteps =
                 //
                 if centerOfGridMatches currentGrid pattern then
                     for j in 1..5 do
-                        saveToBitmap currentGrid (sprintf "quest14_visualization/step_%A_%A.png" (stepNum + i) j) true
+                        saveToBitmap currentGrid (Path.Combine(VisualizationFolder, (sprintf "quest14_visualization/step_%A_%A.png" (stepNum + i) j))) true
                     cycleActiveCount <- cycleActiveCount + countActiveCells currentGrid
                 else
-                    saveToBitmap currentGrid (sprintf "quest14_visualization/step_%A_0.png" (stepNum + i)) false
+                    saveToBitmap currentGrid (Path.Combine(VisualizationFolder, (sprintf "quest14_visualization/step_%A_0.png" (stepNum + i)))) false
             
             //printfn "Actives per complete cycle: %A" cycleActiveCount
             

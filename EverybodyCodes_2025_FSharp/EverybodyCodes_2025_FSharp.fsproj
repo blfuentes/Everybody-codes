@@ -28,7 +28,7 @@
 		<Compile Include="quest02\quest02_1.fs" />
 		<Compile Include="quest02\quest02_2.fs" />
 		<Compile Include="quest02\quest02_3.fs" />
-		<Compile Include="quest02\quest02_visualization.fs" />
+		<Compile Include="quest02\quest02_3_visualization.fs" />
 		<Compile Include="quest02\utils02.fs" />
 		<Content Include="quest02\test_input_01.txt" />
 		<Content Include="quest02\test_input_02.txt" />

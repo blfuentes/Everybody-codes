@@ -5,6 +5,7 @@ open System.Collections.Generic
 open System.Drawing
 open System.Threading.Tasks
 open System.Collections.Concurrent
+open System.IO
 
 //let path = "quest12/test_input_03.txt"
 let path = "quest12/quest12_input_03.txt"
@@ -197,7 +198,7 @@ let saveBarrelsImage (filePath: string) (bitmap: Bitmap) =
 let visualizeBurntBarrels (barrelsMap: Barrel[,]) (burntBarrels: Set<Position>) =
     let pixelSize = 5  // Each barrel cell is 20x20 pixels
     let bitmap = createBarrelsImage barrelsMap burntBarrels pixelSize
-    saveBarrelsImage "quest12_3_visualization.png" bitmap  
+    saveBarrelsImage (Path.Combine(VisualizationFolder, "quest12_3_visualization.png")) bitmap  
 
 
 let execute() =

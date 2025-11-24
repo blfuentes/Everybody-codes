@@ -32,7 +32,7 @@ let main argv =
     printfn "Final result Quest 02 part 2: %A in %s" resultquest02_2 (ms time02_2)
     let (resultquest02_3, time02_3) = duration quest02_3.execute
     printfn "Final result Quest 02 part 3: %A in %s" resultquest02_3 (ms time02_3)
-    //let (resultquest02Visualization, time02_visualization) = duration quest02_visualization.execute
+    //let (resultquest02Visualization, time02_visualization) = duration quest02_3_visualization.execute
     //printfn "Final result Quest 02 part 3: %A in %s" resultquest02Visualization (ms time02_visualization)
 
     // DAY 03

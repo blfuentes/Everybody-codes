@@ -5,6 +5,11 @@ open System.IO
 [<AutoOpen>]
 module LocalHelper =
 
+    let VisualizationFolder = 
+        if not (Directory.Exists(__SOURCE_DIRECTORY__ + @"../../visualizations/")) then
+            Directory.CreateDirectory(__SOURCE_DIRECTORY__ + @"../../visualizations/") |> ignore
+        __SOURCE_DIRECTORY__ + @"../../visualizations/"
+
     let GetLinesFromFile(path: string) =
         File.ReadAllLines(__SOURCE_DIRECTORY__ + @"../../" + path)
 
