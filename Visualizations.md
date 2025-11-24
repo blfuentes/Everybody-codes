@@ -13,9 +13,10 @@
 # 2025
 | Day | Part 1 | Part 2 | Part 3 |
 |-----|--------|--------|--------|
-| Quest 2: From Complex to Clarity      | | | |
-| Quest 8: The Art of Connection        ||||
-| Quest 9: Encoded in the Scales        ||||
-| Quest 12: One Spark to Burn Them All  ||||
-| Quest 14: The Game of Light           ||||
+| Quest 2: From Complex to Clarity      | | | ![quest02_3_visualize](https://github.com/user-attachments/assets/9628a577-d959-41e6-9f94-0d9d10d9c32c)|
+| Quest 8: The Art of Connection        ||<img width="2000" height="2000" alt="quest08_2_visualization" src="https://github.com/user-attachments/assets/e3d8dcc7-04d4-4dbc-b3bc-6718955ebe94" />|<img width="2000" height="2000" alt="quest08_3_visualization" src="https://github.com/user-attachments/assets/04761e6c-544f-46e3-8d4a-432d5888e759" />|
+| Quest 9: Encoded in the Scales        |||<img width="4800" height="1500" alt="quest09_3_visualization" src="https://github.com/user-attachments/assets/cfb824e0-33bc-427d-a7ef-9db8b5f1133c" />|
+| Quest 12: One Spark to Burn Them All  |<img width="100" height="100" alt="quest12_1_visualization" src="https://github.com/user-attachments/assets/64c40907-022c-4482-a55c-38d596b209ac" />|<img width="880" height="360" alt="quest12_2_visualization" src="https://github.com/user-attachments/assets/f3c5b991-4360-41b8-a368-097f5fbe4dfd" />|<img width="1010" height="525" alt="quest12_3_visualization" src="https://github.com/user-attachments/assets/59b2b66a-9cd8-4e09-96ba-1d546924d7eb" />|
+| Quest 14: The Game of Light           |||[![2025143](./EverybodyCodes_2025_FSharp/visualizations/quest08_2_visualization.png)](https://github.com/user-attachments/assets/324c5ec9-969a-4054-b50c-54171ee10f18)|
 | Quest 15: Definitely Not a Maze       ||||
+
