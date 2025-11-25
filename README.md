@@ -21,13 +21,13 @@ https://everybody.codes/
 
 |Day      | Part 1 | Part 2 | Part 3 |
 |---------|----|----|----|
-| Quest 1: The Battle for the Farmlands | 🍗 [Go](./EverybodyCodes_2024/quest01/quest01_1.go) | 🍗 [Go](./EverybodyCodes_2024/quest01/quest01_2.go) | 🍗 [Go](./EverybodyCodes_2024/quest01/quest01_3.go) |
-| Quest 2: The Runes of Power		    | 🍗 [Go](./EverybodyCodes_2024/quest02/quest02_1.go) | 🍗 [Go](./EverybodyCodes_2024/quest02/quest02_2.go) | 🍗 [Go](./EverybodyCodes_2024/quest02/quest02_3.go) |
-| Quest 3: Mining Maestro				| 🍗 [Go](./EverybodyCodes_2024/quest03/quest03_1.go) | 🍗 [Go](./EverybodyCodes_2024/quest03/quest03_2.go) | 🍗 [Go](./EverybodyCodes_2024/quest03/quest03_3.go) |
-| Quest 4: Royal Smith's Puzzle			| 🍗 [Go](./EverybodyCodes_2024/quest04/quest04_1.go) | 🍗 [Go](./EverybodyCodes_2024/quest04/quest04_2.go) | 🍗 [Go](./EverybodyCodes_2024/quest04/quest04_3.go) |
-| Quest 5: Pseudo-Random Clap Dance		| 🍗 [Go](./EverybodyCodes_2024/quest05/quest05_1.go) | 🍗 [Go](./EverybodyCodes_2024/quest05/quest05_2.go) | 🍗 [Go](./EverybodyCodes_2024/quest05/quest05_3.go) |
-| Quest 6: The Tree of Titans			| 🍗 [Go](./EverybodyCodes_2024/quest06/quest06_1.go) | 🍗 [Go](./EverybodyCodes_2024/quest06/quest06_2.go) | 🍗 [Go](./EverybodyCodes_2024/quest06/quest06_3.go) |
-| Quest 7: Not Fast but Furious			| 🍗 [Go](./EverybodyCodes_2024/quest07/quest07_1.go) | 🍗 [Go](./EverybodyCodes_2024/quest07/quest07_2.go) | 🍗 [Go](./EverybodyCodes_2024/quest07/quest07_3.go) |
+| Quest 1: The Battle for the Farmlands | 🍗 [Go](./EverybodyCodes_2024_Go/quest01/quest01_1.go) | 🍗 [Go](./EverybodyCodes_2024_Go/quest01/quest01_2.go) | 🍗 [Go](./EverybodyCodes_2024_Go/quest01/quest01_3.go) |
+| Quest 2: The Runes of Power		    | 🍗 [Go](./EverybodyCodes_2024_Go/quest02/quest02_1.go) | 🍗 [Go](./EverybodyCodes_2024_Go/quest02/quest02_2.go) | 🍗 [Go](./EverybodyCodes_2024_Go/quest02/quest02_3.go) |
+| Quest 3: Mining Maestro				| 🍗 [Go](./EverybodyCodes_2024_Go/quest03/quest03_1.go) | 🍗 [Go](./EverybodyCodes_2024_Go/quest03/quest03_2.go) | 🍗 [Go](./EverybodyCodes_2024_Go/quest03/quest03_3.go) |
+| Quest 4: Royal Smith's Puzzle			| 🍗 [Go](./EverybodyCodes_2024_Go/quest04/quest04_1.go) | 🍗 [Go](./EverybodyCodes_2024_Go/quest04/quest04_2.go) | 🍗 [Go](./EverybodyCodes_2024_Go/quest04/quest04_3.go) |
+| Quest 5: Pseudo-Random Clap Dance		| 🍗 [Go](./EverybodyCodes_2024_Go/quest05/quest05_1.go) | 🍗 [Go](./EverybodyCodes_2024_Go/quest05/quest05_2.go) | 🍗 [Go](./EverybodyCodes_2024_Go/quest05/quest05_3.go) |
+| Quest 6: The Tree of Titans			| 🍗 [Go](./EverybodyCodes_2024_Go/quest06/quest06_1.go) | 🍗 [Go](./EverybodyCodes_2024_Go/quest06/quest06_2.go) | 🍗 [Go](./EverybodyCodes_2024_Go/quest06/quest06_3.go) |
+| Quest 7: Not Fast but Furious			| 🍗 [Go](./EverybodyCodes_2024_Go/quest07/quest07_1.go) | 🍗 [Go](./EverybodyCodes_2024_Go/quest07/quest07_2.go) | 🍗 [Go](./EverybodyCodes_2024_Go/quest07/quest07_3.go) |
 | Quest 8: A Shrine for Nullpointer		| 🍗 [F#](./EverybodyCodes_2024_FSharp/quest08/quest08_1.fs) | 🍗 [F#](./EverybodyCodes_2024_FSharp/quest08/quest08_2.fs) | 🍗 [F#](./EverybodyCodes_2024_FSharp/quest08/quest08_3.fs) |
 | Quest 9: Sparkling Bugs				| 🍗 [F#](./EverybodyCodes_2024_FSharp/quest09/quest09_1.fs) | 🍗 [F#](./EverybodyCodes_2024_FSharp/quest09/quest09_2.fs) | 🍗 [F#](./EverybodyCodes_2024_FSharp/quest09/quest09_3.fs) |
 | Quest 10: Shrine Needs to Shine		| 🍗 [F#](./EverybodyCodes_2024_FSharp/quest10/quest10_1.fs) | 🍗 [F#](./EverybodyCodes_2024_FSharp/quest10/quest10_2.fs) | 🍗 [F#](./EverybodyCodes_2024_FSharp/quest10/quest10_3.fs) |
