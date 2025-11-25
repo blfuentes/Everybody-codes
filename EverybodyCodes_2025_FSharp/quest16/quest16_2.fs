@@ -25,8 +25,8 @@ let deconstructWall (towers: bigint[]) =
     )   
     spells
 
-let calculateWall (instructions: bigint[]) =
-    let spells = deconstructWall instructions
+let calculateWall (towerHeights: bigint[]) =
+    let spells = deconstructWall towerHeights
     spells
     |> Seq.reduce(fun acc i-> 
         acc * i
@@ -34,5 +34,5 @@ let calculateWall (instructions: bigint[]) =
 
 let execute() =
     let lines = LocalHelper.GetContentFromFile(path)
-    let instructions = parseContent(lines)
-    calculateWall instructions
+    let towerHeights = parseContent(lines)
+    calculateWall towerHeights
