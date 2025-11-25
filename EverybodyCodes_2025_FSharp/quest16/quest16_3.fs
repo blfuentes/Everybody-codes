@@ -25,23 +25,25 @@ let deconstructWall (towers: bigint[]) =
     )   
     spells
 
-let buildEquallyWall(towersHeights: bigint[]) (numOfBlocks: bigint) =
+let buildEquallyWall (towersHeights: bigint[]) (numOfBlocks: bigint) =
     let spells = deconstructWall towersHeights |> Seq.sort
-    let mutable (lower, high) = (1I, numOfBlocks)
-    let mutable result = 0I
-    while lower <= high do
-        let mid = (lower + high) / 2I
-        let requiredBlocks =
-            spells
-            |> Seq.sumBy(fun spell -> 
-                mid / spell
-            )
-        if requiredBlocks <= numOfBlocks then
-            result <- mid
-            lower <- mid + 1I
+    
+    let calculateRequiredBlocks height =
+        spells |> Seq.sumBy (fun spell -> height / spell)
+    
+    let rec binarySearch lower upper =
+        if lower > upper then
+            upper
         else
-            high <- mid - 1I
-    result
+            let mid = (lower + upper) / 2I
+            let requiredBlocks = calculateRequiredBlocks mid
+            
+            if requiredBlocks <= numOfBlocks then
+                binarySearch (mid + 1I) upper
+            else
+                binarySearch lower (mid - 1I)
+    
+    binarySearch 1I numOfBlocks
 
 let execute() =
     let lines = LocalHelper.GetContentFromFile(path)

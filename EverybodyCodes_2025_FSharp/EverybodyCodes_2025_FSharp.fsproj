@@ -178,7 +178,6 @@
 		<Content Include="quest15\quest15_input_01.txt" />
 		<Content Include="quest15\quest15_input_02.txt" />
 		<Content Include="quest15\quest15_input_03.txt" />
-		<Content Include="quest16\temp.txt" />
 		<Compile Include="quest16\quest16_1.fs" />
 		<Compile Include="quest16\quest16_2.fs" />
 		<Compile Include="quest16\quest16_3.fs" />
