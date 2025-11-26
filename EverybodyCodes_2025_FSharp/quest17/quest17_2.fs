@@ -49,19 +49,15 @@ let getMaxRange (field: int[,]) =
     let maxRadius = field.GetLength(0) / 2
     let radiusEffects = Dictionary<int, int>()
     radiusEffects.Add(0, 0)
-    let rec calculateRadiusEffect (remaining: int list) =
+    let rec calculateRadiusEffect (remaining: int list) (prevSum: int) =
         match remaining with
         | [] -> 
             radiusEffects |> Seq.maxBy (fun kvp -> kvp.Value) |> (fun kvp -> (kvp.Key, kvp.Value))
         | r :: rs ->
-            let prevSum = 
-                radiusEffects
-                |> Seq.filter(fun kvp -> kvp.Key < r)
-                |> Seq.sumBy _.Value
             let currentSum = calculateRange field r
-            radiusEffects.Add(r, currentSum- prevSum)
-            calculateRadiusEffect rs
-    let (radius, effect) = calculateRadiusEffect [1 .. maxRadius]
+            radiusEffects.Add(r, currentSum - prevSum)
+            calculateRadiusEffect rs currentSum
+    let (radius, effect) = calculateRadiusEffect [1 .. maxRadius] 0
     radius * effect
 
 let execute() =

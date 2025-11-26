@@ -11,7 +11,7 @@ https://everybody.codes/
 | 2024 | The Kingdom of Algorithmia | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆 | (60/60) |
 | 2024 S1 | Echoes of Enigmatus No. 1 | 🦆🦆🦆 | (9/9) |
 | 2024 S2 | The Entertainment Hub No. 2 | 🦆🦆🦆 | (9/9) |
-| 2025 | The Song of Ducks and Dragons | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦢🥚🥚🥚 | (50/60) | 
+| 2025 | The Song of Ducks and Dragons | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🥚🥚🥚 | (51/60) | 
 
 ### 2024 The Kingdom of Algorithmia
 
@@ -70,7 +70,7 @@ https://everybody.codes/
 
 [https://everybody.codes/event/2025](https://everybody.codes/event/2025/quests)
 
-(16.66/20)
+(17/20)
 
 |Day      | Part 1 | Part 2 | Part 3 | [Visualization](Visualizations.md#2025) |
 |---------|----|----|----|----|
@@ -90,7 +90,7 @@ https://everybody.codes/
 | Quest 14: The Game of Light			| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest14/quest14_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest14/quest14_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest14/quest14_3.fs) |🀛 [Part3](./EverybodyCodes_2025_FSharp/visualizations/quest14_visualization/quest14_3_visualization.mp4)|
 | Quest 15: Definitely Not a Maze		| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest15/quest15_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest15/quest15_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest15/quest15_3.fs) |🀙 [Part1](./EverybodyCodes_2025_FSharp/visualizations/quest15_1_visualization/quest15_1_visualization.mp4) 🀚 [Part2](./EverybodyCodes_2025_FSharp/visualizations/quest15_2_visualization/quest15_2_visualization.mp4)|
 | Quest 16: Harmonics of Stone			| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest16/quest16_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest16/quest16_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest16/quest16_3.fs) |🀙 [Part1](./EverybodyCodes_2025_FSharp/visualizations/quest16_1_visualization.png) 🀚 [Part2](./EverybodyCodes_2025_FSharp/visualizations/quest16_2_visualization.png)|
-| Quest 17: Deadline-Driven Development	| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest17/quest17_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest17/quest17_2.fs) | ❌ ||
+| Quest 17: Deadline-Driven Development	| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest17/quest17_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest17/quest17_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest17/quest17_3.fs) ||
 | Quest 18								| ❌  | ❌ | ❌ ||
 | Quest 19								| ❌  | ❌ | ❌ ||
 | Quest 20								| ❌  | ❌ | ❌ ||
