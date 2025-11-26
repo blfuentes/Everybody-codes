@@ -193,6 +193,7 @@
 		<Compile Include="quest17\quest17_1.fs" />
 		<Compile Include="quest17\quest17_1_visualization.fs" />
 		<Compile Include="quest17\quest17_2.fs" />
+		<Compile Include="quest17\quest17_2_visualization.fs" />
 		<Compile Include="quest17\quest17_3.fs" />
 		<Compile Include="quest17\utils17.fs" />
 		<Content Include="quest17\test_input_01.txt" />

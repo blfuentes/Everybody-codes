@@ -124,7 +124,7 @@ let visualizeToPNG (field: int[,]) (radius: int) (filename: string) =
     let fullPath = Path.Combine(VisualizationFolder, filename)
     bitmap.Save(fullPath, ImageFormat.Png)
     
-    printfn "Visualization saved to: %s" fullPath
+    //printfn "Visualization saved to: %s" fullPath
     fullPath
 
 let execute() =
