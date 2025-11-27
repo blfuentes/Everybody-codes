@@ -101,11 +101,7 @@ let calculateBrightness (testCase: TestCase) =
 
 let sumAllCases (testCases: seq<TestCase>) =
     testCases
-    |> Seq.map(fun tc ->
-        let brightness = calculateBrightness(tc)
-        (tc.Id, brightness)
-    )
-    |> Seq.sumBy(fun (_, brightness) -> brightness)
+    |> Seq.sumBy calculateBrightness
 
 let execute() =
     let lines = LocalHelper.GetContentFromFile(path)
