@@ -93,6 +93,17 @@ let calculateAllBrightness () =
 let assignLevels () =
     let levels = Dictionary<int, int>()
     
+    // Build parent-child relationships
+    let children = Dictionary<int, HashSet<int>>()
+    for plant in plantDefinitions.Values do
+        if not (children.ContainsKey(plant.Id)) then
+            children[plant.Id] <- HashSet<int>()
+        for branch in plant.Branches do
+            match branch.Id with
+            | Some childId ->
+                children[plant.Id].Add(childId) |> ignore
+            | None -> ()
+    
     // Identify leaf plants (plants with only free branches - no branch IDs)
     let leafPlants = 
         plantDefinitions.Values
@@ -118,33 +129,54 @@ let assignLevels () =
         |> List.filter (fun id -> id <> maxPlantId && not (List.contains id leafPlants))
         |> List.sortDescending
     
-    // Split middle plants into chunks of 3
-    let middleChunks = middlePlants |> List.chunkBySize 3
-    
-    // Assign levels: root at 0, middle plants in chunks from level 1, leaves at bottom
+    // Assign middle plants ensuring connected nodes aren't on same level
     let mutable currentLevel = 1
-    for chunk in middleChunks do
-        for plantId in chunk do
-            levels[plantId] <- currentLevel
-        currentLevel <- currentLevel + 1
+    let mutable plantsToAssign = middlePlants
+    
+    while not plantsToAssign.IsEmpty do
+        let mutable currentLevelPlants = []
+        let mutable remainingPlants = []
+        
+        for plantId in plantsToAssign do
+            // Check if this plant is connected to any plant already in current level
+            let hasConnectionInLevel = 
+                currentLevelPlants 
+                |> List.exists (fun levelPlantId ->
+                    // Check if plantId connects to levelPlantId
+                    (children.ContainsKey(plantId) && children[plantId].Contains(levelPlantId)) ||
+                    // Check if levelPlantId connects to plantId
+                    (children.ContainsKey(levelPlantId) && children[levelPlantId].Contains(plantId)))
+            
+            if hasConnectionInLevel then
+                // Skip this plant for this level
+                remainingPlants <- plantId :: remainingPlants
+            else
+                // Add to current level
+                currentLevelPlants <- plantId :: currentLevelPlants
+                levels[plantId] <- currentLevel
+        
+        // Move to next level
+        plantsToAssign <- List.rev remainingPlants
+        if not currentLevelPlants.IsEmpty then
+            currentLevel <- currentLevel + 1
     
     // All leaf plants at the bottom level
     for plantId in leafPlants do
         levels[plantId] <- currentLevel
     
-    printfn "Leaf plants (bottom level %d): %A" currentLevel leafPlants
-    printfn "Root plant (level 0): %d" maxPlantId
-    printfn "Middle plants: %A" middlePlants
-    printfn ""
-    printfn "Level assignment:"
-    for level in 0 .. (levels.Values |> Seq.max) do
-        let plantsAtLevel = 
-            levels 
-            |> Seq.filter (fun kvp -> kvp.Value = level) 
-            |> Seq.map (fun kvp -> kvp.Key)
-            |> Seq.sort
-            |> Seq.toList
-        printfn "  Level %d: %A" level plantsAtLevel
+    //printfn "Leaf plants (bottom level %d): %A" currentLevel leafPlants
+    //printfn "Root plant (level 0): %d" maxPlantId
+    //printfn "Middle plants: %A" middlePlants
+    //printfn ""
+    //printfn "Level assignment:"
+    //for level in 0 .. (levels.Values |> Seq.max) do
+    //    let plantsAtLevel = 
+    //        levels 
+    //        |> Seq.filter (fun kvp -> kvp.Value = level) 
+    //        |> Seq.map (fun kvp -> kvp.Key)
+    //        |> Seq.sort
+    //        |> Seq.toList
+    //    printfn "  Level %d: %A" level plantsAtLevel
     
     levels
 
@@ -196,7 +228,7 @@ let visualizeGraphToPNG (filename: string) =
     
     // Calculate positions with random horizontal spacing
     let positions = Dictionary<int, float * float>()
-    let levelHeight = 250.0
+    let levelHeight = 450.0  // Increased from 350.0 for even more vertical distance
     let random = System.Random(42) // Fixed seed for reproducibility
     
     for level in 0 .. maxLevel do
