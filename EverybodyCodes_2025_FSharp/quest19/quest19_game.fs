@@ -149,8 +149,8 @@ let moveBirdHorizontal() =
             // Reached the end - game won
             gameRunning <- false
             gameOverEmoji <- "🎉"
-            gameOverPosition <- (newY, newX)
-            BirdPosition <- (newY, newX)
+            gameOverPosition <- (newY, currentX)  // Show where bird was, not beyond
+            BirdPosition <- (newY, currentX)
         else
             // Valid move
             BirdPosition <- (newY, newX)
