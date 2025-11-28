@@ -216,7 +216,7 @@ let rec playGame() =
         playGame()  // Recursive call to restart the game
 
 let execute() =
-    let lines = File.ReadAllLines(path)
+    let lines = LocalHelper.GetLinesFromFile(path)
     parseContent lines
     BirdPosition <- (reverseY 0, 0)
     
