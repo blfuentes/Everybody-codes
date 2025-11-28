@@ -208,6 +208,7 @@ let main argv =
     //printfn "Final result Quest 19 part 2 visualization: %A in %s" resultquest19_2_visualization (ms time19_2_visualization)
     let (resultquest19_3, time19_3) = duration quest19_3.execute
     printfn "Final result Quest 19 part 3: %A in %s" resultquest19_3 (ms time19_3)
+    //quest19_game.execute() |> ignore
 
     // DAY 20
     let (resultquest20_1, time20_1) = duration quest20_1.execute
