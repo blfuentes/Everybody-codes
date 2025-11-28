@@ -7,6 +7,8 @@ open System.Collections.Generic
 let path = "quest19/quest19_input_01.txt"
 
 let empty = new HashSet<int*int>()
+let walls = new HashSet<int>()
+
 let mutable maxX = 0
 let mutable maxY = 0
 
@@ -20,44 +22,47 @@ let parseContent (lines: string array) =
     |> Array.iter(fun line ->
         let parts = line.Split(",")
         let x = parts[0] |> int
-        let startingY = 0 
         let endingY = (parts[1] |> int) + (parts[2] |> int)
+        walls.Add(x) |> ignore
         if endingY > maxY then
             maxY <- endingY + (x - maxX)
         maxX <- x
     )
-    let grid = Array2D.create (maxY + 1) (maxX + 1) '.'
     lines
     |> Array.iter(fun line ->
         let parts = line.Split(",")
         let x = parts[0] |> int
         let startingY = parts[1] |> int 
         let endingY = (parts[1] |> int) + (parts[2] |> int)
-        for y in 0 ..1.. (startingY-1) do
-            grid[reverseY y, x] <- '#'
-        for y in endingY .. maxY do
-            grid[reverseY y, x] <- '#'
+        for y in startingY .. (endingY-1) do
+            let (eY, eX) = (reverseY y, x)
+            if not (empty.Contains((eY, eX))) then
+                empty.Add(eY, eX) |> ignore
     )
-    grid
 
-let printGrid (grid: char[,]) (path: (int*int) list)=
+let printGrid (path: (int*int) list)=
     for y in 0 .. maxY do
         for x in 0 .. maxX do
             if List.contains (x, y) path then
                 printf "O"
             else
-                printf "%c" grid[y, x]
+                if walls.Contains(x) then
+                    printf "%c" (if empty.Contains((y, x)) then '.' else '#')
+                else
+                    printf "."
         printfn ""
 
-let aStar (maze: char[,]) (start: int*int) =
+let aStar (start: int*int) =
+    let isFree (x: int, y: int) =
+        empty.Contains((y, x)) || (not (walls.Contains(x)))
+
     let getNeighbors (x, y) =
         [ 
             (x+1, y-1); // moving up
             (x+1, y+1) // letting it fall
         ]
         |> List.filter (fun (x, y) ->
-            x >= 0 && x <= maxX && y >= 0 && y <= maxY &&
-            match maze[y, x] with '#' -> false | _ -> true
+            x >= 0 && x <= maxX && y >= 0 && y <= maxY && isFree (x, y)
         )
     
     // gScore with number of up presses
@@ -121,8 +126,8 @@ let calculatePathCost (path: (int*int) list) =
 
 let execute() =
     let lines = LocalHelper.GetLinesFromFile(path)
-    let flappyMap = parseContent lines
-    let pathLength, path = aStar flappyMap (0, maxY)
-    printGrid flappyMap path
+    parseContent lines
+    let pathLength, path = aStar (0, maxY)
+    //printGrid path
     let cost = calculatePathCost path
     cost

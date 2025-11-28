@@ -1,10 +1,10 @@
-module quest19_2
+module quest19_1_visualization
 
 open EverybodyCodes_2025_FSharp.Modules
 open System.Collections.Generic
 
-//let path = "quest19/test_input_02.txt"
-let path = "quest19/quest19_input_02.txt"
+//let path = "quest19/test_input_01.txt"
+let path = "quest19/quest19_input_01.txt"
 
 let empty = new HashSet<int*int>()
 let walls = new HashSet<int>()
@@ -22,8 +22,8 @@ let parseContent (lines: string array) =
     |> Array.iter(fun line ->
         let parts = line.Split(",")
         let x = parts[0] |> int
-        walls.Add(x) |> ignore
         let endingY = (parts[1] |> int) + (parts[2] |> int)
+        walls.Add(x) |> ignore
         if endingY > maxY then
             maxY <- endingY + (x - maxX)
         maxX <- x
@@ -51,13 +51,6 @@ let printGrid (path: (int*int) list)=
                 else
                     printf "."
         printfn ""
-
-let calculatePathCost (path: (int*int) list) =
-    path
-    |> List.pairwise
-    |> List.sumBy(fun ((x1, y1), (x2, y2)) ->
-        if y2 < y1 then 1 else 0
-    )
 
 let aStar (start: int*int) =
     let isFree (x: int, y: int) =
@@ -123,6 +116,13 @@ let aStar (start: int*int) =
 
     let path = if found then buildPath [] goal else []
     path.Length, path
+
+let calculatePathCost (path: (int*int) list) =
+    path
+    |> List.pairwise
+    |> List.sumBy(fun ((x1, y1), (x2, y2)) ->
+        if y2 < y1 then 1 else 0
+    )
 
 let execute() =
     let lines = LocalHelper.GetLinesFromFile(path)
