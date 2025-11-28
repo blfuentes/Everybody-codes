@@ -1,7 +1,10 @@
-module quest19_2_visualization
+﻿module quest19_2_visualization
 
 open EverybodyCodes_2025_FSharp.Modules
 open System.Collections.Generic
+open System.Drawing
+open System.Drawing.Imaging
+open System.IO
 
 //let path = "quest19/test_input_02.txt"
 let path = "quest19/quest19_input_02.txt"
@@ -58,6 +61,118 @@ let calculatePathCost (path: (int*int) list) =
     |> List.sumBy(fun ((x1, y1), (x2, y2)) ->
         if y2 < y1 then 1 else 0
     )
+
+let visualizeToImage (filename: string) (path: (int*int) list) =
+    let cellSize = 24  // Increased for better emoji rendering
+    let width = (maxX + 1) * cellSize
+    let height = (maxY + 1) * cellSize
+    
+    use bitmap = new Bitmap(width, height)
+    use g = Graphics.FromImage(bitmap)
+    g.SmoothingMode <- System.Drawing.Drawing2D.SmoothingMode.AntiAlias
+    g.TextRenderingHint <- System.Drawing.Text.TextRenderingHint.AntiAlias
+    
+    // Define colors
+    let lightSkyBlue = Color.FromArgb(135, 206, 250)
+    let brickRed = Color.FromArgb(178, 34, 34)
+    let pathColor = Color.Black  // Changed to black
+    let birdColor = Color.FromArgb(255, 215, 0) // Gold
+    
+    // Fill background
+    g.Clear(Color.White)
+    
+    // Draw grid
+    for y in 0 .. maxY do
+        for x in 0 .. maxX do
+            let rect = Rectangle(x * cellSize, y * cellSize, cellSize, cellSize)
+            let isPath = List.contains (x, y) path
+            let isLastPath = path.Length > 0 && (x, y) = List.last path
+            let isWall = walls.Contains(x) && not (empty.Contains((y, x)))
+            let isEmpty = empty.Contains((y, x)) || not (walls.Contains(x))
+            
+            if isLastPath then
+                // Draw black background for bird
+                use bgBrush = new SolidBrush(Color.Black)
+                g.FillRectangle(bgBrush, rect)
+                
+                // Draw bird emoji
+                use font = new Font("Segoe UI Emoji", 16.0f, FontStyle.Regular)
+                use textBrush = new SolidBrush(Color.Yellow)  // Yellow bird on black
+                use sf = new StringFormat()
+                sf.Alignment <- StringAlignment.Center
+                sf.LineAlignment <- StringAlignment.Center
+                g.DrawString("🐦", font, textBrush, float32(rect.X + cellSize/2), float32(rect.Y + cellSize/2), sf)
+            elif isPath then
+                // Draw path as black with wind emoji
+                use brush = new SolidBrush(pathColor)
+                g.FillRectangle(brush, rect)
+                
+                // Draw wind emoji in white/light gray for contrast
+                use font = new Font("Segoe UI Emoji", 14.0f, FontStyle.Regular)
+                use textBrush = new SolidBrush(Color.LightGray)
+                use sf = new StringFormat()
+                sf.Alignment <- StringAlignment.Center
+                sf.LineAlignment <- StringAlignment.Center
+                g.DrawString("💨", font, textBrush, float32(rect.X + cellSize/2), float32(rect.Y + cellSize/2), sf)
+            elif isWall then
+                // Draw brick wall with brick emoji
+                use brush = new SolidBrush(brickRed)
+                g.FillRectangle(brush, rect)
+                
+                // Draw brick emoji
+                use font = new Font("Segoe UI Emoji", 14.0f, FontStyle.Regular)
+                use textBrush = new SolidBrush(Color.Black)
+                use sf = new StringFormat()
+                sf.Alignment <- StringAlignment.Center
+                sf.LineAlignment <- StringAlignment.Center
+                g.DrawString("🧱", font, textBrush, float32(rect.X + cellSize/2), float32(rect.Y + cellSize/2), sf)
+            elif isEmpty then
+                // Draw empty space (light sky blue)
+                use brush = new SolidBrush(lightSkyBlue)
+                g.FillRectangle(brush, rect)
+            
+            // Draw grid lines
+            use gridPen = new Pen(Color.LightGray, 0.5f)
+            g.DrawRectangle(gridPen, rect)
+    
+    // Add legend
+    use legendFont = new Font("Arial", 12.0f, FontStyle.Bold)
+    use legendBrush = new SolidBrush(Color.Black)
+    let legendY = height + 10
+    
+    // Extend bitmap to include legend
+    use finalBitmap = new Bitmap(width, height + 60)
+    use gFinal = Graphics.FromImage(finalBitmap)
+    gFinal.Clear(Color.White)
+    gFinal.DrawImage(bitmap, 0, 0)
+    
+    gFinal.SmoothingMode <- System.Drawing.Drawing2D.SmoothingMode.AntiAlias
+    gFinal.TextRenderingHint <- System.Drawing.Text.TextRenderingHint.AntiAlias
+    
+    // Draw legend
+    let legendText = sprintf "Flappy Bird Path - Total Up Presses: %d" (calculatePathCost path)
+    gFinal.DrawString(legendText, legendFont, legendBrush, 10.0f, float32 legendY)
+    
+    // Draw legend items with emojis
+    use smallFont = new Font("Segoe UI Emoji", 10.0f)
+    use labelFont = new Font("Arial", 10.0f)
+    let legendItems = [
+        ("🧱", "Wall (Brick)")
+        ("💨", "Path (Wind)")
+        ("🐦", "Bird")
+    ]
+    
+    let mutable xOffset = 10.0f
+    for (emoji, text) in legendItems do
+        gFinal.DrawString(emoji, smallFont, legendBrush, xOffset, float32(legendY + 22))
+        gFinal.DrawString(text, labelFont, legendBrush, xOffset + 25.0f, float32(legendY + 25))
+        xOffset <- xOffset + 150.0f
+    
+    let fullPath = Path.Combine(VisualizationFolder, filename)
+    finalBitmap.Save(fullPath, ImageFormat.Png)
+    
+    printfn "Visualization saved to: %s" fullPath
+    fullPath
 
 let aStar (start: int*int) =
     let isFree (x: int, y: int) =
@@ -128,6 +243,10 @@ let execute() =
     let lines = LocalHelper.GetLinesFromFile(path)
     parseContent lines
     let pathLength, path = aStar (0, maxY)
+
+    // Generate visualization
+    visualizeToImage "quest19_2_visualization.png" path |> ignore
+
     //printGrid path
     let cost = calculatePathCost path
     cost
