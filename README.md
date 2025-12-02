@@ -17,7 +17,7 @@ https://everybody.codes/
 
 [https://everybody.codes/event/2024](https://everybody.codes/event/2024/quests)
 
-(20/20)
+🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆(20/20)
 
 |Day      | Part 1 | Part 2 | Part 3 |
 |---------|----|----|----|
@@ -46,7 +46,7 @@ https://everybody.codes/
 
 [https://everybody.codes/story/1](https://everybody.codes/story/1/quests)
 
-(3/3)
+🦆🦆🦆(3/3)
 
 |Day      | Part 1 | Part 2 | Part 3 |
 |---------|----|----|----|
@@ -58,7 +58,7 @@ https://everybody.codes/
 
 [https://everybody.codes/story/2](https://everybody.codes/story/2/quests)
 
-(3/3)
+🦆🦆🦆(3/3)
 
 |Day      | Part 1 | Part 2 | Part 3 |
 |---------|----|----|----|
@@ -70,7 +70,7 @@ https://everybody.codes/
 
 [https://everybody.codes/event/2025](https://everybody.codes/event/2025/quests)
 
-(20/20)
+🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆(20/20)
 
 |Day      | Part 1 | Part 2 | Part 3 | [Visualization](Visualizations.md#2025) |
 |---------|----|----|----|----|
