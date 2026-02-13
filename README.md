@@ -94,3 +94,15 @@ https://everybody.codes/
 | Quest 18: When Roots Remember			| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest18/quest18_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest18/quest18_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest18/quest18_3.fs) |🀙 [Part1](./EverybodyCodes_2025_FSharp/visualizations/quest18_1_visualization.png)|
 | Quest 19: Flappy Quack				| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest19/quest19_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest19/quest19_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest19/quest19_3.fs) |🀙 [Part1](./EverybodyCodes_2025_FSharp/visualizations/quest19_1_visualization.png) 🀚 [Part2](./EverybodyCodes_2025_FSharp/visualizations/quest19_2_visualization.png)|
 | Quest 20: Dream in Triangles			| 🍗 [F#](./EverybodyCodes_2025_FSharp/quest20/quest20_1.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest20/quest20_2.fs) | 🍗 [F#](./EverybodyCodes_2025_FSharp/quest20/quest20_3.fs) |🀚 [Part2](./EverybodyCodes_2025_FSharp/visualizations/quest20_2_visualization.png)|
+
+### 2025 Melody Made of Code [ No. 3 ]
+
+[https://everybody.codes/story/3](https://everybody.codes/story/3/quests)
+
+🥚🥚🥚(0/3)
+
+|Day      | Part 1 | Part 2 | Part 3 |
+|---------|----|----|----|
+| Quest 1: | | | |
+| Quest 2: | | | |
+| Quest 3: | | | |
