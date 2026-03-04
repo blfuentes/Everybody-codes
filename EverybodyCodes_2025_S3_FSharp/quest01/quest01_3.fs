@@ -27,11 +27,7 @@ type Identifier = {
 
 let parseContent(lines: string seq) =
     let inline convertToNum(value: string) =
-        let v' = 
-            String.concat ""(value.ToCharArray()
-            |> Array.map(fun v -> if v > 'Z' then 0 else 1)
-            |> Array.map string)
-        System.Convert.ToInt32(v', 2)
+        value |> Seq.fold (fun acc v -> (acc <<< 1) ||| (if v > 'Z' then 0 else 1)) 0
 
     let inline getShine(value: int) =
         match value with
@@ -39,41 +35,33 @@ let parseContent(lines: string seq) =
         | s when s >= 33 -> Shiny
         | _ -> None
 
-    let identifiers =
-        lines
-        |> Seq.map(fun l ->
-            (
-                l.Split(":")[0] |> int),
-                convertToNum((l.Split(":")[1]).Split(" ")[0]),
-                convertToNum((l.Split(":")[1]).Split(" ")[1]),
-                convertToNum((l.Split(":")[1]).Split(" ")[2]),
-                convertToNum((l.Split(":")[1]).Split(" ")[3])
-        )
-    identifiers
-    |> Seq.map(fun (id, red, green, blue, shine) ->
+    lines
+    |> Seq.toArray
+    |> Array.map(fun l ->
+        let parts = l.Split(':')
+        let dnas  = parts.[1].Split(' ')
+        let id    = parts.[0] |> int
+        let red   = convertToNum dnas.[0]
+        let green = convertToNum dnas.[1]
+        let blue  = convertToNum dnas.[2]
+        let shine = convertToNum dnas.[3]
         let shine' = getShine shine
         let color =
-            if red > green && red > blue then
-                Red
-            elif (green > red && green > blue) then
-                Green
-            elif(blue > red && blue > green) then
-                Blue
-            else
-                ColorType.None
-                
+            if red > green && red > blue then Red
+            elif green > red && green > blue then Green
+            elif blue > red && blue > green then Blue
+            else ColorType.None
         { Id = id; Red = red; Green = green; Blue = blue; Shine = shine; Group = (color, shine') }
     )
 
 let execute() =
     let lines = LocalHelper.GetLinesFromFile(path)
     parseContent lines
-    |> Seq.filter(fun d -> 
-        let (c, s) = d.Group
+    |> Array.filter(fun d -> 
+        let (_, s) = d.Group
         not s.IsNone
     )
-    |> Seq.groupBy(fun d -> d.Group)
-    |> Seq.map(fun (g, l) -> l)
-    |> Seq.sortByDescending Seq.length
-    |> Seq.head
-    |> Seq.sumBy _.Id
+    |> Array.groupBy(fun d -> d.Group)
+    |> Array.maxBy(fun (_, l) -> l.Length)
+    |> snd
+    |> Array.sumBy _.Id

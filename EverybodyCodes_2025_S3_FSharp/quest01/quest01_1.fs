@@ -7,19 +7,17 @@ let path = "quest01/quest01_input_01.txt"
 
 let parseContent(lines: string seq) =
     let inline convertToNum(value: string) =
-        let v' = 
-            String.concat ""(value.ToCharArray()
-            |> Array.map(fun v -> if v > 'Z' then 0 else 1)
-            |> Array.map string)
-        System.Convert.ToInt32(v', 2)
+        value |> Seq.fold (fun acc v -> (acc <<< 1) ||| (if v > 'Z' then 0 else 1)) 0
         
     lines
-    |> Seq.map(fun l ->
-        (
-            l.Split(":")[0] |> int),
-            convertToNum((l.Split(":")[1]).Split(" ")[0]),
-            convertToNum((l.Split(":")[1]).Split(" ")[1]),
-            convertToNum((l.Split(":")[1]).Split(" ")[2])
+    |> Seq.toArray
+    |> Array.map(fun l ->
+        let parts = l.Split(':')
+        let dnas  = parts.[1].Split(' ')
+        (parts.[0] |> int),
+        convertToNum dnas.[0],
+        convertToNum dnas.[1],
+        convertToNum dnas.[2]
     )
 
 
@@ -27,6 +25,6 @@ let execute() =
     let lines = LocalHelper.GetLinesFromFile(path)
     let dnas = parseContent lines
     dnas
-    |> Seq.sumBy(fun (a,b,c,d) ->
+    |> Array.sumBy(fun (a,b,c,d) ->
         if c > b && c > d then a else 0
     )
