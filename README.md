@@ -12,7 +12,7 @@ https://everybody.codes/
 | 2024 S1 | Echoes of Enigmatus No. 1 | 🦆🦆🦆 | (9/9) |
 | 2024 S2 | The Entertainment Hub No. 2 | 🦆🦆🦆 | (9/9) |
 | 2025 | The Song of Ducks and Dragons | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆 | (60/60) | 
-| 2025 S3 | Melody Made of Code No. 3 | 🦆🥚🥚 | (3/9) |
+| 2025 S3 | Melody Made of Code No. 3 | 🦆🐣🥚 | (4/9) |
 
 ### 2024 The Kingdom of Algorithmia
 
@@ -100,10 +100,10 @@ https://everybody.codes/
 
 [https://everybody.codes/story/3](https://everybody.codes/story/3/quests)
 
-🦆🥚🥚(1/3)
+🦆🐣🥚(1.33/3)
 
 |Day      | Part 1 | Part 2 | Part 3 |
 |---------|----|----|----|
 | Quest 1: Scales, Bags and a Bit of a Mess | 🍗 [F#](./EverybodyCodes_2025_S3_FSharp/quest01/quest01_1.fs) | 🍗 [F#](./EverybodyCodes_2025_S3_FSharp/quest01/quest01_2.fs) | 🍗 [F#](./EverybodyCodes_2025_S3_FSharp/quest01/quest01_3.fs) |
-| Quest 2: | | | |
+| Quest 2: How Quack Echoes Back | 🍗 [F#](./EverybodyCodes_2025_S3_FSharp/quest02/quest02_1.fs) | | |
 | Quest 3: | | | |
