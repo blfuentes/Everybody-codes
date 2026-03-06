@@ -1,10 +1,9 @@
 ﻿module quest02_2
 
-open System.Numerics
 open EverybodyCodes_2025_S3_FSharp.Modules
 
-let path = "quest02/test_input_02.txt"
-//let path = "quest02/quest02_input_02.txt"
+//let path = "quest02/test_input_02.txt"
+let path = "quest02/quest02_input_02.txt"
 
 type Pos = {
     Row: int
@@ -13,10 +12,19 @@ type Pos = {
 
 let mutable soundSource = { Row = 0; Col = 0 }
 let mutable vocalBone = { Row = 0; Col = 0 }
-let visitedWaves = new ResizeArray<Pos>()
+let visitedSet = System.Collections.Generic.HashSet<Pos>()
 
-let mutable maxRows = 0
-let mutable maxCols = 0
+let mutable bbMinRow = System.Int32.MaxValue
+let mutable bbMaxRow = System.Int32.MinValue
+let mutable bbMinCol = System.Int32.MaxValue
+let mutable bbMaxCol = System.Int32.MinValue
+
+let addWave (pos: Pos) =
+    if visitedSet.Add(pos) then
+        bbMinRow <- min bbMinRow pos.Row
+        bbMaxRow <- max bbMaxRow pos.Row
+        bbMinCol <- min bbMinCol pos.Col
+        bbMaxCol <- max bbMaxCol pos.Col
 
 type MoveType =
     | UP
@@ -27,34 +35,20 @@ type MoveType =
 let MoveSequence = [| UP; RIGHT; DOWN; LEFT |]
 
 let parseContent(lines: string array) =
-    maxRows <- lines.Length
-    maxCols <- lines[0].Length
     for rIdx, row in lines |> Array.indexed do
         for cIdx, col in row |> Seq.indexed do
             match col with
             | '#' -> vocalBone <- { Row = rIdx; Col = cIdx }
-            | '@' -> soundSource <- { soundSource with Row = rIdx; Col = cIdx }
+            | '@' -> soundSource <- { Row = rIdx; Col = cIdx }
             | _ -> ignore()
-    if vocalBone.Row < soundSource.Row then
-        vocalBone <- { vocalBone with Row = -vocalBone.Row - 1 }
-    elif vocalBone.Row > soundSource.Row then
-        vocalBone <- { vocalBone with Row = vocalBone.Row - soundSource.Row + 1}
-    else
-        vocalBone <- { vocalBone with Row = 0 }
-    if vocalBone.Col < soundSource.Col then
-        vocalBone <- { vocalBone with Col = -vocalBone.Col - 1 }
-    elif vocalBone.Col > soundSource.Col then
-        vocalBone <- { vocalBone with Col = vocalBone.Col - soundSource.Col + 1}
-    else
-        vocalBone <- { vocalBone with Col = 0 }
-
+    vocalBone <- { Row = vocalBone.Row - soundSource.Row; Col = vocalBone.Col - soundSource.Col }
     soundSource <- { Row = 0; Col = 0 }
 
 let printMap() =
-    let minRow = min -5 (visitedWaves |> Seq.map _.Row |> Seq.min)
-    let maxRow = max 5 (visitedWaves |> Seq.map _.Row |> Seq.max)
-    let minCol = min -5 (visitedWaves |> Seq.map _.Col |> Seq.min)
-    let maxCol = max 5 (visitedWaves |> Seq.map _.Col |> Seq.max)
+    let minRow = min -5 bbMinRow
+    let maxRow = max 5 bbMaxRow
+    let minCol = min -5 bbMinCol
+    let maxCol = max 5 bbMaxCol
 
     for rIdx in minRow..maxRow do
         for cIdx in minCol..maxCol do
@@ -63,14 +57,55 @@ let printMap() =
                 printf "%c" '@'
             elif vocalBone = pos then
                 printf "%c" '#'
-            elif visitedWaves.Contains(pos) then
+            elif visitedSet.Contains(pos) then
                 printf "%c" '+'
             else printf "%c" '.'
         printfn "%s" System.Environment.NewLine
 
+let fillEnclosedSpaces() =
+    if visitedSet.Count < 4 then ()
+    else
+    let minRow = bbMinRow - 1
+    let maxRow = bbMaxRow + 1
+    let minCol = bbMinCol - 1
+    let maxCol = bbMaxCol + 1
+
+    let outside = System.Collections.Generic.HashSet<Pos>()
+    let queue = System.Collections.Generic.Queue<Pos>()
+
+    for r in minRow..maxRow do
+        for c in minCol..maxCol do
+            if r = minRow || r = maxRow || c = minCol || c = maxCol then
+                let pos = { Row = r; Col = c }
+                if not (visitedSet.Contains(pos)) && pos <> vocalBone then
+                    if outside.Add(pos) then
+                        queue.Enqueue(pos)
+
+    while queue.Count > 0 do
+        let current = queue.Dequeue()
+        let neighbors = [|
+            { current with Row = current.Row - 1 }
+            { current with Row = current.Row + 1 }
+            { current with Col = current.Col - 1 }
+            { current with Col = current.Col + 1 }
+        |]
+        for n in neighbors do
+            if n.Row >= minRow && n.Row <= maxRow && n.Col >= minCol && n.Col <= maxCol then
+                if not (visitedSet.Contains(n)) && n <> vocalBone then
+                    if outside.Add(n) then
+                        queue.Enqueue(n)
+
+    let toFill = ResizeArray<Pos>()
+    for r in (minRow + 1)..(maxRow - 1) do
+        for c in (minCol + 1)..(maxCol - 1) do
+            let pos = { Row = r; Col = c }
+            if not (outside.Contains(pos)) && not (visitedSet.Contains(pos)) && pos <> vocalBone then
+                toFill.Add(pos)
+
+    for pos in toFill do
+        addWave pos
+
 let step (currentStep: int) (moveCount: int) =
-    printfn "Step: %d" currentStep
-    printf "Next: "
     let rec findNextSounce (count: int) =
         let nextMove = MoveSequence[count % MoveSequence.Length]
     
@@ -80,19 +115,12 @@ let step (currentStep: int) (moveCount: int) =
             | DOWN -> { soundSource with Row = soundSource.Row + 1 }
             | LEFT -> { soundSource with Col = soundSource.Col - 1 }
             | RIGHT -> { soundSource with Col = soundSource.Col + 1 }
-        if visitedWaves.Contains(possiblePos) || vocalBone = possiblePos then
+
+        if visitedSet.Contains(possiblePos) || vocalBone = possiblePos then
             findNextSounce (count + 1)
         else
-            
-            match nextMove with
-            | UP -> printfn "[^]"
-            | DOWN -> printfn "[v]"
-            | LEFT -> printfn "[<]"
-            | RIGHT -> printfn "[>]"
-
-            printMap()
-
-            visitedWaves.Add(possiblePos)
+            addWave possiblePos
+            fillEnclosedSpaces()
             soundSource <- possiblePos
 
             count + 1
@@ -101,19 +129,20 @@ let step (currentStep: int) (moveCount: int) =
 
 
 
-let isSurrounded =
-    visitedWaves.Contains({ vocalBone with Row = vocalBone.Row - 1}) &&
-    visitedWaves.Contains({ vocalBone with Row = vocalBone.Row + 1}) &&
-    visitedWaves.Contains({ vocalBone with Col = vocalBone.Col - 1}) &&
-    visitedWaves.Contains({ vocalBone with Col = vocalBone.Col + 1})
+let isSurrounded() =
+    visitedSet.Contains({ vocalBone with Row = vocalBone.Row - 1 }) &&
+    visitedSet.Contains({ vocalBone with Row = vocalBone.Row + 1 }) &&
+    visitedSet.Contains({ vocalBone with Col = vocalBone.Col - 1 }) &&
+    visitedSet.Contains({ vocalBone with Col = vocalBone.Col + 1 })
 
 let runVocal() =
     let mutable steps = 0
     let mutable counter = 0
-    visitedWaves.Add(soundSource)
-    while not isSurrounded do
-        counter <- step steps counter        
+    addWave soundSource
+    while not (isSurrounded()) do
+        counter <- step steps counter
         steps <- steps + 1
+    //printMap()
     steps
 
 let execute() =
