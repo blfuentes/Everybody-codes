@@ -50,31 +50,6 @@ let parseContent(lines: string array) =
 
     soundSource <- { Row = 0; Col = 0 }
 
-let step (moveCount: int) =
-    let rec findNextSounce (count: int) =
-        let nextMove = MoveSequence[count % MoveSequence.Length]
-    
-        let possiblePos =
-            match nextMove with
-            | UP -> { soundSource with Row = soundSource.Row - 1 }
-            | DOWN -> { soundSource with Row = soundSource.Row + 1 }
-            | LEFT -> { soundSource with Col = soundSource.Col - 1 }
-            | RIGHT -> { soundSource with Col = soundSource.Col + 1 }
-        if visitedWaves.Contains(possiblePos) || vocalBone = possiblePos then
-            findNextSounce (count + 1)
-        else
-            visitedWaves.Add(possiblePos)
-            soundSource <- possiblePos
-            
-            match nextMove with
-            | UP -> printf "[^]"
-            | DOWN -> printf "[v]"
-            | LEFT -> printf "[<]"
-            | RIGHT -> printf "[>]"
-
-            count + 1
-    findNextSounce moveCount
-
 let printMap() =
     let minRow = min -5 (visitedWaves |> Seq.map _.Row |> Seq.min)
     let maxRow = max 5 (visitedWaves |> Seq.map _.Row |> Seq.max)
@@ -93,6 +68,39 @@ let printMap() =
             else printf "%c" '.'
         printfn "%s" System.Environment.NewLine
 
+let step (currentStep: int) (moveCount: int) =
+    printfn "Step: %d" currentStep
+    printf "Next: "
+    let rec findNextSounce (count: int) =
+        let nextMove = MoveSequence[count % MoveSequence.Length]
+    
+        let possiblePos =
+            match nextMove with
+            | UP -> { soundSource with Row = soundSource.Row - 1 }
+            | DOWN -> { soundSource with Row = soundSource.Row + 1 }
+            | LEFT -> { soundSource with Col = soundSource.Col - 1 }
+            | RIGHT -> { soundSource with Col = soundSource.Col + 1 }
+        if visitedWaves.Contains(possiblePos) || vocalBone = possiblePos then
+            findNextSounce (count + 1)
+        else
+            
+            match nextMove with
+            | UP -> printfn "[^]"
+            | DOWN -> printfn "[v]"
+            | LEFT -> printfn "[<]"
+            | RIGHT -> printfn "[>]"
+
+            printMap()
+
+            visitedWaves.Add(possiblePos)
+            soundSource <- possiblePos
+
+            count + 1
+
+    findNextSounce moveCount
+
+
+
 let isSurrounded =
     visitedWaves.Contains({ vocalBone with Row = vocalBone.Row - 1}) &&
     visitedWaves.Contains({ vocalBone with Row = vocalBone.Row + 1}) &&
@@ -103,13 +111,9 @@ let runVocal() =
     let mutable steps = 0
     let mutable counter = 0
     visitedWaves.Add(soundSource)
-    printfn "Step %d" steps
-    printMap()
     while not isSurrounded do
-        counter <- step counter
-        printfn "Step %d" steps
+        counter <- step steps counter        
         steps <- steps + 1
-        printMap()
     steps
 
 let execute() =
