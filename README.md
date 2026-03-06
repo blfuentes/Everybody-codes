@@ -106,4 +106,4 @@ https://everybody.codes/
 |---------|----|----|----|
 | Quest 1: Scales, Bags and a Bit of a Mess | 🍗 [F#](./EverybodyCodes_2025_S3_FSharp/quest01/quest01_1.fs) | 🍗 [F#](./EverybodyCodes_2025_S3_FSharp/quest01/quest01_2.fs) | 🍗 [F#](./EverybodyCodes_2025_S3_FSharp/quest01/quest01_3.fs) |
 | Quest 2: How Quack Echoes Back            | 🍗 [F#](./EverybodyCodes_2025_S3_FSharp/quest02/quest02_1.fs) | 🍗 [F#](./EverybodyCodes_2025_S3_FSharp/quest02/quest02_2.fs) | 🍗 [F#](./EverybodyCodes_2025_S3_FSharp/quest02/quest02_3.fs) |
-| Quest 3: | | | |
+| Quest 3: Plug and Play                    | | | |
