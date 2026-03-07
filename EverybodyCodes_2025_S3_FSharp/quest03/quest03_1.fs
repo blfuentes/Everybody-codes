@@ -5,8 +5,8 @@ open System.Text.RegularExpressions
 open System.IO
 open System
 
-let path = "quest03/test_input_01.txt"
-// let path = "quest03/quest03_input_01.txt"
+// let path = "quest03/test_input_01.txt"
+let path = "quest03/quest03_input_01.txt"
 
 type Color =
     | WHITE
@@ -68,7 +68,56 @@ let parseContent (lines: string array) =
 
     lines |> Array.map parseLine
 
+type TreeNode = {
+    Node: Node
+    mutable LeftChild: int option
+    mutable RightChild: int option
+}
+
+let matchesStrong (socket: Color * Shape) (plug: Color * Shape) =
+    fst socket = fst plug && snd socket = snd plug
+
+let rec connectPart (i: int) (child: int) (nodes: ResizeArray<TreeNode>) : bool =
+    let leftDone =
+        match nodes[i].LeftChild with
+        | Some leftChild -> connectPart leftChild child nodes
+        | None ->
+            if matchesStrong nodes[i].Node.LeftSocket nodes[child].Node.Plug then
+                nodes[i].LeftChild <- Some child
+                true
+            else
+                false
+    if leftDone then true
+    else
+        match nodes[i].RightChild with
+        | Some rightChild -> connectPart rightChild child nodes
+        | None ->
+            if matchesStrong nodes[i].Node.RightSocket nodes[child].Node.Plug then
+                nodes[i].RightChild <- Some child
+                true
+            else
+                false
+
+let rec readTree (i: int) (nodes: ResizeArray<TreeNode>) (result: ResizeArray<int>) =
+    match nodes[i].LeftChild with
+    | Some leftChild -> readTree leftChild nodes result
+    | None -> ()
+    result.Add(nodes[i].Node.Id)
+    match nodes[i].RightChild with
+    | Some rightChild -> readTree rightChild nodes result
+    | None -> ()
+
 let execute() =
     let lines = LocalHelper.GetLinesFromFile(path)
-    let nodes = parseContent lines
-    nodes.Length
+    let parsed = parseContent lines
+    let treeNodes = ResizeArray<TreeNode>()
+    for node in parsed do
+        let pos = treeNodes.Count
+        treeNodes.Add({ Node = node; LeftChild = None; RightChild = None })
+        if pos > 0 then
+            let mutable inserted = false
+            while not inserted do
+                inserted <- connectPart 0 pos treeNodes
+    let order = ResizeArray<int>()
+    readTree 0 treeNodes order
+    order |> Seq.mapi (fun i id -> (i + 1) * id) |> Seq.sum
