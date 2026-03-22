@@ -8,11 +8,11 @@ https://everybody.codes/
 🥚 = 0 parts
 | Year | Title | Progress | Score |
 | - | - | - | - |
-| [2024](#2024-the-kingdom-of-algorithmia) | The Kingdom of Algorithmia | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆 | (60/60) |
-| [2024 S1](#2024-echoes-of-enigmatus--no-1-) | Echoes of Enigmatus No. 1 | 🦆🦆🦆 | (9/9) |
-| [2024 S2](#2024-the-entertainment-hub--no-2-) | The Entertainment Hub No. 2 | 🦆🦆🦆 | (9/9) |
-| [2025](#2025-the-song-of-ducks-and-dragons) | The Song of Ducks and Dragons | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆 | (60/60) | 
-| [2025 S3](#2025-melody-made-of-code--no-3-) | Melody Made of Code No. 3 | 🦆🦆🦆 | (9/9) |
+| [2024](#2024-the-kingdom-of-algorithmia) | The Kingdom of Algorithmia | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆 | 60/60 |
+| [2024 S1](#2024-echoes-of-enigmatus--no-1-) | Echoes of Enigmatus No. 1 | 🦆🦆🦆 | 9/9 |
+| [2024 S2](#2024-the-entertainment-hub--no-2-) | The Entertainment Hub No. 2 | 🦆🦆🦆 | 9/9 |
+| [2025](#2025-the-song-of-ducks-and-dragons) | The Song of Ducks and Dragons | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆 | 60/60 | 
+| [2025 S3](#2025-melody-made-of-code--no-3-) | Melody Made of Code No. 3 | 🦆🦆🦆 | 9/9 |
 
 ### 2024 The Kingdom of Algorithmia
 
