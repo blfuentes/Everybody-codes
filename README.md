@@ -13,6 +13,7 @@ https://everybody.codes/
 | [2024 S2](#2024-the-entertainment-hub--no-2-) | The Entertainment Hub No. 2 | 🦆🦆🦆 | 9/9 |
 | [2025](#2025-the-song-of-ducks-and-dragons) | The Song of Ducks and Dragons | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆 | 60/60 | 
 | [2025 S3](#2025-melody-made-of-code--no-3-) | Melody Made of Code No. 3 | 🦆🦆🦆 | 9/9 |
+| [2026 GridOs 1](#2026-gridos-tournament--no-1-) | 🥚🥚🥚🥚🥚 | 0/15 |
 
 ### 2024 The Kingdom of Algorithmia
 
@@ -107,3 +108,17 @@ https://everybody.codes/
 | Quest 1: Scales, Bags and a Bit of a Mess | 🍗 [F#](./EverybodyCodes_2025_S3_FSharp/quest01/quest01_1.fs) | 🍗 [F#](./EverybodyCodes_2025_S3_FSharp/quest01/quest01_2.fs) | 🍗 [F#](./EverybodyCodes_2025_S3_FSharp/quest01/quest01_3.fs) |
 | Quest 2: How Quack Echoes Back            | 🍗 [F#](./EverybodyCodes_2025_S3_FSharp/quest02/quest02_1.fs) | 🍗 [F#](./EverybodyCodes_2025_S3_FSharp/quest02/quest02_2.fs) | 🍗 [F#](./EverybodyCodes_2025_S3_FSharp/quest02/quest02_3.fs) |
 | Quest 3: Plug and Play                    | 🍗 [F#](./EverybodyCodes_2025_S3_FSharp/quest03/quest03_1.fs) | 🍗 [F#](./EverybodyCodes_2025_S3_FSharp/quest03/quest03_2.fs) | 🍗 [F#](./EverybodyCodes_2025_S3_FSharp/quest03/quest03_3.fs) |
+
+### 2026 GridOs Tournament [ No. 1 ]
+
+[https://everybody.codes/gridos/1/quests](https://everybody.codes/gridos/1/quests)
+
+🥚🥚🥚🥚🥚(0/5)
+
+|Day      | Part 1 | Part 2 | Part 3 |
+|---------|----|----|----|
+| Quest 1: ||||
+| Quest 2: ||||
+| Quest 3: ||||
+| Quest 4: ||||
+| Quest 5: ||||

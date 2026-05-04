@@ -1,0 +1,75 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+
+  <Compile Include="Modules\LocalHelper.fs" />
+  <Compile Include="quest00\quest00_1.fs" />
+  <Compile Include="quest00\quest00_2.fs" />
+  <Compile Include="quest00\quest00_3.fs" />
+  <Compile Include="quest00\utils00.fs" />
+  <Content Include="quest00\test_input_01.txt" />
+  <Content Include="quest00\test_input_02.txt" />
+  <Content Include="quest00\test_input_03.txt" />
+  <Compile Include="quest01\quest01_1.fs" />
+  <Compile Include="quest01\quest01_2.fs" />
+  <Compile Include="quest01\quest01_3.fs" />
+  <Compile Include="quest01\utils01.fs" />
+  <Content Include="quest01\test_input_01.txt" />
+  <Content Include="quest01\test_input_02.txt" />
+  <Content Include="quest01\test_input_03.txt" />
+  <Content Include="quest01\quest01_input_01.txt" />
+  <Content Include="quest01\quest01_input_02.txt" />
+  <Content Include="quest01\quest01_input_03.txt" />
+  <Compile Include="quest02\quest02_1.fs" />
+  <Compile Include="quest02\quest02_2.fs" />
+  <Compile Include="quest02\quest02_3.fs" />
+  <Compile Include="quest02\utils02.fs" />
+  <Content Include="quest02\test_input_01.txt" />
+  <Content Include="quest02\test_input_02.txt" />
+  <Content Include="quest02\test_input_03.txt" />
+  <Content Include="quest02\quest02_input_01.txt" />
+  <Content Include="quest02\quest02_input_02.txt" />
+  <Content Include="quest02\quest02_input_03.txt" />
+  <Compile Include="quest03\quest03_1.fs" />
+  <Compile Include="quest03\quest03_2.fs" />
+  <Compile Include="quest03\quest03_3.fs" />
+  <Compile Include="quest03\utils03.fs" />
+  <Content Include="quest03\test_input_01.txt" />
+  <Content Include="quest03\test_input_02.txt" />
+  <Content Include="quest03\test_input_03.txt" />
+  <Content Include="quest03\quest03_input_01.txt" />
+  <Content Include="quest03\quest03_input_02.txt" />
+  <Content Include="quest03\quest03_input_03.txt" />
+  <Compile Include="quest04\quest04_1.fs" />
+  <Compile Include="quest04\quest04_2.fs" />
+  <Compile Include="quest04\quest04_3.fs" />
+  <Compile Include="quest04\utils04.fs" />
+  <Content Include="quest04\test_input_01.txt" />
+  <Content Include="quest04\test_input_02.txt" />
+  <Content Include="quest04\test_input_03.txt" />
+  <Content Include="quest04\quest04_input_01.txt" />
+  <Content Include="quest04\quest04_input_02.txt" />
+  <Content Include="quest04\quest04_input_03.txt" />
+  <Compile Include="quest05\quest05_1.fs" />
+  <Compile Include="quest05\quest05_2.fs" />
+  <Compile Include="quest05\quest05_3.fs" />
+  <Compile Include="quest05\utils05.fs" />
+  <Content Include="quest05\test_input_01.txt" />
+  <Content Include="quest05\test_input_02.txt" />
+  <Content Include="quest05\test_input_03.txt" />
+  <Content Include="quest05\quest05_input_01.txt" />
+  <Content Include="quest05\quest05_input_02.txt" />
+  <Content Include="quest05\quest05_input_03.txt" />
+<Compile Include="Program.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="add-new-entry.ps1" />
+  </ItemGroup>
+
+</Project>
