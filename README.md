@@ -117,8 +117,8 @@ https://everybody.codes/
 
 |Day      | Part 1 | Part 2 | Part 3 |
 |---------|----|----|----|
-| Quest 1: The Battle for the Farmlands | 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest01/quest01_1.md) | 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest01/quest01_2.md) | 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest01/quest01_3.md) |
-| Quest 2: The Runes of Power | 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest02/quest02_1.md) | 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest02/quest02_2.md) | 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest02/quest02_3.md) |
+| Quest 1: The Battle for the Farmlands | 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest01/quest01_1.sol) | 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest01/quest01_2.sol) | 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest01/quest01_3.sol) |
+| Quest 2: The Runes of Power | 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest02/quest02_1.sol) | 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest02/quest02_2.sol) | 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest02/quest02_3.sol) |
 | Quest 3: ||||
 | Quest 4: ||||
 | Quest 5: ||||
