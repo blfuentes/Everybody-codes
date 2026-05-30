@@ -13,7 +13,7 @@ https://everybody.codes/
 | [2024 S2](#2024-the-entertainment-hub--no-2-) | The Entertainment Hub No. 2 | 🦆🦆🦆 | 9/9 |
 | [2025](#2025-the-song-of-ducks-and-dragons) | The Song of Ducks and Dragons | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆 | 60/60 | 
 | [2025 S3](#2025-melody-made-of-code--no-3-) | Melody Made of Code No. 3 | 🦆🦆🦆 | 9/9 |
-| [2026 GridOs 1](#2026-gridos-tournament--no-1-) | GridOS Tournament [ No. 1 ] | 🦆🦆🐣🐣🥚 | 8/15 |
+| [2026 GridOs 1](#2026-gridos-tournament--no-1-) | GridOS Tournament [ No. 1 ] | 🦆🦆🐣🦢🥚 | 9/15 |
 
 ### 2024 The Kingdom of Algorithmia
 
@@ -113,12 +113,12 @@ https://everybody.codes/
 
 [https://everybody.codes/gridos/1/quests](https://everybody.codes/gridos/1/quests)
 
-🦆🦆🐣🐣🥚(2.66/5)
+🦆🦆🐣🦢🥚(3/5)
 
 |Day      | Part 1 | Part 2 | Part 3 |
 |---------|----|----|----|
 | Quest 1: The Battle for the Farmlands | 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest01/quest01_1.sol) | 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest01/quest01_2.sol) | 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest01/quest01_3.sol) |
 | Quest 2: The Runes of Power | 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest02/quest02_1.sol) | 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest02/quest02_2.sol) | 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest02/quest02_3.sol) |
 | Quest 3: Mining Maestro | 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest03/quest03_1.sol) |||
-| Quest 4: Royal Smith's Puzzle | 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest04/quest04_1.sol) |||
+| Quest 4: Royal Smith's Puzzle | 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest04/quest04_1.sol) | 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest04/quest04_2.sol) ||
 | Quest 5: ||||
