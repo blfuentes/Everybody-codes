@@ -1,36 +1,52 @@
-HEADS AAAA
+HEADS AAA		// read head, and above and to the left counting heads
 
-START **** LOCATE0 **** RRRR
-LOCATE0 **** LOCATE1 **** SRRR
-LOCATE1 **** LOCATE2 **** SSRR
-LOCATE2 **** SEARCH1 **** SSSR
+START	***	READR	***	SUL		// spread heads
 
-SEARCH1 |___ UP2 **** SSSS
-SEARCH1 !!__ SEARCH1 **** DDDD
-SEARCH1 !!!_ SEARCH1 **** DDDD
-SEARCH1 !!!! SEARCH1 **** DDDD
-SEARCH1 ____ UP1 **** UUUU
-UP1 !*** UP1 **** UUUU
-UP1 ____ MOVER1 **** RRRR
-MOVER1 ____ SEARCH1 **** DDDD
+READR	#**	READR	*@@	RRS		// reads each line, going right and left
 
-UP2 !*** UP2 **** UUUU
-UP2 ____ MOVER2 **** RRRR
-MOVER2 ____ SEARCH2 **** DDDD
+READR	=-*	READR	***	RRS
+READR	=_*	READR	*-*	RRS
+READR	=1*	READR	***	RRS
 
-SEARCH2 |___ PUTEND **** SSSS
-SEARCH2 !!__ SEARCH2 **** DDDD
-SEARCH2 !!!_ SEARCH2 **** DDDD
-SEARCH2 !!!! SEARCH2 **** DDDD
-SEARCH2 ____ SCANDOWN ____ DDDD
-SCANDOWN !*** SCANDOWN **** DDDD
-SCANDOWN ____ CHECKBOTTOM **** SSSS
-CHECKBOTTOM ____ PUTEND **** UUUU
-CHECKBOTTOM !*** SCANDOWN **** DDDD
+READR	|_*	READL	*1*	LLS		// note above the shortest nail
+READR	|-*	READL	*1*	LLS
+READR	|1*	READL	***	LLS
+READL	=**	READL	***	LLS
+READL	#**	READR	***	DSD		// read next line
+READR	_**	WRITEU3	***	USU		// all lines read
 
-PUTEND !*** PUTEND **** UUUU
-PUTEND ____ MOVEEND **** DDDD
-MOVEEND !*** MOVEEND |___ DDDD
-MOVEEND ____ DOWNEND ____ SSSS
+								// delete 1st head from top line
+WRITEU3	#** WRITEU3	***	USU		// move up
+WRITEU3	@**	WRITER3	***	DSD
+WRITER3	#@@	WRITER3	***	RRS
+WRITER3	*-*	WRITER3	***	RRS
+WRITER3	*1*	WRITEL	*-*	LLS
+WRITEL	*-*	WRITEL	***	LLS
+WRITEL	#@@	WRITER	*_*	DSD
 
-DOWNEND ____ STOP ____ SSSS
+WRITER	***	WRITED	***	RRS		// prepare to change nails
+WRITED	*-@	WRITED	***	DSD
+WRITED	!1@	WRITED	|**	DSD
+WRITED	_1@	WRITED	***	DSD
+
+WRITED	_-_	WRITEU	***	USU		// write shaft
+WRITEU	=-*	WRITEU	***	USU
+WRITEU	|-@	WRITEU	***	USU
+WRITEU	_-@	WRITEU	***	USU
+WRITEU	_1@	WRITEU	***	USU
+WRITEU	-**	WRITER	_**	DSD
+
+WRITED	*1_	WRITEU	***	USU		// write head
+WRITEU	|1*	WRITEU	***	USU
+WRITEU	1**	WRITER2	_**	RRS		// clean up top line
+
+WRITER2	*_*	DELETE	***	SSD		// clean up too much nail
+WRITER2	*!*	WRITED2	***	DSD
+
+WRITED2	*!@	WRITED2	_**	DSD
+WRITED2	_!_	WRITEU2	***	USU
+WRITEU2	_!@	WRITEU2	*** USU
+WRITEU2	!!_	WRITER2	_**	RRS
+
+DELETE	**@	DELETE	**_	SSD		// clean up left column
+DELETE	**_	STOP	***	SSS
