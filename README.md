@@ -7,6 +7,7 @@ https://everybody.codes/
 🐣 = 1 part
 🥚 = 0 parts
 💢 = cheated   
+
 | Year | Title | Progress | Score |
 | - | - | - | - |
 | [2024](#2024-the-kingdom-of-algorithmia) | The Kingdom of Algorithmia | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆 | 60/60 |
