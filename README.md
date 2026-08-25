@@ -16,7 +16,7 @@ https://everybody.codes/
 | [2025](#2025-the-song-of-ducks-and-dragons) | The Song of Ducks and Dragons | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆 | 60/60 | 
 | [2025 S3](#2025-melody-made-of-code--no-3-) | Melody Made of Code No. 3 | 🦆🦆🦆 | 9/9 |
 | [2026 GridOs 1](#2026-gridos-tournament--no-1-) | GridOS Tournament [ No. 1 ] | 🦆🦆🦆🦆🦆 | 15/15 |
-| [2026 S4](#2025-the-digital-atelier--no-4-) | The Digital Atelier No. 4 | 🥚🥚🥚 | 0/9 |
+| [2026 S4](#2026-the-digital-atelier--no-4-) | The Digital Atelier No. 4 | 🥚🥚🥚 | 0/9 |
 
 ### 2024 The Kingdom of Algorithmia
 
