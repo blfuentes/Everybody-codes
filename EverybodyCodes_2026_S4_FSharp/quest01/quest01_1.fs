@@ -1,9 +1,31 @@
 ﻿module quest01_1
 
 open EverybodyCodes_2026_S4_FSharp.Modules
+open System.Collections.Generic
 
-let path = "quest01/test_input_01.txt"
-//let path = "quest01/quest01_input_01.txt"
+//let path = "quest01/test_input_01.txt"
+let path = "quest01/quest01_input_01.txt"
+
+let parseContent (lines: string seq) =
+    lines
+    |> Seq.map(fun line -> line.Split(',') |> Array.map int)
+
+let dance (steps: int array) =
+    let visited = new HashSet<int>()
+    visited.Add(0) |> ignore
+    steps
+    |> Array.fold (fun pos step -> 
+        if (pos - step < 0) || (visited.Contains(pos - step)) then 
+            let newPos = pos + step
+            visited.Add(newPos) |> ignore
+            newPos
+        else
+            let newPos = pos - step
+            visited.Add(newPos) |> ignore
+            newPos
+    ) 0
+    
 
 let execute() =
-    0
+    let dances = parseContent (ReadLines path)
+    dances |> Seq.sumBy dance
