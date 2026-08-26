@@ -23,67 +23,36 @@ let dance (steps: int array) =
     let crossesJumps ((jf, ft): int*int) jumps =
         jumps |> Seq.exists(fun (f, t) -> f <= jf && t >= jf && t < ft)
 
-    let jumpBackwards pos step =
+    let jumpBackwards pos step (side: SIDE) =
         let backpos = pos - step
         if backpos < 0 then (false, 0)
+        elif visited.Contains(backpos) then (false, 0)
+        //elif crossesJumps (backpos, pos) (if side.IsUP then jumpsUp else jumpsDown) then
+        //    (false, 0)
         else
-            if visited.Contains(backpos) then (false, 0)
-            else
+            (true, backpos)
                 
-    let jumpForwards pos step =
-        (true, 0)
+    let jumpForwards pos step (side: SIDE) =
+        let mutable forwardpos = pos + step
+        while visited.Contains forwardpos do forwardpos <- forwardpos + 1
+        (true, forwardpos)
 
-    let (ending, _, _) =
+    let (ending, _) =
         steps
-        |> Array.fold (fun (pos, side:SIDE, forward) step -> 
-            match forward with
-            | true ->
-                let (move, newPos) = jumpForwards pos step
-                let newSide = if side.IsUP then DOWN else UP 
-                if move then
-                    (newPos, newSide, false)
-                else
-                    let (move, newPos) = jumpBackwards pos step
-                    if move then
-                        (newPos, newSide, true)
-                    else
-                        (pos, side, forward)
-                        
-            | false ->
-                let (move, newPos) = jumpBackwards pos step
-                let newSide = if side.IsUP then DOWN else UP 
-                if move then
-                    (newPos, newSide, true)
-                else
-                    let (move, newPos) = jumpForwards pos step
-                    if move then
-                        (newPos, newSide, false)
-                    else
-                        (pos, side, forward)
-
-            let backjumppos = pos - step
-            let backjump = (backjumppos, pos)
-            if (backjumppos < 0) || (visited.Contains(backjumppos)) || (crossesJumps backjump) then
-                // move forward
-                // move forward until I don't cross 
-                let mutable newPos = pos + step
-                if crossesJumps (pos, newPos) then // I'm trapped within another jump
-                    pos
-                else
-                    while visited.Contains(newPos) do newPos <- newPos + 1
-                    if crossesJumps (pos, newPos) then 
-                        pos
-                    else
-                        visited.Add(newPos) |> ignore
-                        jumps.Add(pos, newPos) |> ignore
-                        newPos
-            else
-                // move backwards by default
-                let newPos = pos - step
+        |> Array.fold (fun (pos, side:SIDE) step -> 
+            let newSide = if side.IsUP then DOWN else UP 
+            let (move, newPos) = jumpBackwards pos step side
+            if move then
                 visited.Add(newPos) |> ignore
-                jumps.Add(newPos, pos) |> ignore
-                newPos
-        ) (0, DOWN, false)
+                (newPos, newSide)
+            else
+                let (move, newPos) = jumpForwards pos step side
+                if move then
+                    visited.Add(newPos) |> ignore
+                    (newPos, newSide)
+                else
+                    (pos, side)
+        ) (0, DOWN)
     ending
     
 
