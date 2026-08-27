@@ -4,8 +4,9 @@ open EverybodyCodes_2026_S4_FSharp.Modules
 open System.Text.RegularExpressions
 open System.Collections.Generic
 
-let path = "quest02/test_input_03.txt"
-//let path = "quest02/quest02_input_03.txt"
+//let path = "quest02/test_input_03.txt"
+//let path = "quest02/test_input_03b.txt"
+let path = "quest02/quest02_input_03.txt"
 
 type Beacon = {
     Id: char
@@ -18,25 +19,26 @@ let parseContent (lines: string array) =
     let start = (startval[0], startval[1])
 
     let beacons =
-        [for beaconline in lines[1..lines.Length - 2] do
-            let beaconval = Regex.Matches(beaconline, $"\d+") |> Seq.map(fun m -> (int)m.Value) |> Seq.toArray
-            yield { Id = beaconline[0]; X = beaconval[0]; Y = beaconval[1] }]
-        |> List.map(fun b -> b.Id, b)
-        |> Map.ofList
-    let moves = (lines[lines.Length-1].Split("=")[1]).ToCharArray() |> List.ofArray |> List.map char
+        [for beaconline in lines[1..] do
+            if beaconline.Contains("=") then
+                let beaconval = Regex.Matches(beaconline, $"\d+") |> Seq.map(fun m -> (int)m.Value) |> Seq.toArray
+                yield { Id = beaconline[0]; X = beaconval[0]; Y = beaconval[1] }]
 
-    (start, beacons, moves)
+    (start, beacons)
 
-let rec consumeMoves (moves: char list) (swarm:int*int, beacons:Map<char, Beacon>) (lighted: HashSet<int*int>) =
-    match moves with
-    | [] -> 
-        lighted
-    | move::remaining ->
-        let beacon = beacons[move]
-        let newSwarmX = (abs(beacon.X + (fst swarm)) / 2)
-        let newSwarmY = (abs(beacon.Y + (snd swarm)) / 2)
-        lighted.Add(newSwarmX, newSwarmY) |> ignore
-        consumeMoves remaining ((newSwarmX, newSwarmY), beacons) lighted
+// floodfill to find all possible visited points
+let exploreAll (start: int*int) (beacons: Beacon list) =
+    let lighted = new HashSet<int*int>()
+    let queue = new Queue<int*int>()
+    lighted.Add(start) |> ignore
+    queue.Enqueue(start)
+    while queue.Count > 0 do
+        let (sx, sy) = queue.Dequeue()
+        for beacon in beacons do
+            let next = (abs(beacon.X + sx) / 2, abs(beacon.Y + sy) / 2)
+            if lighted.Add(next) then
+                queue.Enqueue(next)
+    lighted
 
 let fillFireflies (lighted: HashSet<int*int>) =
     let fireflies = new HashSet<int*int>()
@@ -50,9 +52,7 @@ let fillFireflies (lighted: HashSet<int*int>) =
     Set.difference (fireflies |> Set.ofSeq) (lighted |> Set.ofSeq) 
 
 let execute() =
-    let (start, beacons, moves) = parseContent <| ((ReadLines path) |> Seq.toArray)
-    let lighted = new HashSet<int*int>()
-    lighted.Add(start) |> ignore
-    let lights = consumeMoves moves (start, beacons) lighted
+    let (start, beacons) = parseContent <| ((ReadLines path) |> Seq.toArray)
+    let lights = exploreAll start beacons
     let fireflies = fillFireflies lights
     fireflies.Count

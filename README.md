@@ -16,7 +16,7 @@ https://everybody.codes/
 | [2025](#2025-the-song-of-ducks-and-dragons) | The Song of Ducks and Dragons | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆 | 60/60 | 
 | [2025 S3](#2025-melody-made-of-code--no-3-) | Melody Made of Code No. 3 | 🦆🦆🦆 | 9/9 |
 | [2026 GridOs 1](#2026-gridos-tournament--no-1-) | GridOS Tournament [ No. 1 ] | 🦆🦆🦆🦆🦆 | 15/15 |
-| [2026 S4](#2026-the-digital-atelier--no-4-) | The Digital Atelier No. 4 | 🦆🦢🥚 | 5/9 |
+| [2026 S4](#2026-the-digital-atelier--no-4-) | The Digital Atelier No. 4 | 🦆🦆🥚 | 6/9 |
 
 ### 2024 The Kingdom of Algorithmia
 
@@ -130,10 +130,10 @@ https://everybody.codes/
 
 [https://everybody.codes/story/4](https://everybody.codes/story/4/quests)
 
-🦆🦢🥚(1.66/3)
+🦆🦆🥚(2/3)
 
 |Day      | Part 1 | Part 2 | Part 3 |
 |---------|----|----|----|
 | [Quest 1](https://everybody.codes/story/4/quests/1): The Recamán Drapery | 🍗 [F#](./EverybodyCodes_2026_S4_FSharp/quest01/quest01_1.fs) | 🍗 [F#](./EverybodyCodes_2026_S4_FSharp/quest01/quest01_2.fs) | 🍗 [F#](./EverybodyCodes_2026_S4_FSharp/quest01/quest01_3.fs) |
-| [Quest 2](https://everybody.codes/story/4/quests/2): Sir Sierpiński's Sparkballs | 🍗 [F#](./EverybodyCodes_2026_S4_FSharp/quest02/quest02_1.fs) | 🍗 [F#](./EverybodyCodes_2026_S4_FSharp/quest02/quest02_2.fs) | 🥚 |
+| [Quest 2](https://everybody.codes/story/4/quests/2): Sir Sierpiński's Sparkballs | 🍗 [F#](./EverybodyCodes_2026_S4_FSharp/quest02/quest02_1.fs) | 🍗 [F#](./EverybodyCodes_2026_S4_FSharp/quest02/quest02_2.fs) | 🍗 [F#](./EverybodyCodes_2026_S4_FSharp/quest02/quest02_3.fs) |
 | [Quest 3](https://everybody.codes/story/4/quests/3): ??? | 🥚 | 🥚 | 🥚 |
