@@ -17,6 +17,7 @@ https://everybody.codes/
 | [2025 S3](#2025-melody-made-of-code--no-3-) | Melody Made of Code No. 3 | 🦆🦆🦆 | 9/9 |
 | [2026 GridOs 1](#2026-gridos-tournament--no-1-) | GridOS Tournament [ No. 1 ] | 🦆🦆🦆🦆🦆 | 15/15 |
 | [2026 S4](#2026-the-digital-atelier--no-4-) | The Digital Atelier No. 4 | 🦆🦆🦆 | 9/9 |
+| [2026](#2026-lord-of-the-wings) | Lord of the Wings | 🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚 | 0/60 | 
 
 ### 2024 The Kingdom of Algorithmia
 
@@ -137,3 +138,32 @@ https://everybody.codes/
 | [Quest 1](https://everybody.codes/story/4/quests/1): The Recamán Drapery | 🍗 [F#](./EverybodyCodes_2026_S4_FSharp/quest01/quest01_1.fs) | 🍗 [F#](./EverybodyCodes_2026_S4_FSharp/quest01/quest01_2.fs) | 🍗 [F#](./EverybodyCodes_2026_S4_FSharp/quest01/quest01_3.fs) |
 | [Quest 2](https://everybody.codes/story/4/quests/2): Sir Sierpiński's Sparkballs | 🍗 [F#](./EverybodyCodes_2026_S4_FSharp/quest02/quest02_1.fs) | 🍗 [F#](./EverybodyCodes_2026_S4_FSharp/quest02/quest02_2.fs) | 🍗 [F#](./EverybodyCodes_2026_S4_FSharp/quest02/quest02_3.fs) |
 | [Quest 3](https://everybody.codes/story/4/quests/3): Hitomezashi Sashiko Floorplan | 🍗 [F#](./EverybodyCodes_2026_S4_FSharp/quest03/quest03_1.fs) | 🍗 [F#](./EverybodyCodes_2026_S4_FSharp/quest03/quest03_2.fs) | 💢 [F#](./EverybodyCodes_2026_S4_FSharp/quest03/quest03_3.fs) |
+
+### 2026 Lord of the Wings
+
+[https://everybody.codes/event/2026](https://everybody.codes/event/2026/quests)
+
+🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆(0/20)
+
+|Day      | Part 1 | Part 2 | Part 3 | [Visualization](Visualizations.md#2025) |
+|---------|----|----|----|----|
+| [Quest 01](https://everybody.codes/event/2026/quests/1):  ???	| 🥚 | 🥚 | 🥚 ||
+| [Quest 02](https://everybody.codes/event/2026/quests/2):  ???	| 🥚 | 🥚 | 🥚 ||
+| [Quest 03](https://everybody.codes/event/2026/quests/3):  ???	| 🥚 | 🥚 | 🥚 ||
+| [Quest 04](https://everybody.codes/event/2026/quests/4):  ???	| 🥚 | 🥚 | 🥚 ||
+| [Quest 05](https://everybody.codes/event/2026/quests/5):  ???	| 🥚 | 🥚 | 🥚 ||
+| [Quest 06](https://everybody.codes/event/2026/quests/6):  ???	| 🥚 | 🥚 | 🥚 ||
+| [Quest 07](https://everybody.codes/event/2026/quests/7):  ???	| 🥚 | 🥚 | 🥚 ||
+| [Quest 08](https://everybody.codes/event/2026/quests/8):  ???	| 🥚 | 🥚 | 🥚 ||
+| [Quest 09](https://everybody.codes/event/2026/quests/9):  ???	| 🥚 | 🥚 | 🥚 ||
+| [Quest 10](https://everybody.codes/event/2026/quests/10): ???	| 🥚 | 🥚 | 🥚 ||
+| [Quest 11](https://everybody.codes/event/2026/quests/11): ??? | 🥚 | 🥚 | 🥚 ||
+| [Quest 12](https://everybody.codes/event/2026/quests/12): ???	| 🥚 | 🥚 | 🥚 ||
+| [Quest 13](https://everybody.codes/event/2026/quests/13): ???	| 🥚 | 🥚 | 🥚 ||
+| [Quest 14](https://everybody.codes/event/2026/quests/14): ???	| 🥚 | 🥚 | 🥚 ||
+| [Quest 15](https://everybody.codes/event/2026/quests/15): ???	| 🥚 | 🥚 | 🥚 ||
+| [Quest 16](https://everybody.codes/event/2026/quests/16): ???	| 🥚 | 🥚 | 🥚 ||
+| [Quest 17](https://everybody.codes/event/2026/quests/17): ??? | 🥚 | 🥚 | 🥚 ||
+| [Quest 18](https://everybody.codes/event/2026/quests/18): ??? | 🥚 | 🥚 | 🥚 ||
+| [Quest 19](https://everybody.codes/event/2026/quests/19): ???	| 🥚 | 🥚 | 🥚 ||
+| [Quest 20](https://everybody.codes/event/2026/quests/20): ???	| 🥚 | 🥚 | 🥚 ||
