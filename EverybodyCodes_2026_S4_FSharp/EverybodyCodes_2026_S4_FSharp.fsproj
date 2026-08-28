@@ -47,6 +47,8 @@
     <Content Include="quest03\quest03_input_03.txt" />
     <Content Include="quest03\test_input_01.txt" />
     <Content Include="quest03\test_input_02.txt" />
+    <Content Include="quest03\test_input_02b.txt" />
+    <Content Include="quest03\test_input_02c.txt" />
     <Content Include="quest03\test_input_03.txt" />
     <None Include="add-new-entry.ps1" />
     <Compile Include="Program.fs" />
