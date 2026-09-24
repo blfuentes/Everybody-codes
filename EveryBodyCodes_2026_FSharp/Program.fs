@@ -1,4 +1,4 @@
-﻿open System
+open System
 
 open EverybodyCodes_2026_FSharp.Modules
 
