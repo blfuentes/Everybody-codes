@@ -1,0 +1,10 @@
+<Project>
+  <PropertyGroup>
+    <!-- Enable central package management, https://learn.microsoft.com/en-us/nuget/consume-packages/Central-Package-Management -->
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="FSharp.Core" Version="10.1.403" />
+    <PackageVersion Include="System.Drawing.Common" Version="10.0.14" />
+  </ItemGroup>
+</Project>

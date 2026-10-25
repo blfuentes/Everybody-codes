@@ -1,6 +1,7 @@
 <Solution>
   <Folder Name="/Solution/">
     <File Path="Directory.build.props" />
+    <File Path="Directory.Packages.props" />
     <File Path="README.md" />
     <File Path="Visualizations.md" />
   </Folder>
