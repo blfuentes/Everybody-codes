@@ -25,6 +25,14 @@
 | Quest 19: Flappy Quack				|![quest19_1_visualization](./EverybodyCodes_2025_FSharp/visualizations/quest19_1_visualization.png)|![quest19_2_visualization](./EverybodyCodes_2025_FSharp/visualizations/quest19_2_visualization.png)||
 | Quest 20: Dream in Triangles			||![quest20_2_visualization](./EverybodyCodes_2025_FSharp/visualizations/quest20_2_visualization.png)||
 
+# 2025 Stories 3
+| Day | Part 1 | Part 2 | Part 3 |
+|-----|--------|--------|--------|
+
 # 2026
+| Day | Part 1 | Part 2 | Part 3 |
+|-----|--------|--------|--------|
+
+# 2026 Stories 4
 | Day | Part 1 | Part 2 | Part 3 |
 |-----|--------|--------|--------|

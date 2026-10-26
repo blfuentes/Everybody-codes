@@ -145,7 +145,7 @@ https://everybody.codes/
 
 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆(0/20)
 
-|Day      | Part 1 | Part 2 | Part 3 | [Visualization](Visualizations.md#2025) |
+|Day      | Part 1 | Part 2 | Part 3 | [Visualization](Visualizations.md#2026) |
 |---------|----|----|----|----|
 | [Quest 01](https://everybody.codes/event/2026/quests/1):  ???	| 🥚 | 🥚 | 🥚 ||
 | [Quest 02](https://everybody.codes/event/2026/quests/2):  ???	| 🥚 | 🥚 | 🥚 ||
