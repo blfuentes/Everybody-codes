@@ -151,6 +151,10 @@
 		<None Include="add-new-entry.ps1" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <PackageReference Include="FSharp.Core" />
+	</ItemGroup>
+
 </Project>
 
 
