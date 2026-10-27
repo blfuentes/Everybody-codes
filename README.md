@@ -121,11 +121,11 @@ https://everybody.codes/
 
 |Day      | Part 1 | Part 2 | Part 3 |
 |---------|----|----|----|
-| [Quest 1](https://everybody.codes/gridos/1/quests/1): The Battle for the Farmlands	| 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest01/quest01_1.sol) | 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest01/quest01_2.sol) | 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest01/quest01_3.sol) |
-| [Quest 2](https://everybody.codes/gridos/1/quests/2): The Runes of Power				| 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest02/quest02_1.sol) | 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest02/quest02_2.sol) | 💢 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest02/quest02_3.sol) |
-| [Quest 3](https://everybody.codes/gridos/1/quests/3): Mining Maestro					| 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest03/quest03_1.sol) | 💢 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest03/quest03_2.sol) | 💢 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest03/quest03_3.sol) |
-| [Quest 4](https://everybody.codes/gridos/1/quests/4): Royal Smith's Puzzle			| 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest04/quest04_1.sol) | 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest04/quest04_2.sol) | 💢 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest04/quest04_3.sol) |
-| [Quest 5](https://everybody.codes/gridos/1/quests/5): Pseudo-Random Clap Dance		| 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest05/quest05_1.sol) | 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest05/quest05_2.sol) | 🍗 [GridOS](./EveryBodyCodes_2026_GridOS_1/quest05/quest05_3.sol) |
+| [Quest 1](https://everybody.codes/gridos/1/quests/1): The Battle for the Farmlands	| 🍗 [GridOS](./EverybodyCodes_2026_GridOS_1/quest01/quest01_1.sol) | 🍗 [GridOS](./EverybodyCodes_2026_GridOS_1/quest01/quest01_2.sol) | 🍗 [GridOS](./EverybodyCodes_2026_GridOS_1/quest01/quest01_3.sol) |
+| [Quest 2](https://everybody.codes/gridos/1/quests/2): The Runes of Power				| 🍗 [GridOS](./EverybodyCodes_2026_GridOS_1/quest02/quest02_1.sol) | 🍗 [GridOS](./EverybodyCodes_2026_GridOS_1/quest02/quest02_2.sol) | 💢 [GridOS](./EverybodyCodes_2026_GridOS_1/quest02/quest02_3.sol) |
+| [Quest 3](https://everybody.codes/gridos/1/quests/3): Mining Maestro					| 🍗 [GridOS](./EverybodyCodes_2026_GridOS_1/quest03/quest03_1.sol) | 💢 [GridOS](./EverybodyCodes_2026_GridOS_1/quest03/quest03_2.sol) | 💢 [GridOS](./EverybodyCodes_2026_GridOS_1/quest03/quest03_3.sol) |
+| [Quest 4](https://everybody.codes/gridos/1/quests/4): Royal Smith's Puzzle			| 🍗 [GridOS](./EverybodyCodes_2026_GridOS_1/quest04/quest04_1.sol) | 🍗 [GridOS](./EverybodyCodes_2026_GridOS_1/quest04/quest04_2.sol) | 💢 [GridOS](./EverybodyCodes_2026_GridOS_1/quest04/quest04_3.sol) |
+| [Quest 5](https://everybody.codes/gridos/1/quests/5): Pseudo-Random Clap Dance		| 🍗 [GridOS](./EverybodyCodes_2026_GridOS_1/quest05/quest05_1.sol) | 🍗 [GridOS](./EverybodyCodes_2026_GridOS_1/quest05/quest05_2.sol) | 🍗 [GridOS](./EverybodyCodes_2026_GridOS_1/quest05/quest05_3.sol) |
 
 ### 2026 The Digital Atelier [ No. 4 ]
 
