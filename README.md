@@ -17,7 +17,7 @@ https://everybody.codes/
 | [2025 S3](#2025-melody-made-of-code--no-3-) | Melody Made of Code No. 3 | 🦆🦆🦆 | 9/9 |
 | [2026 GridOs 1](#2026-gridos-tournament--no-1-) | GridOS Tournament [ No. 1 ] | 🦆🦆🦆🦆🦆 | 15/15 |
 | [2026 S4](#2026-the-digital-atelier--no-4-) | The Digital Atelier No. 4 | 🦆🦆🦆 | 9/9 |
-| [2026](#2026-lord-of-the-wings) | Lord of the Wings | 🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚 | 0/60 | 
+| [2026](#2026-lord-of-the-wings) | Lord of the Wings | 🦆🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚 | 3/60 | 
 
 ### 2024 The Kingdom of Algorithmia
 
@@ -143,11 +143,11 @@ https://everybody.codes/
 
 [https://everybody.codes/event/2026](https://everybody.codes/event/2026/quests)
 
-🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆(0/20)
+🦆🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚(1/20)
 
 |Day      | Part 1 | Part 2 | Part 3 | [Visualization](Visualizations.md#2026) |
 |---------|----|----|----|----|
-| [Quest 01](https://everybody.codes/event/2026/quests/1):  ???	| 🥚 | 🥚 | 🥚 ||
+| [Quest 01](https://everybody.codes/event/2026/quests/1):  The Coneservation | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest01/quest01_1.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest01/quest01_2.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest01/quest01_3.fs) ||
 | [Quest 02](https://everybody.codes/event/2026/quests/2):  ???	| 🥚 | 🥚 | 🥚 ||
 | [Quest 03](https://everybody.codes/event/2026/quests/3):  ???	| 🥚 | 🥚 | 🥚 ||
 | [Quest 04](https://everybody.codes/event/2026/quests/4):  ???	| 🥚 | 🥚 | 🥚 ||
