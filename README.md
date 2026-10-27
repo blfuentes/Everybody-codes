@@ -145,6 +145,10 @@ https://everybody.codes/
 
 🦆🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚(1/20)
 
+Quest 01 uses direct formulas for the extra pines, without searching candidate sizes:
+part 1 rounds up to the next square; part 2 rounds up to a multiple of 4 (minimum 8);
+part 3 rounds up to an odd side length of at least 3, then uses `side * side - 1`.
+
 |Day      | Part 1 | Part 2 | Part 3 | [Visualization](Visualizations.md#2026) |
 |---------|----|----|----|----|
 | [Quest 01](https://everybody.codes/event/2026/quests/1):  The Coneservation | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest01/quest01_1.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest01/quest01_2.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest01/quest01_3.fs) ||
