@@ -18,21 +18,18 @@ let parseContent(lines: string seq) =
         )
     )
 
-let sortPairs(pairs: seq<char*char>) : string =
-    let minors = 
-        pairs 
-        |> Seq.map fst 
-        |> Seq.countBy id 
-        |> Seq.sortBy snd
-        |> Seq.map fst
+let sortPairs (pairs: seq<char * char>) : string =
+    let indegree =
+        pairs
+        |> Seq.countBy snd
+        |> Map.ofSeq
 
-    let leading = (['1'..'5'] |> Seq.find(fun v -> not (minors |> Seq.contains(v))))
-    leading.ToString() + (minors |> Seq.map string |> String.concat "")
+    ['1' .. '5']
+    |> List.sortBy (fun n -> Map.tryFind n indegree |> Option.defaultValue 0)
+    |> List.map string
+    |> String.concat ""
 
 let execute() =
     let lines = LocalHelper.GetLinesFromFile(path)
     let pairs = parseContent lines
-    pairs
-    |> Seq.sumBy(fun p ->
-        int(sortPairs p)
-    )
+    pairs |> Seq.sumBy (sortPairs >> int)
