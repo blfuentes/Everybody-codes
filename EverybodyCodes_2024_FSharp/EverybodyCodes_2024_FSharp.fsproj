@@ -155,6 +155,10 @@
 	  <PackageReference Include="FSharp.Core" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\EverybodyCodes_Utils\EverybodyCodes_Utils.fsproj" />
+	</ItemGroup>
+
 </Project>
 
 

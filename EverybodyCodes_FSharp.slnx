@@ -13,4 +13,5 @@
   <Project Path="EverybodyCodes_2026_FSharp/EverybodyCodes_2026_FSharp.fsproj" Id="25ce94da-73fb-4e38-8dcb-eed9f02dcbe0" />
   <Project Path="EverybodyCodes_2026_S4_FSharp/EverybodyCodes_2026_S4_FSharp.fsproj" />
   <Project Path="EverybodyCodes_Debugger/EverybodyCodes_Debugger.fsproj" Id="d7b9e215-b29b-4eaf-8da5-9c2bd8e74fde" />
+  <Project Path="EverybodyCodes_Utils/EverybodyCodes_Utils.fsproj" />
 </Solution>
