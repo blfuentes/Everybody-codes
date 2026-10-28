@@ -36,6 +36,3 @@ let execute() =
     |> Seq.sumBy(fun p ->
         int(sortPairs p)
     )
-    //pairs
-    //|> Seq.iter(fun p -> printfn "%s" (sortPairs p))
-    //0
