@@ -25,7 +25,7 @@ let sortPairs (pairs: seq<char * char>) : string =
         |> Map.ofSeq
 
     ['1' .. '5']
-    |> List.sortBy (fun n -> Map.tryFind n indegree |> Option.defaultValue 0)
+    |> List.sortByDescending (fun n -> Map.tryFind n indegree |> Option.defaultValue 0)
     |> List.map string
     |> String.concat ""
 
