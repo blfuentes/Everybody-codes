@@ -58,6 +58,6 @@ let smallest ((v1, v2): string * string) =
     if found then 0L else target
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2026 3 3
     let votes = parseContent lines
     votes |> Seq.sumBy smallest

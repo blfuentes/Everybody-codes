@@ -5,8 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="api-session.txt" />
     <Compile Include="Program.fs" />
   </ItemGroup>
+
+  <ItemGroup />
 
   <ItemGroup>
     <PackageReference Include="FSharp.Core" />

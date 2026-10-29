@@ -21,6 +21,6 @@ let calculateVote ((v1, v2): string * string) =
     )
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2026 3 1
     let votes = parseContent lines
     votes |> Seq.sumBy calculateVote

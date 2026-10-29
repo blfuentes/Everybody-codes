@@ -12,6 +12,6 @@ let additionalPines (pines: int) =
     (oddSize * oddSize - 1 - pines)
 
 let execute() =
-    let content = LocalHelper.GetContentFromFile(path)
+    let content = (LocalHelper.GetContent path 2026 1 3)[0]
     content.Split(',')
     |> Array.sumBy (fun value -> additionalPines (int value))

@@ -30,6 +30,6 @@ let sortPairs (pairs: seq<char * char>) : string =
     |> String.concat ""
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2026 2 1
     let pairs = parseContent lines
     pairs |> Seq.sumBy (sortPairs >> int)
