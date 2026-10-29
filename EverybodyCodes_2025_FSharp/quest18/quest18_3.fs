@@ -132,7 +132,7 @@ let findBestCase() =
     { Id = -1; Brightness = brightness |> Seq.mapi(fun i v -> (i + 1, bigint v)) |> Map.ofSeq }
 
 let execute() =
-    let lines = LocalHelper.GetContentFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 18 3 |> String.concat System.Environment.NewLine
     let testCases = parseContent lines
     let bestCase = findBestCase()
     sumDiffs bestCase testCases

@@ -100,7 +100,7 @@ let haunt(fieldMap: FieldMap) (dragonPositions: Position list) : int =
     (Set.intersect sheepPositions setDragonPositions).Count
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 10 1
     let fieldMap = parseContent(lines)
     let dragonPositions = move fieldMap 4
     haunt fieldMap dragonPositions

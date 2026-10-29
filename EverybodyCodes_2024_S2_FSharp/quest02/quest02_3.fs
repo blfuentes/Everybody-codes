@@ -73,7 +73,7 @@ let divideAndConquer balloonColours arrowColour : bigint =
     loop 0I arrowColour balloonColours
 
 let execute() =
-    let balloonStr = LocalHelper.GetLinesFromFile(path)[0]
+    let balloonStr = (LocalHelper.GetContent path 2 2 3)[0]
     let balloonSequence =
         balloonStr
         |> Seq.map colourToInt

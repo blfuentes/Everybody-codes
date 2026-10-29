@@ -142,7 +142,7 @@ let findBestRoute (data: string list) (start: string) (split: string option) (ch
     |> Seq.min
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path) |> List.ofArray
+    let lines = LocalHelper.GetContent path 2024 15 3 |> List.ofArray
     let colWidth = lines.Head.Length / 3
 
     let left   = lines |> List.map (fun line -> line[0 .. colWidth-1])

@@ -63,6 +63,6 @@ let calculateValidNames(names: string array, mapping: Map<string, string array>)
     allNames.Count
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 7 3
     let (names, mapping) = parseContent(lines)
     calculateValidNames(names, mapping)  

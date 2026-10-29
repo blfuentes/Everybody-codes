@@ -198,7 +198,7 @@ let findShortestPath (trampoling: Trampoling[,]) (connections: HashSet<Trampolin
     path.Length, path
     
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 20 2
     let trampolingMap = parseContent lines
     //printTrampoling trampolingMap
     let connections = findConnections()

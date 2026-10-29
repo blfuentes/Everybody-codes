@@ -17,7 +17,7 @@ let findCenterTimes (nails: int array) (numOfNails: int) =
     )
 
 let execute() =
-    let lines = LocalHelper.GetContentFromFile(path)
+    let lines = (LocalHelper.GetContent path 2025 8 1)[0]
     let nails = parseContent lines
     //let numOfNails = 8
     let numOfNails = 32

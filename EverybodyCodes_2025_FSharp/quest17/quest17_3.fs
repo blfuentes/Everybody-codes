@@ -132,7 +132,7 @@ let shortestPath (field: int[,]) =
     searchRadius 0
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 17 3
     let field = parseContent lines
     //printfn "Field size: %dx%d, Volcano at (%d,%d), Start at (%d,%d)" maxX maxY Xv Yv Xe Ye
     shortestPath field

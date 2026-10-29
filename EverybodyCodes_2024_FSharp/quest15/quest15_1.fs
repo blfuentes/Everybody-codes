@@ -90,7 +90,7 @@ let findAllShortPaths (themap: Cell[,]) (initPos: Cell) (herbs: Set<Cell>) =
     |> Seq.min
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2024 15 1
     let (themap, herbs, startPos) = parseContent lines
     
     (findAllShortPaths themap startPos herbs) * 2

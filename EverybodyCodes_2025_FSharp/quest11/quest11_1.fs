@@ -51,7 +51,7 @@ let flockCheckSum(ducks: (int*int) array) =
     |> Array.sumBy(fun (idx, value) -> (idx + 1) * value)
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 11 1
     let ducksFormed = parseContent lines
     let formedAt = doFormation ducksFormed 10    
     flockCheckSum formedAt

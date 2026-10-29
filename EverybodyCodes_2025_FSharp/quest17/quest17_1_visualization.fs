@@ -128,7 +128,7 @@ let visualizeToPNG (field: int[,]) (radius: int) (filename: string) =
     fullPath
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 17 1
     let field = parseContent lines
     
     // Create visualization

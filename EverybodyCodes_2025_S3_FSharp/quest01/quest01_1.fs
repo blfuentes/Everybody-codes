@@ -22,7 +22,7 @@ let parseContent(lines: string seq) =
 
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 3 1 1
     let dnas = parseContent lines
     dnas
     |> Array.sumBy(fun (a,b,c,d) ->

@@ -84,6 +84,6 @@ let run grid numOfSteps=
 
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 14 2
     let grid = parseContent lines
     run grid 2025

@@ -63,6 +63,6 @@ let findBalancedRound(ducks: bigint array) =
     roundsNeededPerDuck
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 11 3
     let ducksFormed = parseContent lines
     findBalancedRound ducksFormed

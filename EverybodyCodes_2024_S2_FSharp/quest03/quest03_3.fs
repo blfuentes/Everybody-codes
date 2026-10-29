@@ -78,7 +78,7 @@ let explore (grid:int list list) (dice:Dice) (startPositions:(int*int*int*bool) 
     totalVisited
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2 3 3
 
     let mutable readDice = true
     let mutable dices : Dice list = []

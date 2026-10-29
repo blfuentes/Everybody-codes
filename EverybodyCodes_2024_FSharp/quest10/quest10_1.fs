@@ -52,14 +52,14 @@ let findRune (pos: int*int) =
     rune
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2024 10 1
     let toFill = parseContent lines
-    printMap shrineMap
+    //printMap shrineMap
     let runes = 
         toFill
         |> Seq.map (fun pos -> findRune pos)        
 
-    printMap shrineSolved
+    //printMap shrineSolved
     
     let resultString = new string(Seq.toArray runes)
     resultString

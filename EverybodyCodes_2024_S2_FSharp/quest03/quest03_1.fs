@@ -27,7 +27,7 @@ type Dice(id:int, faces:int list, seed:int) =
 
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2 3 1
 
     // Parse each line into a Dice
     let dices =

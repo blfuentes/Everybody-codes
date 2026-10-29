@@ -92,7 +92,7 @@ let findCollisions (nails: int array) (points: (int * (float * float)) list) =
     Array.max results
 
 let execute() =
-    let lines = LocalHelper.GetContentFromFile(path)
+    let lines = (LocalHelper.GetContent path 2025 8 3)[0]
     let nails = parseContent lines
     //let numOfNails = 8
     let numOfNails = 256

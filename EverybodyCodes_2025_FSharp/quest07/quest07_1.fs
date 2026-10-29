@@ -28,7 +28,7 @@ let findValidNames(names: string array, mapping: Map<string, string array>) =
     names |> Array.filter isValid
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 7 1
     let (names, mapping) = parseContent(lines)
     let validNames = findValidNames(names, mapping)
     validNames

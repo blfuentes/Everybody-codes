@@ -38,7 +38,7 @@ let transformation (target: int) (initialString: string) =
     currentState.Values |> Seq.sum
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2024 11 3
     parseContent(lines)
     let possibleStarters =
         transformations.Keys |> Seq.toList

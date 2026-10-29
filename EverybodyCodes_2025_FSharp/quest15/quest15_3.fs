@@ -171,7 +171,7 @@ let distanceToStart (xStart:int) (yStart:int) (xEnd:int) (yEnd:int)
     | None -> failwith "No path found"
 
 let execute() =
-    let lines = LocalHelper.GetContentFromFile(path)
+    let lines = (LocalHelper.GetContent path 2025 15 3)[0]
     let operations = parseContent lines
 
     // build wall lines

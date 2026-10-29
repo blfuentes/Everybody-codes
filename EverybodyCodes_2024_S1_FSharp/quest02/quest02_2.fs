@@ -188,7 +188,7 @@ let buildWord((leftTree, rightTree): Dictionary<int, Node>*Dictionary<int, Node>
 
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 1 2 2
     let nodes = parseContent(lines)
     let (leftTree, rightTree) = buildTree(nodes)
     buildWord (leftTree, rightTree)

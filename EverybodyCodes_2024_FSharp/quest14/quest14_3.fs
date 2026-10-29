@@ -140,7 +140,7 @@ let findAllShortPaths (available: Set<int*int*int>) (mainTrunk: seq<int*int*int>
     |> Seq.min
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2024 14 3
     let operationsCollection = lines |> Array.map parseContent
     let allpoints =         
         operationsCollection

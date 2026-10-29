@@ -81,7 +81,7 @@ let calculateWall (towerHeights: int[]) =
     )
 
 let execute() =
-    let lines = LocalHelper.GetContentFromFile(path)
+    let lines = (LocalHelper.GetContent path 2025 16 2)[0]
     let towerHeights = parseContent(lines)
     buildWallVisualization towerHeights towerHeights.Length "quest16_2_visualization.png" |> ignore
     calculateWall towerHeights

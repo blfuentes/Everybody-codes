@@ -124,7 +124,7 @@ let bfs (startX, startY, startAlt) (grid: CellType[][]) (altLoss: Dictionary<int
     maxDist
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2024 20 3
     let grid, origStart = parseContent lines
     let gridHeight = grid.Length
 

@@ -34,7 +34,7 @@ let turnWheel(wheel: int array) (turns: int) =
     wheel[turns % wheel.Length]
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 13 2
     let dialNumbers = parseContent lines
     let wheel = constructWheel dialNumbers
     turnWheel wheel 20252025 

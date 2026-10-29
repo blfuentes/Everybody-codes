@@ -14,6 +14,6 @@ let findLargestCrateSet (crates: int array) =
     |> Array.sum
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 3 1
     let crates = parseContent lines
     findLargestCrateSet crates

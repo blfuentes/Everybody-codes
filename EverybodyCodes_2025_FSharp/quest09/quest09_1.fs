@@ -54,7 +54,7 @@ let calculateSimilarity(childDna: char array) (parentDnas: Map<int, char array>)
     similarityHelper(0, [|0; 0|])
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 9 1
     let scales = parseContent lines
     let (child, parents) = buildFamily scales
     calculateSimilarity (snd child) parents

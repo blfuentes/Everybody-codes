@@ -79,7 +79,7 @@ let applyFormula(p: ParameterSet) =
     eni p.A p.X p.M + eni p.B p.Y p.M + eni p.C p.Z p.M
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 1 1 3
     let parameters = parseContent lines
     parameters
     |> Seq.mapi(fun idx p -> 

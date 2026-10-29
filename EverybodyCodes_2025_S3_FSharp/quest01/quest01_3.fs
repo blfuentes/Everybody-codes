@@ -55,7 +55,7 @@ let parseContent(lines: string seq) =
     )
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 3 1 3
     parseContent lines
     |> Array.filter(fun d -> 
         let (_, s) = d.Group

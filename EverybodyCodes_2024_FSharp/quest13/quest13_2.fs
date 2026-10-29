@@ -89,6 +89,6 @@ let pathFind (chamber: RoomCell[,]) (startPos: int * int) (endPos: int * int) =
     result
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2024 13 2
     let (chamber, startPos, endPos) = parseContent(lines)
     pathFind chamber (startPos.Value) (endPos.Value)

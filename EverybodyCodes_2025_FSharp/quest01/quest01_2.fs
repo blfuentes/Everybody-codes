@@ -24,6 +24,6 @@ let findName (names: string array) (movements: (string*int) seq) =
     names[finalIndex]
     
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 1 2
     let (names, movements) = parseContent lines
     findName names movements

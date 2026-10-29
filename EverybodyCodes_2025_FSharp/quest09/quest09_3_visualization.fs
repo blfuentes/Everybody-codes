@@ -191,6 +191,6 @@ let buildFamilies(scales: Map<int, char array>) =
     |> Seq.sum
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 9 3
     let scales = parseContent lines
     buildFamilies scales

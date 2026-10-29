@@ -104,6 +104,6 @@ let sumAllCases (testCases: seq<TestCase>) =
     |> Seq.sumBy calculateBrightness
 
 let execute() =
-    let lines = LocalHelper.GetContentFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 18 2 |> String.concat System.Environment.NewLine
     let testCases = parseContent lines
     sumAllCases testCases

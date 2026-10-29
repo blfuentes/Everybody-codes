@@ -71,7 +71,7 @@ let lowestBeetles (brightness: int) (beetles: int list) =
     |> List.minBy (fun x -> x)
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2024 9 3
     let brightnesses = lines |> Array.map int
     let availableDots = 
         [1; 3; 5; 10; 15; 16; 20; 24; 25; 30; 37; 38; 49; 50; 74; 75; 100; 101]

@@ -39,7 +39,7 @@ type Dice(id:int, faces:int list, seed:int) =
             false
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)    
+    let lines = LocalHelper.GetContent path 2 3 2
     // Parse dice definitions until empty line
     let diceDefs =
         lines

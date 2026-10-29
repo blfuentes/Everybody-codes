@@ -163,7 +163,7 @@ let visualizeMap (visitedPoints: (int*int) list) (walls: Set<int*int>) (currentP
     fileName
 
 let execute() =
-    let lines = LocalHelper.GetContentFromFile(path)
+    let lines = (LocalHelper.GetContent path 2025 15 1)[0]
     let operations = parseContent lines
     let (xStart, yStart, xEnd, yEnd, wall) = buildMap operations
     let (length, path ) = bfs (xEnd, yEnd) (xStart, yStart) (Set.remove (xStart, yStart) wall)

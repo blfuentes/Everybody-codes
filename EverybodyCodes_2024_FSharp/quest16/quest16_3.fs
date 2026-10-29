@@ -115,7 +115,7 @@ let calculateRound (levers: int array) (wheels: Dictionary<int, char list>) (rep
     (maxScore, minScore)
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2024 16 3
     let levers, catfaces = parseContent lines
     let (max, min) = calculateRound levers catfaces 256
     sprintf "%d %d" max min

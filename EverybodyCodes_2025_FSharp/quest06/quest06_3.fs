@@ -58,7 +58,7 @@ let findAllMentors (notes: string) repeats (distance: int) =
     |> Array.sumBy findMentors
 
 let execute() =
-    let notes = LocalHelper.GetContentFromFile(path)
+    let notes = (LocalHelper.GetContent path 2025 6 3)[0]
     //findAllMentors notes 1 10
     //findAllMentors notes 2 10
     findAllMentors notes 1000 1000

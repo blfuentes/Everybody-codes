@@ -404,7 +404,7 @@ let visualizeGraphToPNG (filename: string) =
     fullPath
 
 let execute() =
-    let lines = LocalHelper.GetContentFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 18 1 |> String.concat System.Environment.NewLine
     parseContent lines
     
     // Create visualization

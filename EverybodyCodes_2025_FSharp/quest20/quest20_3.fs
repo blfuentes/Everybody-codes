@@ -128,7 +128,7 @@ let findShortestPath (grids: char[,] array) =
     result  
   
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 20 3
     let initialGrid = parseContent lines
     let firstRotation = rotate initialGrid
     let secondRotation = rotate firstRotation

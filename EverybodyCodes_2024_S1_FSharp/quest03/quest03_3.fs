@@ -46,7 +46,7 @@ let rec moduloReduce (lst:(bigint*bigint) list) : bigint =
     | [] -> failwith "Empty list"
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 1 3 3
     let snails = parseContent lines
     let modulos = 
         snails 

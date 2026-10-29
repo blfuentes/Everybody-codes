@@ -60,6 +60,6 @@ let calculateValidNames(names: string array, mapping: Map<string, string array>)
     allNames |> Seq.distinct |> Seq.length
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 7 4
     let (names, mapping) = parseContent(lines)
     calculateValidNames(names, mapping)  

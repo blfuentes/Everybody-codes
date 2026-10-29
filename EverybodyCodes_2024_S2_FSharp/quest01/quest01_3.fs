@@ -54,7 +54,7 @@ let rec permutations k list =
     }
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2 1 3
     let (grid, tokens) = parseContent lines
     let mutable best = 0L
     let mutable worst = System.Int64.MaxValue

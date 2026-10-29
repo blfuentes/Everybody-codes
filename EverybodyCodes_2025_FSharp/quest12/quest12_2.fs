@@ -63,6 +63,6 @@ let igniteBarrels(barrelsMap: Barrel[,]) =
     (Set.union affectedPositions affectedPositionsFromSecond).Count
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 12 2
     let barrelsMap = parseContent lines
     igniteBarrels barrelsMap

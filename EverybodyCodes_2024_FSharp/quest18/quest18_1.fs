@@ -49,6 +49,6 @@ let fillWater (map: char[][]) =
     |> Array.max
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2024 18 1
     let map = parseContent lines
     fillWater map

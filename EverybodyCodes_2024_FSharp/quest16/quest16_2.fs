@@ -94,6 +94,6 @@ let calculateRound (max: int64) (levers: int array) (catfaces: Dictionary<int, c
     numOfCoins    
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2024 16 2
     let levers, catfaces = parseContent lines
     calculateRound 202420242024L levers catfaces

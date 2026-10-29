@@ -82,7 +82,7 @@ let calculatePower (runes: char array) =
 
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2024 10 2
     let allRunes = parseFull lines
     allRunes
     |> List.map(fun runeDef ->

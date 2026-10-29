@@ -25,7 +25,7 @@ let calcuateTarget (gears: decimal array) (target: decimal) =
 
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 4 2
     let gears = parseContent lines
     let value = System.Math.Ceiling(calcuateTarget gears (decimal 10000000000000.))
     let formatted = value.ToString("F0", System.Globalization.CultureInfo.InvariantCulture)

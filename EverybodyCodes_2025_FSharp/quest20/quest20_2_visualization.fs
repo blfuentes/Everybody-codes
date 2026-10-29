@@ -365,7 +365,7 @@ let visualizeToImage (trampoling: Trampoling[,]) (path: (int*int) list) (outputP
     printfn "Image saved to: %s" (Path.Combine(VisualizationFolder, outputPath))
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 20 2
     let trampolingMap = parseContent lines
     //printTrampoling trampolingMap
     let connections = findConnections()

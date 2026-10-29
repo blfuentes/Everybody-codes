@@ -155,7 +155,7 @@ let visualizeMaxRangeToPNG (field: int[,]) (maxRadius: int) (filename: string) =
     fullPath
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 17 2
     let field = parseContent lines
     
     // Get max range and extract radius

@@ -202,7 +202,7 @@ let visualizeBurntBarrels (barrelsMap: Barrel[,]) (burntBarrels: Set<Position>) 
 
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 12 3
     let barrelsMap = parseContent lines
     let burntBarrels = findBestThreeBarrels barrelsMap
     visualizeBurntBarrels barrelsMap burntBarrels

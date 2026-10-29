@@ -78,6 +78,6 @@ let runVocal() =
     steps
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 3 2 1
     parseContent lines |> ignore
     runVocal()

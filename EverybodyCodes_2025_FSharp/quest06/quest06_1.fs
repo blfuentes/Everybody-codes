@@ -27,5 +27,5 @@ let findSwordsMentors (notes: string) =
     
 
 let execute() =
-    let notes = LocalHelper.GetContentFromFile(path)
+    let notes = (LocalHelper.GetContent path 2025 6 1)[0]
     findSwordsMentors notes

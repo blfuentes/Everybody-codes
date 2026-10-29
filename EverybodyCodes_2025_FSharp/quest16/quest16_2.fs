@@ -33,6 +33,6 @@ let calculateWall (towerHeights: bigint[]) =
     )
 
 let execute() =
-    let lines = LocalHelper.GetContentFromFile(path)
+    let lines = (LocalHelper.GetContent path 2025 16 2)[0]
     let towerHeights = parseContent(lines)
     calculateWall towerHeights

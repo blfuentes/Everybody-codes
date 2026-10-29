@@ -21,7 +21,7 @@ let parseContent(lines: string seq) =
 
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 3 1 2
     let dnas = parseContent lines
     let (a, _, _) =
         dnas

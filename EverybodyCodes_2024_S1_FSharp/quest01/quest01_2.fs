@@ -73,7 +73,7 @@ let applyFormula(p: ParameterSet) =
     eni p.A p.X p.M + eni p.B p.Y p.M + eni p.C p.Z p.M
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 1 1 2
     let parameters = parseContent lines
     //eni 3 8 16
     parameters

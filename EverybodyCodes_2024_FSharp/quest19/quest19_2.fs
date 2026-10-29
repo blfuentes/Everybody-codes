@@ -62,6 +62,6 @@ let findWord (rots: char[], grid: char[][], repeats: int) =
     findQuack currentGrid
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2024 19 2
     let rots, grid = parseContent lines
     findWord (rots, grid, 100)

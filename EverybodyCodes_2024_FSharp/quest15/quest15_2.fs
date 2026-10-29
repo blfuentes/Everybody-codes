@@ -109,7 +109,7 @@ let findBestRoute (data: string list) (start: string) =
     |> Seq.min
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path) |> List.ofArray
+    let lines = LocalHelper.GetContent path 2024 15 2 |> List.ofArray
     findBestRoute lines "Start"
 
 

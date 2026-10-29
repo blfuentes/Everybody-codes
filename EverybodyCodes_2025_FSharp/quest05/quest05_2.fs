@@ -112,7 +112,7 @@ let findDiff(values: bigint seq) =
     
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 5 2
     let definitions = parseContent lines
     let fishbones = definitions |> Seq.map buildFishbone |> Seq.map valueOf
     findDiff fishbones

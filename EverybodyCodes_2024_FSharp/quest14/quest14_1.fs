@@ -52,6 +52,6 @@ let calculateHeight (operations: Operation array) =
     maxHeight
 
 let execute() =
-    let lines = LocalHelper.GetContentFromFile(path)
+    let lines = (LocalHelper.GetContent path 2024 14 1)[0]
     let operations = parseContent(lines)
     calculateHeight operations

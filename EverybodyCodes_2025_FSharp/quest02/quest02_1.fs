@@ -28,7 +28,7 @@ let Run (X, Y) numOfCycles =
     |> List.fold (fun acc _ -> Cycle acc (X, Y)) (0, 0)
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 2 1
     let (X, Y) = parseContent lines
     let (x, y) = Run (X, Y) 3
     sprintf "[%i,%i]" x y

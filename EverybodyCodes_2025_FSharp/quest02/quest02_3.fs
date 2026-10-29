@@ -58,6 +58,6 @@ let Run (X, Y) =
     points |> Seq.length
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 2 3
     let (X, Y) = parseContent lines
     Run (X, Y)

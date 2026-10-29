@@ -83,7 +83,7 @@ let printCircle(points: (float * float) list) =
     printfn "Point %2d: (%.4f, %.4f)" (i + 1) x y)
 
 let execute() =
-    let lines = LocalHelper.GetContentFromFile(path)
+    let lines = (LocalHelper.GetContent path 2025 8 2)[0]
     let nails = parseContent lines
     //let numOfNails = 8
     let numOfNails = 256

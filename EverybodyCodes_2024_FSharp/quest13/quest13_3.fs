@@ -95,7 +95,7 @@ let pathFind (chamber: RoomCell[,]) (startPositions: ResizeArray<int*int>) (endP
     |> Seq.min
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2024 13 3
     let (chamber, startPositions, endPos) = parseContent(lines)
     pathFind chamber startPositions (endPos.Value)
 

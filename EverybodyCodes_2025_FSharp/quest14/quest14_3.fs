@@ -157,7 +157,7 @@ let run pattern baseGrid numOfSteps =
 
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 14 3
     let pattern = parseContent lines
     let baseGrid = Array2D.init maxRows maxCols (fun row col ->
         { Position = { Row = row; Col = col }; State = Inactive })

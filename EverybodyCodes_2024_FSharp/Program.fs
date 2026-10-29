@@ -9,13 +9,13 @@ let ms ticks =
 [<EntryPoint>]
 let main argv =
 
-    // DAY 00
-    let (resultquest00_1, time00_1) = duration quest00_1.execute
-    printfn "Final result Quest 00 part 1: %A in %s" resultquest00_1 (ms time00_1)
-    let (resultquest00_2, time00_2) = duration quest00_2.execute
-    printfn "Final result Quest 00 part 2: %A in %s" resultquest00_2 (ms time00_2)
-    let (resultquest00_3, time00_3) = duration quest00_3.execute
-    printfn "Final result Quest 00 part 3: %A in %s" resultquest00_3 (ms time00_3)
+    //// DAY 00
+    //let (resultquest00_1, time00_1) = duration quest00_1.execute
+    //printfn "Final result Quest 00 part 1: %A in %s" resultquest00_1 (ms time00_1)
+    //let (resultquest00_2, time00_2) = duration quest00_2.execute
+    //printfn "Final result Quest 00 part 2: %A in %s" resultquest00_2 (ms time00_2)
+    //let (resultquest00_3, time00_3) = duration quest00_3.execute
+    //printfn "Final result Quest 00 part 3: %A in %s" resultquest00_3 (ms time00_3)
 
     // DAY 08
     let (resultquest08_1, time08_1) = duration quest08_1.execute

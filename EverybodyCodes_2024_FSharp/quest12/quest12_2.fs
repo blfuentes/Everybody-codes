@@ -111,6 +111,6 @@ let destroyTargets (targets: Target list) =
     destroy targets 0
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2024 12 2
     let targets = parseContent lines |> List.sortBy (fun tar -> tar.Pos.Row, tar.Pos.Col)
     destroyTargets targets

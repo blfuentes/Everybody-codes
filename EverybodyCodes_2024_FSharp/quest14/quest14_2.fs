@@ -74,7 +74,7 @@ let walkPath (operations: Operation array) =
     visited    
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2024 14 2
     let operationsCollection = lines |> Array.map parseContent
     let allpoints =         
         operationsCollection

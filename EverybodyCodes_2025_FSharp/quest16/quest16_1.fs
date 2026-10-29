@@ -15,6 +15,6 @@ let calculateWall (instructions: int[]) (wallLength: int) =
     )
 
 let execute() =
-    let lines = LocalHelper.GetContentFromFile(path)
+    let lines = (LocalHelper.GetContent path 2025 16 1)[0]
     let instructions = parseContent(lines)
     calculateWall instructions 90

@@ -67,7 +67,7 @@ let findWheelValue (numbers: (bigint*bigint) array) (turns: bigint) =
     find start 0I
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 13 3
     let dialNumbers = parseContent lines
     //let wheel = constructWheel dialNumbers    
     //turnWheel wheel 202520252025I 

@@ -88,6 +88,6 @@ let run (mainGrid: char[][]) (cols: int) (rows: int) =
     res
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2024 10 3
     let mainGrid = parseContent lines
     run mainGrid 20 10

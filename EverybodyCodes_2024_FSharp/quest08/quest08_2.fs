@@ -49,7 +49,7 @@ let getNeededBlocks (available: int) (priests: int) (acolytes: int) =
     (requiredBlocks - available) * (baseSize workingLevel)
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2024 8 2
     let numberOfPriests = int(lines[0])
     let availableBlocks = 20240000
     let numberOfAcolytes = 1111

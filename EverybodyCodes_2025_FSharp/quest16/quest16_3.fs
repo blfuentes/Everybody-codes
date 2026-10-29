@@ -46,7 +46,7 @@ let buildEquallyWall (towersHeights: bigint[]) (numOfBlocks: bigint) =
     binarySearch 1I numOfBlocks
 
 let execute() =
-    let lines = LocalHelper.GetContentFromFile(path)
+    let lines = (LocalHelper.GetContent path 2025 16 3)[0]
     let blocksToUse = 202520252025000I
     let towerHeights = parseContent(lines)
     buildEquallyWall towerHeights blocksToUse

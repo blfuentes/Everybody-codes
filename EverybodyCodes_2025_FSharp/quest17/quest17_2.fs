@@ -61,6 +61,6 @@ let getMaxRange (field: int[,]) =
     radius * effect
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 17 2
     let field = parseContent lines
     getMaxRange field

@@ -111,7 +111,7 @@ let countTouchingTrampoling (trampoling: Trampoling[,]) =
                             pairs.Add((t1, t2)) |> ignore
     pairs.Count
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 20 1
     let trampolingMap = parseContent lines
     //printTrampoling trampolingMap
     countTouchingTrampoling trampolingMap

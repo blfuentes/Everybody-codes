@@ -39,7 +39,7 @@ let score (grid: string array) (token: string) (slot:int) : int =
     max ((slotFromCol col * 2) - slot) 0
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2 1 2
     let (grid, tokens) = parseContent lines
     let total =
         tokens

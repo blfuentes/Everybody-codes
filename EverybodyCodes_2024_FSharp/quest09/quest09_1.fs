@@ -37,7 +37,7 @@ let findBeetlesForBrightness (beetles: int list) (brightness: int) =
 
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2024 9 1
     let brightnesses = lines |> Array.map int
     let availableDots = [1; 3; 5; 10]
     let result = 

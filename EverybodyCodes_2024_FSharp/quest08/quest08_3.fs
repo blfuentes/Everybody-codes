@@ -95,7 +95,7 @@ let platinumBlocksForLevel (availableBlocks: int64) (highPriests: int64) (acolyt
     current - availableBlocks
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2024 8 3
     let highPriests = int64(lines[0])
     let acolytes = int64(10)
     let availableBlocks = int64(202400000)

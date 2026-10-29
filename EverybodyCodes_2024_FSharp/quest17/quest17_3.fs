@@ -102,7 +102,7 @@ let rec findConstellations (stars: Star list) (p3: bool) (allStarsDists: int[,])
         | _ -> failwith "Expected constellations"
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2024 17 3
     let allStars = parseContent lines
 
     let allDists = Array2D.create allStars.Length allStars.Length 0

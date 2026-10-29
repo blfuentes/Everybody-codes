@@ -31,6 +31,6 @@ let rec transformation (current: int) (target: int) (status: string list) =
     
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2024 11 1
     parseContent(lines)
     transformation 0 4 ["A"]

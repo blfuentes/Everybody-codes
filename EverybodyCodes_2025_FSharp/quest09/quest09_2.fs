@@ -87,6 +87,6 @@ let buildFamilies(scales: Map<int, char array>) =
     )
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 9 2
     let scales = parseContent lines
     buildFamilies scales

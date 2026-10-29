@@ -44,6 +44,6 @@ let calculateRound (max: int) (levers: int array) (catfaces: Dictionary<int, cha
     String.concat " " (value)
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2024 16 1
     let levers, catfaces = parseContent lines
     calculateRound 100 levers catfaces

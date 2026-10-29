@@ -72,7 +72,7 @@ let buildWallVisualization (instructions: int[]) (wallLength: int) (filename: st
     fullPath
 
 let execute() =
-    let lines = LocalHelper.GetContentFromFile(path)
+    let lines = (LocalHelper.GetContent path 2025 16 1)[0]
     let instructions = parseContent(lines)
     
     // Create visualization

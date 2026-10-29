@@ -39,7 +39,7 @@ let calculate (snail: Snail) =
     snail.X + (100 * snail.Y)
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 1 3 1
     let snails = parseContent lines
     moveSnail snails 100
     |> List.sumBy calculate

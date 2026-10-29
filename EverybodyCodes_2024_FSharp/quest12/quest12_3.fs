@@ -155,7 +155,7 @@ let execute() =
 .A...........
 ==============
 """
-    let targetLines = LocalHelper.GetLinesFromFile(path)
+    let targetLines = LocalHelper.GetContent path 2024 12 3
     let catapults, targets = parseContent catapultLayout targetLines
     
     solve catapults targets 1

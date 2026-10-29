@@ -36,7 +36,7 @@ let getNeededBlocks (available: int) =
     (requiredBlocks - available) * BaseByLevel[workingLevel]
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2024 8 1
     let availableBlocks = int(lines[0])
 
     getNeededBlocks availableBlocks

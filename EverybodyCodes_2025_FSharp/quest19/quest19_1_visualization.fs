@@ -240,7 +240,7 @@ let aStar (start: int*int) =
     path.Length, path
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 19 1
     parseContent lines
     let pathLength, path = aStar (0, maxY)
     

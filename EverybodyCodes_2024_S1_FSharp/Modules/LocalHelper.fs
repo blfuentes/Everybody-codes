@@ -1,9 +1,38 @@
 namespace EverybodyCodes_2024_S1_FSharp.Modules
 
 open System.IO
+open EverybodyCodes_Utils
 
 [<AutoOpen>]
 module LocalHelper =
+
+    let getLines (text: string) : string list =
+        use sr = new StringReader(text)
+        let rec loop acc =
+            match sr.ReadLine() with
+            | null -> List.rev acc
+            | line -> loop (line :: acc)
+        loop []
+
+    let GetContent (path: string) (eventStory: int) (quest: int) (part: int) =
+        let sourcepath = __SOURCE_DIRECTORY__ + @"../../" + path
+        let (retrieveContent, content) =
+            if File.Exists sourcepath then
+                let content = File.ReadAllText sourcepath
+                if content.Length = 0 then
+                    (true, content)
+                else
+                    (false, content)
+            else
+                (true, "")
+        let content =
+            if retrieveContent then
+                let c = EverybodyCodes_Utils.retrieveContent eventStory quest part
+                File.WriteAllText(sourcepath, c)
+                c
+            else
+                content
+        getLines content |> Array.ofList
 
     let GetLinesFromFile(path: string) =
         File.ReadAllLines(__SOURCE_DIRECTORY__ + @"../../" + path)

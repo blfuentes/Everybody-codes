@@ -254,7 +254,7 @@ let visualizePathToPNG (field: int[,]) (radius: int) (path: (int*int) list) (fil
     fullPath
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 17 3
     let field = parseContent lines
     
     // Find the optimal radius and path

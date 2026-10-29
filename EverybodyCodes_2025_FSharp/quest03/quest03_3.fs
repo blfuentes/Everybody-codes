@@ -40,6 +40,6 @@ let buildPacks (crates: int array) =
     |> Array.maxBy (fun (_, v) -> v.Length)).Length    
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 3 3
     let crates = parseContent lines
     buildPacks crates

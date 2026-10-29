@@ -45,6 +45,6 @@ let doFormation (ducks: int array) =
     balancedRound
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 11 2
     let ducksFormed = parseContent lines
     doFormation ducksFormed

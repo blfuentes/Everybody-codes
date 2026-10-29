@@ -47,7 +47,7 @@ let getNumArrows arrowColour balloonColours : bigint =
     loop 0I arrowColour balloonColours
 
 let execute() =
-    let balloonStr = LocalHelper.GetLinesFromFile(path)[0]
+    let balloonStr = (LocalHelper.GetContent path 2 2 2)[0]
 
     let balloonColoursList =
         balloonStr

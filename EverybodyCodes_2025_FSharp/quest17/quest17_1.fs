@@ -45,7 +45,7 @@ let calculateRange (field: int[,]) (radius: int) =
     points |> Seq.sum
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 17 1
     let field = parseContent lines
     //printField field
     calculateRange field 10

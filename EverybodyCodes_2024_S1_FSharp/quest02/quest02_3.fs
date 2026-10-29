@@ -218,7 +218,7 @@ let buildWord(tree: Dictionary<string, Node>) =
 
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 1 2 3
     let nodes = parseContent(lines)
     let tree = buildTree(nodes)
     buildWord tree

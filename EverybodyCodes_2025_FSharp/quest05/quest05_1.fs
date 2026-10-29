@@ -99,7 +99,7 @@ let display (fishbone: Segment seq) =
     sprintf "%s" part
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 5 1
     let (id, segments) = parseContent lines
     let fishbone = buildFishbone (id, segments)
     display fishbone

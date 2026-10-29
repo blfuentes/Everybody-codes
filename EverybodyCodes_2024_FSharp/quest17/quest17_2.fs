@@ -78,7 +78,7 @@ let findMinimumSpanningTree(stars: Star list) =
         totalDistance + stars.Length
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2024 17 2
     let stars = parseContent(lines)
     //printStars stars
     findMinimumSpanningTree stars

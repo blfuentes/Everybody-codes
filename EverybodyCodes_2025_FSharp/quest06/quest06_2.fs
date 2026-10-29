@@ -38,5 +38,5 @@ let findAllMentors (notes: string) =
     |> List.sumBy findMentors
 
 let execute() =
-    let notes = LocalHelper.GetContentFromFile(path)
+    let notes = (LocalHelper.GetContent path 2025 6 2)[0]
     findAllMentors notes

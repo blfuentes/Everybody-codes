@@ -31,6 +31,6 @@ let calculateValidNames(names: string array, mapping: Map<string, string array>)
     |> Array.sumBy(fun (index, _) -> index)
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 7 2
     let (names, mapping) = parseContent(lines)
     calculateValidNames(names, mapping)    

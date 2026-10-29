@@ -192,6 +192,6 @@ let simulate (field: FieldMap) : BigInteger =
     movementTurn sheepArr dragon
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 10 3
     let fieldMap = parseContent(lines)
     simulate fieldMap    

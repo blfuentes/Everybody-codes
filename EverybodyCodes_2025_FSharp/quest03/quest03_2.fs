@@ -16,6 +16,6 @@ let findSmallestCrateSet (crates: int array) =
     |> Array.sum
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 3 2
     let crates = parseContent lines
     findSmallestCrateSet crates

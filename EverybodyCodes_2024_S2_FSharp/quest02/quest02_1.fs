@@ -25,7 +25,7 @@ let rec getNumArrows (arrowColour: int) (balloons: int list) : int =
             1 + getNumArrows ((arrowColour + 1) % 3) otherBalloons
 
 let execute() =
-    let balloonStr = LocalHelper.GetLinesFromFile(path)[0]
+    let balloonStr = (LocalHelper.GetContent path 2 2 1)[0]
     let balloonColours =
         balloonStr
         |> Seq.map colourToInt

@@ -80,7 +80,7 @@ let parseContent (lines: string array) =
     (grid, start)
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2024 20 1
     let grid, start = parseContent lines
 
     let positionStack = Stack<(Glider * int)>()

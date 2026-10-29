@@ -108,7 +108,7 @@ let rec readTree (i: int) (nodes: ResizeArray<TreeNode>) (result: ResizeArray<in
     | None -> ()
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 3 3 1
     let parsed = parseContent lines
     let treeNodes = ResizeArray<TreeNode>()
     for node in parsed do

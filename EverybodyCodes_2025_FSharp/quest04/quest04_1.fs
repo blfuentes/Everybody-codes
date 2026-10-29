@@ -25,6 +25,6 @@ let calcuateTarget (gears: float array) (target: float) =
 
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 4 1
     let gears = parseContent lines
     sprintf "%.0f" (System.Math.Floor(calcuateTarget gears 2025))

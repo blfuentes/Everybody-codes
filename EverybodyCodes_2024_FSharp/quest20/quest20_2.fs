@@ -108,7 +108,7 @@ let parseContent (lines: string array) =
     (grid, startPos)
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2024 20 2
     let grid, start = parseContent lines
 
     let positionQueue = Queue<list<Glider * int>>()

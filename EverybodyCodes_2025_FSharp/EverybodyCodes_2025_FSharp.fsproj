@@ -250,6 +250,10 @@
 		<PackageReference Include="System.Drawing.Common" />
 	</ItemGroup>
 
+				<ItemGroup>
+					<ProjectReference Include="..\EverybodyCodes_Utils\EverybodyCodes_Utils.fsproj" />
+				</ItemGroup>
+
 </Project>
 
 

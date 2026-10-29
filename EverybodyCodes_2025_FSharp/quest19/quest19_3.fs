@@ -47,7 +47,7 @@ let findShortestPath (gaps: Dictionary<int, (int * int) list>) =
     ySol + (finalX - ySol) / 2
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2025 19 3
     let gaps = parseContent lines
     let result = findShortestPath gaps
     result
