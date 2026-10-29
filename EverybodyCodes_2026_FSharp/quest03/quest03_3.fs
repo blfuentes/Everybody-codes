@@ -15,28 +15,47 @@ let numOf (c: char) =
     System.Char.GetNumericValue(c) |> int
 
 let calculateVote ((v1, v2): string * string) =
-    [0..v2.Length-1]
-    |> Seq.sumBy(fun i ->
-        let index = i % v1.Length
-        let v =
-            v1.ToCharArray()
-            |> Seq.rev
-            |> Seq.item(index)
-        int64 (float((numOf v2[v2.Length - i - 1])) * Math.Pow((numOf(v), i)))
-    )
+    let weights =
+        Array.init v2.Length (fun i ->
+            let factor = numOf v1[v1.Length - 1 - (i % v1.Length)]
+            pown (int64 factor) i)
+
+    v2
+    |> Seq.rev
+    |> Seq.mapi (fun i digit -> int64 (numOf digit) * weights[i])
+    |> Seq.sum
 
 let smallest ((v1, v2): string * string) =
-    let voteValue = calculateVote (v1, v2)
-    let rec foundSmallest current =
-        let value = calculateVote (v1, current.ToString())
-        if value = voteValue then
-            0L
-        elif current > 0 then
-            let prev = calculateVote (v1, (current-1).ToString())
-            foundSmallest (current-1)
-        else 
-            voteValue
-    foundSmallest (int(v2) - 1)
+    let digits = v2 |> Seq.rev |> Seq.map numOf |> Seq.toArray
+    let weights =
+        Array.init digits.Length (fun i ->
+            let factor = numOf v1[v1.Length - 1 - (i % v1.Length)]
+            pown (int64 factor) i)
+
+    let target =
+        digits
+        |> Array.mapi (fun i digit -> int64 digit * weights[i])
+        |> Array.sum
+
+    let mutable current = target
+    let mutable index = 0
+    let mutable found = false
+
+    while index < digits.Length && not found do
+        while index < digits.Length && digits[index] = 0 do
+            digits[index] <- 9
+            current <- current + 9L * weights[index]
+            index <- index + 1
+
+        if index < digits.Length then
+            digits[index] <- digits[index] - 1
+            current <- current - weights[index]
+            index <- 0
+
+            if current = target then
+                found <- true
+
+    if found then 0L else target
 
 let execute() =
     let lines = LocalHelper.GetLinesFromFile(path)
