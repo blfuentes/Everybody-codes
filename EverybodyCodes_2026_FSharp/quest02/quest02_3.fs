@@ -83,4 +83,7 @@ let sortPairs(pairs: seq<char*char>) : string =
 let execute() =
     let lines = LocalHelper.GetContent path 2026 2 3
     let pairs = parseContent lines
-    pairs |> Seq.sumBy (sortPairs >> int64)
+    pairs
+    |> Seq.toArray
+    |> Array.Parallel.map (sortPairs >> int64)
+    |> Array.sum

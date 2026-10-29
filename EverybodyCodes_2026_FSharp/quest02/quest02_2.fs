@@ -41,7 +41,7 @@ let sortPairs(pairs: seq<char*char>) : string =
                 (adj', indegree')
         )
 
-    // Kahn’s algorithm
+    // Kahnï¿½s algorithm
     // https://en.wikipedia.org/wiki/Topological_sorting#Kahn's_algorithm
     // Step 1: initialize ready set, all nodes with indegree to 0
     let ready0 =
@@ -83,4 +83,7 @@ let sortPairs(pairs: seq<char*char>) : string =
 let execute() =
     let lines = LocalHelper.GetContent path 2026 2 2
     let pairs = parseContent lines
-    pairs |> Seq.sumBy (sortPairs >> int64)
+    pairs
+    |> Seq.toArray
+    |> Array.Parallel.map (sortPairs >> int64)
+    |> Array.sum

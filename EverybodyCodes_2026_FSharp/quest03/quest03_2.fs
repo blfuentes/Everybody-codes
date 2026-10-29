@@ -28,4 +28,7 @@ let calculateVote ((v1, v2): string * string) =
 let execute() =
     let lines = LocalHelper.GetContent path 2026 3 2
     let votes = parseContent lines
-    votes |> Seq.sumBy calculateVote
+    votes
+    |> Seq.toArray
+    |> Array.Parallel.map calculateVote
+    |> Array.sum

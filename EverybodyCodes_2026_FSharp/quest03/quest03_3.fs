@@ -60,4 +60,7 @@ let smallest ((v1, v2): string * string) =
 let execute() =
     let lines = LocalHelper.GetContent path 2026 3 3
     let votes = parseContent lines
-    votes |> Seq.sumBy smallest
+    votes
+    |> Seq.toArray
+    |> Array.Parallel.map smallest
+    |> Array.sum
