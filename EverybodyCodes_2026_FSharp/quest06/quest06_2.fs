@@ -6,5 +6,5 @@ let path = "quest06/test_input_02.txt"
 //let path = "quest06/quest06_input_02.txt"
 
 let execute() =
-    let lines = LocalHelper.GetLinesFromFile(path)
+    let lines = LocalHelper.GetContent path 2026 6 2
     0
