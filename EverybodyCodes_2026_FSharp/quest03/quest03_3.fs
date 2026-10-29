@@ -25,26 +25,20 @@ let calculateVote ((v1, v2): string * string) =
         int64 (float((numOf v2[v2.Length - i - 1])) * Math.Pow((numOf(v), i)))
     )
 
-let hasSmallest ((v1, v2): string * string) =
+let smallest ((v1, v2): string * string) =
     let voteValue = calculateVote (v1, v2)
     let rec foundSmallest current =
         let value = calculateVote (v1, current.ToString())
         if value = voteValue then
-            true
+            0L
         elif current > 0 then
             let prev = calculateVote (v1, (current-1).ToString())
             foundSmallest (current-1)
         else 
-            false
+            voteValue
     foundSmallest (int(v2) - 1)
 
 let execute() =
     let lines = LocalHelper.GetLinesFromFile(path)
     let votes = parseContent lines
-    votes |> Seq.sumBy (fun v ->
-        //printfn "processing %A" v
-        if hasSmallest v then 
-            0L 
-        else 
-            calculateVote v
-    )
+    votes |> Seq.sumBy smallest
