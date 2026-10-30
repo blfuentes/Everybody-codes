@@ -1,10 +1,14 @@
 namespace EverybodyCodes_2026_FSharp.Modules
 
+open System
 open System.IO
 open EverybodyCodes_Utils
 
 [<AutoOpen>]
 module LocalHelper =
+    let ms ticks =
+        let timespan = (TimeSpan.FromTicks ticks)
+        sprintf "%02i:%02i.%03i" timespan.Minutes timespan.Seconds timespan.Milliseconds
 
     let VisualizationFolder = 
         if not (Directory.Exists(__SOURCE_DIRECTORY__ + @"../../visualizations/")) then

@@ -40,6 +40,39 @@ let rankBy key entries =
         tied |> Seq.map (fun (_, entry) -> position, entry))
 
 let calculateChecksum (warriors: (int * Warrior seq) seq) =
+    let combinedTimes = query {
+        for (_, entries) in warriors do
+        for entry in entries do
+        let totalTime = query {
+            for previous in entries do
+            where (previous.Quest = entry.Quest && previous.Part <= entry.Part)
+            sumBy previous.Time
+        }
+        select { entry with Time = totalTime }
+    }
+
+    let points = query {
+        for entry in combinedTimes do
+        groupBy (entry.Quest, entry.Part) into parts
+        for (position, entry) in rankBy _.Time parts do
+        select (entry.Id, max 0 (50 * entry.Part - position + 1))
+    }
+
+    let totalScores = query {
+        for (id, score) in points do
+        groupValBy score id into scores
+        let total = query {
+            for score in scores do
+            sumBy score
+        }
+        select (scores.Key, total)
+    }
+
+    totalScores
+    |> rankBy (fun (_, score) -> -score)
+    |> Seq.sumBy (fun (position, (_, score)) -> int64 position * int64 score)
+
+let calculateChecksumPipeline (warriors: (int * Warrior seq) seq) =
     warriors
     |> Seq.collect (fun (_, entries) ->
         entries
@@ -63,6 +96,16 @@ let calculateChecksum (warriors: (int * Warrior seq) seq) =
     |> Seq.sumBy (fun (position, (_, score)) -> int64 position * int64 score)
 
 let execute() =
+    let useQuery = true
     let lines = LocalHelper.GetContent path 2026 4 3
     let warriors = parseContent lines
-    calculateChecksum warriors
+
+    // let (value, time) = duration(fun () -> calculateChecksumPipeline warriors)
+    // printfn "Pipeline: %s" (LocalHelper.ms time)
+    // let (value, time) = duration(fun () -> calculateChecksum warriors)
+    // printfn "Query: %s" (LocalHelper.ms time)
+
+    if useQuery then
+        calculateChecksum warriors
+    else
+        calculateChecksumPipeline warriors

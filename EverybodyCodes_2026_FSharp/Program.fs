@@ -2,10 +2,6 @@ open System
 
 open EverybodyCodes_2026_FSharp.Modules
 
-let ms ticks =
-    let timespan = (TimeSpan.FromTicks ticks)
-    sprintf "%02i:%02i.%03i" timespan.Minutes timespan.Seconds timespan.Milliseconds
-
 [<EntryPoint>]
 let main argv =
     // DAY 01
