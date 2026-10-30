@@ -17,7 +17,7 @@ https://everybody.codes/
 | [2025 S3](#2025-melody-made-of-code--no-3-) | Melody Made of Code No. 3 | 🦆🦆🦆 | 9/9 |
 | [2026 GridOs 1](#2026-gridos-tournament--no-1-) | GridOS Tournament [ No. 1 ] | 🦆🦆🦆🦆🦆 | 15/15 |
 | [2026 S4](#2026-the-digital-atelier--no-4-) | The Digital Atelier No. 4 | 🦆🦆🦆 | 9/9 |
-| [2026](#2026-lord-of-the-wings) | Lord of the Wings | 🦆🦆🦆🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚 | 9/60 | 
+| [2026](#2026-lord-of-the-wings) | Lord of the Wings | 🦆🦆🦆🦆🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚 | 12/60 | 
 
 ### 2024 The Kingdom of Algorithmia
 
@@ -143,14 +143,14 @@ https://everybody.codes/
 
 [https://everybody.codes/event/2026](https://everybody.codes/event/2026/quests)
 
-🦆🦆🦆🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚(3/20)
+🦆🦆🦆🦆🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚(4/20)
 
 |Day      | Part 1 | Part 2 | Part 3 | [Visualization](Visualizations.md#2026) |
 |---------|----|----|----|----|
 | [Quest 01](https://everybody.codes/event/2026/quests/1):  The Coneservation | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest01/quest01_1.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest01/quest01_2.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest01/quest01_3.fs) ||
 | [Quest 02](https://everybody.codes/event/2026/quests/2):  The Axeperiment	| 🍗 [F#](./EverybodyCodes_2026_FSharp/quest02/quest02_1.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest02/quest02_2.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest02/quest02_3.fs) ||
 | [Quest 03](https://everybody.codes/event/2026/quests/3):  The ISOlation | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest03/quest03_1.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest03/quest03_2.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest03/quest03_3.fs) ||
-| [Quest 04](https://everybody.codes/event/2026/quests/4):  ???	| 🥚 | 🥚 | 🥚 ||
+| [Quest 04](https://everybody.codes/event/2026/quests/4):  The Rankening | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest04/quest04_1.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest04/quest04_2.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest04/quest04_3.fs) ||
 | [Quest 05](https://everybody.codes/event/2026/quests/5):  ???	| 🥚 | 🥚 | 🥚 ||
 | [Quest 06](https://everybody.codes/event/2026/quests/6):  ???	| 🥚 | 🥚 | 🥚 ||
 | [Quest 07](https://everybody.codes/event/2026/quests/7):  ???	| 🥚 | 🥚 | 🥚 ||
