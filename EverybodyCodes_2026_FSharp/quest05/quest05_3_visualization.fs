@@ -10,54 +10,12 @@ let outputFileName = "quest05_3_visualize.bmp"
 let private cellWidth = 8
 let private cellHeight = 9
 
-let private glyph = function
-    | '0' ->
-        [| "01110"
-           "10001"
-           "10011"
-           "10101"
-           "11001"
-           "10001"
-           "01110" |]
-    | '#' ->
-        [| "01010"
-           "01010"
-           "11111"
-           "01010"
-           "11111"
-           "01010"
-           "01010" |]
-    | '=' ->
-        [| "00000"
-           "11111"
-           "00000"
-           "11111"
-           "00000"
-           "00000"
-           "00000" |]
-    | '@' ->
-        [| "01110"
-           "10001"
-           "10111"
-           "10101"
-           "10111"
-           "10000"
-           "01110" |]
-    | _ ->
-        [| "00000"
-           "00000"
-           "00000"
-           "00000"
-           "00000"
-           "00000"
-           "00000" |]
-
 let private colors = function
-    | '0' -> (190uy, 105uy, 35uy), (255uy, 255uy, 255uy)
-    | '#' -> (55uy, 125uy, 65uy), (255uy, 255uy, 255uy)
-    | '=' -> (90uy, 190uy, 220uy), (40uy, 35uy, 25uy)
-    | '@' -> (35uy, 85uy, 45uy), (255uy, 255uy, 255uy)
-    | _ -> (0uy, 0uy, 0uy), (255uy, 255uy, 255uy)
+    | '0' -> (45uy, 140uy, 210uy)
+    | '#' -> (139uy, 90uy, 43uy)
+    | '=' -> (240uy, 210uy, 70uy)
+    | '@' -> (45uy, 130uy, 55uy)
+    | _ -> (0uy, 0uy, 0uy)
 
 let private writeBitmap (filePath: string) (map: char array array) =
     let rows = map.Length
@@ -92,25 +50,13 @@ let private writeBitmap (filePath: string) (map: char array array) =
     for bitmapRow in height - 1 .. -1 .. 0 do
         System.Array.Clear(pixelRow, 0, pixelRow.Length)
         let mapRow = bitmapRow / cellHeight
-        let glyphRow = bitmapRow % cellHeight - 1
 
         for col in 0 .. cols - 1 do
             let symbol = map[mapRow][col]
-            let background, foreground = colors symbol
-            let pattern = glyph symbol
+            let red, green, blue = colors symbol
 
             for x in 0 .. cellWidth - 1 do
-                let glyphCol = x - 1
-                let color =
-                    if glyphRow >= 0 && glyphRow < pattern.Length
-                       && glyphCol >= 0 && glyphCol < pattern[glyphRow].Length
-                       && pattern[glyphRow][glyphCol] = '1' then
-                        foreground
-                    else
-                        background
-
                 let pixelOffset = col * cellWidth * 3 + x * 3
-                let red, green, blue = color
                 pixelRow[pixelOffset] <- blue
                 pixelRow[pixelOffset + 1] <- green
                 pixelRow[pixelOffset + 2] <- red
@@ -128,11 +74,11 @@ let execute() =
         map
         |> Array.mapi (fun row cells ->
             cells
-            |> Array.mapi (fun col water ->
+            |> Array.mapi (fun col _ ->
                 if trees.Contains(row, col) then '@'
                 elif sand.Contains(row, col) then '='
                 elif land.Contains(row, col) then '#'
-                else water
+                else '0'
             )
         )
 
