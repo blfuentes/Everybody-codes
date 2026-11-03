@@ -3,8 +3,8 @@ module quest06_2
 open EverybodyCodes_2026_FSharp.Modules
 open System.Collections.Generic
 
-let path = "quest06/test_input_02.txt"
-//let path = "quest06/quest06_input_02.txt"
+//let path = "quest06/test_input_02.txt"
+let path = "quest06/quest06_input_02.txt"
 
 type Ingredient = {
     Id: string
@@ -45,10 +45,10 @@ let compositionOf (root: string) =
     visited        
 
 let execute() =
-    let lines = LocalHelper.GetContent path 2026 6 1
+    let lines = LocalHelper.GetContent path 2026 6 2
     parseContent lines
     //let composition = compositionOf "NULL"
     //composition.Count - 1
     let allcompo = 
         ingredients.Keys |> Seq.map compositionOf
-    allcompo |> Seq.filter _.Contains("NULL") |> Seq.length
+    (allcompo |> Seq.filter _.Contains("NULL") |> Seq.length) - 1
