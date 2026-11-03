@@ -7,14 +7,14 @@ open System.Collections.Generic
 //let path = "quest06/test_input_01.txt"
 let path = "quest06/quest06_input_01.txt"
 
-let graph = Dictionary<string, ResizeArray<string>>()
+let ingredients = Dictionary<string, ResizeArray<string>>()
 
 let ensureNode (id: string) =
-    if not (graph.ContainsKey id) then
-        graph[id] <- ResizeArray<string>()
+    if not (ingredients.ContainsKey id) then
+        ingredients[id] <- ResizeArray<string>()
 
 let parseContent (lines: string array) =
-    graph.Clear()
+    ingredients.Clear()
 
     for line in lines do
         let sep = line.IndexOf(':')
@@ -25,7 +25,7 @@ let parseContent (lines: string array) =
 
         for child in children do
             ensureNode child
-            graph[id].Add(child)
+            ingredients[id].Add(child)
 
 let reachableCountFrom (root: string) =
     let stack = Stack<string>()
@@ -36,7 +36,7 @@ let reachableCountFrom (root: string) =
     while stack.TryPop(&current) do
         if visited.Add(current) then
             let mutable children = Unchecked.defaultof<ResizeArray<string>>
-            if graph.TryGetValue(current, &children) then
+            if ingredients.TryGetValue(current, &children) then
                 for c in children do
                     stack.Push(c)
 

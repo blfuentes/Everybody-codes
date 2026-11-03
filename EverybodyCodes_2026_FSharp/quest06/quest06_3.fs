@@ -2,36 +2,30 @@ module quest06_3
 
 open EverybodyCodes_2026_FSharp.Modules
 open System.Collections.Generic
+open System
 
 //let path = "quest06/test_input_03.txt"
 let path = "quest06/quest06_input_03.txt"
 
-type Ingredient = {
-    Id: string
-    Composition: string list
-}
+let ingredients = Dictionary<string, ResizeArray<string>>()
 
-let ingredients = Dictionary<string, Ingredient>()
+let ensureNode (id: string) =
+    if not (ingredients.ContainsKey id) then
+        ingredients[id] <- ResizeArray<string>()
 
 let parseContent (lines: string array) =
     ingredients.Clear()
 
-    let parseLine (line: string) =
-        let parts = line.Split(':')
-        let id = parts[0]
-        let ings = parts[1].Split(',')
-        (id, ings)
+    for line in lines do
+        let sep = line.IndexOf(':')
+        let id = line.Substring(0, sep)
+        let children = line.Substring(sep + 1).Split(',', StringSplitOptions.RemoveEmptyEntries)
 
-    lines
-    |> Seq.iter (fun l ->
-        let (id, ings) = parseLine l
-        ings |> Seq.iter (fun i -> ingredients.TryAdd(i, { Id = i; Composition = [] }) |> ignore)
+        ensureNode id
 
-        if ingredients.ContainsKey(id) then
-            ingredients[id] <- { ingredients[id] with Composition = List.concat [ ingredients[id].Composition; List.ofArray ings ] }
-        else
-            ingredients.Add(id, { Id = id; Composition = List.ofArray ings })
-    )
+        for child in children do
+            ensureNode child
+            ingredients[id].Add(child)
 
 let buildReverseGraph () =
     let reverse = Dictionary<string, ResizeArray<string>>()
@@ -44,7 +38,7 @@ let buildReverseGraph () =
         let parent = kvp.Key
         ensureNode parent
 
-        for child in kvp.Value.Composition do
+        for child in kvp.Value do
             ensureNode child
             reverse[child].Add(parent)
 
