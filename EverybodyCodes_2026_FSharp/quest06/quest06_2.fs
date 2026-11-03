@@ -33,27 +33,42 @@ let parseContent (lines: string array) =
             ingredients.Add(id, { Id = id; Composition = List.ofArray ings })
     )
 
-let compositionOf (root: string) =
-    let composition = Stack<string>()
-    composition.Push root
-    let visited = HashSet<string>()
+let buildReverseGraph () =
+    let reverse = Dictionary<string, ResizeArray<string>>()
 
-    let mutable current = ""
-    while composition.TryPop(&current) do
-        visited.Add current |> ignore
-        ingredients[current].Composition
-        |> List.iter (fun i ->
-            if not (visited.Contains i) then
-                composition.Push i
-        )
-    visited
+    let ensureNode key =
+        if not (reverse.ContainsKey key) then
+            reverse[key] <- ResizeArray<string>()
+
+    for kvp in ingredients do
+        let parent = kvp.Key
+        ensureNode parent
+
+        for child in kvp.Value.Composition do
+            ensureNode child
+            reverse[child].Add(parent)
+
+    reverse
 
 let execute() =
     let lines = LocalHelper.GetContent path 2026 6 2
     parseContent lines
 
-    ingredients.Keys
-    |> Seq.filter (fun k -> k <> "NULL")
-    |> Seq.map compositionOf
-    |> Seq.filter (fun comp -> comp.Contains "NULL")
-    |> Seq.length
+    let reverse = buildReverseGraph()
+
+    let reachableFromNull = HashSet<string>()
+    let stack = Stack<string>()
+    stack.Push("NULL")
+
+    let mutable current = ""
+    while stack.TryPop(&current) do
+        if reachableFromNull.Add(current) then
+            if reverse.ContainsKey(current) then
+                reverse[current]
+                |> Seq.iter (fun parent ->
+                    if not (reachableFromNull.Contains(parent)) then
+                        stack.Push(parent)
+                )
+
+    reachableFromNull.Remove("NULL") |> ignore
+    reachableFromNull.Count
