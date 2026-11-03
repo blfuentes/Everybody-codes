@@ -152,7 +152,7 @@ https://everybody.codes/
 | [Quest 03](https://everybody.codes/event/2026/quests/3):  The ISOlation | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest03/quest03_1.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest03/quest03_2.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest03/quest03_3.fs) ||
 | [Quest 04](https://everybody.codes/event/2026/quests/4):  The Rankening | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest04/quest04_1.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest04/quest04_2.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest04/quest04_3.fs) ||
 | [Quest 05](https://everybody.codes/event/2026/quests/5):  The Cartograffity | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest05/quest05_1.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest05/quest05_2.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest05/quest05_3.fs) |🀛 [Part3](./EverybodyCodes_2026_FSharp/visualizations/quest05_3_visualize.bmp)|
-| [Quest 06](https://everybody.codes/event/2026/quests/6):  ???	| 🥚 | 🥚 | 🥚 ||
+| [Quest 06](https://everybody.codes/event/2026/quests/6):  The Nullspiracy	| 🥚 | 🥚 | 🥚 ||
 | [Quest 07](https://everybody.codes/event/2026/quests/7):  ???	| 🥚 | 🥚 | 🥚 ||
 | [Quest 08](https://everybody.codes/event/2026/quests/8):  ???	| 🥚 | 🥚 | 🥚 ||
 | [Quest 09](https://everybody.codes/event/2026/quests/9):  ???	| 🥚 | 🥚 | 🥚 ||
