@@ -14,41 +14,46 @@ type Ingredient = {
 let ingredients = Dictionary<string, Ingredient>()
 
 let parseContent (lines: string array) =
-    //let ingredients = Dictionary<string, Ingredient>()
+    ingredients.Clear()
+
     let parseLine (line: string) =
-        (line.Split(':')[0], (line.Split(':')[1]).Split(','))
+        let parts = line.Split(':')
+        let id = parts[0]
+        let ings = parts[1].Split(',')
+        (id, ings)
+
     lines
-    |> Seq.iter(fun l ->
-        let(id, ings) = parseLine l
-        ings |> Seq.iter(fun i -> ingredients.TryAdd(i, { Id = i; Composition = []}) |> ignore)
+    |> Seq.iter (fun l ->
+        let (id, ings) = parseLine l
+        ings |> Seq.iter (fun i -> ingredients.TryAdd(i, { Id = i; Composition = [] }) |> ignore)
 
         if ingredients.ContainsKey(id) then
-            ingredients[id] <-  { ingredients[id] with Composition = (List.concat[ ingredients[id].Composition; ings |> List.ofArray]) }
+            ingredients[id] <- { ingredients[id] with Composition = List.concat [ ingredients[id].Composition; List.ofArray ings ] }
         else
-            ingredients.Add(id, { Id = id; Composition = (ings |> List.ofArray) })
+            ingredients.Add(id, { Id = id; Composition = List.ofArray ings })
     )
-
 
 let compositionOf (root: string) =
     let composition = Stack<string>()
     composition.Push root
     let visited = HashSet<string>()
-    
+
     let mutable current = ""
     while composition.TryPop(&current) do
         visited.Add current |> ignore
         ingredients[current].Composition
-        |> List.iter(fun i ->
-            if  not (visited.Contains i) then
+        |> List.iter (fun i ->
+            if not (visited.Contains i) then
                 composition.Push i
         )
-    visited        
+    visited
 
 let execute() =
     let lines = LocalHelper.GetContent path 2026 6 2
     parseContent lines
-    //let composition = compositionOf "NULL"
-    //composition.Count - 1
-    let allcompo = 
-        ingredients.Keys |> Seq.map compositionOf
-    (allcompo |> Seq.filter _.Contains("NULL") |> Seq.length) - 1
+
+    ingredients.Keys
+    |> Seq.filter (fun k -> k <> "NULL")
+    |> Seq.map compositionOf
+    |> Seq.filter (fun comp -> comp.Contains "NULL")
+    |> Seq.length
