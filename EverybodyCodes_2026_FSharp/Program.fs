@@ -54,13 +54,13 @@ let main argv =
     let (resultquest06_3, time06_3) = duration quest06_3.execute
     printfn "Final result Quest 06 part 3: %A in %s" resultquest06_3 (ms time06_3)
 
-    //// DAY 07
-    //let (resultquest07_1, time07_1) = duration quest07_1.execute
-    //printfn "Final result Quest 07 part 1: %A in %s" resultquest07_1 (ms time07_1)
-    //let (resultquest07_2, time07_2) = duration quest07_2.execute
-    //printfn "Final result Quest 07 part 2: %A in %s" resultquest07_2 (ms time07_2)
-    //let (resultquest07_3, time07_3) = duration quest07_3.execute
-    //printfn "Final result Quest 07 part 3: %A in %s" resultquest07_3 (ms time07_3)
+    // DAY 07
+    let (resultquest07_1, time07_1) = duration quest07_1.execute
+    printfn "Final result Quest 07 part 1: %A in %s" resultquest07_1 (ms time07_1)
+    let (resultquest07_2, time07_2) = duration quest07_2.execute
+    printfn "Final result Quest 07 part 2: %d in %s" resultquest07_2 (ms time07_2)
+    let (resultquest07_3, time07_3) = duration quest07_3.execute
+    printfn "Final result Quest 07 part 3: %d in %s" resultquest07_3 (ms time07_3)
 
     //// DAY 08
     //let (resultquest08_1, time08_1) = duration quest08_1.execute

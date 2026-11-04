@@ -82,7 +82,9 @@
 		<Compile Include="quest07\utils07.fs" />
 		<Content Include="quest07\test_input_01.txt" />
 		<Content Include="quest07\test_input_02.txt" />
+		<Content Include="quest07\test_input_02b.txt" />
 		<Content Include="quest07\test_input_03.txt" />
+		<Content Include="quest07\test_input_03b.txt" />
 		<Content Include="quest07\quest07_input_01.txt" />
 		<Content Include="quest07\quest07_input_02.txt" />
 		<Content Include="quest07\quest07_input_03.txt" />
