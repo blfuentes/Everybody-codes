@@ -2,7 +2,7 @@ module quest08_utilities
 
 open System.Collections.Generic
 
-// doubled hex coordinates, the neighbours of (r, c) are (r, c±2) and (r +/- 1, c +/- 1)
+// doubled hex coordinates, the neighbours of (r, c) are (r, c +/- 2) and (r +/- 1, c +/- 1)
 let directions = [| (1, 1); (1, -1); (0, -2); (-1, -1); (-1, 1); (0, 2) |] // ↘ ↙ ← ↖ ↗ →
 
 let parseField (lines: string array) =
