@@ -33,6 +33,7 @@
 | Day | Part 1 | Part 2 | Part 3 |
 |-----|--------|--------|--------|
 | Quest 5: The Cartograffity |||![quest17_3_visualization](./EverybodyCodes_2026_FSharp/visualizations/quest05_3_visualize.bmp)|
+| Quest 8: The Entgineering |||[![quest08_3_visualization](./EverybodyCodes_2026_FSharp/visualizations/quest08_3_visualization.gif)](./EverybodyCodes_2026_FSharp/visualizations/quest08_3_visualization.mp4)|
 
 # 2026 Stories 4
 | Day | Part 1 | Part 2 | Part 3 |
