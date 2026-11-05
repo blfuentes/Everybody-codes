@@ -3,8 +3,8 @@ module quest08_1
 open System.Collections.Generic
 open EverybodyCodes_2026_FSharp.Modules
 
-let path = "quest08/test_input_01.txt"
-//let path = "quest08/quest08_input_01.txt"
+//let path = "quest08/test_input_01.txt"
+let path = "quest08/quest08_input_01.txt"
 
 let ents = Dictionary<int*int, int>()
 let mutable (maxRow, maxCol) = (0, 0)
@@ -29,8 +29,8 @@ let printMap () =
         printfn "%s" System.Environment.NewLine
 
 let applyShadow() =
-    printfn "Initial map"
-    printMap ()
+    //printfn "Initial map"
+    //printMap ()
     let mutable (initRow, initCol) = (maxRow / 2, 0)
     // traveling from left to top
     for dr in 0..initRow do
@@ -42,18 +42,19 @@ let applyShadow() =
             let (cr, cc) = (r + counter, c + counter)
             let key = (cr, cc)
             if ents.ContainsKey(key) then
+                let entsize = ents[key]
                 currentShadow <-
-                    if currentShadow > ents[key] then
+                    if currentShadow > entsize then
                         ents.Remove(key) |> ignore
                         currentShadow - 1
                     else
                         ents[key]
             diagonalSize <- diagonalSize - 1
             counter <- counter + 1
-        printfn "After diagonal %d" dr
-        printMap ()
+        //printfn "After diagonal %d" dr
+        //printMap ()
     // traveling from top to right
-    for dc in 1..(initRow-1) do
+    for dc in 1..(initRow) do
         let (r, c) = (0, initRow + dc * 2)
         let mutable diagonalSize = initRow * 2 - (dc - 1)
         let mutable counter = 1
@@ -62,14 +63,17 @@ let applyShadow() =
             let (cr, cc) = (r + counter, c + counter)
             let key = (cr, cc)
             if ents.ContainsKey(key) then
-                if currentShadow > ents[key] then
-                    ents.Remove(key) |> ignore
-                else
-                    currentShadow <- max (currentShadow - 1) ents[key]
+                let entsize = ents[key]
+                currentShadow <-
+                    if currentShadow > entsize then
+                        ents.Remove(key) |> ignore
+                        currentShadow - 1
+                    else
+                        ents[key]
             diagonalSize <- diagonalSize - 1
             counter <- counter + 1
-        printfn "After lateral %d" dc
-        printMap()
+        //printfn "After lateral %d" dc
+        //printMap()
     ents.Values.Count
 
 let execute() =
