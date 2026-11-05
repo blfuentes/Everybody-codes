@@ -85,7 +85,7 @@ let applyHorizontalShadow (ents: Dictionary<int*int, int>) firstColByRow colStep
         //printMap ents
 
 let shadowLefTop (ents: Dictionary<int*int, int>) =
-    //printfn "Direction LT"// '↘'
+    //printfn "Direction ↘"
     let initRow = maxRow / 2
 
     applyDiagonalShadow
@@ -98,7 +98,7 @@ let shadowLefTop (ents: Dictionary<int*int, int>) =
     ents.Values.Count
 
 let shadowRightTop (ents: Dictionary<int*int, int>) =
-    //printfn "Direction RT" //↙"
+    //printfn "Direction ↙"
     let initRow = maxRow / 2
 
     applyDiagonalShadow
@@ -111,7 +111,7 @@ let shadowRightTop (ents: Dictionary<int*int, int>) =
     ents.Values.Count
 
 let shadowRight (ents: Dictionary<int*int, int>) =
-    //printfn "Direction R"//←"
+    //printfn "Direction ←"
     applyHorizontalShadow
         ents
         (fun r -> ents.Keys |> Seq.filter (fun (rk, _) -> rk = r) |> Seq.map snd |> Seq.max)
@@ -120,7 +120,7 @@ let shadowRight (ents: Dictionary<int*int, int>) =
     ents.Values.Count
 
 let shadowRightBottom (ents: Dictionary<int*int, int>) =
-    //printfn "Direction RB"//↖"
+    //printfn "Direction ↖"
     let initRow = maxRow / 2
 
     applyDiagonalShadow
@@ -133,7 +133,7 @@ let shadowRightBottom (ents: Dictionary<int*int, int>) =
     ents.Values.Count
 
 let shadowLeftBottom (ents: Dictionary<int*int, int>) = 
-    //printfn "Direction LB"//"↗"
+    //printfn "Direction ↗"
     let initRow = maxRow / 2
 
     applyDiagonalShadow
@@ -146,7 +146,7 @@ let shadowLeftBottom (ents: Dictionary<int*int, int>) =
     ents.Values.Count
 
 let shadowLeft (ents: Dictionary<int*int, int>) =
-    //printfn "Direction L"//→"
+    //printfn "Direction →"
     applyHorizontalShadow
         ents
         (fun r -> ents.Keys |> Seq.filter (fun (rk, _) -> rk = r) |> Seq.map snd |> Seq.min)
