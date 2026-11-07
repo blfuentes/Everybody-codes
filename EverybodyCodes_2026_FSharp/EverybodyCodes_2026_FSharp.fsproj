@@ -109,10 +109,10 @@
 		<Content Include="quest09\quest09_input_01.txt" />
 		<Content Include="quest09\quest09_input_02.txt" />
 		<Content Include="quest09\quest09_input_03.txt" />
+		<Compile Include="quest10\utils10.fs" />
 		<Compile Include="quest10\quest10_1.fs" />
 		<Compile Include="quest10\quest10_2.fs" />
 		<Compile Include="quest10\quest10_3.fs" />
-		<Compile Include="quest10\utils10.fs" />
 		<Content Include="quest10\test_input_01.txt" />
 		<Content Include="quest10\test_input_02.txt" />
 		<Content Include="quest10\test_input_03.txt" />

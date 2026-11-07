@@ -5,6 +5,7 @@ type Nullghost = {
     Id: int
     Pos: int*int
     Dir: char
+    Life: bigint
 }
 
 let movOfDir d =

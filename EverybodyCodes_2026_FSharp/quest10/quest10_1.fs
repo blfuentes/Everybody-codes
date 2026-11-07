@@ -21,7 +21,7 @@ let parseContent (lines: string array) =
             match lines[r][c] with
             | '.' -> ignore()
             | '#' -> walls.Add((r,c)) |> ignore
-            | _ -> nullghosts.Add({ Id = id; Pos=(r, c); Dir = lines[r][c] })
+            | _ -> nullghosts.Add({ Id = id; Pos=(r, c); Dir = lines[r][c]; Life = 0 })
                    id <- id + 1
 
 let round() : int =
@@ -54,15 +54,15 @@ let round() : int =
         collisions
     let moveCollisions = moveGhosts()
     let ghostCollisions = countCollisions()
-    // printfn "Collisions %d" countCollisions
+    //printfn "Wall collisions: %d - Ghosts collisions: %d" moveCollisions ghostCollisions
     moveCollisions + ghostCollisions
 
 let start (rounds: int) : int =
     let mutable collisions = 0
     for i in 1..rounds do
         let newCollisions = round()
-        printfn "Round: %d" i
-        printfn "Collisions: %d" newCollisions
+        //printfn "Round: %d" i
+        //printfn "Collisions: %d" newCollisions
         collisions <- collisions + newCollisions
     collisions
 
