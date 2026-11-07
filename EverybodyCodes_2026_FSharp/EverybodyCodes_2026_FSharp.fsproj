@@ -4,7 +4,6 @@
 		<OutputType>Exe</OutputType>
 		<TargetFramework>net10.0</TargetFramework>
 	</PropertyGroup>
-
 	<ItemGroup>
 		<Compile Include="Modules\LocalHelper.fs" />
 		<Compile Include="Modules\Utils.fs" />
@@ -112,6 +111,7 @@
 		<Compile Include="quest10\utils10.fs" />
 		<Compile Include="quest10\quest10_1.fs" />
 		<Compile Include="quest10\quest10_2.fs" />
+		<Compile Include="quest10\quest10_2 visualization.fs" />
 		<Compile Include="quest10\quest10_3.fs" />
 		<Content Include="quest10\test_input_01.txt" />
 		<Content Include="quest10\test_input_02.txt" />
@@ -233,8 +233,6 @@
 	</ItemGroup>
 
 </Project>
-
-
 
 
 

@@ -21,7 +21,7 @@ let parseContent (lines: string array) =
             match lines[r][c] with
             | '.' -> ignore()
             | '#' -> walls.Add((r,c)) |> ignore
-            | _ -> nullghosts.Add({ Id = id; Pos=(r, c); Dir = lines[r][c]; Life = 0 })
+            | _ -> nullghosts.Add({ Id = id; Pos=(r, c); Dir = lines[r][c]; Life = 0I })
                    id <- id + 1
 
 let round() : int =

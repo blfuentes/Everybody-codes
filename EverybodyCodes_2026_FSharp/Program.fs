@@ -45,8 +45,8 @@ let main argv =
     printfn "Final result Quest 05 part 2: %A in %s" resultquest05_2 (ms time05_2)
     let (resultquest05_3, time05_3) = duration quest05_3.execute
     printfn "Final result Quest 05 part 3: %A in %s" resultquest05_3 (ms time05_3)
-    // let (resultquest05_3, time05_3) = duration quest05_3_visualization.execute
-    // printfn "Final result Quest 05 part 3: %A in %s" resultquest05_3 (ms time05_3)
+    // let (resultquest05_3_visualization, time05_3_visualization) = duration quest05_3_visualization.execute
+    // printfn "Final result Quest 05 part 3 visualization: %A in %s" resultquest05_3_visualization (ms time05_3_visualization)
 
     // DAY 06
     let (resultquest06_1, time06_1) = duration quest06_1.execute
@@ -71,8 +71,8 @@ let main argv =
     printfn "Final result Quest 08 part 2: %A in %s" resultquest08_2 (ms time08_2)
     let (resultquest08_3, time08_3) = duration quest08_3.execute
     printfn "Final result Quest 08 part 3: %d in %s" resultquest08_3 (ms time08_3)
-    //let (resultquest08_3, time08_3) = duration quest08_3_visualization.execute
-    //printfn "Final result Quest 08 part 3: %A in %s" resultquest08_3 (ms time08_3)
+    //let (resultquest08_3_visualization, time08_3_visualization) = duration quest08_3_visualization.execute
+    //printfn "Final result Quest 08 part 3 visualization: %A in %s" resultquest08_3_visualization (ms time08_3_visualization)
 
     // DAY 09
     let (resultquest09_1, time09_1) = duration quest09_1.execute
@@ -87,6 +87,8 @@ let main argv =
     printfn "Final result Quest 10 part 1: %A in %s" resultquest10_1 (ms time10_1)
     let (resultquest10_2, time10_2) = duration quest10_2.execute
     printfn "Final result Quest 10 part 2: %A in %s" resultquest10_2 (ms time10_2)
+    //let (resultquest10_2_visualization, time10_2_visualization) = duration quest10_2_visualization.execute
+    //printfn "Final result Quest 10 part 2 visualization: %A in %s" resultquest10_2_visualization (ms time10_2_visualization)
     let (resultquest10_3, time10_3) = duration quest10_3.execute
     printfn "Final result Quest 10 part 3: %A in %s" resultquest10_3 (ms time10_3)
 

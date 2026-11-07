@@ -36,7 +36,7 @@ let round() : int =
             else
                 let newDir = rotate90 ghost.Dir
                 let newLife = ghost.Life - 1I
-                if newLife = 0 then
+                if newLife = 0I then
                     nullghosts.Remove(key) |> ignore
                 else
                     nullghosts[key] <- { ghost with Life = newLife; Dir = newDir }
@@ -55,7 +55,7 @@ let round() : int =
             for kvp in group do
                 let (key, ghost) = (kvp.Key, kvp.Value)
                 let newLife = nullghosts[key].Life - 1I
-                if newLife = 0 then
+                if newLife = 0I then
                     nullghosts.Remove(key) |> ignore
                 else
                     nullghosts[key] <- { ghost with Life = newLife; Dir = (rotate180 ghost.Dir) }
