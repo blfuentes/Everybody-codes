@@ -4,8 +4,8 @@ open EverybodyCodes_2026_FSharp.Modules
 open System.Collections.Generic
 open System.Text.RegularExpressions
 
-let path = "quest11/test_input_01.txt"
-//let path = "quest11/quest11_input_01.txt"
+//let path = "quest11/test_input_01.txt"
+let path = "quest11/quest11_input_01.txt"
 
 let Connections = Dictionary<int, ResizeArray<int>>()
 
@@ -31,21 +31,28 @@ let parseContent (lines: string array) =
 
     numOfPortals
 
+let distanceSum n =
+    (n * n) / 4
+
 let minTransport (portalStart: int) (portals: int) =
     let toVisit = Queue<int*int>()
     let visited = HashSet<int>()
     
-    let jumpsForEnd = Array.zeroCreate<int>(portals-1)
+    let jumpsForEnd = Array.zeroCreate<int>(portals)
 
-    for portalEnd in 1..10 do
+    //let jumpNoExtra = distanceSum portals * portalStart
+
+    for portalEnd in 1..portals do
         if portalEnd <> portalStart then
+            toVisit.Clear()
+            visited.Clear()
             let finalJump = 
                 toVisit.Enqueue((portalStart, 0))
                 visited.Add(portalStart) |> ignore
      
                 let mutable currentJump = Unchecked.defaultof<int * int>
                 let mutable finalJump = 0
-                while toVisit.TryDequeue(&currentJump) do
+                while toVisit.TryDequeue(&currentJump) && finalJump = 0 do
                     let (current, jump) = currentJump
                     if current = portalEnd then
                         finalJump <- jump
@@ -63,5 +70,5 @@ let minTransport (portalStart: int) (portals: int) =
 let execute() =
     let lines = LocalHelper.GetContent path 2026 11 1
     let numOfPortals = parseContent lines
-    [1..numOfPortals]
-    |> Seq.sumBy(fun p ->  minTransport p numOfPortals)
+    let nomin = distanceSum numOfPortals * numOfPortals
+    nomin - ([1..numOfPortals] |> Seq.sumBy(fun p ->  minTransport p numOfPortals))

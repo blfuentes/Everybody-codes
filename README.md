@@ -17,7 +17,7 @@ https://everybody.codes/
 | [2025 S3](#2025-melody-made-of-code--no-3-) | Melody Made of Code No. 3 | 🦆🦆🦆 | 9/9 |
 | [2026 GridOs 1](#2026-gridos-tournament--no-1-) | GridOS Tournament [ No. 1 ] | 🦆🦆🦆🦆🦆 | 15/15 |
 | [2026 S4](#2026-the-digital-atelier--no-4-) | The Digital Atelier No. 4 | 🦆🦆🦆 | 9/9 |
-| [2026](#2026-lord-of-the-wings) | Lord of the Wings | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚 | 30/60 | 
+| [2026](#2026-lord-of-the-wings) | Lord of the Wings | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🥚🥚🥚🥚🥚🥚🥚🥚🥚 | 33/60 | 
 
 ### 2024 The Kingdom of Algorithmia
 
@@ -143,7 +143,7 @@ https://everybody.codes/
 
 [https://everybody.codes/event/2026](https://everybody.codes/event/2026/quests)
 
-🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚(10/20)
+🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🥚🥚🥚🥚🥚🥚🥚🥚🥚(11/20)
 
 |Day      | Part 1 | Part 2 | Part 3 | [Visualization](Visualizations.md#2026) |
 |---------|----|----|----|----|
@@ -157,7 +157,7 @@ https://everybody.codes/
 | [Quest 08](https://everybody.codes/event/2026/quests/8):  The Entgineering | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest08/quest08_1.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest08/quest08_2.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest08/quest08_3.fs) |🀛 [Part3](./EverybodyCodes_2026_FSharp/visualizations/quest08_3_visualization.gif) [video](https://github.com/user-attachments/assets/697a8bbd-8fd3-47ba-a523-c5978f084e9b)|
 | [Quest 09](https://everybody.codes/event/2026/quests/9):  The Sulphurprise | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest09/quest09_1.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest09/quest09_2.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest09/quest09_3.fs) ||
 | [Quest 10](https://everybody.codes/event/2026/quests/10): The Phantasmagorithm | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest10/quest10_1.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest10/quest10_2.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest10/quest10_3.fs) |🀚 [Part2](./EverybodyCodes_2026_FSharp/visualizations/quest10_2_visualization.gif)|
-| [Quest 11](https://everybody.codes/event/2026/quests/11): The Portalignment | 🥚 | 🥚 | 🥚 ||
+| [Quest 11](https://everybody.codes/event/2026/quests/11): The Portalignment | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest11/quest11_1.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest11/quest11_2.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest11/quest11_3.fs) ||
 | [Quest 12](https://everybody.codes/event/2026/quests/12): ???	| 🥚 | 🥚 | 🥚 ||
 | [Quest 13](https://everybody.codes/event/2026/quests/13): ???	| 🥚 | 🥚 | 🥚 ||
 | [Quest 14](https://everybody.codes/event/2026/quests/14): ???	| 🥚 | 🥚 | 🥚 ||
