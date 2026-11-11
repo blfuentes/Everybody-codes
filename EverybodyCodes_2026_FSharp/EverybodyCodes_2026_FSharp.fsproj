@@ -135,7 +135,10 @@
 		<Compile Include="quest12\utils12.fs" />
 		<Content Include="quest12\test_input_01.txt" />
 		<Content Include="quest12\test_input_02.txt" />
+		<Content Include="quest12\test_input_02b.txt" />
 		<Content Include="quest12\test_input_03.txt" />
+		<Content Include="quest12\test_input_03b.txt" />
+		<Content Include="quest12\test_input_03c.txt" />
 		<Content Include="quest12\quest12_input_01.txt" />
 		<Content Include="quest12\quest12_input_02.txt" />
 		<Content Include="quest12\quest12_input_03.txt" />
