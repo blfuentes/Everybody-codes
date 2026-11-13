@@ -35,6 +35,7 @@
 | Quest 5: The Cartograffity |||![quest05_3_visualization](./EverybodyCodes_2026_FSharp/visualizations/quest05_3_visualize.bmp)|
 | Quest 8: The Entgineering |||[![quest08_3](./EverybodyCodes_2026_FSharp/visualizations/quest08_visualization/quest08_3_visualization.gif)](https://github.com/user-attachments/assets/697a8bbd-8fd3-47ba-a523-c5978f084e9b)|
 | Quest 10: The Phantasmagorithm ||![quest10_2_visualization](./EverybodyCodes_2026_FSharp/visualizations/quest10_2_visualization.gif)||
+| Quest 14: The Shardorithm ||![quest14_2_visualization](./EverybodyCodes_2026_FSharp/visualizations/quest14_2_visualization.bmp)|![quest14_3_visualization](./EverybodyCodes_2026_FSharp/visualizations/quest14_3_visualization.bmp)|
 # 2026 Stories 4
 | Day | Part 1 | Part 2 | Part 3 |
 |-----|--------|--------|--------|
