@@ -19,36 +19,36 @@ let minimumBindings (grid: string array) =
     let pieceIds = Dictionary<char, int>()
     pieces |> Array.iteri (fun index piece -> pieceIds.Add(piece, index))
 
-    let frameCosts = Array.zeroCreate<int64> pieces.Length
-    let seamCosts = Dictionary<int * int, int64>()
+    let frameCosts = Array.zeroCreate<int> pieces.Length
+    let seamCosts = Dictionary<int * int, int>()
 
     let addSeam first second =
         let key = if first < second then first, second else second, first
         match seamCosts.TryGetValue key with
-        | true, cost -> seamCosts[key] <- cost + 1L
-        | false, _ -> seamCosts.Add(key, 1L)
+        | true, cost -> seamCosts[key] <- cost + 1
+        | false, _ -> seamCosts.Add(key, 1)
 
     for row in 0 .. height - 1 do
         for column in 0 .. width - 1 do
             let current = pieceIds[grid[row][column]]
 
             if row = 0 then
-                frameCosts[current] <- frameCosts[current] + 1L
+                frameCosts[current] <- frameCosts[current] + 1
             else
                 let above = pieceIds[grid[row - 1][column]]
                 if current <> above then addSeam current above
 
             if column = 0 then
-                frameCosts[current] <- frameCosts[current] + 1L
+                frameCosts[current] <- frameCosts[current] + 1
             else
                 let left = pieceIds[grid[row][column - 1]]
                 if current <> left then addSeam current left
 
             if row = height - 1 then
-                frameCosts[current] <- frameCosts[current] + 1L
+                frameCosts[current] <- frameCosts[current] + 1
 
             if column = width - 1 then
-                frameCosts[current] <- frameCosts[current] + 1L
+                frameCosts[current] <- frameCosts[current] + 1
 
     let frameNode = pieces.Length
     let seamEdges =
@@ -60,7 +60,7 @@ let minimumBindings (grid: string array) =
 
     let frameEdges =
         [| for piece in 0 .. pieces.Length - 1 do
-               if frameCosts[piece] > 0L then
+               if frameCosts[piece] > 0 then
                    yield piece, frameNode, frameCosts[piece] |]
 
     // Kruskal algorithm to find the minimum cost to connect all pieces to the frame
@@ -96,7 +96,7 @@ let minimumBindings (grid: string array) =
 
             true
 
-    let mutable total = 0L
+    let mutable total = 0
     let mutable connectedPieces = 0
 
     for first, second, cost in edges do
