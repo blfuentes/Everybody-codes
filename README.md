@@ -160,7 +160,7 @@ https://everybody.codes/
 | [Quest 11](https://everybody.codes/event/2026/quests/11): The Portalignment | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest11/quest11_1.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest11/quest11_2.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest11/quest11_3.fs) ||
 | [Quest 12](https://everybody.codes/event/2026/quests/12): The Castastrophe | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest12/quest12_1.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest12/quest12_2.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest12/quest12_3.fs) ||
 | [Quest 13](https://everybody.codes/event/2026/quests/13): The Tickursion	| 🍗 [F#](./EverybodyCodes_2026_FSharp/quest13/quest13_1.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest13/quest13_2.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest13/quest13_3.fs) ||
-| [Quest 14](https://everybody.codes/event/2026/quests/14):  The Shardorithm | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest14/quest14_1.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest14/quest14_2.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest14/quest14_3.fs) ||
+| [Quest 14](https://everybody.codes/event/2026/quests/14): The Shardorithm | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest14/quest14_1.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest14/quest14_2.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest14/quest14_3.fs) ||
 | [Quest 15](https://everybody.codes/event/2026/quests/15): ???	| 🥚 | 🥚 | 🥚 ||
 | [Quest 16](https://everybody.codes/event/2026/quests/16): ???	| 🥚 | 🥚 | 🥚 ||
 | [Quest 17](https://everybody.codes/event/2026/quests/17): ??? | 🥚 | 🥚 | 🥚 ||
