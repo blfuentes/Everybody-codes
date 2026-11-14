@@ -17,7 +17,7 @@ https://everybody.codes/
 | [2025 S3](#2025-melody-made-of-code--no-3-) | Melody Made of Code No. 3 | 🦆🦆🦆 | 9/9 |
 | [2026 GridOs 1](#2026-gridos-tournament--no-1-) | GridOS Tournament [ No. 1 ] | 🦆🦆🦆🦆🦆 | 15/15 |
 | [2026 S4](#2026-the-digital-atelier--no-4-) | The Digital Atelier No. 4 | 🦆🦆🦆 | 9/9 |
-| [2026](#2026-lord-of-the-wings) | Lord of the Wings | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🥚🥚🥚🥚🥚🥚 | 42/60 | 
+| [2026](#2026-lord-of-the-wings) | Lord of the Wings | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🥚🥚🥚🥚🥚 | 45/60 | 
 
 ### 2024 The Kingdom of Algorithmia
 
@@ -143,7 +143,7 @@ https://everybody.codes/
 
 [https://everybody.codes/event/2026](https://everybody.codes/event/2026/quests)
 
-🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🥚🥚🥚🥚🥚🥚(14/20)
+🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🥚🥚🥚🥚🥚(15/20)
 
 |Day      | Part 1 | Part 2 | Part 3 | [Visualization](Visualizations.md#2026) |
 |---------|----|----|----|----|
@@ -161,7 +161,7 @@ https://everybody.codes/
 | [Quest 12](https://everybody.codes/event/2026/quests/12): The Castastrophe | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest12/quest12_1.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest12/quest12_2.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest12/quest12_3.fs) ||
 | [Quest 13](https://everybody.codes/event/2026/quests/13): The Tickursion	| 🍗 [F#](./EverybodyCodes_2026_FSharp/quest13/quest13_1.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest13/quest13_2.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest13/quest13_3.fs) ||
 | [Quest 14](https://everybody.codes/event/2026/quests/14): The Shardorithm | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest14/quest14_1.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest14/quest14_2.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest14/quest14_3.fs) |🀚 [Part2](./EverybodyCodes_2026_FSharp/visualizations/quest14_2_visualization.bmp) 🀛 [Part3](./EverybodyCodes_2026_FSharp/visualizations/quest14_3_visualization.bmp)|
-| [Quest 15](https://everybody.codes/event/2026/quests/15): ???	| 🥚 | 🥚 | 🥚 ||
+| [Quest 15](https://everybody.codes/event/2026/quests/15): The Explavigation | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest15/quest15_1.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest15/quest15_2.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest15/quest15_3.fs) ||
 | [Quest 16](https://everybody.codes/event/2026/quests/16): ???	| 🥚 | 🥚 | 🥚 ||
 | [Quest 17](https://everybody.codes/event/2026/quests/17): ??? | 🥚 | 🥚 | 🥚 ||
 | [Quest 18](https://everybody.codes/event/2026/quests/18): ??? | 🥚 | 🥚 | 🥚 ||
