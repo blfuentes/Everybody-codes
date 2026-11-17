@@ -18,6 +18,7 @@ https://everybody.codes/
 | [2026 GridOs 1](#2026-gridos-tournament--no-1-) | GridOS Tournament [ No. 1 ] | 🦆🦆🦆🦆🦆 | 15/15 |
 | [2026 S4](#2026-the-digital-atelier--no-4-) | The Digital Atelier No. 4 | 🦆🦆🦆 | 9/9 |
 | [2026](#2026-lord-of-the-wings) | Lord of the Wings | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🥚🥚🥚🥚 | 48/60 | 
+| [2026 GridOs 2](#2026-gridos-tournament--no-2-) | GridOS Tournament [ No. 2 ] | 🥚🥚🥚🥚🥚 | 0/15 |
 
 ### 2024 The Kingdom of Algorithmia
 
@@ -167,3 +168,17 @@ https://everybody.codes/
 | [Quest 18](https://everybody.codes/event/2026/quests/18): ??? | 🥚 | 🥚 | 🥚 ||
 | [Quest 19](https://everybody.codes/event/2026/quests/19): ???	| 🥚 | 🥚 | 🥚 ||
 | [Quest 20](https://everybody.codes/event/2026/quests/20): ???	| 🥚 | 🥚 | 🥚 ||
+
+### 2026 GridOs Tournament [ No. 2 ]
+
+[https://everybody.codes/gridos/2/quests](https://everybody.codes/gridos/2/quests)
+
+🥚🥚🥚🥚🥚(0/5)
+
+|Day      | Part 1 | Part 2 | Part 3 |
+|---------|----|----|----|
+| [Quest 1](https://everybody.codes/gridos/2/quests/1): ???	| 🥚 | 🥚 | 🥚 |
+| [Quest 2](https://everybody.codes/gridos/2/quests/2): ??? | 🥚 | 🥚 | 🥚 |
+| [Quest 3](https://everybody.codes/gridos/2/quests/3): ???	| 🥚 | 🥚 | 🥚 |
+| [Quest 4](https://everybody.codes/gridos/2/quests/4): ??? | 🥚 | 🥚 | 🥚 |
+| [Quest 5](https://everybody.codes/gridos/2/quests/5): ???	| 🥚 | 🥚 | 🥚 |
