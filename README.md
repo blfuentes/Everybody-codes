@@ -17,7 +17,7 @@ https://everybody.codes/
 | [2025 S3](#2025-melody-made-of-code--no-3-) | Melody Made of Code No. 3 | 🦆🦆🦆 | 9/9 |
 | [2026 GridOs 1](#2026-gridos-tournament--no-1-) | GridOS Tournament [ No. 1 ] | 🦆🦆🦆🦆🦆 | 15/15 |
 | [2026 S4](#2026-the-digital-atelier--no-4-) | The Digital Atelier No. 4 | 🦆🦆🦆 | 9/9 |
-| [2026](#2026-lord-of-the-wings) | Lord of the Wings | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🥚🥚🥚🥚 | 48/60 | 
+| [2026](#2026-lord-of-the-wings) | Lord of the Wings | 🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🥚🥚🥚 | 51/60 | 
 | [2026 GridOs 2](#2026-gridos-tournament--no-2-) | GridOS Tournament [ No. 2 ] | 🥚🥚🥚🥚🥚 | 0/15 |
 
 ### 2024 The Kingdom of Algorithmia
@@ -144,7 +144,7 @@ https://everybody.codes/
 
 [https://everybody.codes/event/2026](https://everybody.codes/event/2026/quests)
 
-🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🥚🥚🥚🥚(16/20)
+🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🦆🥚🥚🥚(17/20)
 
 |Day      | Part 1 | Part 2 | Part 3 | [Visualization](Visualizations.md#2026) |
 |---------|----|----|----|----|
@@ -164,7 +164,7 @@ https://everybody.codes/
 | [Quest 14](https://everybody.codes/event/2026/quests/14): The Shardorithm | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest14/quest14_1.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest14/quest14_2.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest14/quest14_3.fs) |🀚 [Part2](./EverybodyCodes_2026_FSharp/visualizations/quest14_2_visualization.bmp) 🀛 [Part3](./EverybodyCodes_2026_FSharp/visualizations/quest14_3_visualization.bmp)|
 | [Quest 15](https://everybody.codes/event/2026/quests/15): The Explavigation | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest15/quest15_1.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest15/quest15_2.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest15/quest15_3.fs) ||
 | [Quest 16](https://everybody.codes/event/2026/quests/16): The Sortcery | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest16/quest16_1.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest16/quest16_2.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest16/quest16_3.fs) ||
-| [Quest 17](https://everybody.codes/event/2026/quests/17): ??? | 🥚 | 🥚 | 🥚 ||
+| [Quest 17](https://everybody.codes/event/2026/quests/17): The Lavairynth | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest17/quest17_1.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest17/quest17_2.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest17/quest17_3.fs) ||
 | [Quest 18](https://everybody.codes/event/2026/quests/18): ??? | 🥚 | 🥚 | 🥚 ||
 | [Quest 19](https://everybody.codes/event/2026/quests/19): ???	| 🥚 | 🥚 | 🥚 ||
 | [Quest 20](https://everybody.codes/event/2026/quests/20): ???	| 🥚 | 🥚 | 🥚 ||
