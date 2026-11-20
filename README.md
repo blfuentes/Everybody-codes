@@ -166,7 +166,7 @@ https://everybody.codes/
 | [Quest 16](https://everybody.codes/event/2026/quests/16): The Sortcery | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest16/quest16_1.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest16/quest16_2.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest16/quest16_3.fs) ||
 | [Quest 17](https://everybody.codes/event/2026/quests/17): The Lavairynth | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest17/quest17_1.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest17/quest17_2.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest17/quest17_3.fs) ||
 | [Quest 18](https://everybody.codes/event/2026/quests/18): The Keyometry | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest18/quest18_1.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest18/quest18_2.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest18/quest18_3.fs) ||
-| [Quest 19](https://everybody.codes/event/2026/quests/19): The Glasscraft	| 🍗 [F#](./EverybodyCodes_2026_FSharp/quest19/quest19_1.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest19/quest19_2.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest19/quest19_3.fs) ||
+| [Quest 19](https://everybody.codes/event/2026/quests/19): The Glasscraft	| 🍗 [F#](./EverybodyCodes_2026_FSharp/quest19/quest19_1.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest19/quest19_2.fs) | 🍗 [F#](./EverybodyCodes_2026_FSharp/quest19/quest19_3.fs) |🀙 [Part1](./EverybodyCodes_2026_FSharp/visualizations/quest19_1_visualization.bmp) 🀚 [Part2](./EverybodyCodes_2026_FSharp/visualizations/quest19_2_visualization.bmp) 🀛 [Part3](./EverybodyCodes_2026_FSharp/visualizations/quest19_3_visualization.bmp)|
 | [Quest 20](https://everybody.codes/event/2026/quests/20): ???	| 🥚 | 🥚 | 🥚 ||
 
 ### 2026 GridOs Tournament [ No. 2 ]

@@ -163,10 +163,16 @@ let main argv =
     // DAY 19
     let (resultquest19_1, time19_1) = duration quest19_1.execute
     printfn "Final result Quest 19 part 1: %A in %s" resultquest19_1 (ms time19_1)
+    //let (resultquest19_1_visualization, time19_1_visualization) = duration quest19_1_visualization.execute
+    //printfn "Final result Quest 19 part 1 visualization: %A in %s" resultquest19_1_visualization (ms time19_1_visualization)
     let (resultquest19_2, time19_2) = duration quest19_2.execute
     printfn "Final result Quest 19 part 2: %A in %s" resultquest19_2 (ms time19_2)
+    //let (resultquest19_2_visualization, time19_2_visualization) = duration quest19_2_visualization.execute
+    //printfn "Final result Quest 19 part 2 visualization: %A in %s" resultquest19_2_visualization (ms time19_2_visualization)
     let (resultquest19_3, time19_3) = duration quest19_3.execute
     printfn "Final result Quest 19 part 3: %A in %s" resultquest19_3 (ms time19_3)
+    //let (resultquest19_3_visualization, time19_3_visualization) = duration quest19_3_visualization.execute
+    //printfn "Final result Quest 19 part 3 visualization: %A in %s" resultquest19_3_visualization (ms time19_3_visualization)
 
     //// DAY 20
     //let (resultquest20_1, time20_1) = duration quest20_1.execute

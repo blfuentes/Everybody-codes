@@ -11,19 +11,7 @@ let parseContent (lines: string[]) =
     // let firstLayer = Array2D.create<char> (lines.Length / 2) lines[0].Length
     // let secondLayer = Array2D.create<char> (lines.Length / 2) lines[0].Length
     let firstLayer = Array2D.init  maxRow maxCol (fun r j -> lines[r][j])
-    let secondLayer = 
-        Array2D.init maxRow maxCol (
-            fun r j -> 
-                // lines[r + maxRow + 1][j]
-                let c = lines[r + maxRow + 1][j]
-                c
-                // match c with
-                // | '1' -> 'M'
-                // | '2' -> 'C'
-                // | '3' -> 'Y'
-                // | '4' -> 'K'
-                // | _ -> failwith "invlid color assigment"
-        )
+    let secondLayer = Array2D.init maxRow maxCol (fun r j -> lines[r + maxRow + 1][j])
     (firstLayer, secondLayer)
 
 let mixColor((layer1, layer2): (char*char))=
@@ -39,7 +27,7 @@ let mixColor((layer1, layer2): (char*char))=
     | (l1,l2) when l1 = l2 -> l1
     | _ -> failwith "invalid combination of layers"
 
-let mixLayer(layer1: char array2d) (layer2: char array2d) (comb: Dictionary<char, char>) =
+let private mixLayerWithScore (layer1: char array2d) (layer2: char array2d) (comb: Dictionary<char, char>) =
     let counterMix = Dictionary<char, bigint>()
     let mixedLayer = 
         Array2D.init (layer1.GetLength(0)) (layer1.GetLength(1)) 
@@ -51,19 +39,26 @@ let mixLayer(layer1: char array2d) (layer2: char array2d) (comb: Dictionary<char
                     counterMix[color] <- counterMix[color] + 1I
                     color
     )   
-    counterMix.Values
-    |> Seq.sortDescending
-    |> Seq.take 3
-    |> Seq.reduce ((*))
+    let score =
+        counterMix.Values
+        |> Seq.sortDescending
+        |> Seq.take 3
+        |> Seq.reduce ((*))
 
-let findMaxComb (layer1: char array2d) (layer2: char array2d) =
+    mixedLayer, score
+
+let mixLayer layer1 layer2 comb =
+    mixLayerWithScore layer1 layer2 comb |> snd
+
+let findBestMixedLayer (layer1: char array2d) (layer2: char array2d) =
     let comb = Dictionary<char, char>()
     let range = ['1'..'4']
     let areunique(a, b, c, d) =
         [a; b; c; d]
         |> Seq.distinct
         |> Seq.length = 4
-    [for m in range do
+    seq {
+      for m in range do
         for c in range do
             for y in range do
                 for k in range do
@@ -73,8 +68,12 @@ let findMaxComb (layer1: char array2d) (layer2: char array2d) =
                         comb.Add(c, 'C')
                         comb.Add(y, 'Y')
                         comb.Add(k, 'K')
-                        yield mixLayer layer1 layer2 comb
-    ] |> Seq.max
+                        yield mixLayerWithScore layer1 layer2 comb
+    }
+    |> Seq.maxBy snd
+
+let findMaxComb layer1 layer2 =
+    findBestMixedLayer layer1 layer2 |> snd
 
 
 let execute() =

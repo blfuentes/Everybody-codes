@@ -31,7 +31,7 @@ let mixColor((layer1, layer2): (char*char))=
     | (l1,l2) when l1 = l2 -> l1
     | _ -> failwith "invalid combination of layers"
 
-let mixLayer(layer1: char array2d) (layer2: char array2d) =
+let mixLayerWithScore (layer1: char array2d) (layer2: char array2d) =
     let counterMix = Dictionary<char, int>()
     let mixedLayer = 
         Array2D.init (layer1.GetLength(0)) (layer1.GetLength(1)) 
@@ -43,10 +43,16 @@ let mixLayer(layer1: char array2d) (layer2: char array2d) =
                     counterMix[color] <- counterMix[color] + 1
                     color
     )   
-    counterMix.Values
-    |> Seq.sortDescending
-    |> Seq.take 3
-    |> Seq.reduce ((*))
+    let score =
+        counterMix.Values
+        |> Seq.sortDescending
+        |> Seq.take 3
+        |> Seq.reduce ((*))
+
+    mixedLayer, score
+
+let mixLayer layer1 layer2 =
+    mixLayerWithScore layer1 layer2 |> snd
 
 let execute() =
     let lines = LocalHelper.GetContent path 2026 19 1
