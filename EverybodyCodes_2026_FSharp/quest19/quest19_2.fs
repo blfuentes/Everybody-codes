@@ -39,12 +39,12 @@ let mixColor((layer1, layer2): (char*char))=
     | (l1,l2) when l1 = l2 -> l1
     | _ -> failwith "invalid combination of layers"
 
-let mixLayer(layer1: char array2d) (layer2: char array2d) =
+let mixLayer(layer1: char array2d) (layer2: char array2d) (comb: Dictionary<char, char>) =
     let counterMix = Dictionary<char, bigint>()
     let mixedLayer = 
         Array2D.init (layer1.GetLength(0)) (layer1.GetLength(1)) 
             (fun r c ->
-                let color = mixColor (layer1[r, c], layer2[r, c])
+                let color = mixColor (layer1[r, c], comb[layer2[r, c]])
                 match counterMix.TryAdd (color, 1I) with
                 | true -> color
                 | false -> 
@@ -56,7 +56,28 @@ let mixLayer(layer1: char array2d) (layer2: char array2d) =
     |> Seq.take 3
     |> Seq.reduce ((*))
 
+let findMaxComb (layer1: char array2d) (layer2: char array2d) =
+    let comb = Dictionary<char, char>()
+    let range = ['1'..'4']
+    let areunique(a, b, c, d) =
+        [a; b; c; d]
+        |> Seq.distinct
+        |> Seq.length = 4
+    [for m in range do
+        for c in range do
+            for y in range do
+                for k in range do
+                    if areunique(m, c, y, k) then
+                        comb.Clear()
+                        comb.Add(m, 'M')
+                        comb.Add(c, 'C')
+                        comb.Add(y, 'Y')
+                        comb.Add(k, 'K')
+                        yield mixLayer layer1 layer2 comb
+    ] |> Seq.max
+
+
 let execute() =
     let lines = LocalHelper.GetContent path 2026 19 2
     let (firstLayer, secondLayer) = parseContent lines
-    mixLayer firstLayer secondLayer
+    findMaxComb firstLayer secondLayer
